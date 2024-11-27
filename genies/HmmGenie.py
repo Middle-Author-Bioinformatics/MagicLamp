@@ -361,39 +361,39 @@ def main():
     #                          "If you see error or warning messages associated with Rscript, you can still expect to "
     #                          "see the main output (CSV files) from HmmGenie.", const=True, nargs="?")
 
-    # CHECKING FOR CONDA INSTALL
-    os.system("echo ${rscripts} > rscripts.txt")
-
-    file = open("rscripts.txt")
-    for i in file:
-        rscriptDir = i.rstrip()
-
-    rscript = rscriptDir + "/" + "DotPlot.R"
-    try:
-        test = open(rscript)
-
-    except FileNotFoundError:
-        os.system("which MagicLamp.py > mainDir.txt")
-
-        file = open("mainDir.txt")
-        for i in file:
-            location = i.rstrip()
-        location = allButTheLast(location, "/")
-
-        rscriptDir = location + "/rscripts/"
-        rscript = rscriptDir + "/" + "DotPlot.R"
-
-        os.system("rm rscripts.txt mainDir.txt")
-        try:
-            test = open(rscript)
-        except FileNotFoundError:
-            print("MagicLamp script could not locate the required directories. Please run the setup.sh script if \n"
-                  "you have Conda installed. Otherwise, please run the setupe-noconda.sh script and put MagicLamp.py \n"
-                  "into your $PATH")
-            raise SystemExit
-        os.system("rm mainDir.txt")
-
-    os.system("rm rscripts.txt")
+    # # CHECKING FOR CONDA INSTALL
+    # os.system("echo ${rscripts} > rscripts.txt")
+    #
+    # file = open("rscripts.txt")
+    # for i in file:
+    #     rscriptDir = i.rstrip()
+    #
+    # rscript = rscriptDir + "/" + "DotPlot.R"
+    # try:
+    #     test = open(rscript)
+    #
+    # except FileNotFoundError:
+    #     os.system("which MagicLamp.py > mainDir.txt")
+    #
+    #     file = open("mainDir.txt")
+    #     for i in file:
+    #         location = i.rstrip()
+    #     location = allButTheLast(location, "/")
+    #
+    #     rscriptDir = location + "/rscripts/"
+    #     rscript = rscriptDir + "/" + "DotPlot.R"
+    #
+    #     os.system("rm rscripts.txt mainDir.txt")
+    #     try:
+    #         test = open(rscript)
+    #     except FileNotFoundError:
+    #         print("MagicLamp script could not locate the required directories. Please run the setup.sh script if \n"
+    #               "you have Conda installed. Otherwise, please run the setupe-noconda.sh script and put MagicLamp.py \n"
+    #               "into your $PATH")
+    #         raise SystemExit
+    #     os.system("rm mainDir.txt")
+    #
+    # os.system("rm rscripts.txt")
 
     args = parser.parse_known_args()[0]
 
