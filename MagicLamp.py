@@ -5,7 +5,6 @@ from genies import FeGenie, LithoGenie, RosGenie, MagnetoGenie, WspGenie, Lucife
 
 """
 MagicLamp.py: A script for querying HMMs against provided datasets and processing output.
-Tested mostly on .gbk files annotated by Prokka with the --compliant flag.
 Installation requirements:
     *python3
     *libraries from the Python standard library: see FeGenie.py, LithoGenie.py, Lucifer, RosGenie, WspGenie, GasGenie, 
