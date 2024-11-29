@@ -686,7 +686,7 @@ def main():
                 hmm = ls[2]
                 evalue = ls[3]
                 hmmBit = ls[4]
-                seq = ls[6]
+                seq = ls[5]
                 if cell not in SummaryDict.keys():
                     SummaryDict[cell][orf]["hmm"] = hmm
                     SummaryDict[cell][orf]["hmmBit"] = hmmBit
@@ -1006,7 +1006,7 @@ def main():
     # GENE COUNTS-BASED ABUNDANCE
     else:
         Dict = defaultdict(lambda: defaultdict(list))
-        final = open("%s/genie-summary-rulesFiltered.csv" % (args.out), "r")
+        final = open("%s/genie-summary-allResults.csv" % (args.out), "r")
         for i in final:
             if not re.match(r'#', i):
                 ls = (i.rstrip().split(","))
