@@ -2056,7 +2056,7 @@ def main():
                     cutoff = ls[7]
                     clu = ls[8]
                     seq = ls[9]
-                    clusterDict[clu].append(gene + "|" + dataset + "|" + orf)
+                    clusterDict[clu].append(gene + ":" + dataset + ":" + orf)
                     memoryDict[dataset][orf]["cat"] = cat
                     memoryDict[dataset][orf]["gene"] = gene
                     memoryDict[dataset][orf]["bit"] = bit
@@ -2205,9 +2205,9 @@ def main():
                 out.write(
                     "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "\n")
                 for j in clusterDict[i]:
-                    gene = j.split("|")[0]
-                    dataset = j.split("|")[1]
-                    orf = j.split("|")[2]
+                    gene = j.split(":")[0]
+                    dataset = j.split(":")[1]
+                    orf = j.split(":")[2]
                     cat = memoryDict[dataset][orf]["cat"]
                     out.write(dataset + "," + orf + "," + memoryDict[dataset][orf]["gene"] + "," +
                               memoryDict[dataset][orf]["cat"] + "," +
