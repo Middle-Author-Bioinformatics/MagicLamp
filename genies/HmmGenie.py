@@ -700,15 +700,16 @@ def main():
                     for l in RemoveDuplicates(k):
                         orf = j + "_" + str(l)
                         out.write(i + "," + orf + "," + SummaryDict[i][orf]["hmm"] + "," + SummaryDict[i][orf]["e"] + "," + str(SummaryDict[i][orf]["hmmBit"]) + "," + str(SummaryDict[i][orf]["bitcut"]) + "," + str(counter) + "," + str(SummaryDict[i][orf]["seq"]) + "\n")
+                        print(i + "," + orf + "," + SummaryDict[i][orf]["hmm"] + "," + SummaryDict[i][orf]["e"] + "," + str(SummaryDict[i][orf]["hmmBit"]) + "," + str(SummaryDict[i][orf]["bitcut"]) + "," + str(counter) + "," + str(SummaryDict[i][orf]["seq"]))
                     out.write("###############################################\n")
                     counter += 1
     out.close()
 
-    os.system("rm %s/summary.csv" % (args.out))
+    # os.system("rm %s/summary.csv" % (args.out))
 
     os.system("mkdir -p %s/HMM_results" % outDirectory)
     # os.system("rm -f %s/ORF_calls/*-prodigal.out" % outDirectory)
-    os.system("rm -rf %s/HMM_results/*-HMM" % outDirectory)
+    # os.system("rm -rf %s/HMM_results/*-HMM" % outDirectory)
     os.system("mv -f %s/*-HMM %s/HMM_results/" % (outDirectory, outDirectory))
 
     # ****************************** CUSTOM-RULE-BASED FILTERING ************************************************
@@ -775,85 +776,6 @@ def main():
             os.system("mkdir -p %s/trees" % args.out)
             os.system("mv %s/*fa %s/trees/" % (args.out, args.out))
             os.system("mv %s/*tre %s/trees/" % (args.out, args.out))
-
-    # if args.word:
-    #
-    #     Rdir = "purgatory"
-    #     os.system("echo ${rscripts} > r.txt")
-    #     Rfile = open("r.txt")
-    #     for i in Rfile:
-    #         Rdir = (i.rstrip())
-    #     os.system("rm r.txt")
-    #
-    #     try:
-    #         test = open(Rdir + "/wordcloud.R")
-    #         word = 1
-    #
-    #     except FileNotFoundError:
-    #         os.system("which MagicLamp.py > r.txt")
-    #         Rfile = open("r.txt")
-    #         for i in Rfile:
-    #             Rdir = (i.rstrip())
-    #         Rdir = allButTheLast(Rdir, "/")
-    #         os.system("rm r.txt")
-    #         try:
-    #             test = open(Rdir + "/wordcloud.R")
-    #             word = 1
-    #         except FileNotFoundError:
-    #             print("You have directed HmmGenie to make a word-cloud. However, HmmGenie cannot seem to find the required"
-    #                   "R script. This script can be found in the main MagicLamp directory, titled wordcloud.R. ")
-    #             answer = input(
-    #                 "If you would like HmmGenie to generate the word-clouds, you will need to provide the full path to this script. "
-    #                 "Would you like to provide the full path? (y/n): ")
-    #             if answer == "y":
-    #                 path = input("Please provide the full path to wordcloud.R: ")
-    #                 try:
-    #                     test = open(path)
-    #                     word = 1
-    #                     Rdir = allButTheLast(path, "/")
-    #                 except FileNotFoundError:
-    #                     print("Hmm, HmmGenie still cannot seem to locate the R script.")
-    #                     answer = input("Please check your path and try again? (y/n): ")
-    #                     if answer == "y":
-    #                         path = input("Please provide the full path to wordcloud.R: ")
-    #                         try:
-    #                             test = open(path)
-    #                             word = 1
-    #                             Rdir = allButTheLast(path, "/")
-    #                         except FileNotFoundError:
-    #                             print("Hmm, HmmGenie still cannot seem to locate the R script. Moving on without the word-cloud"
-    #                                   "for now. If you feel this is in error, please start on Issue on MagicLamp's GitHub repository.")
-    #                             word = 0
-    #                     else:
-    #                         print("Very well. Moving on without word-clouds")
-    #                         word = 0
-    #
-    #             else:
-    #                 print("Very well. Moving on without word-clouds")
-    #                 word = 0
-    #
-    #     if word == 1:
-    #         print("Working on the word clouds")
-    #         wordDict = defaultdict(list)
-    #         summary = open("%s/genie-summary-rulesFiltered.csv" % args.out)
-    #         for i in summary:
-    #             if not re.match(r'#', i):
-    #                 ls = i.rstrip().split(",")
-    #                 if ls[1] != "gene_call":
-    #                     wordDict[ls[0]].append(ls[3])
-    #
-    #         for i in wordDict.keys():
-    #             out = open("%s/%s.words.csv" % (args.out, allButTheLast(i, ".")), "w")
-    #             for j in wordDict[i]:
-    #                 out.write(j + "\n")
-    #             out.close()
-    #
-    #             os.system("Rscript --vanilla %s/wordcloud.R %s/%s.words.csv %s/%s.words.tiff > /dev/null 2>&1" % (
-    #             Rdir, args.out, allButTheLast(i, "."), args.out, allButTheLast(i, ".")))
-    #
-    #         # print("Cleaning up")
-    #         os.system("mkdir -p %s/wordClouds" % args.out)
-    #         os.system("mv %s/*words* %s/wordClouds/" % (args.out, args.out))
 
     # ****************************** CREATING A HEATMAP-COMPATIBLE CSV FILE *************************************
     cats = []
@@ -1013,46 +935,6 @@ def main():
         print('......')
         print(".......")
         print("Finished!")
-
-
-    # # ******** RUNNING RSCRIPT TO GENERATE PLOTS **************
-    # if args.makeplots:
-    #     print("Running Rscript to generate plots. Do not be alarmed if you see Warning or Error messages from Rscript. "
-    #           "This will not affect any of the output data that was already created. If you see plots generated, great! "
-    #           "If not, you can plot the data as you wish on your own, or start an issue on HmmGenie's GitHub repository\n")
-    #
-    #     if args.norm:
-    #         os.system("Rscript --vanilla %s/DotPlot.R %s/genie.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
-    #         os.system("Rscript --vanilla %s/dendro-heatmap.R %s/genie.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
-    #     else:
-    #         os.system("Rscript --vanilla %s/DotPlot-nonorm.R %s/genie.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
-    #         os.system("Rscript --vanilla %s/dendro-heatmap.R %s/genie.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
-    #
-    #     print("\n\n\n")
-    #     print("...")
-
-    # ******** RUNNING RSCRIPT TO GENERATE PLOTS **************
-    # if args.makeplots:
-    #     print("Running Rscript to generate plots. Do not be alarmed if you see Warning or Error messages from Rscript. "
-    #           "This will not affect any of the output data that was already created. If you don't see plots generated, "
-    #           "please start an issue on HmmGenie's GitHub repository, and paste the error/warning message that you got.\n")
-
-    if args.bam == "NA" and args.bams == "NA":
-        if args.norm:
-            if args.dot:
-                os.system("Rscript --vanilla %s/DotPlot.R %s/genie.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
-            if args.dendro:
-                os.system("Rscript --vanilla %s/dendro-heatmap.R %s/genie.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
-        else:
-            if args.dot:
-                os.system("Rscript --vanilla %s/DotPlot-nonorm.R %s/genie.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
-            if args.dendro:
-                os.system("Rscript --vanilla %s/dendro-heatmap.R %s/genie.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
-    else:
-        if args.dot:
-            os.system("Rscript --vanilla %s/DotPlot.R %s/genie.readDepth.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
-        if args.dendro:
-            os.system("Rscript --vanilla %s/dendro-heatmap.R %s/genie.readDepth.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
 
     print("")
     print("Results are written to %s/genie-summary.csv and %s/genie.heatmap.csv" % (args.out, args.out))
