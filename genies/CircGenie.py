@@ -869,7 +869,7 @@ def main():
     #         out.write("####################################################" + "\n")
     # out.close()
     #
-    # os.system("rm %s/summary.csv" % (args.out))
+    os.system("rm %s/summary.csv" % (args.out))
     # os.system("rm %s/summary-2.csv" % (args.out))
     # os.system("mv %s/summary-3.csv %s/circgenie-summary.csv" % (args.out, args.out))
     os.system("mv %s/summary-2.csv %s/circgenie-summary.csv" % (args.out, args.out))
@@ -996,7 +996,7 @@ def main():
 
     # GENE COUNTS-BASED ABUNDANCE
     else:
-        cats = ["KaiA", "KaiB", "KaiC_ATPase", "LdpA_C", "CikA_HisKA ; CikA_HATPase_c ; CikA_GAF"]
+        cats = ["KaiA", "KaiB", "KaiC_ATPase", "LdpA_C", "CikA_HisKA", "CikA_HATPase_c", "CikA_GAF"]
 
         Dict = defaultdict(lambda: defaultdict(list))
         final = open("%s/circgenie-summary.csv" % (args.out), "r")
@@ -1007,7 +1007,12 @@ def main():
                     cell = ls[0]
                     orf = ls[1]
                     gene = ls[2]
-                    Dict[cell][gene].append(gene)
+                    if re.findall(r'Cik', gene):
+                        genes = gene.split(" ; ")
+                        for j in genes:
+                            Dict[cell][j].append(j)
+                    else:
+                        Dict[cell][gene].append(gene)
 
         normDict = defaultdict(lambda: defaultdict(lambda: 'EMPTY'))
         for i in os.listdir(args.bin_dir):
