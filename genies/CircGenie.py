@@ -822,15 +822,15 @@ def main():
     out.close()
 
     # ****************************** FILTERING OUT LIKELY FALSE POSITIVES *************************************
-    clusterDict = defaultdict(lambda: defaultdict(list))
-    summary = open("%s/summary-2.csv" % (args.out), "r")
-    for i in summary:
-        if not re.match(r'#', i):
-            ls = i.rstrip().split(",")
-            print(ls)
-            clu = int(ls[6])
-            clusterDict[clu]["line"].append(ls)
-            clusterDict[clu]["gene"].append(ls[2].split(".")[0])
+    # clusterDict = defaultdict(lambda: defaultdict(list))
+    # summary = open("%s/summary-2.csv" % (args.out), "r")
+    # for i in summary:
+    #     if not re.match(r'#', i):
+    #         ls = i.rstrip().split(",")
+    #         print(ls)
+    #         clu = int(ls[6])
+    #         clusterDict[clu]["line"].append(ls)
+    #         clusterDict[clu]["gene"].append(ls[2].split(".")[0])
 
     print("..")
     print("...")
