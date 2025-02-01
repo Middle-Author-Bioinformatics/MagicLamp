@@ -834,49 +834,50 @@ def main():
 
     print("..")
     print("...")
-    out = open("%s/summary-3.csv" % (args.out), "w")
-    out.write("file" + "," + "ORF" + "," "domain" + "," + "gene" + "," "evalue" + "," "bit_score" + "," "bit_score_cutoff" + "," "cluster_id" + "," "seq" + "\n")
-    for i in sorted(clusterDict.keys()):
-        ls = (clusterDict[i]["gene"])
+    # out = open("%s/summary-3.csv" % (args.out), "w")
+    # out.write("file" + "," + "ORF" + "," "domain" + "," + "gene" + "," "evalue" + "," "bit_score" + "," "bit_score_cutoff" + "," "cluster_id" + "," "seq" + "\n")
+    # for i in sorted(clusterDict.keys()):
+    #     ls = (clusterDict[i]["gene"])
+    #
+    #     if "KaiA" in ls or "KaiB" in ls or "KaiC_ATPase" in ls:
+    #
+    #         circ = ["KaiA", "KaiB", "KaiC_ATPase"]
+    #
+    #         if unique(ls, circ) < 3:
+    #             pass
+    #
+    #         else:
+    #             for j in clusterDict[i]["line"]:
+    #                 out.write(j[0] + "," + j[1] + "," + j[2].split(".")[0] + "," + j[3] + "," + j[4] + "," + j[5] + "," + j[6] + "," + j[7] + "\n")
+    #
+    #             out.write("####################################################" + "\n")
+    #
+    #     elif "CikA_HisKA ; CikA_HATPase_c ; CikA_GAF" in ls:
+    #
+    #         for j in clusterDict[i]["line"]:
+    #             out.write(j[0] + "," + j[1] + "," + j[2].split(".")[0] + "," + j[3] + "," + j[4] + "," + j[5] + "," + j[6] + "," + j[7] + "\n")
+    #
+    #         out.write("####################################################" + "\n")
+    #
+    #
+    #     elif "LdpA_C" in ls:
+    #
+    #         for j in clusterDict[i]["line"]:
+    #             out.write(j[0] + "," + j[1] + "," + j[2].split(".")[0] + "," + j[3] + "," + j[4] + "," + j[5] + "," + j[
+    #                 6] + "," + j[7] + "\n")
+    #
+    #         out.write("####################################################" + "\n")
+    # out.close()
+    #
+    # os.system("rm %s/summary.csv" % (args.out))
+    # os.system("rm %s/summary-2.csv" % (args.out))
+    # os.system("mv %s/summary-3.csv %s/circgenie-summary.csv" % (args.out, args.out))
+    os.system("mv %s/summary-2.csv %s/circgenie-summary.csv" % (args.out, args.out))
 
-        if "KaiA" in ls or "KaiB" in ls or "KaiC_ATPase" in ls:
-
-            circ = ["KaiA", "KaiB", "KaiC_ATPase"]
-
-            if unique(ls, circ) < 3:
-                pass
-
-            else:
-                for j in clusterDict[i]["line"]:
-                    out.write(j[0] + "," + j[1] + "," + j[2].split(".")[0] + "," + j[3] + "," + j[4] + "," + j[5] + "," + j[6] + "," + j[7] + "\n")
-
-                out.write("####################################################" + "\n")
-
-        elif "CikA_HisKA ; CikA_HATPase_c ; CikA_GAF" in ls:
-
-            for j in clusterDict[i]["line"]:
-                out.write(j[0] + "," + j[1] + "," + j[2].split(".")[0] + "," + j[3] + "," + j[4] + "," + j[5] + "," + j[6] + "," + j[7] + "\n")
-
-            out.write("####################################################" + "\n")
-
-
-        elif "LdpA_C" in ls:
-
-            for j in clusterDict[i]["line"]:
-                out.write(j[0] + "," + j[1] + "," + j[2].split(".")[0] + "," + j[3] + "," + j[4] + "," + j[5] + "," + j[
-                    6] + "," + j[7] + "\n")
-
-            out.write("####################################################" + "\n")
-    out.close()
-
-    os.system("rm %s/summary.csv" % (args.out))
-    os.system("rm %s/summary-2.csv" % (args.out))
-    os.system("mv %s/summary-3.csv %s/circgenie-summary.csv" % (args.out, args.out))
-
-    os.system("mkdir -p %s/HMM_results" % outDirectory)
-    # os.system("rm -f %s/ORF_calls/*-prodigal.out" % outDirectory)
-    os.system("rm -rf %s/HMM_results/*-HMM" % outDirectory)
-    os.system("mv -f %s/*-HMM %s/HMM_results/" % (outDirectory, outDirectory))
+    # os.system("mkdir -p %s/HMM_results" % outDirectory)
+    # # os.system("rm -f %s/ORF_calls/*-prodigal.out" % outDirectory)
+    # os.system("rm -rf %s/HMM_results/*-HMM" % outDirectory)
+    # os.system("mv -f %s/*-HMM %s/HMM_results/" % (outDirectory, outDirectory))
 
     # ****************************** CREATING A HEATMAP-COMPATIBLE CSV FILE *************************************
     print("....")
