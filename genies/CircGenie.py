@@ -871,11 +871,11 @@ def main():
     #
     # os.system("rm %s/summary.csv" % (args.out))
     # os.system("rm %s/summary-2.csv" % (args.out))
-    os.system("mv %s/summary-3.csv %s/circgenie-summary.csv" % (args.out, args.out))
-    # os.system("mv %s/summary-2.csv %s/circgenie-summary.csv" % (args.out, args.out))
+    # os.system("mv %s/summary-3.csv %s/circgenie-summary.csv" % (args.out, args.out))
+    os.system("mv %s/summary-2.csv %s/circgenie-summary.csv" % (args.out, args.out))
 
     os.system("mkdir -p %s/HMM_results" % outDirectory)
-    # os.system("rm -f %s/ORF_calls/*-prodigal.out" % outDirectory)
+    os.system("rm -f %s/ORF_calls/*-prodigal.out" % outDirectory)
     # os.system("rm -rf %s/HMM_results/*-HMM" % outDirectory)
     os.system("mv -f %s/*-HMM %s/HMM_results/" % (outDirectory, outDirectory))
 
