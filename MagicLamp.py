@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from sys import argv, stderr
-from genies import FeGenie, LithoGenie, RosGenie, MagnetoGenie, WspGenie, Lucifer, HmmGenie, GasGenie, MnGenie, CircGenie, PolGenie
+from genies import FeGenie, LithoGenie, RosGenie, MagnetoGenie, WspGenie, Lucifer, HmmGenie, GasGenie, MnGenie, CircGenie, PolGenie, PlasticGenie
 
 """
 MagicLamp.py: A script for querying HMMs against provided datasets and processing output.
@@ -15,7 +15,7 @@ __version__ = "1"
 __maintainer__ = "Arkadiy Garber"
 __email__ = "rkdgarber@gmail.com"
 
-errorMessage = "Options: MagicLamp.py [ FeGenie | LithoGenie | RosGenie | MagnetoGenie | WspGenie | Lucifer | GasGenie | MnGenie | CircGenie | PolGenie | HmmGenie | help ]\n"
+errorMessage = "Options: MagicLamp.py [ FeGenie | LithoGenie | RosGenie | MagnetoGenie | WspGenie | Lucifer | GasGenie | MnGenie | CircGenie | PolGenie | PlasticGenie | HmmGenie | help ]\n"
 
 try:
     argv[1]
@@ -43,6 +43,8 @@ elif argv[1] == "CircGenie":
     CircGenie.main()
 elif argv[1] == "PolGenie":
     PolGenie.main()
+elif argv[1] == "PolGenie":
+    PlasticGenie.main()
 elif argv[1] == "HmmGenie":
     HmmGenie.main()
 elif argv[1] == "help":
