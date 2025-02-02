@@ -853,11 +853,12 @@ def main():
                     counter += 1
     out.close()
 
+    os.system("rm -rf %s/summary.csv" % (outDirectory))
     os.system("mv %s/summary-2.csv %s/rosgenie-summary.csv" % (outDirectory, outDirectory))
 
     os.system("mkdir -p %s/HMM_results" % outDirectory)
     # os.system("rm -f %s/ORF_calls/*-prodigal.out" % outDirectory)
-    os.system("rm -rf %s/HMM_results/*-HMM" % outDirectory)
+    # os.system("rm -rf %s/HMM_results/*-HMM" % outDirectory)
     os.system("mv -f %s/*-HMM %s/HMM_results/" % (outDirectory, outDirectory))
 
 # ****************************** CREATING A HEATMAP-COMPATIBLE CSV FILE *************************************
