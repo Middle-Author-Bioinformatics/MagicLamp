@@ -898,6 +898,8 @@ def main():
                             out.write(i + "," + orf + "," + hmm + "," + domain + "," + polymerase + "\n")
                     out.write("#############################################\n")
         out.write("##################################\n*******************************\n##################################\n")
+    out.close()
+    os.system("rm %s/summary.csv" % (args.out))
     #
     #                 out.write(
     #                     i + "," + orf + "," + SummaryDict[i][orf]["hmm"] + "," + SummaryDict[i][orf]["e"] + "," + str(
