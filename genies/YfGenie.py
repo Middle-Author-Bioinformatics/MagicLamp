@@ -177,9 +177,9 @@ parser.add_argument('--e', type=str, help="override baked-in bit score cutoffs w
 
 parser.add_argument('--x', type=str, help="set no significance cutoffs", const=True, nargs="?")
 
-if len(sys.argv) == 1:
-    parser.print_help(sys.stderr)
-    sys.exit(0)
+# if len(sys.argv) == 1:
+#     parser.print_help(sys.stderr)
+#     sys.exit(0)
 
 args = parser.parse_known_args()[0]
 
