@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from sys import argv, stderr
-from genies import FeGenie, LithoGenie, RosGenie, MagnetoGenie, WspGenie, Lucifer, HmmGenie, GasGenie, MnGenie, CircGenie, PolGenie, YfGenie
+from genies import FeGenie, LithoGenie, RosGenie, MagnetoGenie, WspGenie, Lucifer, HmmGenie, GasGenie, MnGenie, CircGenie, PolGenie, YfGenie, PlasticGenie
 
 """
 MagicLamp.py: A script for querying HMMs against provided datasets and processing output.
@@ -45,8 +45,8 @@ elif argv[1] == "PolGenie":
     PolGenie.main()
 elif argv[1] == "YfGenie":
     YfGenie.main()
-# elif argv[1] == "PlasticGenie":
-#     PlasticGenie.main()
+elif argv[1] == "PlasticGenie":
+    PlasticGenie.main()
 elif argv[1] == "HmmGenie":
     HmmGenie.main()
 elif argv[1] == "help":
