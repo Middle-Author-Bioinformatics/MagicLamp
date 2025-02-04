@@ -663,7 +663,7 @@ def main():
     # cats = ["4HB_MCP_1", "HAMP", "MCPsignal", "CheW", "CheR", "Hpt", "MamM", "HATPase_c", "Response_reg", "GGDEF"]
     cats = []
     Dict = defaultdict(lambda: defaultdict(list))
-    final = open("%s/%sgenie-summary.csv" % (genie, args.out), "r")
+    final = open("%s/%sgenie-summary.csv" % (args.out, genie), "r")
     for i in final:
         if not re.match(r'#', i):
             ls = (i.rstrip().split(","))
@@ -685,7 +685,7 @@ def main():
                 file = fasta(file)
             normDict[i] = len(file.keys())
 
-    outHeat = open("%s/%sgenie.heatmap.csv" % (genie, outDirectory), "w")
+    outHeat = open("%s/%sgenie.heatmap.csv" % (outDirectory, genie), "w")
     outHeat.write("X" + ',')
     for i in sorted(Dict.keys()):
         outHeat.write(i + ",")
