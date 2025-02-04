@@ -512,8 +512,8 @@ def main():
     for i in file:
         HMMdir = i.rstrip()
 
-    bits = "/home/ec2-user/bin/FeGenie/hmms/iron/HMM-bitcutoffs.txt"
-    rscriptDir = "/home/ec2-user/bin/FeGenie/rscripts/"
+    bits = "/home/ark/MAB/bin/MagicLamp/hmms/iron/HMM-bitcutoffs.txt"
+    rscriptDir = "/home/ark/MAB/bin/MagicLamp/rscripts/"
 
     if len(sys.argv) == 1:
         parser.print_help(sys.stderr)
@@ -729,7 +729,7 @@ def main():
         metaDict[ls[0]] = ls[1]
 
     # ******************* BEGINNING MAIN ALGORITHM **********************************))))
-    HMMdir = "/home/ec2-user/bin/FeGenie/hmms/iron/"
+    HMMdir = "/home/ark/MAB/bin/MagicLamp/hmms/iron"
     if not args.skip:
         if args.cat == "NA":
             catList = []
