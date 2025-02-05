@@ -7,7 +7,7 @@ from genies import FeGenie, LithoGenie, RosGenie, MagnetoGenie, WspGenie, Lucife
 MagicLamp.py: A script for querying HMMs against provided datasets and processing output.
 Installation requirements:
     *python3
-    *libraries from the Python standard library: see FeGenie.py, LithoGenie.py, Lucifer, RosGenie, WspGenie, GasGenie, 
+    *libraries from the Python standard library: see FeGenie.py, LithoGenie.py, Lucifer, RosGenie, WspGenie, GasGenie, RiboGenie
     and HmmGenie
  """
 __author__ = "Arkadiy Garber"
@@ -15,7 +15,7 @@ __version__ = "1"
 __maintainer__ = "Arkadiy Garber"
 __email__ = "rkdgarber@gmail.com"
 
-errorMessage = "Options: MagicLamp.py [ FeGenie | LithoGenie | RosGenie | MagnetoGenie | WspGenie | Lucifer | GasGenie | MnGenie | CircGenie | PolGenie | PlasticGenie | HmmGenie | help ]\n"
+errorMessage = "Options: MagicLamp.py [ FeGenie | LithoGenie | RosGenie | MagnetoGenie | WspGenie | Lucifer | GasGenie | MnGenie | CircGenie | PolGenie | PlasticGenie | RiboGenie | HmmGenie | help ]\n"
 
 try:
     argv[1]
@@ -47,6 +47,9 @@ elif argv[1] == "YfGenie":
     YfGenie.main()
 elif argv[1] == "PlasticGenie":
     PlasticGenie.main()
+    YfGenie.main()
+elif argv[1] == "RiboGenie":
+    RiboGenie.main()
 elif argv[1] == "HmmGenie":
     HmmGenie.main()
 elif argv[1] == "help":
