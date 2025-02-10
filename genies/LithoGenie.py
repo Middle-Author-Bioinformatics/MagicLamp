@@ -21,7 +21,7 @@ def main():
     def Strip(ls):
         outList = []
         for i in ls:
-            gene = i.split("|")[0]
+            gene = i.split(":")[0]
             outList.append(gene)
         return outList
 
@@ -42,7 +42,7 @@ def main():
     def Unique2(ls):
         unqList = []
         for i in ls:
-            hmm = i.split("|")[0]
+            hmm = i.split(":")[0]
             if hmm not in unqList:
                 unqList.append(hmm)
         return unqList
@@ -51,7 +51,7 @@ def main():
         count = 0
         uniqueLS = []
         for i in ls:
-            hmm = i.split("|")[0]
+            hmm = i.split(":")[0]
             if hmm not in uniqueLS:
                 uniqueLS.append(hmm)
                 if geneToCatDict[hmm] in ["iron_reduction", "iron_oxidation"]:
@@ -62,10 +62,21 @@ def main():
         count = 0
         uniqueLS = []
         for i in ls:
-            hmm = i.split("|")[0]
+            hmm = i.split(":")[0]
             if hmm not in uniqueLS:
                 uniqueLS.append(hmm)
                 if hmm in ["sulfur_dioxygenase_sdo", "sulfur_oxygenase_reductase_sor"]:
+                    count += 1
+        return count
+
+    def checkFleet(ls):
+        count = 0
+        uniqueLS = []
+        for i in ls:
+            hmm = i.split(":")[0]
+            if hmm not in uniqueLS:
+                uniqueLS.append(hmm)
+                if hmm in ["EetA", "EetB", "FmnA", "DmkA", "FmnB", "PplA", "Ndh2", "DmkB"]:
                     count += 1
         return count
 
@@ -73,7 +84,7 @@ def main():
         count = 0
         uniqueLS = []
         for i in ls:
-            hmm = i.split("|")[0]
+            hmm = i.split(":")[0]
             if hmm not in uniqueLS:
                 uniqueLS.append(hmm)
                 if hmm in ["adenylyl_sulfate_kinase_sat_sopT", "adenylyl_sulfate_reductase_aprA"]:
@@ -84,7 +95,7 @@ def main():
         count = 0
         uniqueLS = []
         for i in ls:
-            hmm = i.split("|")[0]
+            hmm = i.split(":")[0]
             if hmm not in uniqueLS:
                 uniqueLS.append(hmm)
                 if hmm in ["GACE_1843", "GACE_1844", "GACE_1845", "GACE_1846", "GACE_1847"]:
@@ -95,7 +106,7 @@ def main():
         count = 0
         uniqueLS = []
         for i in ls:
-            hmm = i.split("|")[0]
+            hmm = i.split(":")[0]
             if hmm not in uniqueLS:
                 uniqueLS.append(hmm)
                 if hmm in ["DFE_0461", "DFE_0462", "DFE_0463", "DFE_0464", "DFE_0465"]:
@@ -106,7 +117,7 @@ def main():
         count = 0
         uniqueLS = []
         for i in ls:
-            hmm = i.split("|")[0]
+            hmm = i.split(":")[0]
             if hmm not in uniqueLS:
                 uniqueLS.append(hmm)
                 if hmm in ["DFE_0448", "DFE_0449", "DFE_0450", "DFE_0451"]:
@@ -117,7 +128,7 @@ def main():
         count = 0
         uniqueLS = []
         for i in ls:
-            hmm = i.split("|")[0]
+            hmm = i.split(":")[0]
             if hmm not in uniqueLS:
                 uniqueLS.append(hmm)
                 if geneToCatDict[hmm] in ["iron_aquisition-siderophore_transport", "iron_aquisition-heme_transport"]:
@@ -128,7 +139,7 @@ def main():
         count = 0
         uniqueLS = []
         for i in ls:
-            hmm = i.split("|")[0]
+            hmm = i.split(":")[0]
             if hmm not in uniqueLS:
                 uniqueLS.append(hmm)
                 if geneToCatDict[hmm] in ["iron_aquisition-siderophore_synthesis"]:
@@ -139,7 +150,7 @@ def main():
         count = 0
         uniqueLS = []
         for i in ls:
-            hmm = i.split("|")[0]
+            hmm = i.split(":")[0]
             if hmm not in uniqueLS:
                 uniqueLS.append(hmm)
                 if geneToCatDict[hmm] in ["iron_aquisition-iron_transport", "iron_aquisition-heme_oxygenase"]:
@@ -150,7 +161,7 @@ def main():
         count = 0
         uniqueLS = []
         for i in ls:
-            hmm = i.split("|")[0]
+            hmm = i.split(":")[0]
             if hmm not in uniqueLS:
                 uniqueLS.append(hmm)
                 if geneToCatDict[hmm] in ["iron_aquisition-siderophore_synthesis"]:
@@ -160,7 +171,7 @@ def main():
     def checkReg(ls):
         count = 0
         for i in ls:
-            hmm = i.split("|")[0]
+            hmm = i.split(":")[0]
             if re.findall(r'aquisition', geneToCatDict[hmm]):
                 count += 1
         return count
@@ -169,7 +180,7 @@ def main():
         count = 0
         uniqueLS = []
         for i in ls:
-            hmm = i.split("|")[0]
+            hmm = i.split(":")[0]
             if hmm not in uniqueLS:
                 uniqueLS.append(hmm)
                 if geneToCatDict[hmm] == "magnetosome_formation":
@@ -2074,9 +2085,9 @@ def main():
             for i in clusterDict.keys():
                 out.write("#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "\n")
                 for j in clusterDict[i]:
-                    gene = j.split("|")[0]
-                    dataset = j.split("|")[1]
-                    orf = j.split("|")[2]
+                    gene = j.split(":")[0]
+                    dataset = j.split(":")[1]
+                    orf = j.split(":")[2]
                     cat = memoryDict[dataset][orf]["cat"]
 
                     if memoryDict[dataset][orf]["gene"] in FLEET:
