@@ -282,7 +282,7 @@ def main():
             else:
                 os.system('gb2faa.py %s/%s %s/ORF_calls/%s.faa' % (binDir, i, outDirectory, lastItem(i.split("."))))
 
-                faa = open("%s/ORF_calls/%s.faa" % (binDir, i))
+                faa = open("%s/ORF_calls/%s.faa" % (binDir, lastItem(i.split("."))))
                 faa = fasta(faa)
 
             file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
