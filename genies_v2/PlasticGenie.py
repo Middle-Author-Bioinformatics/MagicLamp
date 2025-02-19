@@ -398,9 +398,6 @@ def main():
                 locusDict[contig + "_" + str(numOrf)] = j
 
                 CoordDict[i][contig].append(int(numOrf))
-                print(contig + "_" + str(numOrf))
-                print(j)
-                print("")
 
 
     counter = 0
@@ -416,14 +413,11 @@ def main():
                 if len(RemoveDuplicates(k)) == 1:
                     orf = j + "_" + str(k[0])
                     locus = locusDict[orf]
-                    print(orf)
-                    print(locus)
-                    print("")
 
                     out.write(
-                        i + "," + locus + "," + SummaryDict[i][orf]["hmm"] + "," + SummaryDict[i][orf]["e"] + "," + str(
-                            SummaryDict[i][orf]["hmmBit"]) + "," +
-                        str(counter) + "," + str(SummaryDict[i][orf]["seq"]) + "\n")
+                        i + "," + locus + "," + SummaryDict[i][locus]["hmm"] + "," + SummaryDict[i][locus]["e"] + "," + str(
+                            SummaryDict[i][locus]["hmmBit"]) + "," +
+                        str(counter) + "," + str(SummaryDict[i][locus]["seq"]) + "\n")
                     out.write("################\n")
                     counter += 1
 
@@ -431,13 +425,10 @@ def main():
                     for l in RemoveDuplicates(k):
                         orf = j + "_" + str(l)
                         locus = locusDict[orf]
-                        print(orf)
-                        print(locus)
-                        print("")
 
-                        out.write(i + "," + locus + "," + SummaryDict[i][orf]["hmm"] + "," + SummaryDict[i][orf][
-                            "e"] + "," + str(SummaryDict[i][orf]["hmmBit"]) +
-                                  "," + str(counter) + "," + str(SummaryDict[i][orf]["seq"]) + "\n")
+                        out.write(i + "," + locus + "," + SummaryDict[i][locus]["hmm"] + "," + SummaryDict[i][locus][
+                            "e"] + "," + str(SummaryDict[i][locus]["hmmBit"]) +
+                                  "," + str(counter) + "," + str(SummaryDict[i][locus]["seq"]) + "\n")
                     out.write("################\n")
                     counter += 1
     out.close()
