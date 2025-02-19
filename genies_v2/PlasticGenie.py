@@ -258,7 +258,7 @@ def main():
         outDirectoryLS = os.listdir("%s" % args.out)
 
     # *************** CALL ORFS FROM BINS AND READ THE ORFS INTO HASH MEMORY ************************ #
-    BinDict = defaultdict(lambda: defaultdict(lambda: 'EMPTY'))
+    BinDict = defaultdict(lambda: defaultdict(lambda: ''))
     for i in binDirLS:
         if lastItem(i.split(".")) == args.bin_ext:
             cell = i
@@ -280,16 +280,13 @@ def main():
                             "prodigal -i %s/%s -a %s/ORF_calls/%s-proteins.faa -o %s/ORF_calls/%s-prodigal.out -q" % (
                                 binDir, i, outDirectory, i, outDirectory, i))
             else:
-                os.system('gb2faa.py %s/%s %s/ORF_calls/%s.faa' % (binDir, i, outDirectory, allButTheLast(i, ".")))
-
-                faa = open("%s/ORF_calls/%s.faa" % (binDir, allButTheLast(i, ".")))
-                faa = fasta(faa)
+                os.system('gb2faa.py %s/%s %s/ORF_calls/%s-proteins.faa' % (binDir, i, outDirectory, i))
 
             file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
             file = fasta(file)
             for j in file.keys():
                 orf = j.split(" ")[0]
-                BinDict[cell][orf] = file[j]
+                BinDict[cell][orf] = str(file[j])
 
     # ******************* BEGINNING MAIN ALGORITHM **********************************))))
     print("starting main pipeline...")
