@@ -399,6 +399,8 @@ def main():
 
                 CoordDict[i][contig].append(int(numOrf))
                 print(contig + "_" + str(numOrf))
+                print(j)
+                print("")
 
 
     counter = 0
