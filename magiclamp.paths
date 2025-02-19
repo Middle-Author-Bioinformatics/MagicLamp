@@ -25,8 +25,6 @@ export pol_hmms=\"$(pwd)/hmms/pol\"
 
 export plastic_hmms=\"$(pwd)/hmms/plastics\"
 
-export iron_hmms=\"$(pwd)/hmms/iron\"
-
 export ribo_hmms=\"$(pwd)/hmms/ribo\"
 
 export iron_hmms=\"$(pwd)/hmms/iron\"" >> ${CONDA_PREFIX}/etc/conda/activate.d/env_vars.sh

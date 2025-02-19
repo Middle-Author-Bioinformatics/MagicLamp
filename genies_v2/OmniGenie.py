@@ -7,11 +7,6 @@ import argparse
 import sys
 
 
-# TODO: ADD CYTOCHROME 579 HMM
-# TODO: ADD COLUMN WITH ORF STRAND
-
-
-genie = "plastic"
 def main():
     def SUM(ls):
         count = 0
@@ -120,7 +115,7 @@ def main():
         return ls
 
     parser = argparse.ArgumentParser(
-        prog="PlasticGenie.py",
+        prog="Genie Template",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         description=textwrap.dedent('''
         *******************************************************
@@ -158,6 +153,8 @@ def main():
         https://ascii.co.uk/text
         *******************************************************
         '''))
+
+    parser.add_argument('-genie', type=str, help="name of genie", default="NA")
 
     parser.add_argument('-bin_dir', type=str, help="directory of bins", default="NA")
 
@@ -202,8 +199,10 @@ def main():
                              "If you see error or warning messages associated with Rscript, you can still expect to "
                              "see the main output (CSV files) from this genie.", const=True, nargs="?")
 
+    args = parser.parse_known_args()[0]
     # CHECKING FOR CONDA INSTALL
-    os.system("echo ${plastic_hmms} > HMMlib.txt")
+    genie = args.genie
+    os.system("echo ${%s_hmms} > HMMlib.txt" % genie)
     os.system("echo ${rscripts} > rscripts.txt")
     file = open("HMMlib.txt")
     for i in file:
@@ -224,8 +223,7 @@ def main():
             location = i.rstrip()
         location = allButTheLast(location, "/")
 
-        HMMdir = location + "/hmms/genie/" % genie
-        # bits = HMMdir + "/" + "bitscores.txt"
+        HMMdir = location + "/hmms/%sgenie/" % genie
         rscriptDir = location + "/rscripts/"
 
         try:
@@ -239,8 +237,6 @@ def main():
             raise SystemExit
 
     os.system("rm -rf HMMlib.txt rscripts.txt mainDir.txt")
-
-    args = parser.parse_known_args()[0]
 
     # ************** Checking for the required arguments ******************* #
     cwd = os.getcwd()
@@ -292,7 +288,7 @@ def main():
     print("starting main pipeline...")
     # HMMdirLS = os.listdir(HMMdir)
     HMMdirLS = [f for f in os.listdir(HMMdir) if f.lower().endswith('.hmm')]
-    HMMdict = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: "EMPTY")))
+    HMMdict = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: 0)))
     for i in binDirLS:  # ITERATION THROUGH EACH BIN IN A GIVEN DIRECTORY OF BINS
         if lastItem(i.split(".")) == args.bin_ext:  # FILTERING OUT ANY NON-BIN-RELATED FILES
             os.system(
@@ -346,7 +342,7 @@ def main():
     out.write("organism" + "," + "ORF" + "," + "HMM" + "," + "evalue" + "," + "bitscore" + "\n")
     for key in HMMdict.keys():
         for j in HMMdict[key]:
-            out.write(key + "," + j + "," + HMMdict[key][j]["hmm"] + "," +
+            out.write(key + "," + j + "," + str(HMMdict[key][j]["hmm"]) + "," +
                       str(HMMdict[key][j]["evalue"]) + "," + str(HMMdict[key][j]["bit"]) + "\n")
 
     out.close()
@@ -434,7 +430,7 @@ def main():
     out.close()
 
     os.system("rm %s/summary.csv" % (args.out))
-    os.system("mv %s/summary-2.csv %s/plasticgenie-summary.csv" % (args.out, args.out))
+    os.system("mv %s/summary-2.csv %s/%sgenie-summary.csv" % (genie, args.out, args.out))
 
     os.system("mkdir -p %s/HMM_results" % outDirectory)
     os.system("rm -rf %s/HMM_results/*-HMM" % outDirectory)

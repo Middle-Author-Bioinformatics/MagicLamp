@@ -7,7 +7,6 @@ import argparse
 import sys
 
 
-# TODO: ADD CYTOCHROME 579 HMM
 # TODO: ADD COLUMN WITH ORF STRAND
 
 
@@ -348,30 +347,31 @@ def main():
         University of Southern California, Earth Sciences
         Please send comments and inquiries to arkadiyg@usc.edu
 
- )\   )\     /`-.      )\.-.    )\  )\   )\.---.  .-,.-.,-.    .-./(     )\.-.    )\.---.   )\  )\  .'(   )\.---.  
-(  ',/ /   ,' _  \   ,' ,-,_)  (  \, /  (   ,-._( ) ,, ,. (  ,'     )  ,' ,-,_)  (   ,-._( (  \, /  \  ) (   ,-._( 
- )    (   (  '-' (  (  .   __   ) \ (    \  '-,   \( |(  )/ (  .-, (  (  .   __   \  '-,    ) \ (   ) (   \  '-,   
-(  \(\ \   )   _  )  ) '._\ _) ( ( \ \    ) ,-`      ) \     ) '._\ )  ) '._\ _)   ) ,-`   ( ( \ \  \  )   ) ,-`   
- `.) /  ) (  ,' ) \ (  ,   (    `.)/  )  (  ``-.     \ (    (  ,   (  (  ,   (    (  ``-.   `.)/  )  ) \  (  ``-.  
-     '.(   )/    )/  )/'._.'       '.(    )..-.(      )/     )/ ._.'   )/'._.'     )..-.(      '.(    )/   )..-.(                                                                              
-                                  %(?/////////&//%                                                
-              .,,.                   (%((&@@@#/*.                      .,,.        
-              .,,.                     @(((/&@@@#///**                  ...        
-                                         #&((///////////////*/@                                
-                                                             #*@.                             
-                                      ()                   * )//*
-                                      <^^>             *     (/*   .
-                                     .-""-.                  *)
-                          .---.    ."-....-"-._     _...---''`/. '
-                         ( (`\ \ .'            ``-''    _.-"'`
-                          \ \ \ : :.                 .-'
-                           `\`.\: `:.             _.'
-                           (  .'`.`            _.'
-                            ``    `-..______.-'
-                                      ):.  (
-                                    ."-....-".
-                                  .':.        `.
-                                  "-..______..-"
+                                  .-=-.
+                             /  ! ) )
+                          __ \__/__/
+                         / _<( ^.^ )   Your wish is my command...
+                        / /   \ c /O
+                        \ \_.-./=\.-._     _
+                         `-._  `~`    `-,./_<
+                             `\' \'\`'----'
+                           *   \  . \          *
+                                `-~~~\   .
+                           .      `-._`-._   *
+                                 *    `~~~-,      *
+                       ()                   * )
+                      <^^>             *     (   .
+                     .-""-.                    )
+          .---.    ."-....-"-._     _...---''`/. '
+         ( (`\ \ .'            ``-''    _.-"'`
+          \ \ \ : :.                 .-'
+           `\`.\: `:.             _.'
+           (  .'`.`            _.'
+            ``    `-..______.-'
+                      ):.  (
+                    ."-....-".
+                  .':.        `.
+                  "-..______..-"
 
         ASCII art: https://manytools.org/hacker-tools/convert-images-to-ascii-art/
         https://ascii.co.uk/text
@@ -390,8 +390,8 @@ def main():
     parser.add_argument('-ref', type=str, help="path to a reference protein database, which must be in FASTA format",
                         default="NA")
 
-    parser.add_argument('-out', type=str, help="name output directory (default=mngenie_out)",
-                        default="mngenie_out")
+    parser.add_argument('-out', type=str, help="name output directory (default=wspgenie_out)",
+                        default="wspgenie_out")
 
     parser.add_argument('-inflation', type=int, help="inflation factor for final gene category counts (default=1000)",
                         default=1000)
@@ -409,8 +409,8 @@ def main():
                                                 "read coverage, rather than gene counts.", default="NA")
 
     parser.add_argument('-bam', type=str, help="BAM file. This option is only required if you would like to create "
-                                                "a heatmap that summarizes the abundance of a certain gene that is based on "
-                                                "read coverage, rather than gene counts. If you have more than one BAM file"
+                                               "a heatmap that summarizes the abundance of a certain gene that is based on "
+                                               "read coverage, rather than gene counts. If you have more than one BAM file"
                                                "corresponding to different genomes that you are providing, please use the \'-bams\' "
                                                "argument to provide a tab-delimited file that denotes which BAM file (or files) belongs "
                                                "with which genome", default="NA")
@@ -430,25 +430,25 @@ def main():
     parser.add_argument('--norm', type=str,
                         help="include this flag if you would like the gene counts for each iron gene category to be normalized to "
                              "the number of predicted ORFs in each genome or metagenome. Without "
-                             "normalization, MnGenie will create a heatmap-compatible "
-                             "CSV output with raw gene counts. With normalization, MnGenie will create a "
+                             "normalization, WspGenie will create a heatmap-compatible "
+                             "CSV output with raw gene counts. With normalization, WspGenie will create a "
                              "heatmap-compatible with \'normalized gene abundances\'", const=True, nargs="?")
 
     parser.add_argument('--makeplots', type=str,
-                        help="include this flag if you would like MnGenie to make some figures from your data?. "
+                        help="include this flag if you would like WspGenie to make some figures from your data?. "
                              "To take advantage of this part of the pipeline, you will need to have Rscipt installed. It is a way for R to be called directly from the command line. "
-                             "Please be sure to install all the required R packages as instrcuted in the MnGenie Wiki: "
-                             "https://github.com/Arkadiy-Garber/MnGenie/wiki/Installation. "
+                             "Please be sure to install all the required R packages as instrcuted in the WspGenie Wiki: "
+                             "https://github.com/Arkadiy-Garber/WspGenie/wiki/Installation. "
                              "If you see error or warning messages associated with Rscript, you can still expect to "
-                             "see the main output (CSV files) from MnGenie.", const=True, nargs="?")
+                             "see the main output (CSV files) from WspGenie.", const=True, nargs="?")
 
     # CHECKING FOR CONDA INSTALL
-    os.system("echo ${mn_hmms} > HMMlib.txt")
+    os.system("echo ${pol_hmms} > HMMlib.txt")
     os.system("echo ${rscripts} > rscripts.txt")
     file = open("HMMlib.txt")
     for i in file:
         HMMdir = i.rstrip()
-    bits = HMMdir + "/" + "hmm-meta.txt"
+    bits = HMMdir + "/" + "polMap.txt"
 
     file = open("rscripts.txt")
     for i in file:
@@ -465,8 +465,8 @@ def main():
             location = i.rstrip()
         location = allButTheLast(location, "/")
 
-        HMMdir = location + "/hmms/manganese/"
-        bits = HMMdir + "/" + "hmm-meta.txt"
+        HMMdir = location + "/hmms/pol/"
+        bits = HMMdir + "/" + "polMap.txt"
         rscriptDir = location + "/rscripts/"
 
         try:
@@ -477,7 +477,7 @@ def main():
                   "into your $PATH")
             raise SystemExit
 
-    os.system("rm -f HMMlib.txt rscripts.txt mainDir.txt")
+    os.system("rm HMMlib.txt rscripts.txt mainDir.txt")
 
     args = parser.parse_known_args()[0]
 
@@ -502,7 +502,7 @@ def main():
         print(".")
     else:
         print(
-            'Looks like you did not provide an extension for your genomes/bins or assemblies, so MnGenie does not know'
+            'Looks like you did not provide an extension for your genomes/bins or assemblies, so WspGenie does not know'
             ' which files in the provided directory are fasta files that you would like analyzed.')
         print("Exiting")
         raise SystemExit
@@ -511,7 +511,7 @@ def main():
         os.listdir(args.out)
         print("Looks like you already have a directory with the name: " + args.out)
 
-        answer = input("Would you like MnGenie to proceed and potentially overwrite files in this directory? (y/n): ")
+        answer = input("Would you like WspGenie to proceed and potentially overwrite files in this directory? (y/n): ")
         if answer == "y":
             print("Ok, proceeding with analysis!")
             try:
@@ -528,7 +528,7 @@ def main():
         os.system("mkdir %s/ORF_calls" % args.out)
 
     if lastItem(args.out) == "/":
-        outDirectory = "%s" % args.out[0:len(args.out)-1]
+        outDirectory = "%s" % args.out[0:len(args.out) - 1]
         outDirectoryLS = os.listdir(outDirectory)
     else:
         outDirectory = "%s" % args.out
@@ -560,7 +560,7 @@ def main():
                             if re.findall(r'\|]', line):
                                 print("Looks like one of your fasta files has a header containing the character: \|")
                                 print(
-                                    "Unfortunately, this is a problem for MnGenie because it uses that character as delimiter to store important information.")
+                                    "Unfortunately, this is a problem for WspGenie because it uses that character as delimiter to store important information.")
                                 print("Please rename your FASTA file headers")
                                 raise SystemExit
 
@@ -574,7 +574,7 @@ def main():
                                     print(
                                         "Looks like one of your fasta files has a header containing the character: \|")
                                     print(
-                                        "Unfortunately, this is a problem for MnGenie because it uses that character as delimiter to store important information.")
+                                        "Unfortunately, this is a problem for WspGenie because it uses that character as delimiter to store important information.")
                                     print("Please rename your FASTA file headers")
                                     raise SystemExit
 
@@ -583,16 +583,18 @@ def main():
                         for line in binFile:
                             if re.match(r'>', line):
                                 if re.findall(r'\|]', line):
-                                    print("Looks like one of your fasta files has a header containing the character: \|")
                                     print(
-                                        "Unfortunately, this is a problem for MnGenie because it uses that character as delimiter to store important information.")
+                                        "Looks like one of your fasta files has a header containing the character: \|")
+                                    print(
+                                        "Unfortunately, this is a problem for WspGenie because it uses that character as delimiter to store important information.")
                                     print("Please rename your FASTA file headers")
                                     raise SystemExit
 
                         print("Finding ORFs for " + cell)
                         if args.meta:
-                            os.system("prodigal -i %s/%s -a %s/ORF_calls/%s-proteins.faa -o %s/ORF_calls/%s-prodigal.out -p meta -q" % (
-                                binDir, i, outDirectory, i, outDirectory, i))
+                            os.system(
+                                "prodigal -i %s/%s -a %s/ORF_calls/%s-proteins.faa -o %s/ORF_calls/%s-prodigal.out -p meta -q" % (
+                                    binDir, i, outDirectory, i, outDirectory, i))
                         else:
                             os.system(
                                 "prodigal -i %s/%s -a %s/ORF_calls/%s-proteins.faa -o %s/ORF_calls/%s-prodigal.out -q" % (
@@ -640,6 +642,7 @@ def main():
                             gbkDict[locus].append(locusTag)
                             counter = 0
                 else:
+                    # print(i)
                     gbk = open("%s/%s" % (binDir, i))
                     for gbkline in gbk:
                         ls = gbkline.rstrip()
@@ -693,18 +696,20 @@ def main():
 
     # ******************** READ BITSCORE CUT-OFFS INTO HASH MEMORY ****************************** #
 
+    polDict = defaultdict(lambda: 'EMPTY')
     meta = open(bits, "r")
-    metaDict = defaultdict(lambda: defaultdict(lambda: 'EMPTY'))
+    bitDict = defaultdict(lambda: 'EMPTY')
+    domDict = defaultdict(lambda: 'EMPTY')
     for i in meta:
         ls = i.rstrip().split("\t")
-        metaDict[ls[0]]["bit"] = ls[1]
-        metaDict[ls[0]]["cat"] = ls[2]
-        metaDict[ls[0]]["func"] = ls[3]
+        domDict[ls[0]] = ls[3]
+        bitDict[ls[0]] = ls[2]
+        polDict[ls[0]] = ls[1]
 
     # ******************* BEGINNING MAIN ALGORITHM **********************************))))
     print("starting main pipeline...")
     HMMdirLS = os.listdir(HMMdir)
-    HMMdict = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: "EMPTY")))
+    HMMdict = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
     for i in binDirLS:  # ITERATION THROUGH EACH BIN IN A GIVEN DIRECTORY OF BINS
         if lastItem(i.split(".")) == args.bin_ext:  # FILTERING OUT ANY NON-BIN-RELATED FILES
             os.system(
@@ -714,23 +719,25 @@ def main():
             for hmm in HMMdirLS:  # ITERATING THROUGH ALL THE HMM FILES IN THE HMM DIRECTORY
                 if lastItem(hmm.split(".")) == "hmm":
                     count += 1
-                    perc = (count / len(HMMdirLS)) * 100
-                    sys.stdout.write("analyzing " + i + ": %d%%   \r" % (perc + 11))
+                    perc = (count / (len(HMMdirLS)-1)) * 100
+                    sys.stdout.write("analyzing " + i + ": %d%%   \r" % (perc))
                     sys.stdout.flush()
-                    if len(metaDict[hmm.split(".")[0]]["bit"]) == 0:
+                    if len(bitDict[hmm.split(".")[0]]) == 0:
                         bit = 0
                     else:
-                        bit = metaDict[hmm.split(".")[0]]["bit"]
+                        bit = bitDict[hmm.split(".")[0]]
 
                         if args.orfs:
                             os.system(
                                 "hmmsearch --cpu %d -T %d --tblout %s/%s-HMM/%s.tblout -o %s/%s-HMM/%s.txt %s/%s %s/%s"
-                                % (int(args.t), float(bit), outDirectory, i, hmm, outDirectory, i, hmm, HMMdir, hmm, binDir, i)
+                                % (
+                                int(args.t), float(bit), outDirectory, i, hmm, outDirectory, i, hmm, HMMdir, hmm, binDir, i)
                             )
                         else:
                             os.system(
                                 "hmmsearch --cpu %d -T %d --tblout %s/%s-HMM/%s.tblout -o %s/%s-HMM/%s.txt %s/%s %s/ORF_calls/%s-proteins.faa"
-                                % (int(args.t), float(bit), outDirectory, i, hmm, outDirectory, i, hmm, HMMdir, hmm, outDirectory, i)
+                                % (int(args.t), float(bit), outDirectory, i, hmm, outDirectory, i, hmm, HMMdir, hmm,
+                                   outDirectory, i)
                             )
 
                         # REMOVING THE STANDARD OUTPUT FILE
@@ -751,16 +758,16 @@ def main():
                                 if evalue < float(1E-1):  # FILTERING OUT BACKGROUND NOISE
                                     # LOADING HMM HIT INTO DICTIONARY, BUT ONLY IF THE ORF DID NOT HAVE ANY OTHER HMM HITS
 
-                                    if orf not in HMMdict[i]:
-                                        HMMdict[i][orf]["hmm"] = hmm
-                                        HMMdict[i][orf]["evalue"] = evalue
-                                        HMMdict[i][orf]["bit"] = bit
-                                    else:
-                                        # COMPARING HITS FROM DIFFERENT HMM FILES TO THE SAME ORF
-                                        if bit > HMMdict[i][orf]["bit"]:
-                                            HMMdict[i][orf]["hmm"] = hmm
-                                            HMMdict[i][orf]["evalue"] = evalue
-                                            HMMdict[i][orf]["bit"] = bit
+                                    # if orf not in HMMdict[i]:
+                                        HMMdict[i][orf]["hmm"].append(hmm.split(".hm")[0])
+                                        # HMMdict[i][orf]["evalue"] = evalue
+                                        # HMMdict[i][orf]["bit"] = bit
+                                    # else:
+                                    #     # COMPARING HITS FROM DIFFERENT HMM FILES TO THE SAME ORF
+                                    #     if bit > HMMdict[i][orf]["bit"]:
+                                    #         HMMdict[i][orf]["hmm"] = hmm.split(".hm")[0]
+                                    #         HMMdict[i][orf]["evalue"] = evalue
+                                    #         HMMdict[i][orf]["bit"] = bit
 
             print("")
 
@@ -768,62 +775,65 @@ def main():
     out.write("cell" + "," + "ORF" + "," + "HMM" + "," + "evalue" + "," + "bitscore" + "\n")
     for key in HMMdict.keys():
         for j in HMMdict[key]:
-            out.write(key + "," + j + "," + HMMdict[key][j]["hmm"] + "," +
-                      str(HMMdict[key][j]["evalue"]) + "," + str(HMMdict[key][j]["bit"]) + "\n")
+            # out.write(key + "," + j + "," + HMMdict[key][j]["hmm"] + "," +
+            #           str(HMMdict[key][j]["evalue"]) + "," + str(HMMdict[key][j]["bit"]) + "\n")
+
+            out.write(key + "," + j + "," + str(";".join(HMMdict[key][j]["hmm"])) + "\n")
 
     out.close()
     # ****************************************** DEREPLICATION *********************************************************
     summary = open(outDirectory + "/summary.csv", "r")
-    SummaryDict = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: 'EMPTY')))
+    SummaryDict = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
     for i in summary:
         ls = i.rstrip().split(",")
-        if ls[0] != "category" and ls[0] != "MnGenie":
+        if ls[0] != "category" and ls[0] != "WspGenie":
             if len(ls) > 0:
-                category = ls[0]
+                # category = ls[0]
                 cell = ls[0]
                 orf = ls[1]
-                hmm = ls[2]
-                evalue = ls[3]
-                hmmBit = ls[4]
-                bitcut = metaDict[hmm.split(".")[0]]["bit"]
-                cat = metaDict[hmm.split(".")[0]]["cat"]
-                func = metaDict[hmm.split(".")[0]]["func"]
-
+                hmm = ls[2].split(";")
+                # evalue = ls[3]
+                # hmmBit = ls[4]
+                # bitcut = bitDict[hmm.split(".")[0]]
                 seq = BinDict[cell][orf]
+                for j in hmm:
+                    SummaryDict[cell][orf]["hmm"].append(j)
+                # SummaryDict[cell][orf]["seq"] = seq
 
-                if cell not in SummaryDict.keys():
-                    SummaryDict[cell][orf]["hmm"] = hmm
-                    SummaryDict[cell][orf]["hmmBit"] = hmmBit
-                    SummaryDict[cell][orf]["category"] = category
-                    SummaryDict[cell][orf]["e"] = evalue
-                    SummaryDict[cell][orf]["bitcut"] = bitcut
-                    SummaryDict[cell][orf]["cat"] = cat
-                    SummaryDict[cell][orf]["func"] = func
-                    SummaryDict[cell][orf]["seq"] = seq
+                # if cell not in SummaryDict.keys():
+                #     SummaryDict[cell][orf]["hmm"] = hmm
+                #     SummaryDict[cell][orf]["hmmBit"] = hmmBit
+                #     # SummaryDict[cell][orf]["category"] = category
+                #     SummaryDict[cell][orf]["e"] = evalue
+                #     SummaryDict[cell][orf]["bitcut"] = bitcut
+                #     SummaryDict[cell][orf]["seq"] = seq
+                #
+                # else:
+                #     if orf not in SummaryDict[cell]:
+                #         SummaryDict[cell][orf]["hmm"] = hmm
+                #         SummaryDict[cell][orf]["hmmBit"] = hmmBit
+                #         # SummaryDict[cell][orf]["category"] = category
+                #         SummaryDict[cell][orf]["e"] = evalue
+                #         SummaryDict[cell][orf]["bitcut"] = bitcut
+                #         SummaryDict[cell][orf]["seq"] = seq
+                #
+                #     else:
+                #         if float(hmmBit) > float(SummaryDict[cell][orf]["hmmBit"]):
+                #             SummaryDict[cell][orf]["hmm"] = hmm
+                #             SummaryDict[cell][orf]["hmmBit"] = hmmBit
+                #             # SummaryDict[cell][orf]["category"] = category
+                #             SummaryDict[cell][orf]["e"] = evalue
+                #             SummaryDict[cell][orf]["bitcut"] = bitcut
+                #             SummaryDict[cell][orf]["seq"] = seq
 
-                else:
-                    if orf not in SummaryDict[cell]:
-                        SummaryDict[cell][orf]["hmm"] = hmm
-                        SummaryDict[cell][orf]["hmmBit"] = hmmBit
-                        SummaryDict[cell][orf]["category"] = category
-                        SummaryDict[cell][orf]["e"] = evalue
-                        SummaryDict[cell][orf]["bitcut"] = bitcut
-                        SummaryDict[cell][orf]["cat"] = cat
-                        SummaryDict[cell][orf]["func"] = func
-                        SummaryDict[cell][orf]["seq"] = seq
-
-                    else:
-                        if float(hmmBit) > float(SummaryDict[cell][orf]["hmmBit"]):
-                            SummaryDict[cell][orf]["hmm"] = hmm
-                            SummaryDict[cell][orf]["hmmBit"] = hmmBit
-                            SummaryDict[cell][orf]["category"] = category
-                            SummaryDict[cell][orf]["e"] = evalue
-                            SummaryDict[cell][orf]["bitcut"] = bitcut
-                            SummaryDict[cell][orf]["cat"] = cat
-                            SummaryDict[cell][orf]["func"] = func
-                            SummaryDict[cell][orf]["seq"] = seq
+    # for i in SummaryDict.keys():
+    #     print(i)
+    #     for j in sorted(SummaryDict[i]):
+    #         print(j + "\t\t" + str(SummaryDict[i][j]))
+    #     print("")
 
     # ****************************** CLUSTERING OF ORFS BASED ON GENOMIC PROXIMITY *************************************
+
     print("Identifying genomic proximities and putative operons")
     CoordDict = defaultdict(lambda: defaultdict(list))
     for i in SummaryDict.keys():
@@ -836,97 +846,147 @@ def main():
     counter = 0
     print("Clustering ORFs...")
     print("")
-    out = open(outDirectory + "/summary-2.csv", "w")
+    out = open(outDirectory + "/polgenie_summary.csv", "w")
+    out.write("input_genome,gene_call,domain,function,polymerase_family\n")
     for i in CoordDict.keys():
-        print(".")
+        # print(".")
         for j in CoordDict[i]:
             LS = (CoordDict[i][j])
             clusters = (cluster(LS, args.d))
-            for k in clusters:
+            for k in sorted(clusters):
                 if len(RemoveDuplicates(k)) == 1:
                     orf = j + "_" + str(k[0])
+                    hmmList = SummaryDict[i][orf]["hmm"]
 
-                    out.write(i + "," + orf + "," + SummaryDict[i][orf]["hmm"] + "," + SummaryDict[i][orf]["cat"] + "," + SummaryDict[i][orf]["func"] + "," + SummaryDict[i][orf]["e"] + "," + str(SummaryDict[i][orf]["hmmBit"]) + "," + str(SummaryDict[i][orf]["bitcut"]) + "," + str(counter) + "," + str(SummaryDict[i][orf]["seq"]) + "\n")
-                    out.write("#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "\n")
-                    counter += 1
+                    counter = 0
+                    for hmm in hmmList:
+                        if domDict[hmm] == "replication":
+                            counter += 1
+                        if polDict[hmm] == "pol_III":
+                            counter += 1
+
+                    if counter > 0:
+
+                        if "DUF4113" in hmmList or "IMS_C" in hmmList or "IMS_HHH" in hmmList or "IMS" in hmmList:
+                            if "DUF4113" not in hmmList and "IMS_HHH" not in hmmList:
+                                polymerase = "pol_IV"
+                            else:
+                                polymerase = "pol_V"
+
+                            for m in hmmList:
+                                hmm = (m)
+                                domain = domDict[hmm]
+                                # polymerase = polDict[hmm]
+                                out.write(i + "," + orf + "," + hmm + "," + domain + "," + polymerase + "\n")
+                            out.write("#############################################\n")
+                        else:
+                            for m in hmmList:
+                                hmm = (m)
+                                domain = domDict[hmm]
+                                polymerase = polDict[hmm]
+                                out.write(i + "," + orf + "," + hmm + "," + domain + "," + polymerase + "\n")
+                            out.write("#############################################\n")
 
                 else:
-                    for l in RemoveDuplicates(k):
+                    for l in sorted(RemoveDuplicates(k)):
                         orf = j + "_" + str(l)
-
-                        out.write(i + "," + orf + "," + SummaryDict[i][orf]["hmm"] + "," + SummaryDict[i][orf]["cat"] + "," + SummaryDict[i][orf]["func"] + "," + SummaryDict[i][orf]["e"] + "," + str(SummaryDict[i][orf]["hmmBit"]) + "," + str(SummaryDict[i][orf]["bitcut"]) + "," + str(counter) + "," + str(SummaryDict[i][orf]["seq"]) + "\n")
-                    out.write("#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "\n")
-                    counter += 1
+                        hmmList = SummaryDict[i][orf]["hmm"]
+                        for m in hmmList:
+                            hmm = (m)
+                            domain = domDict[hmm]
+                            polymerase = polDict[hmm]
+                            out.write(i + "," + orf + "," + hmm + "," + domain + "," + polymerase + "\n")
+                    out.write("#############################################\n")
+        out.write("##################################\n*******************************\n##################################\n")
     out.close()
-
-
-# ****************************** FILTERING OUT LIKELY FALSE POSITIVES *************************************
+    os.system("rm %s/summary.csv" % (args.out))
+    #
+    #                 out.write(
+    #                     i + "," + orf + "," + SummaryDict[i][orf]["hmm"] + "," + SummaryDict[i][orf]["e"] + "," + str(
+    #                         SummaryDict[i][orf]["hmmBit"]) + "," + str(SummaryDict[i][orf]["bitcut"]) + "," + str(
+    #                         counter) + "," + str(SummaryDict[i][orf]["seq"]) + "\n")
+    #                 out.write(
+    #                     "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "\n")
+    #                 counter += 1
+    #
+    #             else:
+    #                 for l in RemoveDuplicates(k):
+    #                     orf = j + "_" + str(l)
+    #
+    #                     out.write(i + "," + orf + "," + SummaryDict[i][orf]["hmm"] + "," + SummaryDict[i][orf][
+    #                         "e"] + "," + str(SummaryDict[i][orf]["hmmBit"]) + "," + str(
+    #                         SummaryDict[i][orf]["bitcut"]) + "," + str(counter) + "," + str(
+    #                         SummaryDict[i][orf]["seq"]) + "\n")
+    #                 out.write(
+    #                     "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "\n")
+    #                 counter += 1
+    # out.close()
+    '''
+    # ****************************** FILTERING OUT LIKELY FALSE POSITIVES *************************************
     clusterDict = defaultdict(lambda: defaultdict(list))
     summary = open("%s/summary-2.csv" % (args.out), "r")
     for i in summary:
         if not re.match(r'#', i):
             ls = i.rstrip().split(",")
-            clu = int(ls[8])
+            clu = int(ls[6])
             clusterDict[clu]["line"].append(ls)
             clusterDict[clu]["gene"].append(ls[2].split(".")[0])
 
     print("..")
     print("...")
+    polymerases = []
+    polymerase = ""
     out = open("%s/summary-3.csv" % (args.out), "w")
-    out.write(
-        "file" + "," + "ORF" + "," "gene" + "," + "cat" + "," + "function" + "," "evalue" + "," "bit_score" + "," "bit_score_cutoff" + "," "cluster_id" + "," "seq" + "\n")
+    out.write("file" + "," + "ORF" "," + "polymerase" + "," "domain" + "," + "hmm" + "," "evalue" + "," "bit_score" + "," "bit_score_cutoff" + "," "cluster_id" + "," "seq" + "\n")
     for i in sorted(clusterDict.keys()):
         ls = (clusterDict[i]["gene"])
 
+        if "IMS" in ls or "IMS_C" in ls:
+            polymerase = "pol_IV"
+            if "IMS_HHH" in ls and "DUF4113" in ls:
+                polymerase = "pol_V"
 
-        ############################################################################################################
-        if "mntH" in ls or "mntB" in ls or "mntA1" in ls or "mntA" in ls:
-            mnt = ["mntH", "mntB", "mntA1", "mntA"]
-
-            if unique(ls, mnt) < 2:
-                pass
-
-            else:
-                for j in clusterDict[i]["line"]:
-                    out.write(j[0] + "," + j[1] + "," + j[2] + "," + j[3] + "," + j[4] + "," + j[5] + "," + j[6] + "," + j[7] + "\n")
-
-                out.write("####################################################" + "\n")
-
-        elif "CymA" in ls or "MtrA" in ls or "MtrC_TIGR03507" in ls or "MtrB_TIGR03509" in ls:
-            mtr = ["CymA", "MtrA", "MtrC_TIGR03507", "MtrB_TIGR03509"]
-
-            if unique(ls, mtr) < 2:
-                pass
-
-            else:
-                if "MtrC_TIGR03507" in ls:
-                    for j in clusterDict[i]["line"]:
-                        out.write(j[0] + "," + j[1] + "," + j[2] + "," + j[3] + "," + j[4] + "," + j[5] + "," + j[6] + "," + j[7] + "\n")
-
-                    out.write("####################################################" + "\n")
-                else:
-                    pass
-
-
-        else:
             for j in clusterDict[i]["line"]:
-                out.write(j[0] + "," + j[1] + "," + j[2] + "," + j[3] + "," + j[4] + "," + j[5] + "," + j[6] + "," + j[
-                    7] + "\n")
+                out.write(j[0] + "," + j[1] + "," + polymerase + "," + domDict[j[2].split(".")[0]] + "," + j[2].split(".")[0] + "," + j[3] + "," + j[4] + "," + j[5] + "," + stabilityCounter(j[6]) + "," + j[7] + "\n")
+            out.write("######################################\n")
 
-            out.write("####################################################" + "\n")
+        if "DNA_pol3_alpha" in ls:
+            polymerase = "pol_III"
+            for j in clusterDict[i]["line"]:
+                out.write(j[0] + "," + j[1] + "," + polymerase + "," + domDict[j[2].split(".")[0]] + "," + j[2].split(".")[0] + "," + j[3] + "," + j[4] + "," + j[5] + "," + stabilityCounter(j[6]) + "," + j[7] + "\n")
+            out.write("######################################\n")
+
+        if "DNA_pol_B" in ls:
+            polymerase = "pol_II"
+            for j in clusterDict[i]["line"]:
+                out.write(
+                    j[0] + "," + j[1] + "," + polymerase + "," + domDict[j[2].split(".")[0]] + "," + j[2].split(".")[
+                        0] + "," + j[3] + "," + j[4] + "," + j[5] + "," + stabilityCounter(j[6]) + "," + j[7] + "\n")
+            out.write("######################################\n")
+
+        if "DNA_pol_A" in ls:
+            polymerase = "pol_I"
+            for j in clusterDict[i]["line"]:
+                out.write(
+                    j[0] + "," + j[1] + "," + polymerase + "," + domDict[j[2].split(".")[0]] + "," + j[2].split(".")[
+                        0] + "," + j[3] + "," + j[4] + "," + j[5] + "," + stabilityCounter(j[6]) + "," + j[7] + "\n")
+            out.write("######################################\n")
 
 
     out.close()
 
     os.system("rm %s/summary.csv" % (args.out))
     os.system("rm %s/summary-2.csv" % (args.out))
-    os.system("mv %s/summary-3.csv %s/mngenie-summary.csv" % (args.out, args.out))
+    os.system("mv %s/summary-3.csv %s/polgenie-summary.csv" % (args.out, args.out))
 
     os.system("mkdir -p %s/HMM_results" % outDirectory)
     # os.system("rm -f %s/ORF_calls/*-prodigal.out" % outDirectory)
     os.system("rm -rf %s/HMM_results/*-HMM" % outDirectory)
     os.system("mv -f %s/*-HMM %s/HMM_results/" % (outDirectory, outDirectory))
 
+    '''
+    print("done")
+    '''
     # ****************************** CREATING A HEATMAP-COMPATIBLE CSV FILE *************************************
     print("....")
     print(".....")
@@ -961,32 +1021,28 @@ def main():
         os.system("mkdir %s/contigDepths" % args.out)
         os.system("mv %s/*depth %s/contigDepths/" % (args.out, args.out))
 
-        cats = ["mntA", "mntA1", "mntB", "mntH", "ArsP_2", "Mntp",
-                "MtrC_TIGR03507", "MtrA", "MtrB_TIGR03509", "CymA", "MnxG", "McoA", "An_peroxidase",
-                "catalase_Glutathione_peroxidase", "Mn_catalase", "MSP",
-                "PEPCK_ATP", "PsbY", "Ribonuc_red_sm", "SOD_FeMn_Cterminal",  "SOD_FeMn_Nterminal"]
+        cats = ["4HB_MCP_1", "HAMP", "MCPsignal", "CheW", "CheR", "Hpt", "MamM", "HATPase_c", "Response_reg", "GGDEF"]
 
         Dict = defaultdict(lambda: defaultdict(list))
-        final = open("%s/mngenie-summary.csv" % (args.out), "r")
+        final = open("%s/wspgenie-summary.csv" % (args.out), "r")
         for i in final:
             ls = (i.rstrip().split(","))
             if ls[0] != "bin" and ls[1] != "assembly" and ls[1] != "genome" and ls[0] != "file":
                 if not re.match(r'#', i):
-                    cell = ls[0]
-                    orf = ls[1]
-                    gene = ls[2]
+                    cell = ls[1]
+                    orf = ls[2]
+                    gene = ls[3]
                     contig = allButTheLast(orf, "_")
                     Dict[cell][gene].append(float(depthDict[cell][contig]))
 
-        outHeat = open("%s/mngenie.readDepth.heatmap.csv" % (args.out), "w")
+        outHeat = open("%s/wspgenie.readDepth.heatmap.csv" % (args.out), "w")
         outHeat.write("X" + ',')
         for i in sorted(Dict.keys()):
             outHeat.write(i + ",")
         outHeat.write("\n")
 
         for i in cats:
-            cat = metaDict[i]["cat"]
-            outHeat.write(cat + "-" + i + ",")
+            outHeat.write(i + ",")
             for j in sorted(Dict.keys()):
                 if not re.match(r'#', j):
                     outHeat.write(str(SUM(Dict[j][i])) + ",")
@@ -1014,32 +1070,29 @@ def main():
                 if LS[0] != "contigName":
                     depthDict[LS[0]] = LS[2]
 
-        cats = ["mntA", "mntA1", "mntB", "mntH", "ArsP_2", "Mntp",
-                "MtrC_TIGR03507", "MtrA", "MtrB_TIGR03509", "CymA", "MnxG", "McoA", "An_peroxidase",
-                "catalase_Glutathione_peroxidase", "Mn_catalase", "MSP",
-                "PEPCK_ATP", "PsbY", "Ribonuc_red_sm", "SOD_FeMn_Cterminal",  "SOD_FeMn_Nterminal"]
+        cats = ["4HB_MCP_1", "HAMP", "MCPsignal", "CheW", "CheR", "Hpt", "MamM", "HATPase_c", "Response_reg",
+                "GGDEF"]
 
         Dict = defaultdict(lambda: defaultdict(list))
-        final = open("%s/mngenie-summary.csv" % (args.out), "r")
+        final = open("%s/wspgenie-summary.csv" % (args.out), "r")
         for i in final:
             ls = (i.rstrip().split(","))
             if ls[0] != "bin" and ls[1] != "assembly" and ls[1] != "genome" and ls[0] != "file":
                 if not re.match(r'#', i):
-                    cell = ls[0]
-                    orf = ls[1]
-                    gene = ls[2]
+                    cell = ls[1]
+                    orf = ls[2]
+                    gene = ls[3]
                     contig = allButTheLast(orf, "_")
                     Dict[cell][gene].append(float(depthDict[contig]))
 
-        outHeat = open("%s/mngenie.readDepth.heatmap.csv" % (args.out), "w")
+        outHeat = open("%s/wspgenie.readDepth.heatmap.csv" % (args.out), "w")
         outHeat.write("X" + ',')
         for i in sorted(Dict.keys()):
             outHeat.write(i + ",")
         outHeat.write("\n")
 
         for i in cats:
-            cat = metaDict[i]["cat"]
-            outHeat.write(cat + "-" + i + ",")
+            outHeat.write(i + ",")
             for j in sorted(Dict.keys()):
                 if not re.match(r'#', j):
                     outHeat.write(str(SUM(Dict[j][i])) + ",")
@@ -1052,20 +1105,17 @@ def main():
 
     # GENE COUNTS-BASED ABUNDANCE
     else:
-        cats = ["mntA", "mntA1", "mntB", "mntH", "ArsP_2", "Mntp",
-                "MtrC_TIGR03507", "MtrA", "MtrB_TIGR03509", "CymA", "MnxG", "McoA", "An_peroxidase",
-                "catalase_Glutathione_peroxidase", "Mn_catalase", "MSP",
-                "PEPCK_ATP", "PsbY", "Ribonuc_red_sm", "SOD_FeMn_Cterminal",  "SOD_FeMn_Nterminal"]
+        cats = ["4HB_MCP_1", "HAMP", "MCPsignal", "CheW", "CheR", "Hpt", "MamM", "HATPase_c", "Response_reg", "GGDEF"]
 
         Dict = defaultdict(lambda: defaultdict(list))
-        final = open("%s/mngenie-summary.csv" % (args.out), "r")
+        final = open("%s/wspgenie-summary.csv" % (args.out), "r")
         for i in final:
             if not re.match(r'#', i):
                 ls = (i.rstrip().split(","))
                 if ls[0] != "bin" and ls[1] != "assembly" and ls[1] != "genome" and ls[0] != "file":
-                    cell = ls[0]
-                    orf = ls[1]
-                    gene = ls[2].split(".")[0]
+                    cell = ls[1]
+                    orf = ls[2]
+                    gene = ls[3]
                     Dict[cell][gene].append(gene)
 
         normDict = defaultdict(lambda: defaultdict(lambda: 'EMPTY'))
@@ -1079,15 +1129,14 @@ def main():
                     file = fasta(file)
                 normDict[i] = len(file.keys())
 
-        outHeat = open("%s/mngenie.heatmap.csv" % (outDirectory), "w")
+        outHeat = open("%s/wspgenie.heatmap.csv" % (outDirectory), "w")
         outHeat.write("X" + ',')
         for i in sorted(Dict.keys()):
             outHeat.write(i + ",")
         outHeat.write("\n")
 
         for i in cats:
-            cat = metaDict[i]["cat"]
-            outHeat.write(cat + "-" + i + ",")
+            outHeat.write(i + ",")
             for j in sorted(Dict.keys()):
                 if not re.match(r'#', j):
                     if args.norm:
@@ -1101,12 +1150,11 @@ def main():
         print(".......")
         print("Finished!")
 
-
     # ******** RUNNING RSCRIPT TO GENERATE PLOTS **************
     if args.makeplots:
         print("Running Rscript to generate plots. Do not be alarmed if you see Warning or Error messages from Rscript. "
               "This will not affect any of the output data that was already created. If you see plots generated, great! "
-              "If not, you can plot the data as you wish on your own, or start an issue on MnGenie's GitHub repository\n")
+              "If not, you can plot the data as you wish on your own, or start an issue on WspGenie's GitHub repository\n")
         # if conda == 0:
         #     Rdir = args.R
         # else:
@@ -1117,11 +1165,15 @@ def main():
         #     os.system("rm r.txt")
 
         if args.norm:
-            os.system("Rscript --vanilla %s/DotPlot.R %s/mngenie.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
-            os.system("Rscript --vanilla %s/dendro-heatmap.R %s/mngenie.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
+            os.system(
+                "Rscript --vanilla %s/DotPlot.R %s/wspgenie.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
+            os.system("Rscript --vanilla %s/dendro-heatmap.R %s/wspgenie.heatmap.csv %s/" % (
+            rscriptDir, outDirectory, outDirectory))
         else:
-            os.system("Rscript --vanilla %s/DotPlot-nonorm.R %s/mngenie.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
-            os.system("Rscript --vanilla %s/dendro-heatmap.R %s/mngenie.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
+            os.system("Rscript --vanilla %s/DotPlot-nonorm.R %s/wspgenie.heatmap.csv %s/" % (
+            rscriptDir, outDirectory, outDirectory))
+            os.system("Rscript --vanilla %s/dendro-heatmap.R %s/wspgenie.heatmap.csv %s/" % (
+            rscriptDir, outDirectory, outDirectory))
 
         print("\n\n\n")
         print("...")
@@ -1130,26 +1182,30 @@ def main():
     if args.makeplots:
         print("Running Rscript to generate plots. Do not be alarmed if you see Warning or Error messages from Rscript. "
               "This will not affect any of the output data that was already created. If you see plots generated, great! "
-              "If not, you can plot the data as you wish on your own, or start an issue on MnGenie's GitHub repository\n")
+              "If not, you can plot the data as you wish on your own, or start an issue on WspGenie's GitHub repository\n")
 
         if args.bam == "NA" and args.bams == "NA":
             if args.norm:
-                os.system("Rscript --vanilla %s/DotPlot.R %s/mngenie.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
-                os.system("Rscript --vanilla %s/dendro-heatmap.R %s/mngenie.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
+                os.system("Rscript --vanilla %s/DotPlot.R %s/wspgenie.heatmap.csv %s/" % (
+                rscriptDir, outDirectory, outDirectory))
+                os.system("Rscript --vanilla %s/dendro-heatmap.R %s/wspgenie.heatmap.csv %s/" % (
+                rscriptDir, outDirectory, outDirectory))
             else:
-                os.system("Rscript --vanilla %s/DotPlot-nonorm.R %s/mngenie.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
-                os.system("Rscript --vanilla %s/dendro-heatmap.R %s/mngenie.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
+                os.system("Rscript --vanilla %s/DotPlot-nonorm.R %s/wspgenie.heatmap.csv %s/" % (
+                rscriptDir, outDirectory, outDirectory))
+                os.system("Rscript --vanilla %s/dendro-heatmap.R %s/wspgenie.heatmap.csv %s/" % (
+                rscriptDir, outDirectory, outDirectory))
         else:
-            os.system("Rscript --vanilla %s/DotPlot.R %s/mngenie.readDepth.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
-            os.system("Rscript --vanilla %s/dendro-heatmap.R %s/mngenie.readDepth.heatmap.csv %s/" % (rscriptDir, outDirectory, outDirectory))
+            os.system("Rscript --vanilla %s/DotPlot.R %s/wspgenie.readDepth.heatmap.csv %s/" % (
+            rscriptDir, outDirectory, outDirectory))
+            os.system("Rscript --vanilla %s/dendro-heatmap.R %s/wspgenie.readDepth.heatmap.csv %s/" % (
+            rscriptDir, outDirectory, outDirectory))
 
     print("")
-    print("Results are written to %s/mngenie-summary.csv and %s/mngenie.heatmap.csv" % (args.out, args.out))
+    print("Results are written to %s/wspgenie-summary.csv and %s/wspgenie.heatmap.csv" % (args.out, args.out))
     print("Pipeline finished without crashing!!! Thanks for using :)")
-
+    '''
 
 if __name__ == '__main__':
     main()
-
-
 
