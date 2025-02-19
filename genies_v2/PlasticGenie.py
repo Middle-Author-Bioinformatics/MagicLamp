@@ -238,7 +238,7 @@ def main():
                   "into your $PATH")
             raise SystemExit
 
-    os.system("rm -r HMMlib.txt rscripts.txt mainDir.txt")
+    os.system("rm -rf HMMlib.txt rscripts.txt mainDir.txt")
 
     args = parser.parse_known_args()[0]
 
@@ -247,7 +247,7 @@ def main():
     print("checking arguments")
     binDir = args.bin_dir + "/"
     binDirLS = os.listdir(args.bin_dir)
-    os.system("mkdir %s" % args.out)
+    os.system("mkdir -p %s" % args.out)
     os.system("mkdir -p %s/ORF_calls" % args.out)
 
     if lastItem(args.out) == "/":
@@ -280,9 +280,9 @@ def main():
                             "prodigal -i %s/%s -a %s/ORF_calls/%s-proteins.faa -o %s/ORF_calls/%s-prodigal.out -q" % (
                                 binDir, i, outDirectory, i, outDirectory, i))
             else:
-                os.system('gb2faa.py %s/%s %s/ORF_calls/%s.faa' % (binDir, i, outDirectory, lastItem(i.split("."))))
+                os.system('gb2faa.py %s/%s %s/ORF_calls/%s.faa' % (binDir, i, outDirectory, allButTheLast(i, ".")))
 
-                faa = open("%s/ORF_calls/%s.faa" % (binDir, lastItem(i.split("."))))
+                faa = open("%s/ORF_calls/%s.faa" % (binDir, allButTheLast(i, ".")))
                 faa = fasta(faa)
 
             file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
