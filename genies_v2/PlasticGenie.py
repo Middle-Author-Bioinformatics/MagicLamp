@@ -391,10 +391,12 @@ def main():
     for i in SummaryDict.keys():
         if i != "organism":
             for j in SummaryDict[i]:
-                contig = re.split(r'[_;]', j)[0]
-                numOrf = lastItem(re.split(r'[_;]', j))
+                contig = re.split(r';', j)[0]
+                numOrf = lastItem(re.split(r'[;]', j))
+
                 locusDict[j] = contig + "_" + str(numOrf)
                 locusDict[contig + "_" + str(numOrf)] = j
+
                 CoordDict[i][contig].append(int(numOrf))
                 print(contig + "_" + str(numOrf))
 
