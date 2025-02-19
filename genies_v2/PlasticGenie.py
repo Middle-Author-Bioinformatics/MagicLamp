@@ -280,9 +280,9 @@ def main():
                             "prodigal -i %s/%s -a %s/ORF_calls/%s-proteins.faa -o %s/ORF_calls/%s-prodigal.out -q" % (
                                 binDir, i, outDirectory, i, outDirectory, i))
             else:
-                os.system('gb2faa.py %s/%s %s/ORF_calls/%s.faa' % (binDir, i, outDirectory, i))
+                os.system('gb2faa.py %s/%s %s/ORF_calls/%s.faa' % (binDir, i, outDirectory, lastItem(i.split("."))))
 
-                faa = open("%s/ORF_calls/%s.faa" % (binDir, i))
+                faa = open("%s/ORF_calls/%s" % (binDir, i))
                 faa = fasta(faa)
 
             file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
