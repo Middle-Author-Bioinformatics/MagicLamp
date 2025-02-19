@@ -238,7 +238,7 @@ def main():
                   "into your $PATH")
             raise SystemExit
 
-    os.system("rm HMMlib.txt rscripts.txt mainDir.txt")
+    os.system("rm -r HMMlib.txt rscripts.txt mainDir.txt")
 
     args = parser.parse_known_args()[0]
 
