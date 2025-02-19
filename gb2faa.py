@@ -1,6 +1,6 @@
+#!/usr/bin/env python3
 import argparse
 from Bio import SeqIO
-
 
 def extract_proteins(genbank_file, output_fasta):
     with open(output_fasta, 'w') as fasta_out:
