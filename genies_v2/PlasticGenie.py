@@ -355,9 +355,8 @@ def main():
     SummaryDict = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: 'EMPTY')))
     for i in summary:
         ls = i.rstrip().split(",")
-        if ls[0] != "cell":
+        if ls[0] != "organism":
             if len(ls) > 0:
-                category = ls[0]
                 cell = ls[0]
                 orf = ls[1]
                 hmm = ls[2]
@@ -368,7 +367,6 @@ def main():
                 if cell not in SummaryDict.keys():
                     SummaryDict[cell][orf]["hmm"] = hmm
                     SummaryDict[cell][orf]["hmmBit"] = hmmBit
-                    SummaryDict[cell][orf]["category"] = category
                     SummaryDict[cell][orf]["e"] = evalue
                     SummaryDict[cell][orf]["seq"] = seq
 
@@ -376,7 +374,6 @@ def main():
                     if orf not in SummaryDict[cell]:
                         SummaryDict[cell][orf]["hmm"] = hmm
                         SummaryDict[cell][orf]["hmmBit"] = hmmBit
-                        SummaryDict[cell][orf]["category"] = category
                         SummaryDict[cell][orf]["e"] = evalue
                         SummaryDict[cell][orf]["seq"] = seq
 
@@ -384,7 +381,6 @@ def main():
                         if float(hmmBit) > float(SummaryDict[cell][orf]["hmmBit"]):
                             SummaryDict[cell][orf]["hmm"] = hmm
                             SummaryDict[cell][orf]["hmmBit"] = hmmBit
-                            SummaryDict[cell][orf]["category"] = category
                             SummaryDict[cell][orf]["e"] = evalue
                             SummaryDict[cell][orf]["seq"] = seq
 
@@ -400,6 +396,8 @@ def main():
                 locusDict[j] = contig + "_" + str(numOrf)
                 locusDict[contig + "_" + str(numOrf)] = j
                 CoordDict[i][contig].append(int(numOrf))
+                print(contig + "_" + str(numOrf))
+
 
     counter = 0
     print("Clustering ORFs...")
@@ -414,6 +412,9 @@ def main():
                 if len(RemoveDuplicates(k)) == 1:
                     orf = j + "_" + str(k[0])
                     locus = locusDict[orf]
+                    print(orf)
+                    print(locus)
+                    print("")
 
                     out.write(
                         i + "," + locus + "," + SummaryDict[i][orf]["hmm"] + "," + SummaryDict[i][orf]["e"] + "," + str(
@@ -426,6 +427,9 @@ def main():
                     for l in RemoveDuplicates(k):
                         orf = j + "_" + str(l)
                         locus = locusDict[orf]
+                        print(orf)
+                        print(locus)
+                        print("")
 
                         out.write(i + "," + locus + "," + SummaryDict[i][orf]["hmm"] + "," + SummaryDict[i][orf][
                             "e"] + "," + str(SummaryDict[i][orf]["hmmBit"]) +

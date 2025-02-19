@@ -48,7 +48,6 @@ elif argv[1] == "YfGenie":
     YfGenie.main()
 elif argv[1] == "PlasticGenie":
     PlasticGenie.main()
-    YfGenie.main()
 elif argv[1] == "RiboGenie":
     RiboGenie.main()
 elif argv[1] == "HmmGenie":
