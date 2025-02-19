@@ -403,7 +403,7 @@ def main():
     counter = 0
     print("Clustering ORFs...")
     out = open(outDirectory + "/summary-2.csv", "w")
-    out.write("organism" + "," + "orfID" + "," + "HMM" + "," + "evalue" + "," + "bitscore" + "," + "clusterID" + "," + "ORF_sequence\n")
+    out.write("organism" + "," + "contig;locus;id" + "," + "HMM" + "," + "evalue" + "," + "bitscore" + "," + "clusterID" + "," + "ORF_sequence\n")
     for i in CoordDict.keys():
         print(".")
         for j in CoordDict[i]:
