@@ -11,7 +11,7 @@ import sys
 # TODO: ADD COLUMN WITH ORF STRAND
 
 
-genie = "ribo"
+genie = "plastic"
 def main():
     def SUM(ls):
         count = 0
@@ -120,7 +120,7 @@ def main():
         return ls
 
     parser = argparse.ArgumentParser(
-        prog="RiboGenie.py",
+        prog="PlasticGenie.py",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         description=textwrap.dedent('''
         *******************************************************
@@ -180,28 +180,7 @@ def main():
     parser.add_argument('-t', type=int, help="number of threads to use for DIAMOND BLAST and HMMSEARCH "
                                              "(default=1, max=16)", default=1)
 
-    parser.add_argument('-bams', type=str, help="a tab-delimited file with two columns: first column has the genome or "
-                                                "metagenome file names; second column has the corresponding BAM file "
-                                                "(provide full path to the BAM file). Use this option if you have genomes "
-                                                "that each have different BAM files associated with them. If you have a set "
-                                                "of bins from a single metagenome sample and, thus, have only one BAM file, "
-                                                " then use the \'-bam\' option. BAM files are only required if you would like to create "
-                                                "a heatmap that summarizes the abundance of a certain gene that is based on "
-                                                "read coverage, rather than gene counts.", default="NA")
-
-    parser.add_argument('-bam', type=str, help="BAM file. This option is only required if you would like to create "
-                                               "a heatmap that summarizes the abundance of a certain gene that is based on "
-                                               "read coverage, rather than gene counts. If you have more than one BAM file"
-                                               "corresponding to different genomes that you are providing, please use the \'-bams\' "
-                                               "argument to provide a tab-delimited file that denotes which BAM file (or files) belongs "
-                                               "with which genome", default="NA")
-
     parser.add_argument('--gbk', type=str, help="include this flag if your bins are in Genbank format", const=True,
-                        nargs="?")
-
-    parser.add_argument('--orfs', type=str,
-                        help="include this flag if you are providing bins as open-reading frames or genes in FASTA amino-acid format",
-                        const=True,
                         nargs="?")
 
     parser.add_argument('--meta', type=str,
@@ -224,12 +203,11 @@ def main():
                              "see the main output (CSV files) from this genie.", const=True, nargs="?")
 
     # CHECKING FOR CONDA INSTALL
-    os.system("echo ${ribo_hmms} > HMMlib.txt")
+    os.system("echo ${plastic_hmms} > HMMlib.txt")
     os.system("echo ${rscripts} > rscripts.txt")
     file = open("HMMlib.txt")
     for i in file:
         HMMdir = i.rstrip()
-    # bits = HMMdir + "/" + "bitscores.txt"
 
     rscriptDir = "~/MagicLamp/rscripts/"
     try:
@@ -267,48 +245,10 @@ def main():
     # ************** Checking for the required arguments ******************* #
     cwd = os.getcwd()
     print("checking arguments")
-
-    if args.bin_dir != "NA":
-        binDir = args.bin_dir + "/"
-        binDirLS = os.listdir(args.bin_dir)
-        print(".")
-    else:
-        print("Looks like you did not provide a directory of genomes/bins or assemblies.")
-        print("Exiting")
-        raise SystemExit
-
-    if args.bam != "NA" and args.bams != "NA":
-        print("Please provide only one of the following flags: \'-bam\' or \'-bams\'.")
-        raise SystemExit
-
-    if args.bin_ext != "NA":
-        print(".")
-    else:
-        print(
-            'Looks like you did not provide an extension for your genomes/bins or assemblies, so this genie does not know'
-            ' which files in the provided directory are fasta files that you would like analyzed.')
-        print("Exiting")
-        raise SystemExit
-
-    try:
-        os.listdir(args.out)
-        print("Looks like you already have a directory with the name: " + args.out)
-
-        answer = input("Would you like this genie to proceed and potentially overwrite files in this directory? (y/n): ")
-        if answer == "y":
-            print("Ok, proceeding with analysis!")
-            try:
-                os.listdir(args.out + "/ORF_calls")
-            except FileNotFoundError:
-                os.system("mkdir %s/ORF_calls" % args.out)
-        else:
-            print("Exiting")
-            raise SystemExit
-
-    except FileNotFoundError:
-        print(".")
-        os.system("mkdir %s" % args.out)
-        os.system("mkdir %s/ORF_calls" % args.out)
+    binDir = args.bin_dir + "/"
+    binDirLS = os.listdir(args.bin_dir)
+    os.system("mkdir %s" % args.out)
+    os.system("mkdir -p %s/ORF_calls" % args.out)
 
     if lastItem(args.out) == "/":
         outDirectory = "%s" % args.out[0:len(args.out) - 1]
@@ -317,18 +257,6 @@ def main():
         outDirectory = "%s" % args.out
         outDirectoryLS = os.listdir("%s" % args.out)
 
-    print("All required arguments provided!")
-    print("")
-
-    # *************** MAKE NR A DIAMOND DB AND READ THE FILE INTO HASH MEMORY ************************ #
-    if args.ref != "NA":
-        try:
-            testFile = open(args.ref + ".dmnd")
-
-        except FileNotFoundError:
-            print("Making diamond database out of provided reference file")
-            os.system("diamond makedb --in %s -d %s" % (args.ref, args.ref))
-
     # *************** CALL ORFS FROM BINS AND READ THE ORFS INTO HASH MEMORY ************************ #
     BinDict = defaultdict(lambda: defaultdict(lambda: 'EMPTY'))
     for i in binDirLS:
@@ -336,156 +264,32 @@ def main():
             cell = i
             if not args.gbk:
 
-                if args.orfs:
-                    testFile = open("%s/%s" % (binDir, i), "r")
-                    for line in testFile:
-                        if re.match(r'>', line):
-                            if re.findall(r'\|]', line):
-                                print("Looks like one of your fasta files has a header containing the character: \|")
-                                print(
-                                    "Unfortunately, this is a problem for this genie because it uses that character as delimiter to store important information.")
-                                print("Please rename your FASTA file headers")
-                                raise SystemExit
+                try:
+                    testFile = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i), "r")
+                    print("ORFS for %s found. Skipping Prodigal, and going with %s-proteins.faa" % (i, i))
 
-                else:
-                    try:
-                        testFile = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i), "r")
-                        print("ORFS for %s found. Skipping Prodigal, and going with %s-proteins.faa" % (i, i))
-                        for line in testFile:
-                            if re.match(r'>', line):
-                                if re.findall(r'\|]', line):
-                                    print(
-                                        "Looks like one of your fasta files has a header containing the character: \|")
-                                    print(
-                                        "Unfortunately, this is a problem for this genie because it uses that character as delimiter to store important information.")
-                                    print("Please rename your FASTA file headers")
-                                    raise SystemExit
-
-                    except FileNotFoundError:
-                        binFile = open("%s/%s" % (binDir, i), "r")
-                        for line in binFile:
-                            if re.match(r'>', line):
-                                if re.findall(r'\|]', line):
-                                    print(
-                                        "Looks like one of your fasta files has a header containing the character: \|")
-                                    print(
-                                        "Unfortunately, this is a problem for this genie because it uses that character as delimiter to store important information.")
-                                    print("Please rename your FASTA file headers")
-                                    raise SystemExit
-
-                        print("Finding ORFs for " + cell)
-                        if args.meta:
-                            os.system(
-                                "prodigal -i %s/%s -a %s/ORF_calls/%s-proteins.faa -o %s/ORF_calls/%s-prodigal.out -p meta -q" % (
-                                    binDir, i, outDirectory, i, outDirectory, i))
-                        else:
-                            os.system(
-                                "prodigal -i %s/%s -a %s/ORF_calls/%s-proteins.faa -o %s/ORF_calls/%s-prodigal.out -q" % (
-                                    binDir, i, outDirectory, i, outDirectory, i))
+                except FileNotFoundError:
+                    binFile = open("%s/%s" % (binDir, i), "r")
+                    print("Finding ORFs for " + i)
+                    if args.meta:
+                        os.system(
+                            "prodigal -i %s/%s -a %s/ORF_calls/%s-proteins.faa -o %s/ORF_calls/%s-prodigal.out -p meta -q" % (
+                                binDir, i, outDirectory, i, outDirectory, i))
+                    else:
+                        os.system(
+                            "prodigal -i %s/%s -a %s/ORF_calls/%s-proteins.faa -o %s/ORF_calls/%s-prodigal.out -q" % (
+                                binDir, i, outDirectory, i, outDirectory, i))
             else:
-                os.system('gtt-genbank-to-AA-seqs -i %s/%s -o %s/%s.faa' % (binDir, i, outDirectory, i))
+                os.system('gb2faa.py %s/%s %s/ORF_calls/%s.faa' % (binDir, i, outDirectory, i))
 
-                faa = open("%s/%s.faa" % (binDir, i))
+                faa = open("%s/ORF_calls/%s.faa" % (binDir, i))
                 faa = fasta(faa)
 
-                gbkDict = defaultdict(list)
-                counter = 0
-
-                count = 0
-                gbk = open("%s/%s" % (binDir, i))
-                for gbkline in gbk:
-                    ls = gbkline.rstrip()
-                    if re.findall(r'/locus_tag', ls):
-                        count += 1
-
-                if count > 0:
-                    gbk = open("%s/%s" % (binDir, i))
-                    for gbkline in gbk:
-                        ls = gbkline.rstrip()
-                        if re.findall(r'LOCUS', ls):
-                            locus = (ls)
-                            locus = (locus.split("       ")[1])
-                            locus = locus.split(" ")[0]
-                        if re.findall(r'gene   ', ls):
-                            gene = (ls)
-                            gene = (gene.split("            ")[1])
-                            start = (gene.split("..")[0])
-                            end = (gene.split("..")[1])
-                            start = remove(start, ["c", "o", "m", "p", "l", "e", "m", "e", "n", "t", "(", ")"])
-                            end = remove(end, ["c", "o", "m", "p", "l", "e", "m", "e", "n", "t", "(", ")"])
-                            altContigName = (locus + "_" + start + "_" + end)
-
-                        if re.findall(r'/locus_tag', ls):
-                            locusTag = (ls)
-                            locusTag = (locusTag.split("=")[1])
-                            locusTag = remove(locusTag, ["\""])
-                            counter += 1
-
-                        if counter > 0:
-                            gbkDict[locus].append(locusTag)
-                            counter = 0
-                else:
-                    # print(i)
-                    gbk = open("%s/%s" % (binDir, i))
-                    for gbkline in gbk:
-                        ls = gbkline.rstrip()
-                        if re.findall(r'LOCUS', ls):
-                            locus = (ls)
-                            locus = (locus.split("       ")[1])
-                            locus = locus.split(" ")[0]
-                        if re.findall(r'gene   ', ls):
-                            gene = (ls)
-                            gene = (gene.split("            ")[1])
-                            start = (gene.split("..")[0])
-                            end = (gene.split("..")[1])
-                            start = remove(start, ["c", "o", "m", "p", "l", "e", "m", "e", "n", "t", "(", ")"])
-                            end = remove(end, ["c", "o", "m", "p", "l", "e", "m", "e", "n", "t", "(", ")"])
-                            altContigName = (locus + "_" + start + "_" + end)
-                            counter += 1
-
-                        if re.findall(r'/locus_tag', ls):
-                            locusTag = (ls)
-                            locusTag = (locusTag.split("=")[1])
-                            locusTag = remove(locusTag, ["\""])
-
-                        if counter > 0:
-                            gbkDict[locus].append(altContigName)
-                            counter = 0
-
-                idxOut = open("%s/ORF_calls/%s-proteins.idx" % (outDirectory, i), "w")
-                faaOut = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i), "w")
-
-                for gbkkey1 in gbkDict.keys():
-                    counter = 0
-                    for gbkey2 in gbkDict[gbkkey1]:
-                        counter += 1
-                        if len(faa[gbkey2]) > 0:
-                            newOrf = gbkkey1 + "_" + str(counter)
-                            idxOut.write(gbkey2 + "," + newOrf + "\n")
-                            faaOut.write(">" + newOrf + "\n")
-                            faaOut.write(str(faa[gbkey2]) + "\n")
-
-                idxOut.close()
-                faaOut.close()
-
-            if args.orfs:
-                file = open("%s/%s" % (binDir, i))
-            else:
-                file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
+            file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
             file = fasta(file)
             for j in file.keys():
-                orf = j.split(" # ")[0]
+                orf = j.split(" ")[0]
                 BinDict[cell][orf] = file[j]
-
-    # ******************** READ BITSCORE CUT-OFFS INTO HASH MEMORY ****************************** #
-
-    # domainDict = defaultdict(lambda: defaultdict(lambda: 'EMPTY'))
-    # meta = open(bits, "r")
-    # metaDict = defaultdict(lambda: defaultdict(lambda: 'EMPTY'))
-    # for i in meta:
-    #     ls = i.rstrip().split("\t")
-    #     metaDict[ls[0]] = ls[2]
-    #     domainDict[ls[0]] = ls[1]
 
     # ******************* BEGINNING MAIN ALGORITHM **********************************))))
     print("starting main pipeline...")
@@ -504,23 +308,11 @@ def main():
                 sys.stdout.write("analyzing " + i + ": %d%%   \r" % (perc))
                 sys.stdout.flush()
 
-                # if len(metaDict[hmm.split(".")[0]]) == 0:
-                #     bit = 0
-                # else:
-                #     bit = metaDict[hmm.split(".")[0]]
-
-                if args.orfs:  # <----->
-                    os.system(
-                        "hmmsearch --cpu %d --cut_tc --tblout %s/%s-HMM/%s.tblout -o %s/%s-HMM/%s.txt %s/%s %s/%s"
-                        % (
-                        int(args.t), outDirectory, i, hmm, outDirectory, i, hmm, HMMdir, hmm, binDir, i)
-                    )
-                else:
-                    os.system(
-                        "hmmsearch --cpu %d --cut_tc --tblout %s/%s-HMM/%s.tblout -o %s/%s-HMM/%s.txt %s/%s %s/ORF_calls/%s-proteins.faa"
-                        % (int(args.t), outDirectory, i, hmm, outDirectory, i, hmm, HMMdir, hmm,
-                           outDirectory, i)
-                    )
+                os.system(
+                    "hmmsearch --cpu %d --cut_tc --tblout %s/%s-HMM/%s.tblout -o %s/%s-HMM/%s.txt %s/%s %s/ORF_calls/%s-proteins.faa"
+                    % (int(args.t), outDirectory, i, hmm, outDirectory, i, hmm, HMMdir, hmm,
+                       outDirectory, i)
+                )
 
                 # REMOVING THE STANDARD OUTPUT FILE
                 os.system(
@@ -554,7 +346,7 @@ def main():
             print("")
 
     out = open("%s/summary.csv" % (outDirectory), "w")
-    out.write("cell" + "," + "ORF" + "," + "HMM" + "," + "evalue" + "," + "bitscore" + "\n")
+    out.write("organism" + "," + "ORF" + "," + "HMM" + "," + "evalue" + "," + "bitscore" + "\n")
     for key in HMMdict.keys():
         for j in HMMdict[key]:
             out.write(key + "," + j + "," + HMMdict[key][j]["hmm"] + "," +
@@ -574,7 +366,6 @@ def main():
                 hmm = ls[2]
                 evalue = ls[3]
                 hmmBit = ls[4]
-                # bitcut = metaDict[hmm.split(".")[0]]
                 seq = BinDict[cell][orf]
 
                 if cell not in SummaryDict.keys():
@@ -582,7 +373,6 @@ def main():
                     SummaryDict[cell][orf]["hmmBit"] = hmmBit
                     SummaryDict[cell][orf]["category"] = category
                     SummaryDict[cell][orf]["e"] = evalue
-                    # SummaryDict[cell][orf]["bitcut"] = bitcut
                     SummaryDict[cell][orf]["seq"] = seq
 
                 else:
@@ -591,7 +381,6 @@ def main():
                         SummaryDict[cell][orf]["hmmBit"] = hmmBit
                         SummaryDict[cell][orf]["category"] = category
                         SummaryDict[cell][orf]["e"] = evalue
-                        # SummaryDict[cell][orf]["bitcut"] = bitcut
                         SummaryDict[cell][orf]["seq"] = seq
 
                     else:
@@ -600,24 +389,25 @@ def main():
                             SummaryDict[cell][orf]["hmmBit"] = hmmBit
                             SummaryDict[cell][orf]["category"] = category
                             SummaryDict[cell][orf]["e"] = evalue
-                            # SummaryDict[cell][orf]["bitcut"] = bitcut
                             SummaryDict[cell][orf]["seq"] = seq
 
     # ****************************** CLUSTERING OF ORFS BASED ON GENOMIC PROXIMITY *************************************
     print("Identifying genomic proximities and putative operons")
     CoordDict = defaultdict(lambda: defaultdict(list))
+    locusDict = defaultdict(lambda: '-')
     for i in SummaryDict.keys():
-        if i != "cell":
+        if i != "organism":
             for j in SummaryDict[i]:
-                contig = allButTheLast(j, "_")
-                numOrf = lastItem(j.split("_"))
+                contig = re.split(r'[_;]', j)[0]
+                numOrf = lastItem(re.split(r'[_;]', j))
+                locusDict[j] = contig + "_" + str(numOrf)
+                locusDict[contig + "_" + str(numOrf)] = j
                 CoordDict[i][contig].append(int(numOrf))
 
     counter = 0
     print("Clustering ORFs...")
-    print("")
     out = open(outDirectory + "/summary-2.csv", "w")
-    out.write("bin" + "," + "orfID" + "," + "HMM" + "," + "evalue" + "," + "bitscore" + "," + "clusterID" + "," + "ORF_sequence\n")
+    out.write("organism" + "," + "orfID" + "," + "HMM" + "," + "evalue" + "," + "bitscore" + "," + "clusterID" + "," + "ORF_sequence\n")
     for i in CoordDict.keys():
         print(".")
         for j in CoordDict[i]:
@@ -626,39 +416,35 @@ def main():
             for k in clusters:
                 if len(RemoveDuplicates(k)) == 1:
                     orf = j + "_" + str(k[0])
+                    locus = locusDict[orf]
 
                     out.write(
-                        i + "," + orf + "," + SummaryDict[i][orf]["hmm"] + "," + SummaryDict[i][orf]["e"] + "," + str(
-                            SummaryDict[i][orf]["hmmBit"]) + "," + # str(SummaryDict[i][orf]["bitcut"]) + "," +
+                        i + "," + locus + "," + SummaryDict[i][orf]["hmm"] + "," + SummaryDict[i][orf]["e"] + "," + str(
+                            SummaryDict[i][orf]["hmmBit"]) + "," +
                         str(counter) + "," + str(SummaryDict[i][orf]["seq"]) + "\n")
-                    out.write(
-                        "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "\n")
+                    out.write("################\n")
                     counter += 1
 
                 else:
                     for l in RemoveDuplicates(k):
                         orf = j + "_" + str(l)
+                        locus = locusDict[orf]
 
-                        out.write(i + "," + orf + "," + SummaryDict[i][orf]["hmm"] + "," + SummaryDict[i][orf][
-                            "e"] + "," + str(SummaryDict[i][orf]["hmmBit"]) + # "," + str(SummaryDict[i][orf]["bitcut"]) +
-                                  "," + str(counter) + "," + str(
-                            SummaryDict[i][orf]["seq"]) + "\n")
-                    out.write(
-                        "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "\n")
+                        out.write(i + "," + locus + "," + SummaryDict[i][orf]["hmm"] + "," + SummaryDict[i][orf][
+                            "e"] + "," + str(SummaryDict[i][orf]["hmmBit"]) +
+                                  "," + str(counter) + "," + str(SummaryDict[i][orf]["seq"]) + "\n")
+                    out.write("################\n")
                     counter += 1
     out.close()
 
     os.system("rm %s/summary.csv" % (args.out))
-    os.system("mv %s/summary-2.csv %s/%sgenie-summary.csv" % (args.out, args.out, genie))
+    os.system("mv %s/summary-2.csv %s/plasticgenie-summary.csv" % (args.out, args.out))
 
     os.system("mkdir -p %s/HMM_results" % outDirectory)
-    # os.system("rm -f %s/ORF_calls/*-prodigal.out" % outDirectory)
     os.system("rm -rf %s/HMM_results/*-HMM" % outDirectory)
     os.system("mv -f %s/*-HMM %s/HMM_results/" % (outDirectory, outDirectory))
 
     # ****************************** CREATING A HEATMAP-COMPATIBLE CSV FILE *************************************
-    print("....")
-    print(".....")
     # GENE COUNTS-BASED ABUNDANCE
     cats = []
     Dict = defaultdict(lambda: defaultdict(list))
@@ -676,12 +462,8 @@ def main():
     normDict = defaultdict(lambda: 0)
     for i in os.listdir(args.bin_dir):
         if lastItem(i.split(".")) == args.bin_ext:
-            if args.orfs:
-                file = open("%s/%s" % (binDir, i), "r")
-                file = fasta(file)
-            else:
-                file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i), "r")
-                file = fasta(file)
+            file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i), "r")
+            file = fasta(file)
             normDict[i] = len(file.keys())
 
     outHeat = open("%s/%sgenie.heatmap.csv" % (outDirectory, genie), "w")
@@ -701,8 +483,6 @@ def main():
         outHeat.write("\n")
     outHeat.close()
 
-    print('......')
-    print(".......")
     print("Finished!")
 
     # ******** RUNNING RSCRIPT TO GENERATE PLOTS **************
@@ -722,33 +502,23 @@ def main():
             os.system("Rscript --vanilla %s/dendro-heatmap.R %s/%sgenie.heatmap.csv %s/" % (
             rscriptDir, outDirectory, genie, outDirectory))
 
-        print("\n\n\n")
-        print("...")
-
     # ******** RUNNING RSCRIPT TO GENERATE PLOTS **************
     if args.makeplots:
         print("Running Rscript to generate plots. Do not be alarmed if you see Warning or Error messages from Rscript. "
               "This will not affect any of the output data that was already created. If you see plots generated, great! "
               "If not, you can plot the data as you wish on your own, or start an issue on MagicLamp's GitHub repository\n")
 
-        if args.bam == "NA" and args.bams == "NA":
-            if args.norm:
-                os.system("Rscript --vanilla %s/DotPlot.R %s/%sgenie.heatmap.csv %s/" % (
-                rscriptDir, outDirectory, genie, outDirectory))
-                os.system("Rscript --vanilla %s/dendro-heatmap.R %s/%sgenie.heatmap.csv %s/" % (
-                rscriptDir, outDirectory, genie, outDirectory))
-            else:
-                os.system("Rscript --vanilla %s/DotPlot-nonorm.R %s/%sgenie.heatmap.csv %s/" % (
-                rscriptDir, outDirectory, genie, outDirectory))
-                os.system("Rscript --vanilla %s/dendro-heatmap.R %s/%sgenie.heatmap.csv %s/" % (
-                rscriptDir, outDirectory, genie, outDirectory))
-        else:
-            os.system("Rscript --vanilla %s/DotPlot.R %s/%sgenie.readDepth.heatmap.csv %s/" % (
+        if args.norm:
+            os.system("Rscript --vanilla %s/DotPlot.R %s/%sgenie.heatmap.csv %s/" % (
             rscriptDir, outDirectory, genie, outDirectory))
-            os.system("Rscript --vanilla %s/dendro-heatmap.R %s/%sgenie.readDepth.heatmap.csv %s/" % (
+            os.system("Rscript --vanilla %s/dendro-heatmap.R %s/%sgenie.heatmap.csv %s/" % (
+            rscriptDir, outDirectory, genie, outDirectory))
+        else:
+            os.system("Rscript --vanilla %s/DotPlot-nonorm.R %s/%sgenie.heatmap.csv %s/" % (
+            rscriptDir, outDirectory, genie, outDirectory))
+            os.system("Rscript --vanilla %s/dendro-heatmap.R %s/%sgenie.heatmap.csv %s/" % (
             rscriptDir, outDirectory, genie, outDirectory))
 
-    print("")
     print("Results are written to %s/%sgenie-summary.csv and %s/%sgenie.heatmap.csv" % (args.out, genie, args.out, genie))
     print("Pipeline finished without crashing!!! Thanks for using :)")
 
