@@ -258,7 +258,15 @@ def main():
     for i in binDirLS:
         if lastItem(i.split(".")) == args.bin_ext:
             cell = i
-            if not args.gbk:
+
+            os.system("GB-or-FA.py %s/%s type" % (binDir, i))
+            file = open("type.txt")
+            fileType = "fa"
+            for j in file:
+                fileType = j.rstrip()
+            os.system("rm type.txt")
+
+            if fileType == "gbk":
 
                 try:
                     testFile = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i), "r")
@@ -275,8 +283,11 @@ def main():
                         os.system(
                             "prodigal -i %s/%s -a %s/ORF_calls/%s-proteins.faa -o %s/ORF_calls/%s-prodigal.out -q" % (
                                 binDir, i, outDirectory, i, outDirectory, i))
-            else:
+            elif fileType == "fa":
                 os.system('gb2faa.py %s/%s %s/ORF_calls/%s-proteins.faa' % (binDir, i, outDirectory, i))
+            else:
+                print("File type not recognized. Please provide a GenBank or FASTA file")
+                raise SystemExit
 
             file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
             file = fasta(file)
