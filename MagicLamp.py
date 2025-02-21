@@ -27,7 +27,7 @@ if argv[1] == "FeGenie":
     FeGenie.main()
 elif argv[1] == "LithoGenie":
     LithoGenie.main()
-elif argv[1] == "Lucifer":
+elif argv[1] == "OmniGenie":
     OmniGenie.main()
 elif argv[1] == "HmmGenie":
     HmmGenie.main()

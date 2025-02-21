@@ -27,7 +27,7 @@ def detect_file_format(input_file, output_file):
     print("Unknown format")
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 3:
         print("Usage: python detect_format.py <input_file> <output_file>")
         sys.exit(1)
 
