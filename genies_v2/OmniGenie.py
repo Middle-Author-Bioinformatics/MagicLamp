@@ -441,7 +441,7 @@ def main():
     out.close()
 
     os.system("rm %s/summary.csv" % (args.out))
-    os.system("mv %s/summary-2.csv %s/%sgenie-summary.csv" % (genie, args.out, genie))
+    os.system("mv %s/summary-2.csv %s/%sgenie-summary.csv" % (args.out, args.out, genie))
 
     os.system("mkdir -p %s/HMM_results" % outDirectory)
     os.system("rm -rf %s/HMM_results/*-HMM" % outDirectory)
