@@ -223,7 +223,7 @@ def main():
             location = i.rstrip()
         location = allButTheLast(location, "/")
 
-        HMMdir = location + "/hmms/%sgenie/" % genie
+        HMMdir = location + "/hmms/%s/" % genie
         rscriptDir = location + "/rscripts/"
 
         try:
