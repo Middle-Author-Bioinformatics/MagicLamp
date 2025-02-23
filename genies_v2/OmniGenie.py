@@ -421,7 +421,7 @@ def main():
         if i != "organism":
             for j in SummaryDict[i]:
                 contig = j.split(";")[0]
-                numOrf = j.split(";")[0].split("_")[1]
+                numOrf = j.split(";")[1].split("_")[1]
                 print(i + "\t" + j + "\t" + str(contig) + "\t" + str(numOrf))
                 # locusDict[j] = contig + "_" + str(numOrf)
                 locusDict[contig + "_" + str(numOrf)] = j.split(";")[1]
