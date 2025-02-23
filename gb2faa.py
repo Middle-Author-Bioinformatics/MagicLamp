@@ -21,15 +21,15 @@ def extract_proteins_or_contigs(genbank_file, output_fasta, output_type):
         if has_proteins:
             out.write("proteins")
             for record in records:
-                counter = 0
+                # counter = 0
                 for feature in record.features:
-                    counter += 1
+                    # counter += 1
                     if feature.type == "CDS" and "translation" in feature.qualifiers:
                         locus_tag = feature.qualifiers.get("locus_tag", ["unknown"])[0]
                         # product = feature.qualifiers.get("product", ["unknown"])[0]
                         protein_seq = feature.qualifiers["translation"][0]
                         # fasta_out.write(f">{record.name};{locus_tag};{product};{str(counter)}\n{protein_seq}\n")
-                        fasta_out.write(f">{record.name};{locus_tag};{str(counter)}\n{protein_seq}\n")
+                        fasta_out.write(f">{record.name};{locus_tag}\n{protein_seq}\n")
         else:
             out.write("contigs")
             for record in records:
