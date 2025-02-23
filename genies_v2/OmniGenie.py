@@ -479,8 +479,8 @@ def main():
     for i in final:
         if not re.match(r'#', i):
             ls = (i.rstrip().split(","))
-            if ls[0] != "bin" and ls[1] != "assembly" and ls[1] != "genome" and ls[1] != "file":
-                cell = ls[1]
+            if ls[0] != "organism":
+                cell = ls[0]
                 gene = ls[2]
                 if gene not in cats:
                     cats.append(gene)
