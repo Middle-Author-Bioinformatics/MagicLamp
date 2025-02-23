@@ -5,31 +5,36 @@ from Bio import SeqIO
 
 def extract_proteins_or_contigs(genbank_file, output_fasta, output_type):
     has_proteins = False
+    records = list(SeqIO.parse(genbank_file, "genbank"))
     out = open(output_type, "w")
-    counter = 0
+
+    # Determine if any sequence contains proteins before processing
+    for record in records:
+        for feature in record.features:
+            if feature.type == "CDS" and "translation" in feature.qualifiers:
+                has_proteins = True
+                break
+        if has_proteins:
+            break
+
     with open(output_fasta, 'w') as fasta_out:
-        for record in SeqIO.parse(genbank_file, "genbank"):
-            contig_name = record.name  # Contig name from LOCUS line
-            contig_seq = str(record.seq)
+        if has_proteins:
+            out.write("proteins")
             counter = 0
-
-            for feature in record.features:
-                if feature.type == "CDS" and "translation" in feature.qualifiers:
-                    has_proteins = True
-                    locus_tag = feature.qualifiers.get("locus_tag", ["unknown"])[0]
-                    protein_seq = feature.qualifiers["translation"][0]
-                    fasta_out.write(f">{contig_name};{locus_tag};{counter}\n{protein_seq}\n")
-
-            # If no protein sequences were found, write contigs instead
-            if not has_proteins:
+            for record in records:
                 counter += 1
-                fasta_out.write(f">{contig_name}\n{contig_seq}\n")
-    if counter > 0:
-        out.write("contigs")
-    else:
-        out.write("proteins")
-    out.close()
-
+                for feature in record.features:
+                    if feature.type == "CDS" and "translation" in feature.qualifiers:
+                        locus_tag = feature.qualifiers.get("locus_tag", ["unknown"])[0]
+                        # product = feature.qualifiers.get("product", ["unknown"])[0]
+                        protein_seq = feature.qualifiers["translation"][0]
+                        # fasta_out.write(f">{record.name};{locus_tag};{product};{str(counter)}\n{protein_seq}\n")
+                        fasta_out.write(f">{record.name};{locus_tag};{str(counter)}\n{protein_seq}\n")
+        else:
+            out.write("contigs")
+            for record in records:
+                fasta_out.write(f">{record.name}\n{record.seq}\n")
+        out.close()
 
 
 if __name__ == "__main__":

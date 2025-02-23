@@ -419,19 +419,17 @@ def main():
     for i in SummaryDict.keys():
         if i != "organism":
             for j in SummaryDict[i]:
-                contig = re.split(r';', j)[0]
-                numOrf = lastItem(re.split(r'[;]', j))
-
-                locusDict[j] = contig + "_" + str(numOrf)
-                locusDict[contig + "_" + str(numOrf)] = j
-
+                contig = j.split(";")[0]
+                numOrf = lastItem(j.split(";"))
+                print(i + "\t" + j + "\t" + str(contig) + "\t" + str(numOrf))
+                # locusDict[j] = contig + "_" + str(numOrf)
+                locusDict[contig + "_" + str(numOrf)] = j.split(";")[1]
                 CoordDict[i][contig].append(int(numOrf))
-
 
     counter = 0
     print("Clustering ORFs...")
     out = open(outDirectory + "/summary-2.csv", "w")
-    out.write("organism" + "," + "contig;locus;id" + "," + "HMM" + "," + "evalue" + "," + "bitscore" + "," + "clusterID" + "," + "ORF_sequence\n")
+    out.write("organism" + "," + "locus" + "," + "HMM" + "," + "evalue" + "," + "bitscore" + "," + "clusterID" + "," + "ORF_sequence\n")
     for i in CoordDict.keys():
         print(".")
         for j in CoordDict[i]:
