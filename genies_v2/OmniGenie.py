@@ -354,7 +354,7 @@ def main():
                         ls = delim(line)
                         evalue = float(ls[4])
                         bit = float(ls[5])
-                        orf = ls[0]
+                        orf = ls[0].split(";")[1]
                         # if evalue < float(1E-1):  # FILTERING OUT BACKGROUND NOISE
                             # LOADING HMM HIT INTO DICTIONARY, BUT ONLY IF THE ORF DID NOT HAVE ANY OTHER HMM HITS
 
