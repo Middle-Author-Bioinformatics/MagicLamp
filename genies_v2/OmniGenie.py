@@ -354,7 +354,7 @@ def main():
                         ls = delim(line)
                         evalue = float(ls[4])
                         bit = float(ls[5])
-                        orf = ls[0].split(";")[1]
+                        orf = ls[0]
                         # if evalue < float(1E-1):  # FILTERING OUT BACKGROUND NOISE
                             # LOADING HMM HIT INTO DICTIONARY, BUT ONLY IF THE ORF DID NOT HAVE ANY OTHER HMM HITS
 
@@ -428,7 +428,7 @@ def main():
                 # locusDict[j] = contig + "_" + str(numOrf)
                 locusDict[contig + "_" + str(numOrf)] = j.split(";")[1]
                 CoordDict[i][contig].append(int(numOrf))
-                numDict[contig][int(numOrf)] = locus
+                numDict[contig][int(numOrf)] = j
 
     counter = 0
     print("Clustering ORFs...")
