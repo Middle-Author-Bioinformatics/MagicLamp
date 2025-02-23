@@ -284,7 +284,27 @@ def main():
                             "prodigal -i %s/%s -a %s/ORF_calls/%s-proteins.faa -o %s/ORF_calls/%s-prodigal.out -q" % (
                                 binDir, i, outDirectory, i, outDirectory, i))
             elif fileType == "gbk":
-                os.system('gb2faa.py %s/%s %s/ORF_calls/%s-proteins.faa' % (binDir, i, outDirectory, i))
+                os.system('gb2faa.py %s/%s %s/ORF_calls/%s-proteins.faa type.txt' % (binDir, i, outDirectory, i))
+                file = open("type.txt")
+                fileType = "fa"
+                for j in file:
+                    fileType = j.rstrip()
+                os.system("rm type.txt")
+
+                if fileType == "proteins":
+                    pass
+                else:
+                    if args.meta:
+                        os.system(
+                            "prodigal -i %s/%s-proteins.faa -a %s/ORF_calls/%s-proteins2.faa -o %s/ORF_calls/%s-prodigal.out -p meta -q" % (
+                                binDir, i, outDirectory, i, outDirectory, i))
+                    else:
+                        os.system(
+                            "prodigal -i %s/%s-proteins.faa -a %s/ORF_calls/%s-proteins2.faa -o %s/ORF_calls/%s-prodigal.out -q" % (
+                                binDir, i, outDirectory, i, outDirectory, i))
+
+                    os.system("mv %s/ORF_calls/%s-proteins2.faa %s/ORF_calls/%s-proteins.faa" % (outDirectory, i, outDirectory, i))
+
             else:
                 print("File type not recognized. Please provide a GenBank or FASTA file")
                 raise SystemExit
