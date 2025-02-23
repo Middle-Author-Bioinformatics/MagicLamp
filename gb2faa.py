@@ -20,8 +20,8 @@ def extract_proteins_or_contigs(genbank_file, output_fasta, output_type):
     with open(output_fasta, 'w') as fasta_out:
         if has_proteins:
             out.write("proteins")
-            counter = 0
             for record in records:
+                counter = 0
                 for feature in record.features:
                     counter += 1
                     if feature.type == "CDS" and "translation" in feature.qualifiers:
