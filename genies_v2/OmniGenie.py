@@ -417,7 +417,7 @@ def main():
     print("Identifying genomic proximities and putative operons")
     CoordDict = defaultdict(lambda: defaultdict(list))
     locusDict = defaultdict(lambda: '-')
-    numDict = defaultdict(lambda: defaultdict(lambda: -))
+    numDict = defaultdict(lambda: defaultdict(lambda: '-'))
     for i in SummaryDict.keys():
         if i != "organism":
             for j in SummaryDict[i]:
