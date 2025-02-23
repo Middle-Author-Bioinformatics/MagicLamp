@@ -287,7 +287,7 @@ def main():
                 os.system('gb2faa.py %s/%s %s/ORF_calls/%s-proteins.faa type.txt' % (binDir, i, outDirectory, i))
 
                 file = open("type.txt")
-                fileType = "fa"
+                fileType = "contigs"
                 for j in file:
                     fileType = j.rstrip()
                 os.system("rm type.txt")
