@@ -294,6 +294,7 @@ def main():
 
                 if fileType == "proteins":
                     pass
+
                 else:
                     if args.meta:
                         os.system(
