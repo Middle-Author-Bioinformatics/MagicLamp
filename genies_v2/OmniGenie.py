@@ -417,15 +417,18 @@ def main():
     print("Identifying genomic proximities and putative operons")
     CoordDict = defaultdict(lambda: defaultdict(list))
     locusDict = defaultdict(lambda: '-')
+    numDict = defaultdict(lambda: defaultdict(lambda: -))
     for i in SummaryDict.keys():
         if i != "organism":
             for j in SummaryDict[i]:
                 contig = j.split(";")[0]
-                numOrf = j.split(";")[1].split("_")[1]
-                print(i + "\t" + j + "\t" + str(contig) + "\t" + str(numOrf))
+                numOrf = j.split(";")[2]
+                locus = j.split(";")[1]
+                print(i + "\t" + j + "\t" + str(contig) + "\t" + str(numOrf) + "\t" + str(locus))
                 # locusDict[j] = contig + "_" + str(numOrf)
                 locusDict[contig + "_" + str(numOrf)] = j.split(";")[1]
                 CoordDict[i][contig].append(int(numOrf))
+                numDict[contig][int(numOrf)] = locus
 
     counter = 0
     print("Clustering ORFs...")
@@ -438,8 +441,9 @@ def main():
             clusters = (cluster(LS, args.d))
             for k in clusters:
                 if len(RemoveDuplicates(k)) == 1:
-                    orf = j + "_" + str(k[0])
-                    locus = locusDict[orf]
+                    # orf = j + "_" + str(k[0])
+                    locus = numDict[j][k[0]]
+
 
                     out.write(
                         i + "," + locus + "," + SummaryDict[i][locus]["hmm"] + "," + SummaryDict[i][locus]["e"] + "," + str(
@@ -450,8 +454,8 @@ def main():
 
                 else:
                     for l in RemoveDuplicates(k):
-                        orf = j + "_" + str(l)
-                        locus = locusDict[orf]
+                        # orf = j + "_" + str(l)
+                        locus = numDict[j][l]
 
                         out.write(i + "," + locus + "," + SummaryDict[i][locus]["hmm"] + "," + SummaryDict[i][locus][
                             "e"] + "," + str(SummaryDict[i][locus]["hmmBit"]) +
