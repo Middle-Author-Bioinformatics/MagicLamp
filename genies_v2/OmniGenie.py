@@ -320,6 +320,7 @@ def main():
     # ******************* BEGINNING MAIN ALGORITHM **********************************))))
     print("starting main pipeline...")
     # HMMdirLS = os.listdir(HMMdir)
+    # HMMdir = HMMdir + "/"
     HMMdirLS = [f for f in os.listdir(HMMdir) if f.lower().endswith('.hmm')]
     HMMdict = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: 0)))
     for i in binDirLS:  # ITERATION THROUGH EACH BIN IN A GIVEN DIRECTORY OF BINS
