@@ -388,8 +388,7 @@ def main():
         if ls[0] != "organism":
             if len(ls) > 0:
                 cell = ls[0]
-                orf = ls[1]
-                print(orf)
+                orf = str(ls[1])
                 hmm = ls[2]
                 evalue = ls[3]
                 hmmBit = ls[4]
