@@ -417,19 +417,18 @@ def main():
     # ****************************** CLUSTERING OF ORFS BASED ON GENOMIC PROXIMITY *************************************
     print("Identifying genomic proximities and putative operons")
     CoordDict = defaultdict(lambda: defaultdict(list))
-    locusDict = defaultdict(lambda: '-')
+    # locusDict = defaultdict(lambda: '-')
     numDict = defaultdict(lambda: defaultdict(lambda: '-'))
     for i in SummaryDict.keys():
         if i != "organism":
             for j in SummaryDict[i]:
-                print(i + "\t" + j + "\t" + str(SummaryDict[i][j]["hmm"]) + "\t" + str(SummaryDict[i][j]["e"]) + "\t" + str(SummaryDict[i][j]["hmmBit"]))
-                print(j)
-                print(j.split(";"))
-                contig = j.split(";")[0]
-                numOrf = j.split(";")[2]
-                locus = j.split(";")[1]
-                # locusDict[j] = contig + "_" + str(numOrf)
-                locusDict[contig + "_" + str(numOrf)] = j.split(";")[1]
+                # print(i + "\t" + j + "\t" + str(SummaryDict[i][j]["hmm"]) + "\t" + str(SummaryDict[i][j]["e"]) + "\t" + str(SummaryDict[i][j]["hmmBit"]))
+                # print(j)
+                # print(j.split(";"))
+                contig = allButTheLast(j, "_")
+                numOrf = lastItem(j.split("_"))
+                # # locusDict[j] = contig + "_" + str(numOrf)
+                # locusDict[contig + "_" + str(numOrf)] = j.split("_")[1]
                 CoordDict[i][contig].append(int(numOrf))
                 numDict[contig][int(numOrf)] = j
 
