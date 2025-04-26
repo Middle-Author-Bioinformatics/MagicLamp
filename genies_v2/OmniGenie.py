@@ -389,6 +389,7 @@ def main():
             if len(ls) > 0:
                 cell = ls[0]
                 orf = ls[1]
+                print(orf)
                 hmm = ls[2]
                 evalue = ls[3]
                 hmmBit = ls[4]
@@ -426,7 +427,7 @@ def main():
                 print(j)
                 print(j.split(";"))
                 contig = j.split(";")[0]
-                numOrf = j.split(";")[-1]
+                numOrf = j.split(";")[2]
                 locus = j.split(";")[1]
                 # locusDict[j] = contig + "_" + str(numOrf)
                 locusDict[contig + "_" + str(numOrf)] = j.split(";")[1]
