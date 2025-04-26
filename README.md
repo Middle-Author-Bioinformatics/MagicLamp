@@ -1,4 +1,5 @@
-# MagicLamp - YfGenie
+# MagicLamp
+
 ### A software package for annotation of genomic datasets using discreet HMM sets.
 
 ![pipeline](https://github.com/Arkadiy-Garber/MagicLamp/blob/master/pipeline.png)
