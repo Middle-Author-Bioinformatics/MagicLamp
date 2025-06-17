@@ -353,6 +353,10 @@ def main():
                         help="invoke this flag if you would like HmmGenie to use Phobius for signal peptide and transmembrane prediction",
                         const=True, nargs="?")
 
+    parser.add_argument('--euk', type=str,
+                        help="invoke this flag if you would like HmmGenie to use Augustus instead of Prodigal for gene prediction",
+                        const=True, nargs="?")
+
     # parser.add_argument('--makeplots', type=str,
     #                     help="include this flag if you would like HmmGenie to make some figures from your data?. "
     #                          "To take advantage of this part of the pipeline, you will need to have Rscipt installed. It is a way for R to be called directly from the command line. "
@@ -472,13 +476,19 @@ def main():
                                     raise SystemExit
 
                         print("Finding ORFs for " + cell)
-                        if args.meta:
-                            os.system("prodigal -i %s/%s -a %s/ORF_calls/%s-proteins.faa -o %s/ORF_calls/%s-prodigal.out -p meta -q -g %s" % (
-                                binDir, i, outDirectory, i, outDirectory, i, args.translation_table))
-                        else:
+
+                        if args.euk:
                             os.system(
-                                "prodigal -i %s/%s -a %s/ORF_calls/%s-proteins.faa -o %s/ORF_calls/%s-prodigal.out -q -g %s" % (
+                                "augustus.sh -s saccharomyces_cerevisiae_S288C -f %s/%s -g %s/ORF_calls/%s-proteins.gff -p %s/ORF_calls/%s-proteins.faa" % (
+                                    binDir, i, outDirectory, i, outDirectory, i))
+                        else:
+                            if args.meta:
+                                os.system("prodigal -i %s/%s -a %s/ORF_calls/%s-proteins.faa -o %s/ORF_calls/%s-prodigal.out -p meta -q -g %s" % (
                                     binDir, i, outDirectory, i, outDirectory, i, args.translation_table))
+                            else:
+                                os.system(
+                                    "prodigal -i %s/%s -a %s/ORF_calls/%s-proteins.faa -o %s/ORF_calls/%s-prodigal.out -q -g %s" % (
+                                        binDir, i, outDirectory, i, outDirectory, i, args.translation_table))
             else:
                 os.system('gtt-genbank-to-AA-seqs -i %s/%s -o %s/%s.faa' % (binDir, i, outDirectory, i))
 
