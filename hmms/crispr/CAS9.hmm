@@ -1,3 +1,5 @@
+HMMER3/f [3.3.2 | Nov 2020]
+NAME  TIGR01865
 ACC   TIGR01865
 DESC  cas_Csn1: CRISPR subtype II RNA-guided endonuclease Cas9
 LENG  830
@@ -17,7 +19,7 @@ NC    133.90 133.90
 STATS LOCAL MSV      -12.4325  0.69609
 STATS LOCAL VITERBI  -13.4965  0.69609
 STATS LOCAL FORWARD   -6.4783  0.69609
-HMM          A        C        D        E        F        G        H        I        K        L        M        N        P        Q        R        S        T        V        W        Y
+HMM          A        C        D        E        F        G        H        I        K        L        M        N        P        Q        R        S        T        V        W        Y   
             m->m     m->i     m->d     i->m     i->i     d->m     d->d
   COMPO   2.62187  4.58734  2.85868  2.54282  3.33049  3.08374  3.63226  2.85947  2.42706  2.49460  3.80242  2.92784  3.52852  2.98529  2.79166  2.65537  2.84828  2.80969  4.78084  3.46840
           2.68618  4.42225  2.77519  2.73123  3.46354  2.40513  3.72494  3.29354  2.67741  2.69355  4.24690  2.90347  2.73739  3.18146  2.89801  2.37887  2.77519  2.98518  4.58477  3.61503
