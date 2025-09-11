@@ -1,3 +1,5 @@
+HMMER3/f [3.3.2 | Nov 2020]
+NAME  TIGR01863
 ACC   TIGR01863
 DESC  cas_Csd1: CRISPR-associated protein Cas8c/Csd1, subtype I-C/DVULG
 LENG  588
@@ -17,7 +19,7 @@ NC    156.95 156.95
 STATS LOCAL MSV      -11.7346  0.69730
 STATS LOCAL VITERBI  -12.8532  0.69730
 STATS LOCAL FORWARD   -6.3057  0.69730
-HMM          A        C        D        E        F        G        H        I        K        L        M        N        P        Q        R        S        T        V        W        Y
+HMM          A        C        D        E        F        G        H        I        K        L        M        N        P        Q        R        S        T        V        W        Y   
             m->m     m->i     m->d     i->m     i->i     d->m     d->d
   COMPO   2.44897  4.50289  2.96985  2.56999  3.34528  2.94222  3.64702  3.00756  2.59990  2.42168  3.76345  3.06491  3.34875  2.98117  2.81146  2.64845  2.86713  2.78429  4.51060  3.44414
           2.68618  4.42225  2.77519  2.73123  3.46354  2.40513  3.72494  3.29354  2.67741  2.69355  4.24690  2.90347  2.73739  3.18146  2.89801  2.37887  2.77519  2.98518  4.58477  3.61503
