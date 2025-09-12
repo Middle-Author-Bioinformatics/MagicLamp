@@ -259,12 +259,12 @@ def main():
         if lastItem(i.split(".")) == args.bin_ext:
             cell = i
 
-            os.system("GB-or-FA.py %s/%s type.txt" % (binDir, i))
-            file = open("type.txt")
+            # os.system("GB-or-FA.py %s/%s type.txt" % (binDir, i))
+            # file = open("type.txt")
             fileType = "fa"
-            for j in file:
-                fileType = j.rstrip()
-            os.system("rm type.txt")
+            # for j in file:
+            #     fileType = j.rstrip()
+            # os.system("rm type.txt")
 
             if fileType == "fa":
 
