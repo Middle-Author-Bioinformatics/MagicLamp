@@ -360,13 +360,14 @@ def main():
                             # LOADING HMM HIT INTO DICTIONARY, BUT ONLY IF THE ORF DID NOT HAVE ANY OTHER HMM HITS
 
                         if orf not in HMMdict[i]:
-                            HMMdict[i][orf]["hmm"] = hmm.split(".hm")[0]
+                            # HMMdict[i][orf]["hmm"] = hmm.split(".hm")[0]
+                            HMMdict[i][orf]["hmm"] = ls[2]
                             HMMdict[i][orf]["evalue"] = evalue
                             HMMdict[i][orf]["bit"] = bit
                         else:
                             # COMPARING HITS FROM DIFFERENT HMM FILES TO THE SAME ORF
                             if bit > HMMdict[i][orf]["bit"]:
-                                HMMdict[i][orf]["hmm"] = hmm.split(".hm")[0]
+                                HMMdict[i][orf]["hmm"] = ls[2]
                                 HMMdict[i][orf]["evalue"] = evalue
                                 HMMdict[i][orf]["bit"] = bit
 
