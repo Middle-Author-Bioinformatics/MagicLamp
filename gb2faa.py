@@ -42,7 +42,7 @@ if __name__ == "__main__":
         description="Extract protein sequences from a GenBank file and save them in FASTA format. If no proteins are found, output contigs instead.")
     parser.add_argument("input", help="Path to the input GenBank file")
     parser.add_argument("output", help="Path to the output FASTA file")
-    parser.add_argument("outputType", help="Path to the output FASTA file")
+    parser.add_argument("outputType", help="Path to the output type file")
 
     args = parser.parse_args()
     extract_proteins_or_contigs(args.input, args.output, args.outputType)
