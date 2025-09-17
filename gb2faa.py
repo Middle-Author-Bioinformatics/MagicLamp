@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 from Bio import SeqIO
+import os
 
 
 def extract_proteins_or_contigs(genbank_file, output_fasta, output_type, protein_only=False):
@@ -34,7 +35,10 @@ def extract_proteins_or_contigs(genbank_file, output_fasta, output_type, protein
                 for record in records:
                     fasta_out.write(f">{record.name}\n{record.seq}\n")
             else:
-                out.write("no_proteins_found")
+                print("no_proteins_found")
+                # remove the empty output_fasta file if created
+                if os.path.exists(output_fasta):
+                    os.remove(output_fasta)
     out.close()
 
 
