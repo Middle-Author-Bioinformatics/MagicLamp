@@ -268,7 +268,7 @@ def main():
                 fileType = "contigs"
                 for j in file:
                     fileType = j.rstrip()
-                os.system("rm type.txt")
+                os.system("rm %s/type.txt" % outDirectory)
 
                 if fileType == "proteins":
                     pass
