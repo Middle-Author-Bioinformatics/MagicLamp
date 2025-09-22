@@ -262,9 +262,9 @@ def main():
             if args.gbk:
 
                 os.system('gb2faa.py %s/%s %s/ORF_calls/%s-proteins.faa %s/type.txt --protein-only' % (
-                binDir, i, outDirectory, i, i))
+                binDir, i, outDirectory, i, outDirectory))
 
-                file = open("%s/type.tx" % i)
+                file = open("%s/type.txt" % outDirectory)
                 fileType = "contigs"
                 for j in file:
                     fileType = j.rstrip()
