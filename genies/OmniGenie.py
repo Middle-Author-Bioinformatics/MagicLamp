@@ -259,23 +259,15 @@ def main():
         if lastItem(i.split(".")) == args.bin_ext:
             cell = i
 
-            if args.gbk:
+            # os.system("GB-or-FA.py %s/%s type.txt" % (binDir, i))
+            # file = open("type.txt")
+            fileType = "fa"
+            # for j in file:
+            #     fileType = j.rstrip()
+            # os.system("rm type.txt")
 
-                os.system('gb2faa.py %s/%s %s/ORF_calls/%s-proteins.faa %s/type.txt --protein-only' % (
-                binDir, i, outDirectory, i, i))
+            if fileType == "fa":
 
-                file = open("%s/type.tx" % i)
-                fileType = "contigs"
-                for j in file:
-                    fileType = j.rstrip()
-                os.system("rm type.txt")
-
-                if fileType == "proteins":
-                    pass
-
-                else:
-                    os.system("rm %s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
-            else:
                 try:
                     testFile = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i), "r")
                     print("ORFS for %s found. Skipping Prodigal, and going with %s-proteins.faa" % (i, i))
@@ -291,16 +283,39 @@ def main():
                         os.system(
                             "prodigal -i %s/%s -a %s/ORF_calls/%s-proteins.faa -o %s/ORF_calls/%s-prodigal.out -q" % (
                                 binDir, i, outDirectory, i, outDirectory, i))
+            elif fileType == "gbk":
+                os.system('gb2faa.py %s/%s %s/ORF_calls/%s-proteins.faa type.txt --protein-only' % (binDir, i, outDirectory, i))
 
-            try:
-                file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
-                file = fasta(file)
-                for j in file.keys():
-                    orf = j.split(" ")[0]
-                    BinDict[cell][orf] = str(file[j])
-            except FileNotFoundError:
-                print("No ORFs found for %s. Skipping this bin." % i)
-                pass
+                file = open("type.txt")
+                fileType = "contigs"
+                for j in file:
+                    fileType = j.rstrip()
+                os.system("rm type.txt")
+
+                if fileType == "proteins":
+                    pass
+
+                else:
+                    if args.meta:
+                        os.system(
+                            "prodigal -i %s/%s-proteins.faa -a %s/ORF_calls/%s-proteins2.faa -o %s/ORF_calls/%s-prodigal.out -p meta -q" % (
+                                binDir, i, outDirectory, i, outDirectory, i))
+                    else:
+                        os.system(
+                            "prodigal -i %s/%s-proteins.faa -a %s/ORF_calls/%s-proteins2.faa -o %s/ORF_calls/%s-prodigal.out -q" % (
+                                binDir, i, outDirectory, i, outDirectory, i))
+
+                    os.system("mv %s/ORF_calls/%s-proteins2.faa %s/ORF_calls/%s-proteins.faa" % (outDirectory, i, outDirectory, i))
+
+            else:
+                print("File type not recognized. Please provide a GenBank or FASTA file")
+                raise SystemExit
+
+            file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
+            file = fasta(file)
+            for j in file.keys():
+                orf = j.split(" ")[0]
+                BinDict[cell][orf] = str(file[j])
 
     # ******************* BEGINNING MAIN ALGORITHM **********************************))))
     print("starting main pipeline...")
@@ -403,25 +418,25 @@ def main():
     # ****************************** CLUSTERING OF ORFS BASED ON GENOMIC PROXIMITY *************************************
     print("Identifying genomic proximities and putative operons")
     CoordDict = defaultdict(lambda: defaultdict(list))
-    locusDict = defaultdict(lambda: '-')
+    # locusDict = defaultdict(lambda: '-')
     numDict = defaultdict(lambda: defaultdict(lambda: '-'))
     for i in SummaryDict.keys():
         if i != "organism":
             for j in SummaryDict[i]:
-                if args.gbk:
-                    contig = j.split(";")[0]
-                    numOrf = j.split(";")[2]
-                    locusDict[contig + ";" + numOrf] = j.split(";")[1]
-                else:
-                    contig = allButTheLast(j, "_")
-                    numOrf = lastItem(j.split("_"))
+                # print(i + "\t" + j + "\t" + str(SummaryDict[i][j]["hmm"]) + "\t" + str(SummaryDict[i][j]["e"]) + "\t" + str(SummaryDict[i][j]["hmmBit"]))
+                # print(j)
+                # print(j.split(";"))
+                contig = allButTheLast(j, "_")
+                numOrf = lastItem(j.split("_"))
+                # # locusDict[j] = contig + "_" + str(numOrf)
+                # locusDict[contig + "_" + str(numOrf)] = j.split("_")[1]
                 CoordDict[i][contig].append(int(numOrf))
                 numDict[contig][int(numOrf)] = j
 
     counter = 0
     print("Clustering ORFs...")
     out = open(outDirectory + "/summary-2.csv", "w")
-    out.write("organism" + "," + "locus" + "," + "ncbi_locus" + "," + "HMM" + "," + "evalue" + "," + "bitscore" + "," + "clusterID" + "," + "ORF_sequence\n")
+    out.write("organism" + "," + "locus" + "," + "HMM" + "," + "evalue" + "," + "bitscore" + "," + "clusterID" + "," + "ORF_sequence\n")
     for i in CoordDict.keys():
         print(".")
         for j in CoordDict[i]:
@@ -431,13 +446,10 @@ def main():
                 if len(RemoveDuplicates(k)) == 1:
                     # orf = j + "_" + str(k[0])
                     locus = numDict[j][k[0]]
-                    ncbi_locus = "-"
-                    if args.gbk:
-                        ncbi_locus = locusDict[j + ";" + str(k[0])]
 
 
                     out.write(
-                        i + "," + locus + "," + ncbi_locus + "," + SummaryDict[i][locus]["hmm"] + "," + SummaryDict[i][locus]["e"] + "," + str(
+                        i + "," + locus + "," + SummaryDict[i][locus]["hmm"] + "," + SummaryDict[i][locus]["e"] + "," + str(
                             SummaryDict[i][locus]["hmmBit"]) + "," +
                         str(counter) + "," + str(SummaryDict[i][locus]["seq"]) + "\n")
                     out.write("################\n")
@@ -448,11 +460,7 @@ def main():
                         # orf = j + "_" + str(l)
                         locus = numDict[j][l]
 
-                        ncbi_locus = "-"
-                        if args.gbk:
-                            ncbi_locus = locusDict[j + ";" + str(l)]
-
-                        out.write(i + "," + locus + "," + ncbi_locus + "," + SummaryDict[i][locus]["hmm"] + "," + SummaryDict[i][locus][
+                        out.write(i + "," + locus + "," + SummaryDict[i][locus]["hmm"] + "," + SummaryDict[i][locus][
                             "e"] + "," + str(SummaryDict[i][locus]["hmmBit"]) +
                                   "," + str(counter) + "," + str(SummaryDict[i][locus]["seq"]) + "\n")
                     out.write("################\n")
