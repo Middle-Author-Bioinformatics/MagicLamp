@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/home/ark/miniconda3/envs/magiclamp/bin/python
 import argparse
 from Bio import SeqIO
 import os
