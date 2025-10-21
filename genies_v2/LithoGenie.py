@@ -866,39 +866,42 @@ def main():
                                 "rm " + outDirectory + "/" + i + "-HMM/" + hmm + ".txt"
                             )
 
-                            # READING IN THE HMMSEARCH RESULTS (TBLOUT) OUT FILE
-                            hmmout = open(outDirectory + "/" + i + "-HMM/" + hmm + ".tblout", "r")
+                            try:
+                                # READING IN THE HMMSEARCH RESULTS (TBLOUT) OUT FILE
+                                hmmout = open(outDirectory + "/" + i + "-HMM/" + hmm + ".tblout", "r")
 
-                            # COLLECTING SIGNIFICANT HMM HITS IN THE FILE
-                            for line in hmmout:
-                                if not re.match(r'#', line):
-                                    hmmName = hmm.split(".")[0]
-                                    substrate = metaDict[hmmName]["element"]
-                                    reaction = metaDict[hmmName]["process"]
-                                    bitcut = metaDict[hmmName]["bit"]
-                                    ls = delim(line)
-                                    evalue = float(ls[4])
-                                    bit = float(ls[5])
-                                    orf = ls[0]
-                                    if evalue < float(1E-1):  # FILTERING OUT BACKGROUND NOISE
-                                        # LOADING HMM HIT INTO DICTIONARY, BUT ONLY IF THE ORF DID NOT HAVE ANY OTHER HMM HITS
+                                # COLLECTING SIGNIFICANT HMM HITS IN THE FILE
+                                for line in hmmout:
+                                    if not re.match(r'#', line):
+                                        hmmName = hmm.split(".")[0]
+                                        substrate = metaDict[hmmName]["element"]
+                                        reaction = metaDict[hmmName]["process"]
+                                        bitcut = metaDict[hmmName]["bit"]
+                                        ls = delim(line)
+                                        evalue = float(ls[4])
+                                        bit = float(ls[5])
+                                        orf = ls[0]
+                                        if evalue < float(1E-1):  # FILTERING OUT BACKGROUND NOISE
+                                            # LOADING HMM HIT INTO DICTIONARY, BUT ONLY IF THE ORF DID NOT HAVE ANY OTHER HMM HITS
 
-                                        if orf not in HMMdict[i]:
-                                            HMMdict[i][orf]["hmm"] = hmm
-                                            HMMdict[i][orf]["evalue"] = evalue
-                                            HMMdict[i][orf]["bit"] = bit
-                                            HMMdict[i][orf]["substrate"] = substrate
-                                            HMMdict[i][orf]["reaction"] = reaction
-                                            HMMdict[i][orf]["bitcut"] = bitcut
-                                        else:
-                                            # COMPARING HITS FROM DIFFERENT HMM FILES TO THE SAME ORF
-                                            if bit > HMMdict[i][orf]["bit"]:
+                                            if orf not in HMMdict[i]:
                                                 HMMdict[i][orf]["hmm"] = hmm
                                                 HMMdict[i][orf]["evalue"] = evalue
                                                 HMMdict[i][orf]["bit"] = bit
                                                 HMMdict[i][orf]["substrate"] = substrate
                                                 HMMdict[i][orf]["reaction"] = reaction
                                                 HMMdict[i][orf]["bitcut"] = bitcut
+                                            else:
+                                                # COMPARING HITS FROM DIFFERENT HMM FILES TO THE SAME ORF
+                                                if bit > HMMdict[i][orf]["bit"]:
+                                                    HMMdict[i][orf]["hmm"] = hmm
+                                                    HMMdict[i][orf]["evalue"] = evalue
+                                                    HMMdict[i][orf]["bit"] = bit
+                                                    HMMdict[i][orf]["substrate"] = substrate
+                                                    HMMdict[i][orf]["reaction"] = reaction
+                                                    HMMdict[i][orf]["bitcut"] = bitcut
+                            except FileNotFoundError:
+                                print("No hits found for %s in %s" % (hmm, i))
 
                 print("")
 
