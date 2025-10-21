@@ -830,6 +830,12 @@ def main():
         HMMdict = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: "EMPTY")))
         for i in binDirLS:  # ITERATION THROUGH EACH BIN IN A GIVEN DIRECTORY OF BINS
             if lastItem(i.split(".")) == args.bin_ext:  # FILTERING OUT ANY NON-BIN-RELATED FILES
+                # checking if the file contains sequences
+                file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
+                file = fasta(file)
+                if len(file.keys()) == 0:
+                    print("No ORFs found in %s. Skipping..." % i)
+                    continue
                 os.system(
                     "mkdir -p " + outDirectory + "/" + i + "-HMM")  # CREATING DIRECTORY, FOR EACH BIN, TO WHICH HMMSEARCH RESULTS WILL BE WRITTEN
 
