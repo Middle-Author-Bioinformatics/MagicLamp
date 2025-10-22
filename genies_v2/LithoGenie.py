@@ -715,7 +715,7 @@ def main():
                                     "prodigal -i %s/%s -a %s/ORF_calls/%s-proteins.faa -o %s/ORF_calls/%s-prodigal.out -q" % (
                                         binDir, i, outDirectory, i, outDirectory, i))
                 else:
-                    os.system('gtt-genbank-to-AA-seqs -i %s/%s -o %s/%s.faa' % (binDir, i, outDirectory, i))
+                    os.system('gtt-genbank-to-AA-seqs -i %s/%s -o %s/%s.faa' % (binDir, i, binDir, i))
 
                     faa = open("%s/%s.faa" % (binDir, i))
                     faa = fasta(faa)
