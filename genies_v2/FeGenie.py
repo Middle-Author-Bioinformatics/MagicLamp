@@ -786,31 +786,29 @@ def main():
                                 # READING IN THE HMMSEARCH RESULTS (TBLOUT) OUT FILE
                                 try:
                                     hmmout = open(outDirectory + "/" + i + "-HMM/" + hmm + ".tblout", "r")
-                                except FileNotFoundError:
-                                    print("FeGenie cannot find the correct hmmsearch output files. "
-                                          "If you provided gene or ORF-call sequences, "
-                                          "please be sure to specify this in the command using the \'--orfs\' flag")
 
-                                # COLLECTING SIGNIFICANT HMM HITS IN THE FILE
-                                for line in hmmout:
-                                    if not re.match(r'#', line):
-                                        ls = delim(line)
-                                        evalue = float(ls[4])
-                                        bit = float(ls[5])
-                                        orf = ls[0]
-                                        if evalue < float(1E-1):  # FILTERING OUT BACKGROUND NOISE
-                                            # LOADING HMM HIT INTO DICTIONARY, BUT ONLY IF THE ORF DID NOT HAVE ANY OTHER HMM HITS
+                                    # COLLECTING SIGNIFICANT HMM HITS IN THE FILE
+                                    for line in hmmout:
+                                        if not re.match(r'#', line):
+                                            ls = delim(line)
+                                            evalue = float(ls[4])
+                                            bit = float(ls[5])
+                                            orf = ls[0]
+                                            if evalue < float(1E-1):  # FILTERING OUT BACKGROUND NOISE
+                                                # LOADING HMM HIT INTO DICTIONARY, BUT ONLY IF THE ORF DID NOT HAVE ANY OTHER HMM HITS
 
-                                            if orf not in HMMdict[i]:
-                                                HMMdict[i][orf]["hmm"] = hmm
-                                                HMMdict[i][orf]["evalue"] = evalue
-                                                HMMdict[i][orf]["bit"] = bit
-                                            else:
-                                                # COMPARING HITS FROM DIFFERENT HMM FILES TO THE SAME ORF
-                                                if bit > HMMdict[i][orf]["bit"]:
+                                                if orf not in HMMdict[i]:
                                                     HMMdict[i][orf]["hmm"] = hmm
                                                     HMMdict[i][orf]["evalue"] = evalue
                                                     HMMdict[i][orf]["bit"] = bit
+                                                else:
+                                                    # COMPARING HITS FROM DIFFERENT HMM FILES TO THE SAME ORF
+                                                    if bit > HMMdict[i][orf]["bit"]:
+                                                        HMMdict[i][orf]["hmm"] = hmm
+                                                        HMMdict[i][orf]["evalue"] = evalue
+                                                        HMMdict[i][orf]["bit"] = bit
+                                except FileNotFoundError:
+                                    print("No hits found for %s in %s" % (hmm, i))
 
                         print("")
 
