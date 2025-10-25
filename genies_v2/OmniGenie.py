@@ -479,7 +479,7 @@ def main():
             ls = (i.rstrip().split(","))
             if ls[0] != "organism":
                 cell = ls[0]
-                gene = ls[2]
+                gene = ls[3]
                 if gene not in cats:
                     cats.append(gene)
                 Dict[cell][gene].append(gene)

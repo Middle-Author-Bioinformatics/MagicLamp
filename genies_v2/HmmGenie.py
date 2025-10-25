@@ -723,7 +723,7 @@ def main():
 
     # ****************************** CUSTOM-RULE-BASED FILTERING ************************************************
 
-    os.system("mv %s/summary-2.csv %s/genie-summary-allResults.csv" % (args.out, args.out))
+    os.system("mv %s/summary-2.csv %s/genie-summary.csv" % (args.out, args.out))
 
     # *********************************** CREATING A PHYLOGENETIC TREE ******************************************
     print("\nWorking on the phylogenetic tree:")
@@ -903,7 +903,7 @@ def main():
     # GENE COUNTS-BASED ABUNDANCE
     else:
         Dict = defaultdict(lambda: defaultdict(list))
-        final = open("%s/genie-summary-allResults.csv" % (args.out), "r")
+        final = open("%s/genie-summary.csv" % (args.out), "r")
         for i in final:
             if not re.match(r'#', i):
                 ls = (i.rstrip().split(","))
