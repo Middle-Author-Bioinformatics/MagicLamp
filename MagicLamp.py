@@ -2,7 +2,7 @@
 
 from sys import argv, stderr
 # from genies import FeGenie, LithoGenie, RosGenie, MagnetoGenie, WspGenie, Lucifer, HmmGenie, GasGenie, MnGenie, CircGenie, PolGenie, YfGenie, RiboGenie
-from genies_v2 import FeGenie, LithoGenie, HmmGenie, OmniGenie
+from genies_v2 import FeGenie, LithoGenie, HmmGenie, OmniGenie, Lucifer, ATPGenie
 # from genies import OmniGenie
 
 """
@@ -12,11 +12,11 @@ Installation requirements:
     *libraries from the Python standard library: see FeGenie.py and HmmGenie
  """
 __author__ = "Arkadiy Garber"
-__version__ = "2"
+__version__ = "3"
 __maintainer__ = "Arkadiy Garber"
 __email__ = "ark@midauthorbio.com"
 
-errorMessage = "Options: MagicLamp.py [ FeGenie | LithoGenie | OmniGenie | HmmGenie | help ]\n"
+errorMessage = "Options: MagicLamp.py [ FeGenie | LithoGenie | Lucifer | ATPGenie | OmniGenie | HmmGenie | help ]\n"
 
 try:
     argv[1]
@@ -32,10 +32,18 @@ elif argv[1] == "OmniGenie":
     OmniGenie.main()
 elif argv[1] == "HmmGenie":
     HmmGenie.main()
+elif argv[1] == "Lucifer":
+    Lucifer.main()
+elif argv[1] == "ATPGenie":
+    ATPGenie.main()
 elif argv[1] == "help":
     stderr.write("\tMagicLamp.py FeGenie: HMM-based identification and categorization of iron genes and iron gene operons in genomes and metagenomes.\n"
                  
                  "\tMagicLamp.py LithoGenie: HMM-based identification and categorization of genes and operons relevant to chemolithoautotrophic metabolisms.\n"
+                 
+                 "\tMagicLamp.py Lucifer: HMM-based identification and categorization of genes and operons relevant to light-sensing and light-producing reactions.\n"
+                 
+                 "\tMagicLamp.py ATPGenie: HMM-based identification and categorization of genes and operons relevant to the ATP synthases.\n"
                  
                  "\tMagicLamp.py OmniGenie: HMM-based identification for a given genie.\n"
                  

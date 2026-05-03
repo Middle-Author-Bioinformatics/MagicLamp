@@ -191,14 +191,6 @@ def main():
                              "CSV output with raw gene counts. With normalization, this genie will create a "
                              "heatmap-compatible with \'normalized gene abundances\'", const=True, nargs="?")
 
-    parser.add_argument('--makeplots', type=str,
-                        help="include this flag if you would like this genie to make some figures from your data?. "
-                             "To take advantage of this part of the pipeline, you will need to have Rscipt installed. It is a way for R to be called directly from the command line. "
-                             "Please be sure to install all the required R packages as instrcuted in the MagicLamp repo home: "
-                             "https://github.com/Arkadiy-Garber/MagicLamp. "
-                             "If you see error or warning messages associated with Rscript, you can still expect to "
-                             "see the main output (CSV files) from this genie.", const=True, nargs="?")
-
     args = parser.parse_known_args()[0]
     # CHECKING FOR CONDA INSTALL
     genie = args.genie
@@ -509,44 +501,6 @@ def main():
     outHeat.close()
 
     print("Finished!")
-
-    # ******** RUNNING RSCRIPT TO GENERATE PLOTS **************
-    if args.makeplots:
-        print("Running Rscript to generate plots. Do not be alarmed if you see Warning or Error messages from Rscript. "
-              "This will not affect any of the output data that was already created. If you see plots generated, great! "
-              "If not, you can plot the data as you wish on your own, or start an issue on MagicLamp's GitHub repository\n")
-
-        if args.norm:
-            os.system(
-                "Rscript --vanilla %s/DotPlot.R %s/%sgenie.heatmap.csv %s/" % (rscriptDir, outDirectory, genie, outDirectory))
-            os.system("Rscript --vanilla %s/dendro-heatmap.R %s/%sgenie.heatmap.csv %s/" % (
-            rscriptDir, outDirectory, genie, outDirectory))
-        else:
-            os.system("Rscript --vanilla %s/DotPlot-nonorm.R %s/%sgenie.heatmap.csv %s/" % (
-            rscriptDir, outDirectory, genie, outDirectory))
-            os.system("Rscript --vanilla %s/dendro-heatmap.R %s/%sgenie.heatmap.csv %s/" % (
-            rscriptDir, outDirectory, genie, outDirectory))
-
-    # ******** RUNNING RSCRIPT TO GENERATE PLOTS **************
-    if args.makeplots:
-        print("Running Rscript to generate plots. Do not be alarmed if you see Warning or Error messages from Rscript. "
-              "This will not affect any of the output data that was already created. If you see plots generated, great! "
-              "If not, you can plot the data as you wish on your own, or start an issue on MagicLamp's GitHub repository\n")
-
-        if args.norm:
-            os.system("Rscript --vanilla %s/DotPlot.R %s/%sgenie.heatmap.csv %s/" % (
-            rscriptDir, outDirectory, genie, outDirectory))
-            os.system("Rscript --vanilla %s/dendro-heatmap.R %s/%sgenie.heatmap.csv %s/" % (
-            rscriptDir, outDirectory, genie, outDirectory))
-        else:
-            os.system("Rscript --vanilla %s/DotPlot-nonorm.R %s/%sgenie.heatmap.csv %s/" % (
-            rscriptDir, outDirectory, genie, outDirectory))
-            os.system("Rscript --vanilla %s/dendro-heatmap.R %s/%sgenie.heatmap.csv %s/" % (
-            rscriptDir, outDirectory, genie, outDirectory))
-
-    print("Results are written to %s/%sgenie-summary.csv and %s/%sgenie.heatmap.csv" % (args.out, genie, args.out, genie))
-    print("Pipeline finished without crashing!!! Thanks for using :)")
-
 
 if __name__ == '__main__':
     main()
