@@ -548,10 +548,7 @@ def main():
                 idxOut.close()
                 faaOut.close()
 
-            if args.orfs:
-                file = open("%s/%s" % (binDir, i))
-            else:
-                file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
+            file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
             file = fasta(file)
             for j in file.keys():
                 orf = j.split(" ")[0]
@@ -597,16 +594,10 @@ def main():
                         else:
                             bit = metaDict[hmm.split(".")[0]]
 
-                            if args.orfs:
-                                os.system(
-                                    "hmmsearch --cpu %d -T %d --tblout %s/%s-HMM/%s.tblout -o %s/%s-HMM/%s.txt %s/%s %s/%s"
-                                    % (int(args.t), float(bit), outDirectory, i, hmm, outDirectory, i, hmm, hmmDir, hmm, binDir, i)
-                                )
-                            else:
-                                os.system(
-                                    "hmmsearch --cpu %d -T %d --tblout %s/%s-HMM/%s.tblout -o %s/%s-HMM/%s.txt %s/%s %s/ORF_calls/%s-proteins.faa"
-                                    % (int(args.t), float(bit), outDirectory, i, hmm, outDirectory, i, hmm, hmmDir, hmm, outDirectory, i)
-                                )
+                            os.system(
+                                "hmmsearch --cpu %d -T %d --tblout %s/%s-HMM/%s.tblout -o %s/%s-HMM/%s.txt %s/%s %s/ORF_calls/%s-proteins.faa"
+                                % (int(args.t), float(bit), outDirectory, i, hmm, outDirectory, i, hmm, hmmDir, hmm, outDirectory, i)
+                            )
 
                             # REMOVING THE STANDARD OUTPUT FILE
                             os.system(
@@ -706,139 +697,50 @@ def main():
                             SummaryDict[cell][orf]["category"] = category
 
     # ************************** CLUSTERING OF ORFS BASED ON GENOMIC PROXIMITY *********************************
-    if not args.orfs:
-        print("Identifying genomic proximities and putative operons")
-        CoordDict = defaultdict(lambda: defaultdict(list))
-        orfNameDict = defaultdict(lambda: defaultdict(list))
-        for i in SummaryDict.keys():
-            if i != "category":
-                for j in SummaryDict[i]:
-                    contig = allButTheLast(j, "_")
-                    numOrf = lastItem(j.split("_"))
-                    CoordDict[i][contig].append(int(numOrf))
+    print("Identifying genomic proximities and putative operons")
+    CoordDict = defaultdict(lambda: defaultdict(list))
+    orfNameDict = defaultdict(lambda: defaultdict(list))
+    for i in SummaryDict.keys():
+        if i != "category":
+            for j in SummaryDict[i]:
+                contig = allButTheLast(j, "_")
+                numOrf = lastItem(j.split("_"))
+                CoordDict[i][contig].append(int(numOrf))
 
-        counter = 0
-        print("Clustering ORFs...")
-        print("")
-        out = open(outDirectory + "/FinalSummary-dereplicated-clustered.csv", "w")
-        for i in CoordDict.keys():
-            print(".")
-            for j in CoordDict[i]:
-                LS = (CoordDict[i][j])
-                clusters = (cluster(LS, args.d))
-                unknown = [[759,762,763,764,765], [5079,5080,5081]]
-                for k in clusters:
-                    if len(RemoveDuplicates(k)) == 1:
+    counter = 0
+    print("Clustering ORFs...")
+    print("")
+    out = open(outDirectory + "/FinalSummary-dereplicated-clustered.csv", "w")
+    for i in CoordDict.keys():
+        print(".")
+        for j in CoordDict[i]:
+            LS = (CoordDict[i][j])
+            clusters = (cluster(LS, args.d))
+            # unknown = [[759,762,763,764,765], [5079,5080,5081]]
+            for k in clusters:
+                if len(RemoveDuplicates(k)) == 1:
 
-                        orf = j + "_" + str(k[0])
+                    orf = j + "_" + str(k[0])
 
-                        out.write(SummaryDict[i][orf]["category"] + "," + i + "," + orf + "," + SummaryDict[i][orf]["hmm"] +
-                                  "," + str(SummaryDict[i][orf]["hmmBit"]) + "," + str(counter) + "\n")
+                    out.write(SummaryDict[i][orf]["category"] + "," + i + "," + orf + "," + SummaryDict[i][orf]["hmm"] +
+                              "," + str(SummaryDict[i][orf]["hmmBit"]) + "," + str(counter) + "\n")
 
-                        out.write("#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "\n")
-                        counter += 1
+                    out.write("#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "\n")
+                    counter += 1
 
-                    else:
-                        for l in RemoveDuplicates(k):
+                else:
+                    for l in RemoveDuplicates(k):
 
-                            orf = j + "_" + str(l)
+                        orf = j + "_" + str(l)
 
-                            out.write(SummaryDict[i][orf]["category"] + "," + i + "," + orf + "," + SummaryDict[i][orf][
-                                "hmm"] + "," + str(SummaryDict[i][orf]["hmmBit"]) + "," + str(counter) + "\n")
-
-                        out.write(
-                            "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "\n")
-                        counter += 1
-        out.close()
-
-    else:
-
-        if args.contig_names != "NA":
-            contigNameDict = defaultdict(lambda: defaultdict(lambda: 'EMPTY'))
-            contigNames = open(args.contig_names)
-            for orfname in contigNames:
-                orfnameLS = orfname.rstrip().split("\t")
-                contigNameDict[orfnameLS[0]]["contig"] = ls[1]
-                contigNameDict[orfnameLS[0]]["position"] = ls[2]
-
-            CoordDict = defaultdict(lambda: defaultdict(list))
-            orfNameDict = defaultdict(lambda: defaultdict(list))
-            for i in SummaryDict.keys():
-                if i != "category":
-                    for j in SummaryDict[i]:
-                        # contigLS = contig.split(args.contig_names + args.delim)
-                        numOrf = contigNameDict[j]["position"]
-                        contig = contigNameDict[j]["contig"]
-                        CoordDict[i][contig].append(int(numOrf))
-                        orfNameDict[contig + "_" + numOrf] = j
-                        CoordDict[i][contig].append(int(numOrf))
-
-            counter = 0
-            print("Clustering ORFs...")
-            print("")
-            out = open(outDirectory + "/FinalSummary-dereplicated-clustered.csv", "w")
-            for i in CoordDict.keys():
-                print(".")
-                for j in CoordDict[i]:
-                    LS = (CoordDict[i][j])
-                    clusters = (cluster(LS, args.d))
-                    for k in clusters:
-                        if len(RemoveDuplicates(k)) == 1:
-
-                            orf = orfNameDict[j + "_" + str(k[0])]
-
-                            out.write(
-                                SummaryDict[i][orf]["category"] + "," + i + "," + orf + "," + SummaryDict[i][orf][
-                                    "hmm"] +
-                                "," + str(SummaryDict[i][orf]["hmmBit"]) + "," + str(counter) + "\n")
-
-                            out.write(
-                                "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "\n")
-                            counter += 1
-
-                        else:
-                            for l in RemoveDuplicates(k):
-                                orf = orfNameDict[j + "_" + str(l)]
-
-                                out.write(SummaryDict[i][orf]["category"] + "," + i + "," + orf + "," +
-                                          SummaryDict[i][orf][
-                                              "hmm"] + "," + str(SummaryDict[i][orf]["hmmBit"]) + "," + str(
-                                    counter) + "\n")
-
-                            out.write(
-                                "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "\n")
-                            counter += 1
-            out.close()
-
-        else:
-            counter = 0
-            out = open(outDirectory + "/FinalSummary-dereplicated-clustered.csv", "w")
-            for i in SummaryDict.keys():
-                if i != "category":
-                    for j in SummaryDict[i]:
-                        orf = j
                         out.write(SummaryDict[i][orf]["category"] + "," + i + "," + orf + "," + SummaryDict[i][orf][
                             "hmm"] + "," + str(SummaryDict[i][orf]["hmmBit"]) + "," + str(counter) + "\n")
-                        out.write(
-                            "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "\n")
-                        counter += 1
 
+                    out.write(
+                        "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "\n")
+                    counter += 1
+    out.close()
 
-    time.sleep(5)
-
-    # else:
-    #     counter = 0
-    #     for i in SummaryDict.keys():
-    #         if i != "category":
-    #             for j in SummaryDict[i]:
-    #
-    #                 out.write(SummaryDict[i][j]["category"] + "," + i + "," + j + "," + SummaryDict[i][j][
-    #                     "hmm"] + "," + str(SummaryDict[i][j]["hmmBit"]) + "," + str(counter) + "\n")
-    #
-    #                 out.write(
-    #                     "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "," + "#" + "\n")
-    #
-    #                 counter += 1
 
     # ************************** BLAST-BASED METHODS/LOOKING FOR UNMODELED MARKERS ********************************
     thermincola = "%s/iron_reduction/non-aligned/TherJR_SLCs.faa" % HMMdir
@@ -848,39 +750,22 @@ def main():
 
     for i in binDirLS:
         if lastItem(i.split(".")) == args.bin_ext:
-            if args.orfs:
-                os.system(
-                    "makeblastdb -dbtype prot -in %s/%s -out %s/%s -logfile %s/makedbfile.txt" % (
-                        binDir, i, binDir, i, binDir))
-                os.system("rm %s/makedbfile.txt" % binDir)
 
-                os.system(
-                    "blastp -query %s -db %s/%s -num_threads %s -outfmt 6 -out %s/%s-thermincola.blast -evalue 1E-10"
-                    % (thermincola, binDir, i, args.t, outDirectory, i))
+            os.system(
+                "makeblastdb -dbtype prot -in %s/ORF_calls/%s-proteins.faa -out %s/ORF_calls/%s-proteins.faa -logfile %s/makedbfile.txt" % (
+                    outDirectory, i, outDirectory, i, outDirectory))
+            os.system("rm %s/makedbfile.txt" % outDirectory)
 
-                os.system(
-                    "blastp -query %s -db %s/%s -num_threads %s -outfmt 6 -out %s/%s-geobacter.blast -evalue 1E-10"
-                    % (geobacter, binDir, i, args.t, outDirectory, i))
-                os.system("rm %s/%s.phr" % (binDir, i))
-                os.system("rm %s/%s.psq" % (binDir, i))
-                os.system("rm %s/%s.pin" % (binDir, i))
+            os.system(
+                "blastp -query %s -db %s/ORF_calls/%s-proteins.faa -num_threads %s -outfmt 6 -out %s/%s-thermincola.blast -evalue 1E-10"
+                % (thermincola, outDirectory, i, args.t, outDirectory, i))
 
-            else:
-                os.system(
-                    "makeblastdb -dbtype prot -in %s/ORF_calls/%s-proteins.faa -out %s/ORF_calls/%s-proteins.faa -logfile %s/makedbfile.txt" % (
-                        outDirectory, i, outDirectory, i, outDirectory))
-                os.system("rm %s/makedbfile.txt" % outDirectory)
-
-                os.system(
-                    "blastp -query %s -db %s/ORF_calls/%s-proteins.faa -num_threads %s -outfmt 6 -out %s/%s-thermincola.blast -evalue 1E-10"
-                    % (thermincola, outDirectory, i, args.t, outDirectory, i))
-
-                os.system(
-                    "blastp -query %s -db %s/ORF_calls/%s-proteins.faa -num_threads %s -outfmt 6 -out %s/%s-geobacter.blast -evalue 1E-10"
-                    % (geobacter, outDirectory, i, args.t, outDirectory, i))
-                os.system("rm %s/ORF_calls/%s-proteins.faa.phr" % (outDirectory, i))
-                os.system("rm %s/ORF_calls/%s-proteins.faa.psq" % (outDirectory, i))
-                os.system("rm %s/ORF_calls/%s-proteins.faa.pin" % (outDirectory, i))
+            os.system(
+                "blastp -query %s -db %s/ORF_calls/%s-proteins.faa -num_threads %s -outfmt 6 -out %s/%s-geobacter.blast -evalue 1E-10"
+                % (geobacter, outDirectory, i, args.t, outDirectory, i))
+            os.system("rm %s/ORF_calls/%s-proteins.faa.phr" % (outDirectory, i))
+            os.system("rm %s/ORF_calls/%s-proteins.faa.psq" % (outDirectory, i))
+            os.system("rm %s/ORF_calls/%s-proteins.faa.pin" % (outDirectory, i))
 
     geoDict = defaultdict(lambda: defaultdict(lambda: 'EMPTY'))
     geo = open("%s/iron_reduction/non-aligned/geobacter_PCCs.faa" % HMMdir)
@@ -1799,9 +1684,8 @@ def main():
                     memoryDict[dataset][orf]["seq"] + "\n")
 
         out.close()
-        time.sleep(5)
-        if not args.orfs:
-            os.system("mv %s/FeGenie-summary-fixed.csv %s/FeGenie-summary.csv" % (outDirectory, outDirectory))
+
+        os.system("mv %s/FeGenie-summary-fixed.csv %s/FeGenie-summary.csv" % (outDirectory, outDirectory))
 
     # ****************************** PRE-FINAL ALTERATION OF THE OUTPUT FILE ***************************************
     clu = 0
@@ -1894,29 +1778,17 @@ def main():
         out.write("genome/assembly,orf,heme_c_binding_motifs,heme_b_binding_motifs,seq\n")
         for i in binDirLS:
             if lastItem(i.split(".")) == args.bin_ext:  # FILTERING OUT ANY NON-BIN-RELATED FILES
-                if args.orfs:
-                    BIN = open("%s/%s" % (binDir, i))
-                    BIN = fasta(BIN)
-                    for j in BIN.keys():
-                        seq = BIN[j]
-                        hemec = len(re.findall(r'C(..)CH', seq)) + len(re.findall(r'C(...)CH', seq)) \
-                                + len(re.findall(r'C(....)CH', seq)) + len(re.findall(r'C(..............)CH', seq)) \
-                                + len(re.findall(r'C(...............)CH', seq))
-                        hemeb = len(re.findall(r'G(.)[HR](.)C[PLAV]G', seq))
-                        if hemec > 0 or hemeb > 0:
-                            out.write(i + "," + j + "," + str(hemec) + "," + str(hemeb) + "," + seq + "\n")
 
-                else:
-                    BIN = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
-                    BIN = fasta(BIN)
-                    for j in BIN.keys():
-                        seq = BIN[j]
-                        hemec = len(re.findall(r'C(..)CH', seq)) + len(re.findall(r'C(...)CH', seq)) \
-                                + len(re.findall(r'C(....)CH', seq)) + len(re.findall(r'C(..............)CH', seq)) \
-                                + len(re.findall(r'C(...............)CH', seq))
-                        hemeb = len(re.findall(r'G(.)[HR](.)C[PLAV]G', seq))
-                        if hemec > 0 or hemeb > 0:
-                            out.write(i + "," + j + "," + str(hemec) + "," + str(hemeb) + "," + seq + "\n")
+                BIN = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
+                BIN = fasta(BIN)
+                for j in BIN.keys():
+                    seq = BIN[j]
+                    hemec = len(re.findall(r'C(..)CH', seq)) + len(re.findall(r'C(...)CH', seq)) \
+                            + len(re.findall(r'C(....)CH', seq)) + len(re.findall(r'C(..............)CH', seq)) \
+                            + len(re.findall(r'C(...............)CH', seq))
+                    hemeb = len(re.findall(r'G(.)[HR](.)C[PLAV]G', seq))
+                    if hemec > 0 or hemeb > 0:
+                        out.write(i + "," + j + "," + str(hemec) + "," + str(hemeb) + "," + seq + "\n")
         out.close()
 
     if args.hematite:
@@ -1931,23 +1803,14 @@ def main():
         out.write("genome/assembly,orf,hematite_binding_motifs,seq\n")
         for i in binDirLS:
             if lastItem(i.split(".")) == args.bin_ext:  # FILTERING OUT ANY NON-BIN-RELATED FILES
-                if args.orfs:
-                    BIN = open("%s/%s" % (binDir, i))
-                    BIN = fasta(BIN)
-                    for j in BIN.keys():
-                        seq = BIN[j]
-                        hbm = len(re.findall(r'[STC][AVILMFYWH][ST]P[ST]', seq))
-                        if hbm > 0:
-                            out.write(i + "," + j + "," + str(hbm) + "," + seq + "\n")
 
-                else:
-                    BIN = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
-                    BIN = fasta(BIN)
-                    for j in BIN.keys():
-                        seq = BIN[j]
-                        hbm = len(re.findall(r'[STC][AVILMFYWH][ST]P[ST]', seq))
-                        if hbm > 0:
-                            out.write(i + "," + j + "," + str(hbm) + "," + seq + "\n")
+                BIN = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
+                BIN = fasta(BIN)
+                for j in BIN.keys():
+                    seq = BIN[j]
+                    hbm = len(re.findall(r'[STC][AVILMFYWH][ST]P[ST]', seq))
+                    if hbm > 0:
+                        out.write(i + "," + j + "," + str(hbm) + "," + seq + "\n")
         out.close()
 
     time.sleep(5)
@@ -1980,10 +1843,7 @@ def main():
     normDict = defaultdict(lambda: defaultdict(lambda: 1))
     for i in os.listdir(args.bin_dir):
         if lastItem(i.split(".")) == args.bin_ext and not re.findall(r'-proteins.faa', i):
-            if args.orfs:
-                file = open("%s/%s" % (args.bin_dir, i), "r")
-            else:
-                file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i), "r")
+            file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i), "r")
             file = fasta(file)
             normDict[i] = len(file.keys())
 
