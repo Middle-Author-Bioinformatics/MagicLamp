@@ -420,13 +420,13 @@ def main():
     print("")
 
     # *************** MAKE NR A DIAMOND DB AND READ THE FILE INTO HASH MEMORY ************************ #
-    if args.ref != "NA":
-        try:
-            testFile = open(args.ref + ".dmnd")
-
-        except FileNotFoundError:
-            print("Making diamond database out of provided reference file")
-            os.system("diamond makedb --in %s -d %s" % (args.ref, args.ref))
+    # if args.ref != "NA":
+    #     try:
+    #         testFile = open(args.ref + ".dmnd")
+    #
+    #     except FileNotFoundError:
+    #         print("Making diamond database out of provided reference file")
+    #         os.system("diamond makedb --in %s -d %s" % (args.ref, args.ref))
 
 
     # *************** CALL ORFS FROM BINS AND READ THE ORFS INTO HASH MEMORY ************************ #
