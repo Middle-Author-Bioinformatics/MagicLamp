@@ -556,10 +556,7 @@ def main():
                     idxOut.close()
                     faaOut.close()
 
-                if args.orfs:
-                    file = open("%s/%s" % (binDir, i))
-                else:
-                    file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
+                file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i))
                 file = fasta(file)
                 for j in file.keys():
                     orf = j.split(" # ")[0]
@@ -606,16 +603,11 @@ def main():
                             bit = 0
                         else:
                             bit = metaDict[hmm.split(".")[0]]["bit"]
-                            if args.orfs:
-                                os.system(
-                                    "hmmsearch --cpu %d -T %d --tblout %s/%s-HMM/%s.tblout -o %s/%s-HMM/%s.txt %s/%s %s/%s"
-                                    % (int(args.t), float(bit), outDirectory, i, hmm, outDirectory, i, hmm, HMMdir, hmm, binDir, i)
-                                )
-                            else:
-                                os.system(
-                                    "hmmsearch --cpu %d -T %d --tblout %s/%s-HMM/%s.tblout -o %s/%s-HMM/%s.txt %s/%s %s/ORF_calls/%s-proteins.faa"
-                                    % (int(args.t), float(bit), outDirectory, i, hmm, outDirectory, i, hmm, HMMdir, hmm, outDirectory, i)
-                                )
+
+                            os.system(
+                                "hmmsearch --cpu %d -T %d --tblout %s/%s-HMM/%s.tblout -o %s/%s-HMM/%s.txt %s/%s %s/ORF_calls/%s-proteins.faa"
+                                % (int(args.t), float(bit), outDirectory, i, hmm, outDirectory, i, hmm, HMMdir, hmm, outDirectory, i)
+                            )
 
                             # REMOVING THE STANDARD OUTPUT FILE
                             os.system(
@@ -1819,12 +1811,8 @@ def main():
         normDict = defaultdict(lambda: defaultdict(lambda: 'EMPTY'))
         for i in os.listdir(args.bin_dir):
             if lastItem(i.split(".")) == args.bin_ext:
-                if args.orfs:
-                    file = open("%s/%s" % (args.bin_dir, i), "r")
-                    file = fasta(file)
-                else:
-                    file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i), "r")
-                    file = fasta(file)
+                file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i), "r")
+                file = fasta(file)
                 normDict[i] = len(file.keys())
 
         outHeat = open("%s/lithogenie.%s.heatmap.csv" % (args.out, args.cat), "w")
@@ -1910,15 +1898,13 @@ def main():
                         cats.append(j)
                         CatOrgDict[catDict[j]].append(j)
 
-        normDict = defaultdict(lambda: defaultdict(lambda: 'EMPTY'))
+        normDict = defaultdict(lambda: 1)
         for i in binDirLS:
             if lastItem(i.split(".")) == args.bin_ext:
-                if args.orfs:
-                    file = open("%s/%s" % (args.bin_dir, i), "r")
-                    file = fasta(file)
-                else:
-                    file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i), "r")
-                    file = fasta(file)
+
+                file = open("%s/ORF_calls/%s-proteins.faa" % (outDirectory, i), "r")
+                file = fasta(file)
+
                 normDict[i] = len(file.keys())
 
         outHeat = open("%s/lithogenie.%s.heatmap.csv" % (args.out, args.cat), "w")
