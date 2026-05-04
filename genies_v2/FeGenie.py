@@ -1860,7 +1860,7 @@ def main():
     outHeat.write("\n")
 
     for i in cats:
-        outHeat.write(i + ",")
+        outHeat.write(i)
         for j in sorted(Dict.keys()):
             if not re.match(r'#', j):
                 if args.norm:
