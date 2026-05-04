@@ -567,6 +567,11 @@ def main():
 
     # ******************* BEGINNING MAIN ALGORITHM **********************************))))
     HMMdir = "/home/ark/MAB/bin/MagicLamp/hmms/iron"
+    catList = []
+    HMMdirLS = os.listdir(HMMdir)
+    for FeCategory in HMMdirLS:
+        if not re.match(r'\.', FeCategory) and FeCategory not in ["HMM-bitcutoffs.txt", "FeGenie-map.txt"]:
+            catList.append(FeCategory)
 
     print("starting main pipeline...")
     HMMdirLS = os.listdir(HMMdir)
@@ -586,6 +591,7 @@ def main():
                     count = 0
                     for hmm in hmmDirLS2:  # ITERATING THROUGH ALL THE HMM FILES IN THE HMM DIRECTORY
                         count += 1
+                        bit = 0
                         perc = (count / len(hmmDirLS2)) * 100
                         sys.stdout.write("analyzing " + i + ": %d%%   \r" % (perc))
                         sys.stdout.flush()
