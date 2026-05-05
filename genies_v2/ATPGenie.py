@@ -126,7 +126,7 @@ def main():
         *******************************************************
 
         ATPGenie - part of the MagicLamp suite.
-        Developed by Arkadiy Garber, Daniel Naphas, and collaborators.
+        Developed by Arkadiy Garber, Paul Carini.
         Please send comments and inquiries to ark@midauthorbio.com
 
                     _  _____ ____   ____            _
@@ -484,7 +484,7 @@ def main():
         try:
             d = float(delta)
         except (TypeError, ValueError):
-            return "NA"
+            return "-"
         if d >= 20:
             return "high"
         if d >= 10:
@@ -584,7 +584,7 @@ def main():
             ionDict[i][orf]["evalue"] = perOrfEvalues[orf][winner_acc]
             ionDict[i][orf]["ion"] = ion
             ionDict[i][orf]["ion_complex"] = ion_complex
-            ionDict[i][orf]["alt_bit"] = alt_bit if alt_bit is not None else "NA"
+            ionDict[i][orf]["alt_bit"] = alt_bit if alt_bit is not None else "-"
             ionDict[i][orf]["pref"] = round(pref, 2)
             ionDict[i][orf]["conf"] = confidence_label(pref)
 
@@ -616,12 +616,12 @@ def main():
                 ion_pref = ionRec["ion"]
                 ion_hmm  = ionRec["hmm"]
                 ion_bit  = ionRec["bit"]
-                ion_alt  = ionRec.get("alt_bit", "NA")
-                ion_pref_score = ionRec.get("pref", "NA")
-                ion_conf = ionRec.get("conf", "NA")
+                ion_alt  = ionRec.get("alt_bit", "-")
+                ion_pref_score = ionRec.get("pref", "-")
+                ion_conf = ionRec.get("conf", "-")
             else:
-                ion_pref = "NA"; ion_hmm = "NA"; ion_bit = "NA"
-                ion_alt = "NA"; ion_pref_score = "NA"; ion_conf = "NA"
+                ion_pref = "-"; ion_hmm = "-"; ion_bit = "-"
+                ion_alt = "-"; ion_pref_score = "-"; ion_conf = "-"
             out.write(key + "," + j + "," + HMMdict[key][j]["hmm"] + "," +
                       str(HMMdict[key][j]["evalue"]) + "," + str(HMMdict[key][j]["bit"]) + "," +
                       HMMdict[key][j]["complex"] + "," + str(ion_pref) + "," + str(ion_hmm) + "," +
@@ -749,7 +749,7 @@ def main():
         if len(RemoveDuplicates(ls)) == 1 and ls[0] in ("TIGR01260", "PF00137"):
             row = clusterDict[i]["line"][0]
             ion_pref = row[6]
-            if ion_pref in ("NA", "ambiguous", ""):
+            if ion_pref in ("-", "ambiguous", ""):
                 keep = False
         if not keep:
             continue
