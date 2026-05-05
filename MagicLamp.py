@@ -2,7 +2,7 @@
 
 from sys import argv, stderr
 # from genies import FeGenie, LithoGenie, RosGenie, MagnetoGenie, WspGenie, Lucifer, HmmGenie, GasGenie, MnGenie, CircGenie, PolGenie, YfGenie, RiboGenie
-from genies_v2 import FeGenie, LithoGenie, HmmGenie, OmniGenie, Lucifer, ATPGenie
+from genies_v2 import FeGenie, LithoGenie, HmmGenie, OmniGenie, Lucifer, ATPGenie, PortGenie
 # from genies import OmniGenie
 
 """
@@ -16,7 +16,7 @@ __version__ = "3"
 __maintainer__ = "Arkadiy Garber"
 __email__ = "ark@midauthorbio.com"
 
-errorMessage = "Options: MagicLamp.py [ FeGenie | LithoGenie | Lucifer | ATPGenie | OmniGenie | HmmGenie | help ]\n"
+errorMessage = "Options: MagicLamp.py [ FeGenie | LithoGenie | PortGenie | Lucifer | ATPGenie | OmniGenie | HmmGenie | help ]\n"
 
 try:
     argv[1]
@@ -36,6 +36,8 @@ elif argv[1] == "Lucifer":
     Lucifer.main()
 elif argv[1] == "ATPGenie":
     ATPGenie.main()
+elif argv[1] == "PortGenie":
+    PortGenie.main()
 elif argv[1] == "help":
     stderr.write("\tMagicLamp.py FeGenie: HMM-based identification and categorization of iron genes and iron gene operons in genomes and metagenomes.\n"
                  
@@ -45,6 +47,8 @@ elif argv[1] == "help":
                  
                  "\tMagicLamp.py ATPGenie: HMM-based identification and categorization of genes and operons relevant to the ATP synthases.\n"
                  
+                  "\tMagicLamp.py PortGenie: HMM-based identification and categorization of genes and operons relevant to sodium antiporters and symporters.\n"
+
                  "\tMagicLamp.py OmniGenie: HMM-based identification for a given genie.\n"
                  
                  "\tMagicLamp.py HmmGenie: Identification of a user-provided set of HMMs.\n")
