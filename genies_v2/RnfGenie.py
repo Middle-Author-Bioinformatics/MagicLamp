@@ -174,7 +174,7 @@ def main():
     # Locate the HMM library
     # =================================================================
 
-    os.system("echo ${rnf} > HMMlib.txt")
+    os.system("echo ${rnf_hmms} > HMMlib.txt")
     file = open("HMMlib.txt")
     HMMrootdir = ""
     for i in file:

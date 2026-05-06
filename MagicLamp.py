@@ -38,6 +38,8 @@ elif argv[1] == "ATPGenie":
     ATPGenie.main()
 elif argv[1] == "PortGenie":
     PortGenie.main()
+elif argv[1] == "RnfGenie":
+    RnfGenie.main()
 elif argv[1] == "help":
     stderr.write("\tMagicLamp.py FeGenie: HMM-based identification and categorization of iron genes and iron gene operons in genomes and metagenomes.\n"
                  
@@ -48,6 +50,8 @@ elif argv[1] == "help":
                  "\tMagicLamp.py ATPGenie: HMM-based identification and categorization of genes and operons relevant to the ATP synthases.\n"
                  
                   "\tMagicLamp.py PortGenie: HMM-based identification and categorization of genes and operons relevant to sodium antiporters and symporters.\n"
+
+                  "\tMagicLamp.py RnfGenie: HMM-based identification and categorization of genes and operons relevant to Rnf complex.\n"
 
                  "\tMagicLamp.py OmniGenie: HMM-based identification for a given genie.\n"
                  
