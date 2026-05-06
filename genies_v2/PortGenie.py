@@ -207,7 +207,8 @@ def main():
 
     os.system("rm -f HMMlib.txt mainDir.txt")
 
-    HMMdir = os.path.join(HMMrootdir, "sodium-transporters")
+    # HMMdir = os.path.join(HMMrootdir, "portna_hmms")
+    HMMdir = HMMrootdir
 
     args = parser.parse_known_args()[0]
 
