@@ -179,11 +179,12 @@ def main():
     HMMrootdir = ""
     for i in file:
         HMMrootdir = i.rstrip()
+    print(HMMrootdir)
 
     def have_lib(root):
         if not root:
             return False
-        return os.path.isdir(os.path.join(root, "rnf"))
+        return root
 
     if not have_lib(HMMrootdir):
         os.system("which MagicLamp.py > mainDir.txt")
@@ -206,7 +207,7 @@ def main():
 
     os.system("rm -f HMMlib.txt mainDir.txt")
 
-    HMMdir = os.path.join(HMMrootdir, "rnf")
+    HMMdir = HMMrootdir
 
     args = parser.parse_known_args()[0]
 

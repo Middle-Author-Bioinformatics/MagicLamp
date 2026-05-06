@@ -2,7 +2,7 @@
 
 from sys import argv, stderr
 # from genies import FeGenie, LithoGenie, RosGenie, MagnetoGenie, WspGenie, Lucifer, HmmGenie, GasGenie, MnGenie, CircGenie, PolGenie, YfGenie, RiboGenie
-from genies_v2 import FeGenie, LithoGenie, HmmGenie, OmniGenie, Lucifer, ATPGenie, PortGenie
+from genies_v2 import FeGenie, LithoGenie, HmmGenie, OmniGenie, Lucifer, ATPGenie, PortGenie, RnfGenie
 # from genies import OmniGenie
 
 """
@@ -16,7 +16,7 @@ __version__ = "3"
 __maintainer__ = "Arkadiy Garber"
 __email__ = "ark@midauthorbio.com"
 
-errorMessage = "Options: MagicLamp.py [ FeGenie | LithoGenie | PortGenie | Lucifer | ATPGenie | OmniGenie | HmmGenie | help ]\n"
+errorMessage = "Options: MagicLamp.py [ FeGenie | LithoGenie | PortGenie | RnfGenie | Lucifer | ATPGenie | OmniGenie | HmmGenie | help ]\n"
 
 try:
     argv[1]
