@@ -390,7 +390,8 @@ def main():
 
         if not args.nohup:
 
-            answer = input("Would you like LithoGenie to proceed and potentially overwrite files in this directory? (y/n): ")
+            # answer = input("Would you like LithoGenie to proceed and potentially overwrite files in this directory? (y/n): ")
+            answer = "y"
         else:
             answer = "y"
 
