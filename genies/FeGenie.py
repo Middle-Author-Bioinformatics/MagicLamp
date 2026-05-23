@@ -2404,11 +2404,11 @@ def main():
         out.close()
 
         time.sleep(5)
-        os.system("mv %s/FeGenie-summary-altered.csv %s/FeGenie-geneSummary-clusters.csv" % (outDirectory, outDirectory))
+        os.system("mv %s/FeGenie-summary-altered.csv %s/fegenie-summary.csv" % (outDirectory, outDirectory))
         os.system("rm %s/FeGenie-summary.csv" % outDirectory)
 
         # ****************************** REMOVING #'S ***************************************
-        summary = open("%s/FeGenie-geneSummary-clusters.csv" % outDirectory, "r")
+        summary = open("%s/fegenie-summary.csv" % outDirectory, "r")
         out = open("%s/FeGenie-geneSummary.csv" % outDirectory, "w")
         if args.ref != "NA":
             out.write(
@@ -2501,7 +2501,7 @@ def main():
 
         time.sleep(5)
 
-        print("Writen summary to file: %s/FeGenie-geneSummary-clusters.csv for visual inspection" % outDirectory)
+        print("Writen summary to file: %s/fegenie-summary.csv for visual inspection" % outDirectory)
         print("Writen summary to file: %s/FeGenie-geneSummary.csv for downstream parsing and analyses" % outDirectory)
         # ****************************** CREATING A HEATMAP-COMPATIBLE CSV FILE *************************************
         print("Writing heatmap-formatted output file: %s/FeGenie-heatmap-data.csv\n" % outDirectory)
@@ -2516,7 +2516,7 @@ def main():
                     "iron_reduction", "iron_storage", "magnetosome_formation"]
 
             Dict = defaultdict(lambda: defaultdict(list))
-            final = open("%s/FeGenie-geneSummary-clusters.csv" % outDirectory, "r")
+            final = open("%s/fegenie-summary.csv" % outDirectory, "r")
             for i in final:
                 ls = (i.rstrip().split(","))
                 if not re.search(r'#', i):
@@ -2606,7 +2606,7 @@ def main():
                     normDict[cell] = total
 
             Dict = defaultdict(lambda: defaultdict(list))
-            final = open("%s/FeGenie-geneSummary-clusters.csv" % outDirectory, "r")
+            final = open("%s/fegenie-summary.csv" % outDirectory, "r")
             for i in final:
                 ls = (i.rstrip().split(","))
                 if not re.search(r'#', i):
@@ -2667,7 +2667,7 @@ def main():
                 os.system("mv %s.depth %s/" % (args.bam, outDirectory))
 
             Dict = defaultdict(lambda: defaultdict(list))
-            final = open("%s/FeGenie-geneSummary-clusters.csv" % outDirectory, "r")
+            final = open("%s/fegenie-summary.csv" % outDirectory, "r")
             for i in final:
                 ls = (i.rstrip().split(","))
                 if not re.search(r'#', i):
@@ -2833,7 +2833,7 @@ def main():
                     "iron_reduction", "iron_storage", "magnetosome_formation"]
 
             Dict = defaultdict(lambda: defaultdict(list))
-            final = open("%s/FeGenie-geneSummary-clusters.csv" % outDirectory, "r")
+            final = open("%s/fegenie-summary.csv" % outDirectory, "r")
             for i in final:
                 ls = (i.rstrip().split(","))
                 if not re.search(r'#', i):
@@ -2925,7 +2925,7 @@ def main():
                     normDict[cell] = total
 
             Dict = defaultdict(lambda: defaultdict(list))
-            final = open("%s/FeGenie-geneSummary-clusters.csv" % outDirectory, "r")
+            final = open("%s/fegenie-summary.csv" % outDirectory, "r")
             for i in final:
                 ls = (i.rstrip().split(","))
                 if not re.search(r'#', i):
@@ -2987,7 +2987,7 @@ def main():
                 os.system("mv %s.depth %s/" % (args.bam, outDirectory))
 
             Dict = defaultdict(lambda: defaultdict(list))
-            final = open("%s/FeGenie-geneSummary-clusters.csv" % outDirectory, "r")
+            final = open("%s/fegenie-summary.csv" % outDirectory, "r")
             for i in final:
                 ls = (i.rstrip().split(","))
                 if not re.search(r'#', i):

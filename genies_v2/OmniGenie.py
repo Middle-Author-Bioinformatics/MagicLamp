@@ -455,7 +455,7 @@ def main():
     out.close()
 
     os.system("rm %s/summary.csv" % (args.out))
-    os.system("mv %s/summary-2.csv %s/%sgenie-summary.csv" % (args.out, args.out, genie))
+    os.system("mv %s/summary-2.csv %s/%s-summary.csv" % (args.out, args.out, genie))
 
     os.system("mkdir -p %s/HMM_results" % outDirectory)
     os.system("rm -rf %s/HMM_results/*-HMM" % outDirectory)
@@ -465,7 +465,7 @@ def main():
     # GENE COUNTS-BASED ABUNDANCE
     cats = []
     Dict = defaultdict(lambda: defaultdict(list))
-    final = open("%s/%sgenie-summary.csv" % (args.out, genie), "r")
+    final = open("%s/%s-summary.csv" % (args.out, genie), "r")
     for i in final:
         if not re.match(r'#', i):
             ls = (i.rstrip().split(","))
@@ -483,7 +483,7 @@ def main():
             file = fasta(file)
             normDict[i] = len(file.keys())
 
-    outHeat = open("%s/%sgenie.heatmap.csv" % (outDirectory, genie), "w")
+    outHeat = open("%s/%s.heatmap.csv" % (outDirectory, genie), "w")
     outHeat.write("X" + ',')
     for i in sorted(Dict.keys()):
         outHeat.write(i + ",")
