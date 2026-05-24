@@ -1816,7 +1816,8 @@ def main():
                 file = fasta(file)
                 normDict[i] = len(file.keys())
 
-        outHeat = open("%s/lithogenie.%s.heatmap.csv" % (args.out, args.cat), "w")
+        # outHeat = open("%s/lithogenie.%s.heatmap.csv" % (args.out, args.cat), "w")
+        outHeat = open("%s/lithogenie.heatmap.csv" % (args.out), "w")
         outHeat.write("X" + ',')
         for i in sorted(Dict.keys()):
             outHeat.write(i + ",")
@@ -1908,7 +1909,8 @@ def main():
 
                 normDict[i] = len(file.keys())
 
-        outHeat = open("%s/lithogenie.%s.heatmap.csv" % (args.out, args.cat), "w")
+        # outHeat = open("%s/lithogenie.%s.heatmap.csv" % (args.out, args.cat), "w")
+        outHeat = open("%s/lithogenie.heatmap.csv" % (args.out), "w")
         outHeat.write("X" + ',')
         for i in sorted(Dict.keys()):
             outHeat.write(i + ",")
