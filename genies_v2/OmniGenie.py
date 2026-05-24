@@ -117,7 +117,7 @@ def main():
     parser = argparse.ArgumentParser(
         prog="Genie Template",
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        description=textwrap.dedent('''
+        description=textwrap.dedent(r'''
         *******************************************************
 
         Developed by Arkadiy Garber;
