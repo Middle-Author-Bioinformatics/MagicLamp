@@ -119,7 +119,7 @@ def main():
     parser = argparse.ArgumentParser(
         prog="MagicLamp.py",
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        description=textwrap.dedent('''
+        description=textwrap.dedent(r'''
         *******************************************************
 
         Developed by Arkadiy Garber and Nancy Merino;
