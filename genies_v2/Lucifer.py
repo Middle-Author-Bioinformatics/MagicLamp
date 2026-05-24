@@ -325,7 +325,7 @@ def main():
                         if re.match(r'>', line):
                             if re.findall(r'\|]', line):
                                 print(
-                                    "Looks like one of your fasta files has a header containing the character: \|")
+                                    "Looks like one of your fasta files has a header containing the character: |")
                                 print(
                                     "Unfortunately, this is a problem for Lucifer because it uses that character as delimiter to store important information.")
                                 print("Please rename your FASTA file headers")
@@ -336,7 +336,7 @@ def main():
                     for line in binFile:
                         if re.match(r'>', line):
                             if re.findall(r'\|]', line):
-                                print("Looks like one of your fasta files has a header containing the character: \|")
+                                print("Looks like one of your fasta files has a header containing the character: |")
                                 print(
                                     "Unfortunately, this is a problem for Lucifer because it uses that character as delimiter to store important information.")
                                 print("Please rename your FASTA file headers")
