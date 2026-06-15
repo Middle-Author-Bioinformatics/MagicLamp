@@ -27,4 +27,20 @@ export plastic_hmms=\"$(pwd)/hmms/plastics\"
 
 export ribo_hmms=\"$(pwd)/hmms/ribo\"
 
+export pol_hmms=\"$(pwd)/hmms/pol\"
+
+export portna_hmms=\"$(pwd)/hmms/portna\"
+
+export rnf_hmms=\"$(pwd)/hmms/rnf\"
+
+export atp_hmms=\"$(pwd)/hmms/atp\"
+
+export spore_hmms=\"$(pwd)/hmms/spore\"
+
+export resist_hmms=\"$(pwd)/hmms/resist\"
+
+export abx_hmms=\"$(pwd)/hmms/antibiotics\"
+
+export motility_hmms=\"$(pwd)/hmms/motility\"
+
 export iron_hmms=\"$(pwd)/hmms/iron\"" >> ${CONDA_PREFIX}/etc/conda/activate.d/env_vars.sh
