@@ -336,7 +336,7 @@ def main():
         os.listdir(args.out)
         print("Looks like you already have a directory with the name: " + args.out)
         # answer = input("Would you like SporeGenie to proceed and potentially overwrite files in this directory? (y/n): ")
-        input = "y"
+        answer = "y"
         if answer == "y":
             print("Ok, proceeding with analysis!")
             try:
