@@ -660,6 +660,7 @@ def main():
             result = open(outDirectory + "/" + i, "r")
             for j in result:
                 ls = j.rstrip().split(",")
+                print(ls)
                 cell = ls[0]
                 orf = ls[1]
                 hmm = ls[2]
