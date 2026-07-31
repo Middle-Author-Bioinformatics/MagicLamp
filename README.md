@@ -2,9 +2,7 @@
 ### A software package for annotation of genomic datasets using discreet HMM sets.
 
 ### Citing MagicLamp
-There is no official publication for MagicLamp. If it was useful for your work, please cite as follows:
-
-Garber, AI., Ramirez, GA., Merino, N., Pavia MJ., McAllister, SM. (2020) MagicLamp: toolkit for annotation of genomic data using discreet and curated HMM sets. 2023: MagicLamp, GitHub repository: https://github.com/Arkadiy-Garber/MagicLamp.
+Please cite our [pre-print](https://www.biorxiv.org/content/10.64898/2026.07.19.739457v1.full.pdf)
 
 Special thanks to AstrobioMike and his [bit](https://github.com/AstrobioMike/bit) software package for enabling easy access to NCBI's RefSeq and GenBank assemblies.
 
