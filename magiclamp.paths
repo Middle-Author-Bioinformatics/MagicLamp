@@ -1,46 +1,34 @@
 ## adding paths:
-echo '#!/bin/sh'" \
+## Writes environment variables into the conda env's activate.d hook so that
+## every v3 genie can locate its HMM library and the R scripts.
+## Each *_hmms variable name matches what the corresponding genie reads at runtime;
+## each path points at the matching subdirectory under hmms/.
+MAGICLAMP_DIR="$(pwd)"
+ACTIVATE_D="${CONDA_PREFIX}/etc/conda/activate.d"
+mkdir -p "${ACTIVATE_D}"
 
-export rscripts=\"$(pwd)/rscripts\"
+cat > "${ACTIVATE_D}/env_vars.sh" <<EOF
+#!/bin/sh
+export rscripts="${MAGICLAMP_DIR}/rscripts"
+export PATH="${MAGICLAMP_DIR}:\$PATH"
 
-export PATH=\"$(pwd):"'$PATH'\"" \
+# --- v3 genie HMM libraries ---
+export iron_hmms="${MAGICLAMP_DIR}/hmms/iron"          # FeGenie
+export litho_hmms="${MAGICLAMP_DIR}/hmms/litho"        # LithoGenie
+export lux_hmms="${MAGICLAMP_DIR}/hmms/lux"            # Lucifer
+export atp_hmms="${MAGICLAMP_DIR}/hmms/atp"            # ATPGenie
+export portna_hmms="${MAGICLAMP_DIR}/hmms/portna"      # PortGenie
+export rnf_hmms="${MAGICLAMP_DIR}/hmms/rnf"            # RnfGenie
+export abx_hmms="${MAGICLAMP_DIR}/hmms/antibiotics"    # AbxGenie
+export motility_hmms="${MAGICLAMP_DIR}/hmms/motility"  # MotiliGenie
+export ribo_hmms="${MAGICLAMP_DIR}/hmms/ribo"          # RiboGenie
+export resist_hmms="${MAGICLAMP_DIR}/hmms/resist"      # ResistiGenie
+export spore_hmms="${MAGICLAMP_DIR}/hmms/spore"        # SporeGenie
+EOF
 
-export gas_hmms=\"$(pwd)/hmms/gas\"
-
-export wsp_hmms=\"$(pwd)/hmms/wsp\"
-
-export ros_hmms=\"$(pwd)/hmms/ros\"
-
-export lux_hmms=\"$(pwd)/hmms/lux\"
-
-export magneto_hmms=\"$(pwd)/hmms/magneto\"
-
-export litho_hmms=\"$(pwd)/hmms/litho\"
-
-export mn_hmms=\"$(pwd)/hmms/manganese\"
-
-export circ_hmms=\"$(pwd)/hmms/circ\"
-
-export pol_hmms=\"$(pwd)/hmms/pol\"
-
-export plastic_hmms=\"$(pwd)/hmms/plastics\"
-
-export ribo_hmms=\"$(pwd)/hmms/ribo\"
-
-export pol_hmms=\"$(pwd)/hmms/pol\"
-
-export portna_hmms=\"$(pwd)/hmms/portna\"
-
-export rnf_hmms=\"$(pwd)/hmms/rnf\"
-
-export atp_hmms=\"$(pwd)/hmms/atp\"
-
-export spore_hmms=\"$(pwd)/hmms/spore\"
-
-export resist_hmms=\"$(pwd)/hmms/resist\"
-
-export abx_hmms=\"$(pwd)/hmms/antibiotics\"
-
-export motility_hmms=\"$(pwd)/hmms/motility\"
-
-export iron_hmms=\"$(pwd)/hmms/iron\"" >> ${CONDA_PREFIX}/etc/conda/activate.d/env_vars.sh
+## Warn (do not fail) if any expected HMM subdirectory is missing on disk.
+for d in iron litho lux atp portna rnf antibiotics motility ribo resist spore; do
+    if [ ! -d "${MAGICLAMP_DIR}/hmms/${d}" ]; then
+        printf "  [warning] expected HMM directory not found: hmms/%s\n" "${d}" >&2
+    fi
+done

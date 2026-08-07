@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from sys import argv, stderr
-from genies_v2 import (
+from genies_v3 import (
     FeGenie, LithoGenie, HmmGenie, OmniGenie, Lucifer,
     ATPGenie, PortGenie, RnfGenie,
     AbxGenie, MotiliGenie, RiboGenie, ResistiGenie, SporeGenie,
