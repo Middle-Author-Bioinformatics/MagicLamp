@@ -24,10 +24,12 @@ export motility_hmms="${MAGICLAMP_DIR}/hmms/motility"  # MotiliGenie
 export ribo_hmms="${MAGICLAMP_DIR}/hmms/ribo"          # RiboGenie
 export resist_hmms="${MAGICLAMP_DIR}/hmms/resist"      # ResistiGenie
 export spore_hmms="${MAGICLAMP_DIR}/hmms/spore"        # SporeGenie
+export gas_hmms="${MAGICLAMP_DIR}/hmms/gas"            # GasGenie
+export plastic_hmms="${MAGICLAMP_DIR}/hmms/plastics"   # PlasticGenie
 EOF
 
 ## Warn (do not fail) if any expected HMM subdirectory is missing on disk.
-for d in iron litho lux atp portna rnf antibiotics motility ribo resist spore; do
+for d in iron litho lux atp portna rnf antibiotics motility ribo resist spore gas plastics; do
     if [ ! -d "${MAGICLAMP_DIR}/hmms/${d}" ]; then
         printf "  [warning] expected HMM directory not found: hmms/%s\n" "${d}" >&2
     fi
