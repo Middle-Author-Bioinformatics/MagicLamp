@@ -653,8 +653,48 @@ def main():
                     counter += 1
     out.close()
 
+    # ****************************** FILTERING OUT PROMISCUOUS tsaC/tsaD HITS *************************************
+    # tsaC.TC and tsaD.TC are built from small, permissive seed alignments (9 seqs,
+    # clustered at 35% identity) and cross-hit much of the generic short-chain
+    # dehydrogenase/reductase (SDR) superfamily in addition to genuine subunits of the
+    # toluenesulfonate methyl-monooxygenase (TSMO) system. tsaB.TC and tsaM.TC, by
+    # contrast, are only ever observed alongside another tsa-family gene in real
+    # genomes, so a tsaC/tsaD hit is only kept if its proximity cluster also contains
+    # tsaB and/or tsaM -- otherwise it is almost certainly a promiscuous SDR cross-hit
+    # rather than a real TSMO subunit, and is dropped.
+    NOISY_TSA_GENES = {"tsaC.TC", "tsaD.TC"}
+    TSA_ANCHOR_GENES = {"tsaB.TC", "tsaM.TC"}
+
+    clusterLines = defaultdict(list)
+    clusterGenes = defaultdict(set)
+    summary = open(outDirectory + "/summary-2.csv", "r")
+    header = summary.readline()
+    for i in summary:
+        if not re.match(r'#', i):
+            ls = i.rstrip().split(",")
+            if len(ls) < 6:
+                continue
+            clu = ls[5]
+            clusterLines[clu].append(ls)
+            clusterGenes[clu].add(ls[2])
+    summary.close()
+
+    out = open(outDirectory + "/summary-3.csv", "w")
+    out.write(header)
+    for clu in sorted(clusterLines.keys(), key=lambda x: int(x)):
+        has_anchor = bool(clusterGenes[clu] & TSA_ANCHOR_GENES)
+        kept_lines = [ls for ls in clusterLines[clu]
+                      if not (ls[2] in NOISY_TSA_GENES and not has_anchor)]
+        if not kept_lines:
+            continue
+        for ls in kept_lines:
+            out.write(",".join(ls) + "\n")
+        out.write("#,#,#,#,#,#,#\n")
+    out.close()
+
     os.system("rm %s/summary.csv" % (args.out))
-    os.system("mv %s/summary-2.csv %s/plasticgenie-summary.csv" % (args.out, args.out))
+    os.system("rm %s/summary-2.csv" % (args.out))
+    os.system("mv %s/summary-3.csv %s/plasticgenie-summary.csv" % (args.out, args.out))
 
     os.system("mkdir -p %s/HMM_results" % outDirectory)
     # os.system("rm -f %s/ORF_calls/*-prodigal.out" % outDirectory)
