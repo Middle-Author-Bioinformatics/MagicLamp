@@ -1,9 +1,13 @@
 # MagicLamp
-========
+
 ### A software package for annotation of genomic datasets using discreet HMM sets.
 
+MagicLamp bundles a collection of curated, function-specific annotation modules ("genies"). Each genie ships with its own hand-curated HMM set and scoring logic for a particular metabolism or trait. All genies are run through a single dispatcher, `MagicLamp.py`, and operate on a **directory of genome/bin FASTA files**, producing heatmap-ready summary tables (and optional figures).
+
 ### Citing MagicLamp
-Please cite our [pre-print](https://www.biorxiv.org/content/10.64898/2026.07.19.739457v1.full.pdf)
+If MagicLamp was useful for your work, please cite our preprint:
+
+Garber, A. I., Viney, I. A., Merino, N., Ramírez, G. A., Pavia, M. J., McAllister, S. M., Sadeghpour, S., Manna, A., Kreger, M., Wolk, B., Kim, E., Qu, J., Armbruster, C. R., & Pérez-Rodríguez, I. (2026). MagicLamp: a web server and software toolkit for targeted gene annotation of microbial functions. In bioRxiv (p. 2026.07.19.739457). bioRxiv. https://doi.org/10.64898/2026.07.19.739457
 
 Special thanks to AstrobioMike and his [bit](https://github.com/AstrobioMike/bit) software package for enabling easy access to NCBI's RefSeq and GenBank assemblies.
 
