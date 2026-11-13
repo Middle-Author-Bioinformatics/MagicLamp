@@ -943,7 +943,7 @@ def main():
         outHeat.close()
 
 
-    # COVERAGE-BASED ABUNDANCE USING ONLY ONE BAM FILE
+    ## COVERAGE-BASED ABUNDANCE USING ONLY ONE BAM FILE
     elif args.bam != "NA":
         depthDict = defaultdict(lambda: defaultdict(lambda: 'EMPTY'))
 
