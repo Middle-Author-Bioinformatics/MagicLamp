@@ -1,0 +1,7 @@
+accession	versioned_accession	name	description	role	sequence_ga	domain_ga	sha256	retrieved_utc	source_url
+PF01473	PF01473.28	Choline_bind_1	Putative cell wall binding repeat	cell_wall_binding	20.5	9.8	78b441495d7e3ee50a899b9739059d02b7cc26a5c1be645e4e69934b0d190ec3	2026-11-18T21:02:20.127555+00:00	https://www.ebi.ac.uk/interpro/api/entry/pfam/PF01473/?annotation=hmm
+PF04122	PF04122.19	CW_binding_2	Cell wall binding domain 2 (CWB2)	cell_wall_binding	24.9	22.3	3516e91e188cbc2ba8e94a57cb048c6dad8a71d66e09817f2e4dc9c5f616825d	2026-11-18T21:02:23.157958+00:00	https://www.ebi.ac.uk/interpro/api/entry/pfam/PF04122/?annotation=hmm
+PF00395	PF00395.27	SLH	S-layer homology domain	cell_wall_binding	20.8	14.5	da6242b7eaf624824e172a373b58b55ac75cff33df63a19c98353f0db105f465	2026-11-18T21:02:26.301016+00:00	https://www.ebi.ac.uk/interpro/api/entry/pfam/PF00395/?annotation=hmm
+PF04203	PF04203.20	Sortase	Sortase domain	anchoring_enzyme	26.6	26.6	5501acffcf296bb67e3da33c73a2f389a5c9415862c760ff58632ec401a3c008	2026-11-18T21:02:29.174812+00:00	https://www.ebi.ac.uk/interpro/api/entry/pfam/PF04203/?annotation=hmm
+PF01476	PF01476.28	LysM	LysM domain	cell_wall_associated	20.9	11.8	747dd5c8330b741018d88a5aa720f4f1eca0159867ee6e3b8d432ac6f2995043	2026-11-18T21:02:31.986261+00:00	https://www.ebi.ac.uk/interpro/api/entry/pfam/PF01476/?annotation=hmm
+PF07501	PF07501.19	G5	G5 domain	cell_wall_associated	23.0	23.0	1ed3180a1defad79a920813b38eef38e16486ac7c0838031e0a255af3a51f95d	2026-11-18T21:02:35.097905+00:00	https://www.ebi.ac.uk/interpro/api/entry/pfam/PF07501/?annotation=hmm

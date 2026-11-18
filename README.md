@@ -13,15 +13,21 @@ Special thanks to AstrobioMike and his [bit](https://github.com/AstrobioMike/bit
 
 ## Installation (Conda is required for this software)
 
-    git clone https://github.com/Arkadiy-Garber/MagicLamp.git
+    git clone https://github.com/Middle-Author-Bioinformatics/MagicLamp.git
     cd MagicLamp
     bash setup.sh
     conda activate magiclamp
 
+For this maintained fork, clone `https://github.com/Middle-Author-Bioinformatics/MagicLamp.git`.
+The dispatcher runs **`genies_v3/`**. Older directories are retained snapshots;
+their names do not establish whether a particular module works. See the
+[repository audit and version inventory](docs/REPOSITORY_AUDIT.md) for tested
+status, known problems, and a cleanup plan.
+
 `setup.sh` builds the `magiclamp` conda environment in two tiers:
 
 1. **Full install (attempted first):** the core tools (`hmmer`, `blast`, `prodigal`, `diamond`, `metabat2`, `bit`) **plus** the R stack used by the optional `--makeplots` figures.
-2. **Minimal install (automatic fallback):** if the full solve fails — most often because of an R-package conflict — `setup.sh` automatically retries with just the core tools. In minimal mode **every genie runs normally**; only the optional `--makeplots` figures are unavailable.
+2. **Minimal install (automatic fallback):** if the full solve fails — most often because of an R-package conflict — `setup.sh` automatically retries with just the core tools. This installs the core command-line dependencies without plotting. It does not validate every genie's runtime behavior; consult the [audit](docs/REPOSITORY_AUDIT.md) before relying on a module.
 
 After the environment is created, `setup.sh` sources **`magiclamp.paths`**, which writes all of the per-genie HMM directory variables (`iron_hmms`, `litho_hmms`, `atp_hmms`, `abx_hmms`, `motility_hmms`, …) and the `rscripts` path into the conda environment's `activate.d` hook. `magiclamp.paths` is the single source of truth for these variables — if you add a genie, add its variable there. It also warns (without failing) if any expected `hmms/` subdirectory is missing.
 
@@ -50,6 +56,9 @@ List all available genies and a one-line description of each:
 | **RiboGenie** | Ribosomal-protein and translation-machinery genes | `ribo_hmms` |
 | **ResistiGenie** | Resistance genes (heavy metals, UV, ROS, radioactivity, antibiotics) | `resist_hmms` |
 | **SporeGenie** | Sporulation genes, subcategorized by sporulation stage | `spore_hmms` |
+| **GasGenie** | Gas-vesicle formation genes | `gas_hmms` |
+| **PlasticGenie** | Plastic and pollutant degradation candidates | `plastic_hmms` |
+| **GramGenie** | Six Pfam cell-wall-associated domains and sortase; domain-level evidence | `gram_hmms` |
 | **OmniGenie** | Generic runner for any genie's HMM set (see below) | `<genie>_hmms` |
 | **HmmGenie** | Annotation with a user-provided set of HMMs | — |
 
@@ -91,13 +100,25 @@ Valid `-cat` values: `sulfur, hydrogen, methane, nitrogen, oxygen, carbon-monoxi
 
 ### OmniGenie: run any genie's HMM set generically
 
-`OmniGenie` is a genie-agnostic runner. Pass `-genie <name>`, where `<name>` is the **prefix of that genie's HMM environment variable** (i.e. the part before `_hmms`). OmniGenie resolves the library from `${<name>_hmms}`, falling back to `hmms/<name>/`.
+`OmniGenie` is a generic runner for flat HMM libraries with trusted (TC) cutoffs. Pass `-genie <name>`, where `<name>` is the **prefix of that genie's HMM environment variable** (i.e. the part before `_hmms`). Set that variable through setup or explicitly; its current fallback logic is unreliable when the variable is empty. It reads only `.hmm` files directly in that directory, so nested libraries such as `iron` and `atp` are not supported by this route.
 
-    MagicLamp.py OmniGenie -genie atp    -bin_dir genomes/ -bin_ext fna -out genie_out -t 16
+    MagicLamp.py OmniGenie -genie rnf    -bin_dir genomes/ -bin_ext fna -out genie_out -t 16
     MagicLamp.py OmniGenie -genie abx    -bin_dir genomes/ -bin_ext fna -out genie_out -t 16
     MagicLamp.py OmniGenie -genie portna -bin_dir genomes/ -bin_ext fna -out genie_out -t 16
 
-Valid `-genie` values match the HMM-variable prefixes in the table above: `iron, litho, lux, atp, portna, rnf, abx, motility, ribo, resist, spore`.
+Use the dedicated runners when they have specialized layouts or scoring. In particular, run `GramGenie` directly to retain its domain-level repeat annotations and Pfam GA thresholds.
+
+### GramGenie: cell-wall-associated domains
+
+    python MagicLamp.py GramGenie -bin_dir genomes/ -bin_ext fna -out gramgenie_out -t 16
+    python MagicLamp.py GramGenie -bin_dir proteins/ -bin_ext faa --orfs -out gramgenie_proteins -t 16
+
+GramGenie bundles PF01473, PF04122, PF00395, PF04203 (sortase), PF01476, and PF07501.
+It uses Pfam's sequence and domain GA cutoffs, retains repeated domains and
+multiple domain families on the same protein, and includes zero-hit samples in
+its count matrix. These are domain annotations, not proof of Gram-positive
+identity, surface localization, or EET. See [usage, model provenance, and output
+definitions](docs/GramGenie.md).
 
 ### Using your own HMM set (HmmGenie)
 

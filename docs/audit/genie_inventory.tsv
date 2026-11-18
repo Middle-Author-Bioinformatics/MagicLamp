@@ -1,0 +1,63 @@
+path	dispatch_status	syntax	help_exit	library	lines	sha256	shell_calls	parse_known_args	same_as_active_v3
+GB-or-FA.py	support / package file	OK			36	864513378c277ee23eb2ec24a8fa310c2f33481ac45bb511062c004a14ad1de3	0	False	n/a
+MagicLamp.py	support / package file	OK			86	ee2082273d3ce71316bd6f273e5d12ff507c83884766a3a411843633e8318076	0	False	n/a
+bitscore2hmm.py	support / package file	OK			60	b4af91c2af50b897539076b5502458896c20a311dc0afae9e712bdb609af390c	0	False	n/a
+depracated/CircGenie.py	inactive historical / legacy	OK			1109	46197d3cc421cefc6006dc69488a8b363318b77d99d87dfcd29ac968471e9e3c	39	True	n/a
+depracated/FeGenie.py	inactive historical / legacy	OK			3089	1b56a9e3888b237c3292c0b3362d0ef9ae54f86bd501a531210e0de01f3df246	80	True	False
+depracated/GasGenie.py	inactive historical / legacy	OK			1141	b6c205e218c328a88c343c7f97196b42be4e9eb38be1857a256662a348cdba40	38	True	False
+depracated/HmmGenie-align.py	inactive historical / legacy	OK			383	b37ae99bfbe26579c388a50de6542d7e1ac6c092f0293597a8b02691c47f72ad	0	False	n/a
+depracated/HmmGenie-build.py	inactive historical / legacy	OK			531	7e3af0013dbb36d997d93b37c0a38b7e2b7e96163214fbc872e8c6153a91363a	2	False	n/a
+depracated/HmmGenie.py	inactive historical / legacy	OK			945	b270e0fda2bdf823d47ac109f0a5b6d2d95f6e73ba025f3ea3b7adb53b17f0fe	25	True	False
+depracated/LithoGenie.py	inactive historical / legacy	OK			2745	4d172475203b8b5d68cc477a7aee8e7ae2fbce2081f02c87afc5d266c3561e70	32	True	False
+depracated/Lucifer.py	inactive historical / legacy	OK			1237	977caf5209ecb51b973c63efd073ada714f3bd7f84c32858a8902f866458459a	37	True	False
+depracated/MagnetoGenie.py	inactive historical / legacy	OK			1108	236bc305e5ba1d40681355419e97fc4e5eb970f301c9c10849a112bfd448ea0f	38	True	n/a
+depracated/MnGenie.py	inactive historical / legacy	OK			1155	a0c0301b0df891a14f87a97c9ce4b46f57fb3b3b3afcb06e34ddb326958fe87e	38	True	n/a
+depracated/PlasticGenie.py	inactive historical / legacy	OK			763	8a78aa672ef673d9afa813dac9f72514c12eee2d72825a7c5972977ad282b55e	31	True	False
+depracated/PolGenie.py	inactive historical / legacy	OK			1211	86cc73be6405b714708f70d6b071c6e96bfaa7fa53bbd573fe4221625a93303f	39	True	n/a
+depracated/RiboGenie.py	inactive historical / legacy	OK			758	5212c7e012b32d873e6b22e5e2c071e6a4df2bdea2c22b173ce61cfd518f61fc	31	True	False
+depracated/RosGenie.py	inactive historical / legacy	OK			1061	1017e99adc51eab5bc7fcc68ebcdff0d6a6810df204c7b78380547788e01184c	31	True	n/a
+depracated/WspGenie.py	inactive historical / legacy	OK			1137	01574a8825014c2e3cfe24370ed5585cf8499f33a3a8f32676f8aeea5d5ca8b4	38	True	n/a
+depracated/YfGenie.py	inactive historical / legacy	OK			576	e80bd6919fec94a1b9c6a7c0460370e602233b2659eced5fdfe8159cf9f5b2c5	18	True	n/a
+gb2faa.py	support / package file	OK			56	880e8eaa5994fb5249ee0c149c44e4302756c952afc3f67b8ec5a115a5587347	0	False	n/a
+genies/FeGenie.py	inactive historical / legacy	OK			3089	6681906fcd6d2a44451e56ba00819c38734a6e85dcf27b62e199aaf9ba76ae97	80	True	False
+genies/GasGenie.py	inactive historical / legacy	OK			1141	b6c205e218c328a88c343c7f97196b42be4e9eb38be1857a256662a348cdba40	38	True	False
+genies/HmmGenie.py	inactive historical / legacy	OK			955	bb35219d3314d2bcecc1e1fdb83785745da4aa9b41657f4a20442e26575c94aa	26	True	False
+genies/LithoGenie.py	inactive historical / legacy	OK			2745	4d172475203b8b5d68cc477a7aee8e7ae2fbce2081f02c87afc5d266c3561e70	32	True	False
+genies/Lucifer.py	inactive historical / legacy	OK			1237	977caf5209ecb51b973c63efd073ada714f3bd7f84c32858a8902f866458459a	37	True	False
+genies/MagnetoGenie.py	inactive historical / legacy	OK			1108	236bc305e5ba1d40681355419e97fc4e5eb970f301c9c10849a112bfd448ea0f	38	True	n/a
+genies/MnGenie.py	inactive historical / legacy	OK			1155	a0c0301b0df891a14f87a97c9ce4b46f57fb3b3b3afcb06e34ddb326958fe87e	38	True	n/a
+genies/OmniGenie.py	inactive historical / legacy	OK			558	c8f2c9ee818288e7f56353a42cb750d470d5593301df69b891640f58d2529325	31	True	False
+genies/PolGenie.py	inactive historical / legacy	OK			1211	86cc73be6405b714708f70d6b071c6e96bfaa7fa53bbd573fe4221625a93303f	39	True	n/a
+genies/RiboGenie.py	inactive historical / legacy	OK			758	5212c7e012b32d873e6b22e5e2c071e6a4df2bdea2c22b173ce61cfd518f61fc	31	True	False
+genies/RosGenie.py	inactive historical / legacy	OK			1061	1017e99adc51eab5bc7fcc68ebcdff0d6a6810df204c7b78380547788e01184c	31	True	n/a
+genies/WspGenie.py	inactive historical / legacy	OK			1138	9f832878b3ee70f013589045850b316325c1878ebbd01ccd7f2b467602c4c545	38	True	n/a
+genies/YfGenie.py	inactive historical / legacy	OK			576	e80bd6919fec94a1b9c6a7c0460370e602233b2659eced5fdfe8159cf9f5b2c5	18	True	n/a
+genies_v2/ATPGenie.py	inactive historical / legacy	OK			882	8180d9a37816db0c6be781b05fc4fcf806f5148ef1575feb4c8494271b6155de	21	True	True
+genies_v2/AbxGenie.py	inactive historical / legacy	OK			655	f9a3eb2112947912e70cfd14194e6fbf52286a879b2deb63d1ce0ba359cbc68a	19	True	False
+genies_v2/FeGenie.py	inactive historical / legacy	OK			1884	73b209ecaab332511cd1878f94779e77a8d4287ceea170b40258b609b192930e	41	True	True
+genies_v2/HmmGenie.py	inactive historical / legacy	OK			955	47ea09157b38f8a4b60521c59302a778bfbc5c3510b5e7260741cf5717afbe29	26	True	True
+genies_v2/LithoGenie.py	inactive historical / legacy	OK			1957	266fab4803d7732b8ff1e1cf03d2c2ff3245a78878bc923f776b074b8d1b54c6	21	True	True
+genies_v2/Lucifer.py	inactive historical / legacy	OK			792	bb7a206adcd5330c5a4925bfb159a919c3b1982dfdabcddd0bae467f8881d64e	20	True	True
+genies_v2/MotiliGenie.py	inactive historical / legacy	OK			702	52c2c72e4565dd1110c8a4422b3d6ea4aae03983e0f0386265ecba4189c3fa2b	19	True	False
+genies_v2/OmniGenie.py	inactive historical / legacy	OK			507	3fcf99916fc09eaa15e6c302e3bce69a37fd4a613730479ce625b94b4186d56b	19	True	True
+genies_v2/PortGenie.py	inactive historical / legacy	OK			674	68f8cab4ce8f0119a7cbba88f2f44bc8a02ce37fad9075c7c81d86f85553b160	19	True	False
+genies_v2/ResistiGenie.py	inactive historical / legacy	OK			729	058cf0c1e7799dcede485b2749d006794aa86b86644b394376567941edb169c3	19	True	False
+genies_v2/RiboGenie.py	inactive historical / legacy	OK			862	e1a9f0bad2ee8f3c33ca0be7fa84ad04162a7bd3de4b9c351b5e0f66be5efa1c	19	True	False
+genies_v2/RnfGenie.py	inactive historical / legacy	OK			655	23bec2f97b62660a3d8eae2b602e29a522f1aa7ea9493a8cbff947cd04fcd269	19	True	True
+genies_v2/SporeGenie.py	inactive historical / legacy	OK			722	3537cee79d2acb442867ea2417d1350dd2517d68b7ceee6f4a3d8369746ecbf8	19	True	False
+genies_v3/ATPGenie.py	active at baseline	OK	0	atp	882	8180d9a37816db0c6be781b05fc4fcf806f5148ef1575feb4c8494271b6155de	21	True	n/a
+genies_v3/AbxGenie.py	active at baseline	OK	0	antibiotics	655	c314b352329d44d431982937fa6d8c0c9b7df856b77628290993c47f5fd22f41	19	True	n/a
+genies_v3/FeGenie.py	active at baseline	OK	0	iron	1884	73b209ecaab332511cd1878f94779e77a8d4287ceea170b40258b609b192930e	41	True	n/a
+genies_v3/GasGenie.py	active at baseline	OK	0	gas	1144	4acd4569f659d7e97a1a12e366a0ab0182623df3f1604e6c840d9c6b570c5543	38	True	n/a
+genies_v3/HmmGenie.py	active at baseline	OK	0		955	47ea09157b38f8a4b60521c59302a778bfbc5c3510b5e7260741cf5717afbe29	26	True	n/a
+genies_v3/LithoGenie.py	active at baseline	OK	0	litho	1957	266fab4803d7732b8ff1e1cf03d2c2ff3245a78878bc923f776b074b8d1b54c6	21	True	n/a
+genies_v3/Lucifer.py	active at baseline	OK	0	lux	792	bb7a206adcd5330c5a4925bfb159a919c3b1982dfdabcddd0bae467f8881d64e	20	True	n/a
+genies_v3/MotiliGenie.py	active at baseline	OK	0	motility	702	e6a9033d5e5328906407964d76812223a1b3bfe9d7a39abf5938feb2e227ad54	19	True	n/a
+genies_v3/OmniGenie.py	active at baseline	OK	0		507	3fcf99916fc09eaa15e6c302e3bce69a37fd4a613730479ce625b94b4186d56b	19	True	n/a
+genies_v3/PlasticGenie.py	active at baseline	OK	0	plastics	808	ee6def512c49974f42dbdfeca6be37c49c1cef6cd9a3ef11df30dc9fad6982ba	33	True	n/a
+genies_v3/PortGenie.py	active at baseline	OK	0	portna	674	4d2c8fcf325167d038a1c9192ea6e4151c7f8c8424beb4ab647e807be90922bf	19	True	n/a
+genies_v3/ResistiGenie.py	active at baseline	OK	0	resist	729	cd714ab966a4378b529fabf8fa6e1511e99c6d5e40b9276ce6ba03ba49a91a0b	19	True	n/a
+genies_v3/RiboGenie.py	active at baseline	OK	0	ribo	862	29e3d8754e998a329123e9d1acd1158f48784a6276684eb1a2b9b2d6ba026eb7	19	True	n/a
+genies_v3/RnfGenie.py	active at baseline	OK	0	rnf	655	23bec2f97b62660a3d8eae2b602e29a522f1aa7ea9493a8cbff947cd04fcd269	19	True	n/a
+genies_v3/SporeGenie.py	active at baseline	OK	0	spore	722	e60093034db27c5db6eaf07d50480ed4cbb98d499c226fda6b66d0c77d95c61f	19	True	n/a
+genies_v3/__init__.py	support / package file	OK			8	f8a5de0a6127b31a55d89762ef7d5ffca4aa609002563ea6e7787bc1bcb24418	0	False	n/a

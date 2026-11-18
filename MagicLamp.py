@@ -5,7 +5,7 @@ from genies_v3 import (
     FeGenie, LithoGenie, HmmGenie, OmniGenie, Lucifer,
     ATPGenie, PortGenie, RnfGenie,
     AbxGenie, MotiliGenie, RiboGenie, ResistiGenie, SporeGenie,
-    GasGenie, PlasticGenie,
+    GasGenie, PlasticGenie, GramGenie,
 )
 
 """
@@ -22,7 +22,7 @@ __email__ = "ark@midauthorbio.com"
 errorMessage = (
     "Options: MagicLamp.py [ FeGenie | LithoGenie | PortGenie | RnfGenie | Lucifer | ATPGenie |\n"
     "                       AbxGenie | MotiliGenie | RiboGenie | ResistiGenie | SporeGenie |\n"
-    "                       GasGenie | PlasticGenie |\n"
+    "                       GasGenie | PlasticGenie | GramGenie |\n"
     "                       OmniGenie | HmmGenie | help ]\n"
 )
 
@@ -62,6 +62,8 @@ elif argv[1] == "GasGenie":
     GasGenie.main()
 elif argv[1] == "PlasticGenie":
     PlasticGenie.main()
+elif argv[1] == "GramGenie":
+    raise SystemExit(GramGenie.main())
 elif argv[1] == "help":
     stderr.write(
         "\tMagicLamp.py FeGenie: HMM-based identification and categorization of iron genes and iron gene operons in genomes and metagenomes.\n"
@@ -77,6 +79,7 @@ elif argv[1] == "help":
         "\tMagicLamp.py SporeGenie: HMM-based identification and subcategorization of sporulation genes by sporulation stage.\n"
         "\tMagicLamp.py GasGenie: HMM-based identification of genes responsible for gas vesicle formation.\n"
         "\tMagicLamp.py PlasticGenie: HMM-based identification of genes relevant to plastic and pollutant degradation.\n"
+        "\tMagicLamp.py GramGenie: Pfam cell-wall-associated domains and sortase, with domain-level evidence.\n"
         "\tMagicLamp.py OmniGenie: HMM-based identification for a given genie.\n"
         "\tMagicLamp.py HmmGenie: Identification of a user-provided set of HMMs.\n"
     )
