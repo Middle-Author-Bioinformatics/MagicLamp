@@ -1,0 +1,175 @@
+{
+  "input": {
+    "accession": "NC_000964.3",
+    "description": "B. subtilis 168 chromosome, first 30000 nucleotides",
+    "sha256": "82af674e9f56d58a28e543a7ca13a3598c7d92e51ed53ddc03c412970e9d23e8"
+  },
+  "runs": [
+    {
+      "genie": "FeGenie",
+      "status": "complete",
+      "protein_count": 25,
+      "protein_model_hits": 0,
+      "clusters": 0,
+      "tools": {
+        "hmmsearch": "# hmmsearch :: search profile(s) against a sequence database | # HMMER 3.4 (Aug 2023); http://hmmer.org/ | # Copyright (C) 2023 Howard Hughes Medical Institute.",
+        "prodigal": "Prodigal V2.6.3: February, 2016",
+        "blastp": "blastp: 2.17.0+ | Package: blast 2.17.0, build Jul  1 2025 08:59:18"
+      }
+    },
+    {
+      "genie": "LithoGenie",
+      "status": "complete",
+      "protein_count": 25,
+      "protein_model_hits": 0,
+      "clusters": 0,
+      "tools": {
+        "hmmsearch": "# hmmsearch :: search profile(s) against a sequence database | # HMMER 3.4 (Aug 2023); http://hmmer.org/ | # Copyright (C) 2023 Howard Hughes Medical Institute.",
+        "prodigal": "Prodigal V2.6.3: February, 2016"
+      }
+    },
+    {
+      "genie": "Lucifer",
+      "status": "complete",
+      "protein_count": 25,
+      "protein_model_hits": 0,
+      "clusters": 0,
+      "tools": {
+        "hmmsearch": "# hmmsearch :: search profile(s) against a sequence database | # HMMER 3.4 (Aug 2023); http://hmmer.org/ | # Copyright (C) 2023 Howard Hughes Medical Institute.",
+        "prodigal": "Prodigal V2.6.3: February, 2016"
+      }
+    },
+    {
+      "genie": "ATPGenie",
+      "status": "complete",
+      "protein_count": 25,
+      "protein_model_hits": 0,
+      "clusters": 0,
+      "tools": {
+        "hmmsearch": "# hmmsearch :: search profile(s) against a sequence database | # HMMER 3.4 (Aug 2023); http://hmmer.org/ | # Copyright (C) 2023 Howard Hughes Medical Institute.",
+        "prodigal": "Prodigal V2.6.3: February, 2016"
+      }
+    },
+    {
+      "genie": "PortGenie",
+      "status": "complete",
+      "protein_count": 25,
+      "protein_model_hits": 0,
+      "clusters": 0,
+      "tools": {
+        "hmmsearch": "# hmmsearch :: search profile(s) against a sequence database | # HMMER 3.4 (Aug 2023); http://hmmer.org/ | # Copyright (C) 2023 Howard Hughes Medical Institute.",
+        "prodigal": "Prodigal V2.6.3: February, 2016"
+      }
+    },
+    {
+      "genie": "RnfGenie",
+      "status": "complete",
+      "protein_count": 25,
+      "protein_model_hits": 0,
+      "clusters": 0,
+      "tools": {
+        "hmmsearch": "# hmmsearch :: search profile(s) against a sequence database | # HMMER 3.4 (Aug 2023); http://hmmer.org/ | # Copyright (C) 2023 Howard Hughes Medical Institute.",
+        "prodigal": "Prodigal V2.6.3: February, 2016"
+      }
+    },
+    {
+      "genie": "MotiliGenie",
+      "status": "complete",
+      "protein_count": 25,
+      "protein_model_hits": 0,
+      "clusters": 0,
+      "tools": {
+        "hmmsearch": "# hmmsearch :: search profile(s) against a sequence database | # HMMER 3.4 (Aug 2023); http://hmmer.org/ | # Copyright (C) 2023 Howard Hughes Medical Institute.",
+        "prodigal": "Prodigal V2.6.3: February, 2016"
+      }
+    },
+    {
+      "genie": "RiboGenie",
+      "status": "complete",
+      "protein_count": 25,
+      "protein_model_hits": 1,
+      "clusters": 1,
+      "tools": {
+        "hmmsearch": "# hmmsearch :: search profile(s) against a sequence database | # HMMER 3.4 (Aug 2023); http://hmmer.org/ | # Copyright (C) 2023 Howard Hughes Medical Institute.",
+        "prodigal": "Prodigal V2.6.3: February, 2016"
+      }
+    },
+    {
+      "genie": "ResistiGenie",
+      "status": "complete",
+      "protein_count": 25,
+      "protein_model_hits": 2,
+      "clusters": 1,
+      "tools": {
+        "hmmsearch": "# hmmsearch :: search profile(s) against a sequence database | # HMMER 3.4 (Aug 2023); http://hmmer.org/ | # Copyright (C) 2023 Howard Hughes Medical Institute.",
+        "prodigal": "Prodigal V2.6.3: February, 2016"
+      }
+    },
+    {
+      "genie": "SporeGenie",
+      "status": "complete",
+      "protein_count": 25,
+      "protein_model_hits": 0,
+      "clusters": 0,
+      "tools": {
+        "hmmsearch": "# hmmsearch :: search profile(s) against a sequence database | # HMMER 3.4 (Aug 2023); http://hmmer.org/ | # Copyright (C) 2023 Howard Hughes Medical Institute.",
+        "prodigal": "Prodigal V2.6.3: February, 2016"
+      }
+    },
+    {
+      "genie": "GasGenie",
+      "status": "complete",
+      "protein_count": 25,
+      "protein_model_hits": 0,
+      "clusters": 0,
+      "tools": {
+        "hmmsearch": "# hmmsearch :: search profile(s) against a sequence database | # HMMER 3.4 (Aug 2023); http://hmmer.org/ | # Copyright (C) 2023 Howard Hughes Medical Institute.",
+        "prodigal": "Prodigal V2.6.3: February, 2016"
+      }
+    },
+    {
+      "genie": "PlasticGenie",
+      "status": "complete",
+      "protein_count": 25,
+      "protein_model_hits": 0,
+      "clusters": 0,
+      "tools": {
+        "hmmsearch": "# hmmsearch :: search profile(s) against a sequence database | # HMMER 3.4 (Aug 2023); http://hmmer.org/ | # Copyright (C) 2023 Howard Hughes Medical Institute.",
+        "prodigal": "Prodigal V2.6.3: February, 2016"
+      }
+    },
+    {
+      "genie": "GramGenie",
+      "status": "complete",
+      "protein_count": 25,
+      "protein_model_hits": 1,
+      "clusters": 1,
+      "tools": {
+        "hmmsearch": "# hmmsearch :: search profile(s) against a sequence database | # HMMER 3.4 (Aug 2023); http://hmmer.org/ | # Copyright (C) 2023 Howard Hughes Medical Institute.",
+        "prodigal": "Prodigal V2.6.3: February, 2016"
+      }
+    },
+    {
+      "genie": "OmniGenie",
+      "status": "complete",
+      "protein_count": 25,
+      "protein_model_hits": 0,
+      "clusters": 0,
+      "tools": {
+        "hmmsearch": "# hmmsearch :: search profile(s) against a sequence database | # HMMER 3.4 (Aug 2023); http://hmmer.org/ | # Copyright (C) 2023 Howard Hughes Medical Institute.",
+        "prodigal": "Prodigal V2.6.3: February, 2016"
+      }
+    },
+    {
+      "genie": "HmmGenie",
+      "status": "complete",
+      "protein_count": 25,
+      "protein_model_hits": 1,
+      "clusters": 1,
+      "tools": {
+        "hmmsearch": "# hmmsearch :: search profile(s) against a sequence database | # HMMER 3.4 (Aug 2023); http://hmmer.org/ | # Copyright (C) 2023 Howard Hughes Medical Institute.",
+        "prodigal": "Prodigal V2.6.3: February, 2016"
+      }
+    }
+  ]
+}

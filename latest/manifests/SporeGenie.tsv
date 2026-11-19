@@ -1,0 +1,84 @@
+model_id	path	accession	name	gene	description	category	cutoff_policy	sequence_cutoff	domain_cutoff	evalue	sha256	annotation_source	properties
+TIGR00043.2	TIGR00043.2.hmm	TIGR00043.2	TIGR00043	ybeY	ybeY	miscellaneous	tc	45	45		875f4bf4b06f8385a8bcb617d6081ea87efb945b3958a271ebb90e2966b19f02	existing module HMM_META	{}
+TIGR00050.1	TIGR00050.1.hmm	TIGR00050.1	rRNA_methyl_1	trmJ	trmJ	miscellaneous	tc	167.15	167.15		b51c4293c2183777557c7072122780118a921d65440f09eb872da07a37aafa39	existing module HMM_META	{}
+TIGR00065.1	TIGR00065.1.hmm	TIGR00065.1	ftsZ	ftsZ	ftsZ	stage I and II	tc	295.2	295.2		20ad7a00859fa2910b770941c21b8e957e3ce0a4fbd0be6a78dd9aa9294f98a8	existing module HMM_META	{}
+TIGR00099.1	TIGR00099.1.hmm	TIGR00099.1	Cof-subfamily	Cof-subfamily	JCVI: Cof-type HAD-IIB family hydrolase	unclassified	tc	137	137		c3451ce1e7e30cfc7b03bf3a50b4505e3512b6e4cf443f14c1bdbb15313c2c2e	HMM header (unclassified)	{}
+TIGR00180.1	TIGR00180.1.hmm	TIGR00180.1	parB_part	spo0J	spo0J	stage 0	tc	58.45	58.45		2e6c6e2fa3f822ae5db19ea98920e0b809bfb55b914b23e605cd09e2aaf12caf	existing module HMM_META	{}
+TIGR00185.1	TIGR00185.1.hmm	TIGR00185.1	tRNA_yibK_trmL	trmL	trmL	miscellaneous	tc	190.6	190.6		2f8e499a0a766f23d9a88030c49d14ee1bb81ae8c8362114ed174436c180d7cd	existing module HMM_META	{}
+TIGR00186.1	TIGR00186.1.hmm	TIGR00186.1	rRNA_methyl_3	yacO	yacO	miscellaneous	tc	160.15	160.15		0638fc3b885a7f0dd006b58eab8160d36e9bdbfb92dc54811ad9e3e996ea6829	existing module HMM_META	{}
+TIGR00255.1	TIGR00255.1.hmm	TIGR00255.1	TIGR00255	yloC	yloC	stage III and IV	tc	167.5	167.5		4de2783135114b260e15e33cb537aae42f57a2c643c9ac010aa9f00c5052ab71	existing module HMM_META	{}
+TIGR00283.1	TIGR00283.1.hmm	TIGR00283.1	arch_pth2	arch_pth2	JCVI: aminoacyl-tRNA hydrolase	unclassified	tc	82	82		de72ad79d8c8be2873b7fe96ca411257d777682c16b42366f1f3537666d17a2f	HMM header (unclassified)	{}
+TIGR00377.1	TIGR00377.1.hmm	TIGR00377.1	ant_ant_sig	ant_ant_sig	JCVI: anti-sigma factor antagonist	unclassified	tc	53.45	53.45		3c78c2b51efd2ba6aeb9f91e8ae3b0c815a31279243cb91fe41f07a2b33ff579	HMM header (unclassified)	{}
+TIGR00413.1	TIGR00413.1.hmm	TIGR00413.1	rlpA	rlpA	rlpA	miscellaneous	tc	82.15	82.15		f74ea19bb69945a75d10fb48aeaa3aa369f2dea4ccc253701e4b8a81fd03b723	existing module HMM_META	{}
+TIGR00439.2	TIGR00439.2.hmm	TIGR00439.2	FtsX_Gneg	ftsX	ftsX	stage I and II	tc	255	255		94e97acf98d5103a96badd4d2aa513c0d3b4234dfb2b61e78d42c163d05e3acd	existing module HMM_META	{}
+TIGR00447.2	TIGR00447.2.hmm	TIGR00447.2	pth	spoVC	spoVC	stage I and II	tc	100	100		5f0d7181659fdf245276a2618b3cccb6e2f65882f7611951b6b55dfccf011b64	existing module HMM_META	{}
+TIGR00544.1	TIGR00544.1.hmm	TIGR00544.1	lgt	gerF	gerF	stage VII	tc	118.9	118.9		d859db5a7c5e316ecf422ee400f3b4e7c989378061489394a533390d6ef60236	existing module HMM_META	{}
+TIGR00647.1	TIGR00647.1.hmm	TIGR00647.1	DNA_bind_WhiA	whiA	whiA	miscellaneous	tc	44.1	44.1		bd2d6494f095de630d09e6adea7fe12c8e8aadab2c195fda7f0cbd35dc8efa64	existing module HMM_META	{}
+TIGR00666.1	TIGR00666.1.hmm	TIGR00666.1	PBP4	dacB	dacB	stage III and IV	tc	107.8	107.8		6f288f6e91f8d60a679954771638721e2145fe444cbc689fd1f514ba49272343	existing module HMM_META	{}
+TIGR00691.1	TIGR00691.1.hmm	TIGR00691.1	spoT_relA	relA	relA	miscellaneous	tc	499.2	499.2		2892f20f6cf7c3854350362f5307e72d0b7916880f838bddbcb6089911ffbe40	existing module HMM_META	{}
+TIGR00905.1	TIGR00905.1.hmm	TIGR00905.1	2A0302	lysL	lysL	stage V	tc	409.05	409.05		923bc8d8e0bea00d646259a63de70d144082ac11bf42613ae9b66b91add95c43	existing module HMM_META	{}
+TIGR00912.1	TIGR00912.1.hmm	TIGR00912.1	2A0309	gerKB	gerKB	stage VII	tc	139.55	139.55		3aafdcd36633654437990780d7d46919e0e77fa5d15dc763353443ea6c6f9d69	existing module HMM_META	{}
+TIGR01174.1	TIGR01174.1.hmm	TIGR01174.1	ftsA	ftsA	ftsA	stage I and II	tc	175.85	175.85		7fbfebbb3ad87a38058c28ed2c4aa20f1109f70cc95d337d14225ba066bb6045	existing module HMM_META	{}
+TIGR01222.1	TIGR01222.1.hmm	TIGR01222.1	minC	minC	minC	stage I and II	tc	95.25	95.25		cd2e70ccf16b7d094cade9123cdae12ec81249c148f64b9952040f35bea6bd20	existing module HMM_META	{}
+TIGR01241.2	TIGR01241.2.hmm	TIGR01241.2	FtsH_fam	ftsH	ftsH	stage I and II	tc	600	600		ccbba369fc8cd9e694b0bcd855b7dba27909f829870a351442aece1578917b87	existing module HMM_META	{}
+TIGR01441.2	TIGR01441.2.hmm	TIGR01441.2	GPR	gpr	gpr	stage VII	tc	120	120		cf1e0179b2cba12672519070b8b18261740281664c59cb8468b9f3b8642a2321	existing module HMM_META	{}
+TIGR01442.1	TIGR01442.1.hmm	TIGR01442.1	SASP_gamma	sasP	sasP	stage V	tc	30.65	30.65		931d9bc47ca8f6ce0fb7082e1ee404b0ba5155d7776354daceecfc6311eb1a50	existing module HMM_META	{}
+TIGR01484.1	TIGR01484.1.hmm	TIGR01484.1	HAD-SF-IIB	yhaX	yhaX	stage V	tc	41.8	41.8		7d702e8a350ffbd2339c054b4bd5e90efc96df69356180a2d5d261474bcb9955	existing module HMM_META	{}
+TIGR01626.1	TIGR01626.1.hmm	TIGR01626.1	ytfJ_HI0045	ytfJ	ytfJ	stage III and IV	tc	151.1	151.1		70a570e2231eb077c63c845be3b7530dbf811a0117e891c2c6b4bdbe86075441	existing module HMM_META	{}
+TIGR01879.1	TIGR01879.1.hmm	TIGR01879.1	hydantase	hydantase	JCVI: hydantoinase/carbamoylase family amidase	unclassified	tc	204	204		e44b69f35ff3411a83fdaf6b0129e90b201a7fadfef50d610cb7377f6faef771	HMM header (unclassified)	{}
+TIGR01925.2	TIGR01925.2.hmm	TIGR01925.2	spIIAB	spoIIAB	spoIIAB	stage I and II	tc	135	135		e1fd00578588c6b8d16e7af617c30d54c8ad127ba6b1abd96cc2cb25ce3a8e7e	existing module HMM_META	{}
+TIGR01968.1	TIGR01968.1.hmm	TIGR01968.1	minD_bact	minD	minD	stage I and II	tc	212.9	212.9		b38bcc97acb89bcb754e8d28e22aabb7f50d6c885b44ab78f4696b286d092777	existing module HMM_META	{}
+TIGR02210.1	TIGR02210.1.hmm	TIGR02210.1	rodA_shape	rodA	rodA	miscellaneous	tc	336.7	336.7		0971f5fd1dd7f1776c636c13fba185dc9dbe1e1456cc9fc548410fd6d193a798	existing module HMM_META	{}
+TIGR02214.1	TIGR02214.1.hmm	TIGR02214.1	spoVD_pbp	spoVD	spoVD	stage V	tc	688	688		9cc8b304b94664c7cbe975cd27302f38a1cab973f876cb4ccea5d19ce5604a60	existing module HMM_META	{}
+TIGR02614.1	TIGR02614.1.hmm	TIGR02614.1	ftsW	ftsW	ftsW	stage I and II	tc	337.5	337.5		4aaf9d8daba3a58c2296ae47b26f3cf1bc270e31ccb041c5370f847a827b4dab	existing module HMM_META	{}
+TIGR02615.1	TIGR02615.1.hmm	TIGR02615.1	spoVE	spoVE	spoVE	stage I and II	tc	448.8	448.8		cebc9c370f56f250d1ad96be6d554f80ba1018893ae792736501dfd7ebb4f41f	existing module HMM_META	{}
+TIGR02669.1	TIGR02669.1.hmm	TIGR02669.1	SpoIID_LytB	spoIID	spoIID	stage I and II	tc	83.3	83.3		c17219a81d2bb695b368369d200a251585ccf027e3cbed6d9a5949e8544140fc	existing module HMM_META	{}
+TIGR02673.1	TIGR02673.1.hmm	TIGR02673.1	FtsE	ftsE	ftsE	stage I and II	tc	264.85	264.85		cfe207164554141b14828e77e1e0b6ba678cbde82b80252659c740c1f8f5c372	existing module HMM_META	{}
+TIGR02729.1	TIGR02729.1.hmm	TIGR02729.1	Obg_CgtA	obgE	obgE	stage I and II	tc	280.25	280.25		b713149bdca518cd56d1a3d18925f6f515bf03327c41f28000561fb06f6287fb	existing module HMM_META	{}
+TIGR02764.1	TIGR02764.1.hmm	TIGR02764.1	spore_ybaN_pdaB	pdaB	pdaB	miscellaneous	tc	237.4	237.4		76d0f7666ea01f3595e4b695b96de4192f043544a0c55385bf13d311dad5c109	existing module HMM_META	{}
+TIGR02829.1	TIGR02829.1.hmm	TIGR02829.1	spore_III_AE	spoIIIAE	spoIIIAE	stage III and IV	tc	247.45	247.45		2c130fc86408c1c58d9344ad3bd5153ca578fcbb16f2be233196bfc54920e3f8	existing module HMM_META	{}
+TIGR02830.1	TIGR02830.1.hmm	TIGR02830.1	spore_III_AG	spoIIIAG	spoIIIAG	stage III and IV	tc	147.7	147.7		0ab9fecc61179c99fab5aed180658b57a7bd6c2bbaa8e0289d5b5992c170d1bc	existing module HMM_META	{}
+TIGR02831.1	TIGR02831.1.hmm	TIGR02831.1	spo_II_M	spoIIM	spoIIM	stage I and II	tc	100.2	100.2		fc2b9a942ba3a09422b4010c1cba68cbdf674429f60116827ab2ebf9cfc8fcb7	existing module HMM_META	{}
+TIGR02832.1	TIGR02832.1.hmm	TIGR02832.1	spo_yunB	yunB	yunB	miscellaneous	tc	111.9	111.9		dc878ec385b5b5a055b75e7f0923379a2b076d1df9d01e79b617ab634d4158f9	existing module HMM_META	{}
+TIGR02833.1	TIGR02833.1.hmm	TIGR02833.1	spore_III_AB	spoIIIAB	spoIIIAB	stage III and IV	tc	146.5	146.5		7d79ae94451220e8e2bb1dbe9e4c381d6d3c3b727c5af9306750d14ab53f7587	existing module HMM_META	{}
+TIGR02834.1	TIGR02834.1.hmm	TIGR02834.1	spo_ytxC	ytxC	ytxC	miscellaneous	tc	206.95	206.95		7718da9b7721cac5e6d784241efb72a2951e71694f58cbc92edc87f72c9b4bc1	existing module HMM_META	{}
+TIGR02836.1	TIGR02836.1.hmm	TIGR02836.1	spore_IV_A	spoIVA	spoIVA	stage V	tc	459.9	459.9		2cd13c0f7ed6643731728f4fe4d848d80285b927ed807fa0375e55f9d105ea76	existing module HMM_META	{}
+TIGR02837.1	TIGR02837.1.hmm	TIGR02837.1	spore_II_R	spoIIR	spoIIR	stage I and II	tc	151.9	151.9		c56b58426d0739541970f54ff5de6228b8413c536feee0fc458e92cb1de27de2	existing module HMM_META	{}
+TIGR02838.1	TIGR02838.1.hmm	TIGR02838.1	spore_V_AC	spoVAC	spoVAC	stage V	tc	164	164		d58338de6e48824dbac89e256be39218eb8d74c67eca478c24a1b95026a0d811	existing module HMM_META	{}
+TIGR02839.1	TIGR02839.1.hmm	TIGR02839.1	spore_V_AE	spoVAE	spoVAE	stage V	tc	131.1	131.1		0db6c55537d4b86a0037d6d59c36ce76080e4125681db0d5f00bbc7ad614c730	existing module HMM_META	{}
+TIGR02841.1	TIGR02841.1.hmm	TIGR02841.1	spore_YyaC	yyaC	yyaC	stage III and IV	tc	84.9	84.9		794a249ddb33a2164d615d3ffce21c011ff96f8e0594c020ad1c88d1c381068a	existing module HMM_META	{}
+TIGR02844.1	TIGR02844.1.hmm	TIGR02844.1	spore_III_D	spoIIID	spoIIID	stage III and IV	tc	111.5	111.5		ee9455e849f5d41b28a4effe587e2553f09c720660a7a16ec66054277387ba1b	existing module HMM_META	{}
+TIGR02845.1	TIGR02845.1.hmm	TIGR02845.1	spore_V_AD	spoVAD	spoVAD	stage V	tc	411.8	411.8		d8d509973eb21fd16a83cc68fbbf64c892f703354f998276ad2aa4c683f8a7db	existing module HMM_META	{}
+TIGR02848.1	TIGR02848.1.hmm	TIGR02848.1	spore_III_AC	spoIIIAC	spoIIIAC	stage III and IV	tc	56.65	56.65		d9cb1af68e480daf0820fb2f30e6641c9a4d2026618f5af740b6f0bcb63fa997	existing module HMM_META	{}
+TIGR02849.1	TIGR02849.1.hmm	TIGR02849.1	spore_III_AD	spoIIIAD	spoIIIAD	stage III and IV	tc	85.6	85.6		c240d409b217f3cb5f8e7e8e4e9eda0ec6b3e69a08c0737ee4b5630b2c9d4883	existing module HMM_META	{}
+TIGR02851.1	TIGR02851.1.hmm	TIGR02851.1	spore_V_T	spoVT	spoVT	stage III and IV	tc	235.9	235.9		445ee6c0c8d80d2ba80edc667cc32b48df96538c8ed7e282907939c06cfd2806	existing module HMM_META	{}
+TIGR02852.1	TIGR02852.1.hmm	TIGR02852.1	spore_dpaB	spoVFB	spoVFB	miscellaneous	tc	229	229		f5eeac8ac555abebd2c59e2d6d756638134b3ac6d94065279366de5500274f28	existing module HMM_META	{}
+TIGR02853.1	TIGR02853.1.hmm	TIGR02853.1	spore_dpaA	spoVFA	spoVFA	miscellaneous	tc	319.65	319.65		b4d8d5055b0f9d4f488a4fd3ff3fead6a03e495cdd52465d813d560be9b87a33	existing module HMM_META	{}
+TIGR02854.1	TIGR02854.1.hmm	TIGR02854.1	spore_II_GA	spoIIGA	spoIIGA	stage I and II	tc	209.55	209.55		411897e86e50fa404bb93016d814de95fedda87c21afeb400e95bd9579a7e8cb	existing module HMM_META	{}
+TIGR02858.1	TIGR02858.1.hmm	TIGR02858.1	spore_III_AA	spoIIIAA	spoIIIAA	stage III and IV	tc	281.3	281.3		938c1403afb9cd632f344af8ee5440df1be9e77367ce6dad701f8fc6a76193eb	existing module HMM_META	{}
+TIGR02859.1	TIGR02859.1.hmm	TIGR02859.1	spore_sigH	spo0H	spo0H	stage I and II	tc	294.8	294.8		ff67b2ff880db511544b4a7c2178c4e374fada28df622c6965f53d5220b6054d	existing module HMM_META	{}
+TIGR02860.1	TIGR02860.1.hmm	TIGR02860.1	spore_IV_B	spoIVB	spoIVB	stage III and IV	tc	305.25	305.25		68afabb18c51721ce19b2c4263cb4698e8d24e75d53fdb15e1f199113fd15246	existing module HMM_META	{}
+TIGR02865.1	TIGR02865.1.hmm	TIGR02865.1	spore_II_E	spoIIE	spoIIE	stage I and II	tc	490.8	490.8		ed9bff774cbb818d074b6b4ec760e1f28f99fb6b180357fc7bbc06090de7db43	existing module HMM_META	{}
+TIGR02867.1	TIGR02867.1.hmm	TIGR02867.1	spore_II_P	spoIIP	spoIIP	stage I and II	tc	123.15	123.15		bdbf70954c6e2e7747a36edf7b3c061f40ccd9093a668060b02dea94196c1e84	existing module HMM_META	{}
+TIGR02869.1	TIGR02869.1.hmm	TIGR02869.1	spore_SleB	cwlJ	cwlJ	stage VII	tc	236.5	236.5		323bdb5f26c77a1044405be0fe248bdc60f1aaa08a0ce310d91675aa7c186b59	existing module HMM_META	{}
+TIGR02870.1	TIGR02870.1.hmm	TIGR02870.1	spore_II_D	spore_II_D	JCVI: stage II sporulation protein D	unclassified	tc	234.75	234.75		f1d51ff1148b650d46a5c289f7bf27ffd44585c72df3953ac00dc66d78a81f9e	HMM header (unclassified)	{}
+TIGR02871.1	TIGR02871.1.hmm	TIGR02871.1	spore_ylbJ	ylbJ	ylbJ	miscellaneous	tc	304.65	304.65		f4ee1dfa8b2586b1a62a722c62525706390dfc19414a4d9b63cbaaec39d1b6f0	existing module HMM_META	{}
+TIGR02874.1	TIGR02874.1.hmm	TIGR02874.1	spore_ytfJ	gerW	gerW	stage III and IV	tc	116.3	116.3		f0a96f541b30eafb0d1302844f1d33f8ab399b4a978c329dfcf63730d66980e2	existing module HMM_META	{}
+TIGR02875.1	TIGR02875.1.hmm	TIGR02875.1	spore_0_A	Spo0A	Spo0A	stage 0	tc	200	195		4c90a5735bc87f635bfe666cc4fed736ac220d477717a3c93a2ff9af5644f48b	existing module HMM_META	{}
+TIGR02876.1	TIGR02876.1.hmm	TIGR02876.1	spore_yqfD	yqfD	yqfD	stage VI	tc	256.7	256.7		78397d515c49d8567371901430856365bca3e7b312fe0e6168bbd32febaae824	existing module HMM_META	{}
+TIGR02881.1	TIGR02881.1.hmm	TIGR02881.1	spore_V_K	spoVK	spoVK	stage V	tc	422.95	422.95		4be5fd0571d1c1c3f3d65b63d526097adcec043c2a6f606b3bf908b37a79c82c	existing module HMM_META	{}
+TIGR02886.1	TIGR02886.1.hmm	TIGR02886.1	spore_II_AA	spoIIAA	spoIIAA	stage I and II	tc	114.75	114.75		f93e9dce0e556cf626f10ad27e426ace3fe9c83861ff41899c14156dfea97e08	existing module HMM_META	{}
+TIGR02887.1	TIGR02887.1.hmm	TIGR02887.1	spore_ger_x_C	gerKC	gerKC	stage VII	tc	163.25	163.25		b235358baff4565b2541a51047ec95ea5d66386f7582976e714838ed8f19cb20	existing module HMM_META	{}
+TIGR02888.1	TIGR02888.1.hmm	TIGR02888.1	spore_YlmC_YmxH	ylmC	ylmC	miscellaneous	tc	44.2	44.2		efad92cb286ddc8a43a71eaa374bdc9aa5885f518be0469f1b9d8bd5fbe5038c	existing module HMM_META	{}
+TIGR02892.1	TIGR02892.1.hmm	TIGR02892.1	spore_yabP	yabP	yabP	miscellaneous	tc	75.4	75.4		012050e22a197ed54ae33fe8dcc7cdb45702a1aa0900c73e840c37c31c82ad7f	existing module HMM_META	{}
+TIGR02893.2	TIGR02893.2.hmm	TIGR02893.2	spore_yabQ	yabQ	yabQ	miscellaneous	tc	32	32		f8487ad5233415ecb4b17471f1641ffb17958af33b9ff253b9c28f21b88668fa	existing module HMM_META	{}
+TIGR02895.1	TIGR02895.1.hmm	TIGR02895.1	spore_sigI	sigI	sigI	miscellaneous	tc	185	185		7baa43c8749303e3e88dfdb665a6c9f444d7627b50ae24474441eded00cbebf6	existing module HMM_META	{}
+TIGR02896.1	TIGR02896.1.hmm	TIGR02896.1	spore_III_AF	spoIIIAF	spoIIIAF	stage III and IV	tc	61.3	61.3		81e2a6c914be706e4e1c6ac0bbe211b81ef4fb6bbe80260967f3efb51cf38f10	existing module HMM_META	{}
+TIGR02899.1	TIGR02899.1.hmm	TIGR02899.1	spore_safA	safA	safA	stage V	tc	67.85	67.85		f946b421e2af97c30b2fb23954934f5c4251e23a8eb4db8850743c31e120413d	existing module HMM_META	{}
+TIGR02937.1	TIGR02937.1.hmm	TIGR02937.1	sigma70-ECF	sigB	sigB	miscellaneous	tc	42.9	42.9		94eb62eefe93823da39436de0ac922ec8e3fbd10227e152337396c5b3832b808	existing module HMM_META	{}
+TIGR02960.1	TIGR02960.1.hmm	TIGR02960.1	SigX5	sigG	sigG	miscellaneous	tc	264.75	264.75		6fe3a968aa93f8522597a379d6e67a681f2f034d305697657ffe7aeed82aa76e	existing module HMM_META	{}
+TIGR03175.1	TIGR03175.1.hmm	TIGR03175.1	AllD	ylbC	ylbC	stage III and IV	tc	496.2	496.2		ef9eb1801f306893e7196ee162da2d857b3850fa667dad37155e37b9abc37e20	existing module HMM_META	{}
+TIGR03176.1	TIGR03176.1.hmm	TIGR03176.1	AllC	ylbB	ylbB	stage III and IV	tc	597.75	597.75		6d78a6e0d9d768978f64589b4f8c3fcbfe881c97d8a54dc701301b1e3e5eda65	existing module HMM_META	{}
+TIGR03592.1	TIGR03592.1.hmm	TIGR03592.1	yidC_oxa1_cterm	yidC	yidC	stage I and II	tc	84.3	84.3		08f774cf5d0a704b2bbd2010262214927a80be41a9ecd2077669d4b8cd3c1cde	existing module HMM_META	{}
+TIGR03593.1	TIGR03593.1.hmm	TIGR03593.1	yidC_nterm	yidC_nterm	JCVI: membrane protein insertase, YidC/Oxa1 family, N-terminal domain	unclassified	tc	58.25	58.25		b7799c99ae6bd6b3d92d8e84ef5440847b9562058643682214e685036036dc04	HMM header (unclassified)	{}
+TIGR03810.1	TIGR03810.1.hmm	TIGR03810.1	arg_ornith_anti	arcD	arcD	stage V	tc	591	591		c5584ec2947a5117bb367368a5342ec53766d3fbb2a5d7b663da99c3e0ae8855	existing module HMM_META	{}

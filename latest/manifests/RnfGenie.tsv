@@ -1,0 +1,7 @@
+model_id	path	accession	name	gene	description	category	cutoff_policy	sequence_cutoff	domain_cutoff	evalue	sha256	annotation_source	properties
+TIGR01943	TIGR01943.hmm	TIGR01943.1	rnfA	RnfA	Rnf electron transport complex subunit A (membrane)	rnfA	tc	229.3	229.3		e8e8bac153f9f3dd339939e4a19845ac317f75f66bf0fe4e180d61a00ecb795b	existing module HMM_META	{}
+TIGR01944	TIGR01944.hmm	TIGR01944.1	rnfB	RnfB	Rnf electron transport complex subunit B (cytoplasmic FeS)	rnfB	tc	68.7	68.7		24af5a060532f0565743bc43fcab6b0aac0b09b566f45846ed6b275ebc0486c1	existing module HMM_META	{}
+TIGR01945	TIGR01945.hmm	TIGR01945.1	rnfC	RnfC	Rnf electron transport complex subunit C (NADH-binding, FeS)	rnfC	tc	245.95	245.95		9a92c1d9bdf84c8a1851f33570dba707c7a83ca95a07b7a8595082d16039fb48	existing module HMM_META	{}
+TIGR01946	TIGR01946.hmm	TIGR01946.1	rnfD	RnfD	Rnf electron transport complex subunit D (membrane, FMN)	rnfD	tc	207.05	207.05		cdacf9af2de898dce1ddd404d1eebcb21c2e4c161d3681b3179efe64e8000a4c	existing module HMM_META	{}
+TIGR01947	TIGR01947.hmm	TIGR01947.1	rnfG	RnfG	Rnf electron transport complex subunit G (membrane, FMN)	rnfG	tc	102	102		2212c4f5a31756df27c00492f2c2a9704bd36eec42fcdddd502939a741fbee21	existing module HMM_META	{}
+TIGR01948	TIGR01948.hmm	TIGR01948.1	rnfE	RnfE	Rnf electron transport complex subunit E (membrane)	rnfE	tc	213.4	213.4		81170b099eab937b0999447f9c82d3000eb979a6a15fb9ae567709021dcf9a0a	existing module HMM_META	{}

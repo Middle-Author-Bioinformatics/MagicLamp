@@ -1,0 +1,1430 @@
+{
+  "audited_commit": "bbe400139f24724cec09ce9314cadecaa18afbc4",
+  "date": "2026-11-18",
+  "python": "Python 3.12.14",
+  "hmmer": "3.4",
+  "prodigal": "2.6.3",
+  "input": "first 30,000 nt of Bacillus subtilis 168 chromosome NC_000964.3",
+  "reference_source": "https://www.ncbi.nlm.nih.gov/nuccore/NC_000964.3",
+  "reference_fasta_sha256": "a334e891ffc0e307f23f48842775d3383177a9d9cb5d5075b552a2cccddfe139",
+  "fragment_fasta_sha256": "82af674e9f56d58a28e543a7ca13a3598c7d92e51ed53ddc03c412970e9d23e8",
+  "runtime_checks": [
+    {
+      "genie": "FeGenie",
+      "exit": 1,
+      "seconds": 0.2,
+      "tables": {},
+      "errors": [
+        "Traceback (most recent call last):",
+        "FileNotFoundError: [Errno 2] No such file or directory: '/home/ark/MAB/bin/MagicLamp/hmms/iron/HMM-bitcutoffs.txt'"
+      ],
+      "command": [
+        "python3",
+        "$REPO/MagicLamp.py",
+        "FeGenie",
+        "-bin_dir",
+        "$AUDIT/inputs",
+        "-bin_ext",
+        "fna",
+        "--meta",
+        "-out",
+        "$AUDIT/runs/FeGenie/output",
+        "-t",
+        "1"
+      ]
+    },
+    {
+      "genie": "LithoGenie",
+      "exit": 0,
+      "seconds": 1.3,
+      "tables": {
+        "lithogenie-summary.csv": {
+          "rows": 1,
+          "header": [
+            "cell",
+            "ORF",
+            "HMM",
+            "reaction",
+            "substrate",
+            "evalue",
+            "bitscore",
+            "bitscore_cutoff"
+          ],
+          "data_lines": 0
+        },
+        "lithogenie.heatmap.csv": {
+          "rows": 17,
+          "header": [
+            "X",
+            ""
+          ],
+          "data_lines": 16
+        }
+      },
+      "errors": [],
+      "command": [
+        "python3",
+        "$REPO/MagicLamp.py",
+        "LithoGenie",
+        "-bin_dir",
+        "$AUDIT/inputs",
+        "-bin_ext",
+        "fna",
+        "--meta",
+        "-out",
+        "$AUDIT/runs/LithoGenie/output",
+        "-t",
+        "1"
+      ]
+    },
+    {
+      "genie": "Lucifer",
+      "exit": 0,
+      "seconds": 0.3,
+      "tables": {
+        "lucifer-summary.csv": {
+          "rows": 1,
+          "header": [
+            "file",
+            "ORF",
+            "gene",
+            "evalue",
+            "bit_score",
+            "bit_score_cutoff",
+            "Olson_et_al_2018_motif",
+            "retinal_binding_lysine",
+            "cluster_id",
+            "seq"
+          ],
+          "data_lines": 0
+        },
+        "lucifer.heatmap.csv": {
+          "rows": 22,
+          "header": [
+            "X",
+            ""
+          ],
+          "data_lines": 21
+        }
+      },
+      "errors": [],
+      "command": [
+        "python3",
+        "$REPO/MagicLamp.py",
+        "Lucifer",
+        "-bin_dir",
+        "$AUDIT/inputs",
+        "-bin_ext",
+        "fna",
+        "--meta",
+        "-out",
+        "$AUDIT/runs/Lucifer/output",
+        "-t",
+        "1"
+      ]
+    },
+    {
+      "genie": "ATPGenie",
+      "exit": 0,
+      "seconds": 0.3,
+      "tables": {
+        "atpgenie-summary.csv": {
+          "rows": 1,
+          "header": [
+            "file",
+            "ORF",
+            "gene",
+            "evalue",
+            "bit_score",
+            "complex_type",
+            "ion_preference",
+            "ion_HMM",
+            "ion_winner_bit",
+            "ion_alt_bit",
+            "ion_preference_score",
+            "ion_confidence",
+            "cluster_id",
+            "seq"
+          ],
+          "data_lines": 0
+        },
+        "atpgenie.heatmap.csv": {
+          "rows": 22,
+          "header": [
+            "X",
+            ""
+          ],
+          "data_lines": 21
+        }
+      },
+      "errors": [],
+      "command": [
+        "python3",
+        "$REPO/MagicLamp.py",
+        "ATPGenie",
+        "-bin_dir",
+        "$AUDIT/inputs",
+        "-bin_ext",
+        "fna",
+        "--meta",
+        "-out",
+        "$AUDIT/runs/ATPGenie/output",
+        "-t",
+        "1"
+      ]
+    },
+    {
+      "genie": "PortGenie",
+      "exit": 0,
+      "seconds": 0.3,
+      "tables": {
+        "portnagenie.heatmap.csv": {
+          "rows": 27,
+          "header": [
+            "X",
+            ""
+          ],
+          "data_lines": 26
+        },
+        "portnagenie-summary.csv": {
+          "rows": 1,
+          "header": [
+            "file",
+            "ORF",
+            "gene",
+            "gene_symbol",
+            "description",
+            "transport_mode",
+            "evalue",
+            "bit_score",
+            "cluster_id",
+            "seq"
+          ],
+          "data_lines": 0
+        }
+      },
+      "errors": [],
+      "command": [
+        "python3",
+        "$REPO/MagicLamp.py",
+        "PortGenie",
+        "-bin_dir",
+        "$AUDIT/inputs",
+        "-bin_ext",
+        "fna",
+        "--meta",
+        "-out",
+        "$AUDIT/runs/PortGenie/output",
+        "-t",
+        "1"
+      ]
+    },
+    {
+      "genie": "RnfGenie",
+      "exit": 0,
+      "seconds": 0.2,
+      "tables": {
+        "rnfgenie.heatmap.csv": {
+          "rows": 8,
+          "header": [
+            "X",
+            ""
+          ],
+          "data_lines": 7
+        },
+        "rnfgenie-summary.csv": {
+          "rows": 1,
+          "header": [
+            "file",
+            "ORF",
+            "gene",
+            "gene_symbol",
+            "subunit",
+            "description",
+            "evalue",
+            "bit_score",
+            "cluster_id",
+            "cluster_completeness",
+            "seq"
+          ],
+          "data_lines": 0
+        }
+      },
+      "errors": [],
+      "command": [
+        "python3",
+        "$REPO/MagicLamp.py",
+        "RnfGenie",
+        "-bin_dir",
+        "$AUDIT/inputs",
+        "-bin_ext",
+        "fna",
+        "--meta",
+        "-out",
+        "$AUDIT/runs/RnfGenie/output",
+        "-t",
+        "1"
+      ]
+    },
+    {
+      "genie": "AbxGenie",
+      "exit": 0,
+      "seconds": 0.7,
+      "tables": {
+        "abxgenie-summary.csv": {
+          "rows": 3,
+          "header": [
+            "file",
+            "ORF",
+            "gene",
+            "gene_symbol",
+            "description",
+            "subcategory",
+            "evalue",
+            "bit_score",
+            "cluster_id",
+            "seq"
+          ],
+          "data_lines": 1
+        },
+        "abxgenie.heatmap.csv": {
+          "rows": 21,
+          "header": [
+            "X",
+            ""
+          ],
+          "data_lines": 20
+        }
+      },
+      "errors": [],
+      "command": [
+        "python3",
+        "$REPO/MagicLamp.py",
+        "AbxGenie",
+        "-bin_dir",
+        "$AUDIT/inputs",
+        "-bin_ext",
+        "fna",
+        "--meta",
+        "-out",
+        "$AUDIT/runs/AbxGenie/output",
+        "-t",
+        "1"
+      ]
+    },
+    {
+      "genie": "MotiliGenie",
+      "exit": 0,
+      "seconds": 0.6,
+      "tables": {
+        "motiligenie-summary.csv": {
+          "rows": 1,
+          "header": [
+            "file",
+            "ORF",
+            "gene",
+            "gene_symbol",
+            "description",
+            "subcategory",
+            "evalue",
+            "bit_score",
+            "cluster_id",
+            "seq"
+          ],
+          "data_lines": 0
+        },
+        "motiligenie.heatmap.csv": {
+          "rows": 67,
+          "header": [
+            "X",
+            ""
+          ],
+          "data_lines": 66
+        }
+      },
+      "errors": [],
+      "command": [
+        "python3",
+        "$REPO/MagicLamp.py",
+        "MotiliGenie",
+        "-bin_dir",
+        "$AUDIT/inputs",
+        "-bin_ext",
+        "fna",
+        "--meta",
+        "-out",
+        "$AUDIT/runs/MotiliGenie/output",
+        "-t",
+        "1"
+      ]
+    },
+    {
+      "genie": "RiboGenie",
+      "exit": 0,
+      "seconds": 1.9,
+      "tables": {
+        "ribogenie-summary.csv": {
+          "rows": 3,
+          "header": [
+            "file",
+            "ORF",
+            "gene",
+            "gene_symbol",
+            "description",
+            "subcategory",
+            "evalue",
+            "bit_score",
+            "cluster_id",
+            "seq"
+          ],
+          "data_lines": 1
+        },
+        "ribogenie.heatmap.csv": {
+          "rows": 227,
+          "header": [
+            "X",
+            "B_subtilis_first_30kb.fna",
+            ""
+          ],
+          "data_lines": 226
+        }
+      },
+      "errors": [],
+      "command": [
+        "python3",
+        "$REPO/MagicLamp.py",
+        "RiboGenie",
+        "-bin_dir",
+        "$AUDIT/inputs",
+        "-bin_ext",
+        "fna",
+        "--meta",
+        "-out",
+        "$AUDIT/runs/RiboGenie/output",
+        "-t",
+        "1"
+      ]
+    },
+    {
+      "genie": "ResistiGenie",
+      "exit": 0,
+      "seconds": 0.6,
+      "tables": {
+        "resistigenie.heatmap.csv": {
+          "rows": 93,
+          "header": [
+            "X",
+            "B_subtilis_first_30kb.fna",
+            ""
+          ],
+          "data_lines": 92
+        },
+        "resistigenie-summary.csv": {
+          "rows": 4,
+          "header": [
+            "file",
+            "ORF",
+            "gene",
+            "gene_symbol",
+            "description",
+            "subcategory",
+            "evalue",
+            "bit_score",
+            "cluster_id",
+            "seq"
+          ],
+          "data_lines": 2
+        }
+      },
+      "errors": [],
+      "command": [
+        "python3",
+        "$REPO/MagicLamp.py",
+        "ResistiGenie",
+        "-bin_dir",
+        "$AUDIT/inputs",
+        "-bin_ext",
+        "fna",
+        "--meta",
+        "-out",
+        "$AUDIT/runs/ResistiGenie/output",
+        "-t",
+        "1"
+      ]
+    },
+    {
+      "genie": "SporeGenie",
+      "exit": 0,
+      "seconds": 0.7,
+      "tables": {
+        "sporegenie.heatmap.csv": {
+          "rows": 85,
+          "header": [
+            "X",
+            ""
+          ],
+          "data_lines": 84
+        },
+        "sporegenie-summary.csv": {
+          "rows": 1,
+          "header": [
+            "file",
+            "ORF",
+            "gene",
+            "gene_symbol",
+            "description",
+            "subcategory",
+            "evalue",
+            "bit_score",
+            "cluster_id",
+            "seq"
+          ],
+          "data_lines": 0
+        }
+      },
+      "errors": [],
+      "command": [
+        "python3",
+        "$REPO/MagicLamp.py",
+        "SporeGenie",
+        "-bin_dir",
+        "$AUDIT/inputs",
+        "-bin_ext",
+        "fna",
+        "--meta",
+        "-out",
+        "$AUDIT/runs/SporeGenie/output",
+        "-t",
+        "1"
+      ]
+    },
+    {
+      "genie": "GasGenie",
+      "exit": 0,
+      "seconds": 0.3,
+      "tables": {
+        "gasgenie-summary.csv": {
+          "rows": 1,
+          "header": [
+            "file",
+            "ORF",
+            "gene",
+            "evalue",
+            "bit_score",
+            "bit_score_cutoff",
+            "cluster_id",
+            "seq"
+          ],
+          "data_lines": 0
+        },
+        "gasgenie.heatmap.csv": {
+          "rows": 28,
+          "header": [
+            "X",
+            ""
+          ],
+          "data_lines": 27
+        }
+      },
+      "errors": [],
+      "command": [
+        "python3",
+        "$REPO/MagicLamp.py",
+        "GasGenie",
+        "-bin_dir",
+        "$AUDIT/inputs",
+        "-bin_ext",
+        "fna",
+        "--meta",
+        "-out",
+        "$AUDIT/runs/GasGenie/output",
+        "-t",
+        "1"
+      ]
+    },
+    {
+      "genie": "PlasticGenie",
+      "exit": 0,
+      "seconds": 0.5,
+      "tables": {
+        "plasticgenie-summary.csv": {
+          "rows": 1,
+          "header": [
+            "bin",
+            "orfID",
+            "HMM",
+            "evalue",
+            "bitscore",
+            "clusterID",
+            "ORF_sequence"
+          ],
+          "data_lines": 0
+        },
+        "plasticgenie.heatmap.csv": {
+          "rows": 1,
+          "header": [
+            "X",
+            ""
+          ],
+          "data_lines": 0
+        }
+      },
+      "errors": [],
+      "command": [
+        "python3",
+        "$REPO/MagicLamp.py",
+        "PlasticGenie",
+        "-bin_dir",
+        "$AUDIT/inputs",
+        "-bin_ext",
+        "fna",
+        "--meta",
+        "-out",
+        "$AUDIT/runs/PlasticGenie/output",
+        "-t",
+        "1"
+      ]
+    },
+    {
+      "genie": "OmniGenie",
+      "exit": 0,
+      "seconds": 0.2,
+      "tables": {
+        "atp-summary.csv": {
+          "rows": 1,
+          "header": [
+            "organism",
+            "locus",
+            "ncbi_locus",
+            "HMM",
+            "evalue",
+            "bitscore",
+            "clusterID",
+            "ORF_sequence"
+          ],
+          "data_lines": 0
+        },
+        "atp.heatmap.csv": {
+          "rows": 1,
+          "header": [
+            "X",
+            ""
+          ],
+          "data_lines": 0
+        }
+      },
+      "errors": [],
+      "command": [
+        "python3",
+        "$REPO/MagicLamp.py",
+        "OmniGenie",
+        "-bin_dir",
+        "$AUDIT/inputs",
+        "-bin_ext",
+        "fna",
+        "--meta",
+        "-out",
+        "$AUDIT/runs/OmniGenie/output",
+        "-t",
+        "1",
+        "-genie",
+        "atp"
+      ]
+    },
+    {
+      "genie": "HmmGenie",
+      "exit": 0,
+      "seconds": 0.2,
+      "tables": {
+        "summary.csv": {
+          "rows": 2,
+          "header": [
+            "cell",
+            "ORF",
+            "HMM",
+            "evalue",
+            "bitscore",
+            "seq"
+          ],
+          "data_lines": 1
+        },
+        "genie-summary.csv": {
+          "rows": 2,
+          "header": [
+            "B_subtilis_first_30kb.fna",
+            "NC_000964.3_first_30000_18",
+            "PF01476.hmm",
+            "2e-30",
+            "95.3",
+            "EMPTY",
+            "0",
+            "MVKQGDTLSAIASQYRTTTNDITETNEIPNPDSLVVGQTIVIPIAGQFYDVKRGDTLTSIARQFNTTAAELARVNRIQLNTVLQIGFRLYIPPAPKRDIESNAYLEPRGNQVSENLQQAAREASPYLTYLGAFSFQAQRNGTLVAPPLTNLRSITESQNTTLMMIITNLENQAFSDELGRILLNDETVKRRLLNEIVENARRYGFRDIHFDFEYLRPQDREAYNQFLREARDLFHREGLEISTALAPKTSATQQGRWYEAHDYRAHGEIVDFVVLMTYEWGYSGGPPQAVSPIGPVRDVIEYALTEMPANKIVMGQNLYGYDWTLPYTAGGTPARAVSPQQAIVIADQNNASIQYDQTAQAPFFRYTDAENRRHEVWFEDARSIQAKFNLIKELNLRGISYWKLGLSFPQNWLLLSDQFNVVKKTFR*"
+          ],
+          "data_lines": 0
+        },
+        "genie.heatmap.csv": {
+          "rows": 7,
+          "header": [
+            "X",
+            "B_subtilis_first_30kb.fna",
+            ""
+          ],
+          "data_lines": 6
+        }
+      },
+      "errors": [],
+      "command": [
+        "python3",
+        "$REPO/MagicLamp.py",
+        "HmmGenie",
+        "-bin_dir",
+        "$AUDIT/inputs",
+        "-bin_ext",
+        "fna",
+        "--meta",
+        "-out",
+        "$AUDIT/runs/HmmGenie/output",
+        "-t",
+        "1",
+        "-hmm_dir",
+        "$REPO/hmms/gram"
+      ]
+    },
+    {
+      "genie": "GramGenie",
+      "exit": 0,
+      "seconds": 0.2,
+      "tables": {
+        "gramgenie.heatmap.csv": {
+          "rows": 7,
+          "header": [
+            "X",
+            "B_subtilis_first_30kb.fna"
+          ],
+          "data_lines": 6
+        },
+        "gramgenie-summary.csv": {
+          "rows": 2,
+          "header": [
+            "file",
+            "ORF",
+            "gene",
+            "hmm_name",
+            "description",
+            "subcategory",
+            "evalue",
+            "bit_score",
+            "domain_count",
+            "seq"
+          ],
+          "data_lines": 1
+        }
+      },
+      "errors": [],
+      "command": [
+        "python3",
+        "$REPO/MagicLamp.py",
+        "GramGenie",
+        "-bin_dir",
+        "$AUDIT/inputs",
+        "-bin_ext",
+        "fna",
+        "--meta",
+        "-out",
+        "$AUDIT/runs/GramGenie/output",
+        "-t",
+        "1"
+      ]
+    }
+  ],
+  "metadata_coverage": {
+    "RnfGenie": {
+      "metadata_keys": 6,
+      "library_profiles": 6,
+      "unmapped_profiles": [],
+      "metadata_without_profile": []
+    },
+    "MotiliGenie": {
+      "metadata_keys": 61,
+      "library_profiles": 61,
+      "unmapped_profiles": [
+        "TIGR01026"
+      ],
+      "metadata_without_profile": [
+        "TIGR00205"
+      ]
+    },
+    "RiboGenie": {
+      "metadata_keys": 217,
+      "library_profiles": 266,
+      "unmapped_profiles": [
+        "TIGR00083",
+        "TIGR00089",
+        "TIGR00283",
+        "TIGR00358",
+        "TIGR00389",
+        "TIGR00395",
+        "TIGR00399",
+        "TIGR00409",
+        "TIGR00415",
+        "TIGR00432",
+        "TIGR00451",
+        "TIGR00455",
+        "TIGR00463",
+        "TIGR00467",
+        "TIGR00471",
+        "TIGR00484",
+        "TIGR01012",
+        "TIGR01038",
+        "TIGR01080",
+        "TIGR01578",
+        "TIGR01621",
+        "TIGR01952",
+        "TIGR01954",
+        "TIGR01956",
+        "TIGR02011",
+        "TIGR02387",
+        "TIGR02388",
+        "TIGR02389",
+        "TIGR02390",
+        "TIGR02432",
+        "TIGR02506",
+        "TIGR02696",
+        "TIGR02827",
+        "TIGR02937",
+        "TIGR02997",
+        "TIGR03138",
+        "TIGR03595",
+        "TIGR03628",
+        "TIGR03629",
+        "TIGR03653",
+        "TIGR03670",
+        "TIGR03672",
+        "TIGR03673",
+        "TIGR03963",
+        "TIGR04171",
+        "TIGR04271",
+        "TIGR04322",
+        "TIGR04349",
+        "TIGR04508"
+      ],
+      "metadata_without_profile": []
+    },
+    "PortGenie": {
+      "metadata_keys": 21,
+      "library_profiles": 21,
+      "unmapped_profiles": [],
+      "metadata_without_profile": []
+    },
+    "ResistiGenie": {
+      "metadata_keys": 82,
+      "library_profiles": 55,
+      "unmapped_profiles": [
+        "TIGR00003",
+        "TIGR00935",
+        "TIGR01480",
+        "TIGR01488",
+        "TIGR01509",
+        "TIGR01525"
+      ],
+      "metadata_without_profile": [
+        "TIGR00068",
+        "TIGR00374",
+        "TIGR00427",
+        "TIGR00484",
+        "TIGR00492",
+        "TIGR00666",
+        "TIGR00710",
+        "TIGR00711",
+        "TIGR00753",
+        "TIGR00900",
+        "TIGR00915",
+        "TIGR00981",
+        "TIGR01021",
+        "TIGR01049",
+        "TIGR01188",
+        "TIGR01205",
+        "TIGR01417",
+        "TIGR01672",
+        "TIGR01688",
+        "TIGR01733",
+        "TIGR02073",
+        "TIGR02074",
+        "TIGR02209",
+        "TIGR02439",
+        "TIGR02534",
+        "TIGR03221",
+        "TIGR03423",
+        "TIGR04091",
+        "TIGR04092",
+        "TIGR04176",
+        "TIGR04265",
+        "TIGR04317",
+        "TIGR04431"
+      ]
+    },
+    "AbxGenie": {
+      "metadata_keys": 19,
+      "library_profiles": 59,
+      "unmapped_profiles": [
+        "TIGR00068",
+        "TIGR00374",
+        "TIGR00427",
+        "TIGR00484",
+        "TIGR00492",
+        "TIGR00553",
+        "TIGR00666",
+        "TIGR00711",
+        "TIGR00753",
+        "TIGR00900",
+        "TIGR00915",
+        "TIGR00981",
+        "TIGR01021",
+        "TIGR01049",
+        "TIGR01059",
+        "TIGR01168",
+        "TIGR01188",
+        "TIGR01205",
+        "TIGR01341",
+        "TIGR01417",
+        "TIGR01672",
+        "TIGR01688",
+        "TIGR01720",
+        "TIGR01730",
+        "TIGR01734",
+        "TIGR02073",
+        "TIGR02074",
+        "TIGR02209",
+        "TIGR02320",
+        "TIGR02439",
+        "TIGR02534",
+        "TIGR03185",
+        "TIGR03221",
+        "TIGR03423",
+        "TIGR04091",
+        "TIGR04092",
+        "TIGR04176",
+        "TIGR04265",
+        "TIGR04317",
+        "TIGR04431"
+      ],
+      "metadata_without_profile": []
+    },
+    "SporeGenie": {
+      "metadata_keys": 77,
+      "library_profiles": 83,
+      "unmapped_profiles": [
+        "TIGR00099",
+        "TIGR00283",
+        "TIGR00377",
+        "TIGR01879",
+        "TIGR02870",
+        "TIGR03593"
+      ],
+      "metadata_without_profile": []
+    }
+  },
+  "profile_parse_checks": {
+    "counts": {
+      "('btex', 0)": 1,
+      "('btex', 1)": 30,
+      "('crispr', 0)": 8
+    },
+    "bad": [
+      {
+        "path": "hmms/btex/bcrA_type_I.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/bcrA_type_I.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/bcrA_type_II.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/bcrA_type_II.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/bssA.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/bssA.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/bssB.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/bssB.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/catA.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/catA.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/ebdA.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/ebdA.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/ebdB.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/ebdB.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/ebdC.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/ebdC.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/edoA1.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/edoA1.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/edoA2.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/edoA2.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/ndoB.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/ndoB.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/tmoA_tbuA1_touA.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/tmoA_tbuA1_touA.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/tmoB_tbuU_touB.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/tmoB_tbuU_touB.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/tmoC_tbuB_touC.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/tmoC_tbuB_touC.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/tmoD_tbuV_touD.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/tmoD_tbuV_touD.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/tmoE_tbuA2.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/tmoE_tbuA2.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/tmoF_tbuC_touF.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/tmoF_tbuC_touF.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/todA.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/todA.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/todB.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/todB.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/todC1_bedC1.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/todC1_bedC1.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/todC2_bedC2.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/todC2_bedC2.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/todD.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/todD.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/tomA1.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/tomA1.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/tomA2.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/tomA2.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/tomA3.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/tomA3.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/tomA4.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/tomA4.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/tomA5.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/tomA5.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/xylA.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/xylA.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/xylE.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/xylE.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      },
+      {
+        "path": "hmms/btex/xylM.hmm",
+        "exit": 1,
+        "stderr": "\nError: File format problem in trying to open HMM file hmms/btex/xylM.hmm.\nFormat tag is 'NAME': unrecognized.\nCurrent H3 format is 'HMMER3/f'. Previous H2/H3 formats also supported.\n\n"
+      }
+    ]
+  },
+  "baseline_libraries": {
+    "antibiotics": {
+      "files": 59,
+      "no_TC": 0,
+      "no_GA": 0,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 59
+    },
+    "atp": {
+      "files": 21,
+      "no_TC": 4,
+      "no_GA": 4,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 0
+    },
+    "btex": {
+      "files": 31,
+      "no_TC": 31,
+      "no_GA": 0,
+      "invalid": 30,
+      "multi_model": 1,
+      "flat": 31
+    },
+    "circ": {
+      "files": 7,
+      "no_TC": 0,
+      "no_GA": 0,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 7
+    },
+    "crispr": {
+      "files": 10,
+      "no_TC": 0,
+      "no_GA": 0,
+      "invalid": 0,
+      "multi_model": 8,
+      "flat": 10
+    },
+    "gas": {
+      "files": 63,
+      "no_TC": 37,
+      "no_GA": 37,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 26
+    },
+    "iron": {
+      "files": 216,
+      "no_TC": 187,
+      "no_GA": 187,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 0
+    },
+    "litho": {
+      "files": 138,
+      "no_TC": 131,
+      "no_GA": 131,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 138
+    },
+    "lux": {
+      "files": 21,
+      "no_TC": 4,
+      "no_GA": 4,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 19
+    },
+    "magneto": {
+      "files": 20,
+      "no_TC": 10,
+      "no_GA": 10,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 10
+    },
+    "manganese": {
+      "files": 21,
+      "no_TC": 6,
+      "no_GA": 6,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 21
+    },
+    "motility": {
+      "files": 61,
+      "no_TC": 0,
+      "no_GA": 0,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 61
+    },
+    "plastics": {
+      "files": 103,
+      "no_TC": 37,
+      "no_GA": 72,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 50
+    },
+    "pol": {
+      "files": 11,
+      "no_TC": 0,
+      "no_GA": 0,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 11
+    },
+    "portna": {
+      "files": 21,
+      "no_TC": 0,
+      "no_GA": 0,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 21
+    },
+    "resist": {
+      "files": 55,
+      "no_TC": 0,
+      "no_GA": 0,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 55
+    },
+    "ribo": {
+      "files": 266,
+      "no_TC": 0,
+      "no_GA": 0,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 266
+    },
+    "ribo-old": {
+      "files": 49,
+      "no_TC": 0,
+      "no_GA": 0,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 49
+    },
+    "rnf": {
+      "files": 6,
+      "no_TC": 0,
+      "no_GA": 0,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 6
+    },
+    "ros": {
+      "files": 12,
+      "no_TC": 0,
+      "no_GA": 0,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 12
+    },
+    "spore": {
+      "files": 83,
+      "no_TC": 0,
+      "no_GA": 0,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 83
+    },
+    "wsp": {
+      "files": 8,
+      "no_TC": 0,
+      "no_GA": 0,
+      "invalid": 0,
+      "multi_model": 0,
+      "flat": 8
+    }
+  },
+  "archives": {
+    "genies.zip": {
+      "bytes": 242796,
+      "files": 21,
+      "same_as_checkout": 21,
+      "different_from_checkout": 0,
+      "not_at_archive_path": 0
+    },
+    "genies_v2.zip": {
+      "bytes": 341500,
+      "files": 34,
+      "same_as_checkout": 34,
+      "different_from_checkout": 0,
+      "not_at_archive_path": 0
+    },
+    "hmms.zip": {
+      "bytes": 53440602,
+      "files": 2189,
+      "same_as_checkout": 2180,
+      "different_from_checkout": 1,
+      "not_at_archive_path": 8
+    }
+  },
+  "identical_script_copies": [
+    {
+      "current": "genies_v3/ATPGenie.py",
+      "older": "genies_v2/ATPGenie.py",
+      "identical": true
+    },
+    {
+      "current": "genies_v3/AbxGenie.py",
+      "older": "genies_v2/AbxGenie.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/FeGenie.py",
+      "older": "genies/FeGenie.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/FeGenie.py",
+      "older": "genies_v2/FeGenie.py",
+      "identical": true
+    },
+    {
+      "current": "genies_v3/FeGenie.py",
+      "older": "depracated/FeGenie.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/GasGenie.py",
+      "older": "genies/GasGenie.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/GasGenie.py",
+      "older": "depracated/GasGenie.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/HmmGenie.py",
+      "older": "genies/HmmGenie.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/HmmGenie.py",
+      "older": "genies_v2/HmmGenie.py",
+      "identical": true
+    },
+    {
+      "current": "genies_v3/HmmGenie.py",
+      "older": "depracated/HmmGenie.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/LithoGenie.py",
+      "older": "genies/LithoGenie.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/LithoGenie.py",
+      "older": "genies_v2/LithoGenie.py",
+      "identical": true
+    },
+    {
+      "current": "genies_v3/LithoGenie.py",
+      "older": "depracated/LithoGenie.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/Lucifer.py",
+      "older": "genies/Lucifer.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/Lucifer.py",
+      "older": "genies_v2/Lucifer.py",
+      "identical": true
+    },
+    {
+      "current": "genies_v3/Lucifer.py",
+      "older": "depracated/Lucifer.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/MotiliGenie.py",
+      "older": "genies_v2/MotiliGenie.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/OmniGenie.py",
+      "older": "genies/OmniGenie.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/OmniGenie.py",
+      "older": "genies_v2/OmniGenie.py",
+      "identical": true
+    },
+    {
+      "current": "genies_v3/PlasticGenie.py",
+      "older": "depracated/PlasticGenie.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/PortGenie.py",
+      "older": "genies_v2/PortGenie.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/ResistiGenie.py",
+      "older": "genies_v2/ResistiGenie.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/RiboGenie.py",
+      "older": "genies/RiboGenie.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/RiboGenie.py",
+      "older": "genies_v2/RiboGenie.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/RiboGenie.py",
+      "older": "depracated/RiboGenie.py",
+      "identical": false
+    },
+    {
+      "current": "genies_v3/RnfGenie.py",
+      "older": "genies_v2/RnfGenie.py",
+      "identical": true
+    },
+    {
+      "current": "genies_v3/SporeGenie.py",
+      "older": "genies_v2/SporeGenie.py",
+      "identical": false
+    }
+  ],
+  "limitations": [
+    "Smoke tests are not curated sensitivity/specificity benchmarks.",
+    "No full conda environment solve, optional R plots, or exhaustive legacy mode validation.",
+    "Older inactive script versions were syntax-checked, not run as supported entry points.",
+    "No complete historical audit; source snapshot is pinned to the audited commit."
+  ]
+}
