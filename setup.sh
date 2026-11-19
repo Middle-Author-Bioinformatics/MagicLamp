@@ -1,83 +1,43 @@
 #!/usr/bin/env bash
-#
-# MagicLamp v3 setup.
-#
-# Tries to build the FULL environment (core bioinformatics tools + the R stack
-# used by --makeplots). If the full solve fails (R packages are the usual
-# culprit), it falls back to a MINIMAL environment with just the core tools:
-#   hmmer, blast, prodigal, diamond, bit
-# In minimal mode all genies run normally; only the optional --makeplots
-# figures are unavailable.
-
-set -uo pipefail
-
-GREEN='\033[0;32m'
-YELLOW='\033[0;33m'
-RED='\033[0;31m'
-NC='\033[0m'
-
-ENV_NAME="magiclamp"
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-# Core tools every genie needs (no R, no plotting).
-CORE_PKGS=(hmmer blast prodigal diamond metabat2 bit python=3.7)
-
-# R stack used only for --makeplots.
-R_PKGS=(r-base r-dplyr r-tibble r-stringr r-fuzzyjoin r-RColorBrewer r-forcats
-        r-plotly r-ggplot2 r-stringi r-reshape r-reshape2 r-tidyverse r-argparse
-        r-ggdendro r-pvclust r-ggpubr r-broom)
-
-CHANNELS=(-c conda-forge -c bioconda -c defaults -c astrobiomike -c r)
-
-printf "\n    ${GREEN}Setting up the MagicLamp conda environment...${NC}\n\n"
-
-## make sure conda channels are configured
-conda config --add channels defaults    2> /dev/null || true
-conda config --add channels bioconda     2> /dev/null || true
-conda config --add channels conda-forge  2> /dev/null || true
-
-## remove any stale environment of the same name so retries are clean
-conda env remove -n "${ENV_NAME}" -y 2> /dev/null || true
-
-FULL_INSTALL_OK=0
-
-## ---- Attempt 1: FULL environment (core tools + R plotting stack) ----
-printf "    ${GREEN}Attempting full install (core tools + R plotting stack)...${NC}\n"
-if conda create -n "${ENV_NAME}" "${CHANNELS[@]}" \
-        "${CORE_PKGS[@]}" "${R_PKGS[@]}" --yes; then
-    FULL_INSTALL_OK=1
-    printf "\n    ${GREEN}Full install succeeded (plotting via --makeplots enabled).${NC}\n"
-else
-    printf "\n    ${YELLOW}Full install failed (usually an R-package solve).${NC}\n"
-    printf "    ${YELLOW}Falling back to a minimal install with core tools only...${NC}\n\n"
-
-    ## ---- Attempt 2: MINIMAL environment (core tools only) ----
-    conda env remove -n "${ENV_NAME}" -y 2> /dev/null || true
-    if conda create -n "${ENV_NAME}" -c conda-forge -c bioconda -c defaults -c astrobiomike \
-            "${CORE_PKGS[@]}" --yes; then
-        printf "\n    ${YELLOW}Minimal install succeeded. All genies will run, but the optional\n"
-        printf "    --makeplots figures are NOT available (no R stack).${NC}\n"
-    else
-        printf "\n    ${RED}Minimal install also failed. Please check your conda setup and channels.${NC}\n" >&2
-        exit 1
-    fi
+# Create a dedicated environment without removing existing environments or changing channels.
+set -euo pipefail
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+ENV_NAME=magiclamp
+SPEC=environment.yml
+DRY_RUN=0
+REGISTER_ONLY=0
+while (($#)); do
+    case "$1" in
+        --name) [[ $# -ge 2 ]] || { echo '--name needs a value' >&2; exit 2; }; ENV_NAME=$2; shift 2 ;;
+        --plots) SPEC=environment-plots.yml; shift ;;
+        --dry-run) DRY_RUN=1; shift ;;
+        --register-only) REGISTER_ONLY=1; shift ;;
+        -h|--help) echo 'Usage: bash setup.sh [--name NAME] [--plots] [--dry-run] [--register-only]'; exit 0 ;;
+        *) echo "Unknown option: $1" >&2; exit 2 ;;
+    esac
+done
+[[ "$ENV_NAME" =~ ^[A-Za-z0-9][A-Za-z0-9_.-]*$ ]] || { echo 'Invalid environment name' >&2; exit 2; }
+if ((DRY_RUN)); then
+    printf 'Environment: %s\nSpecification: %s/%s\nRegister only: %s\n' "$ENV_NAME" "$SCRIPT_DIR" "$SPEC" "$REGISTER_ONLY"
+    exit 0
 fi
-
-## activate the environment
-# shellcheck disable=SC1091
-source "$(conda info --base)/etc/profile.d/conda.sh"
-conda activate "${ENV_NAME}"
-
-## export all HMM library paths + rscripts + PATH into the env's activate hook.
-## magiclamp.paths is the single source of truth for these variables.
-source "${SCRIPT_DIR}/magiclamp.paths"
-
-## re-activate so the exported variables and PATH take effect
-conda deactivate
-conda activate "${ENV_NAME}"
-
-if [ "${FULL_INSTALL_OK}" -eq 1 ]; then
-    printf "\n        ${GREEN}DONE! (full install)${NC}\n\n"
-else
-    printf "\n        ${GREEN}DONE! (minimal install — no --makeplots)${NC}\n\n"
+command -v conda >/dev/null || { echo 'Install conda/mamba before running setup.sh.' >&2; exit 1; }
+if ((!REGISTER_ONLY)); then
+    # conda refuses an existing prefix; it is never removed automatically.
+    conda env create --name "$ENV_NAME" --file "$SCRIPT_DIR/$SPEC" --yes
 fi
+ENV_PREFIX="$(conda run --no-capture-output -n "$ENV_NAME" python -c 'import sys; print(sys.prefix)')"
+[[ -d "$ENV_PREFIX/conda-meta" ]] || { echo 'Could not locate the conda environment.' >&2; exit 1; }
+mkdir -p "$ENV_PREFIX/bin"
+LAUNCHER="$ENV_PREFIX/bin/MagicLamp.py"
+if [[ -e "$LAUNCHER" ]] && ! head -n 3 "$LAUNCHER" | grep -qF '# MagicLamp managed launcher'; then
+    echo "Refusing to overwrite an unrelated executable: $LAUNCHER" >&2
+    exit 1
+fi
+{
+    echo '#!/usr/bin/env bash'
+    echo '# MagicLamp managed launcher'
+    printf 'exec %q %q "$@"\n' "$ENV_PREFIX/bin/python" "$SCRIPT_DIR/MagicLamp.py"
+} > "$LAUNCHER"
+chmod +x "$LAUNCHER"
+printf 'Ready. Run: conda activate %s\nThen: MagicLamp.py help\n' "$ENV_NAME"

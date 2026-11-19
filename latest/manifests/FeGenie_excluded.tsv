@@ -1,0 +1,25 @@
+path	reason
+iron_aquisition-heme_oxygenase/HemO_Heme_oxygenase_Neisseria_Meningitidis_PDB_1p3t.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-heme_oxygenase/HmoB_Heme_oxygenase_Bacillus_subtilis_subsp_spizizenii_str_W23_pdb_4fvc.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-heme_oxygenase/HupZ_Heme_binding_Group_A_Streptococcus_pdb_5esc.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-heme_transport/Heme_HasD_ABC_protein_Pseudomonas_fluorescens_BAA88492.1.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-heme_transport/Heme_HasE_membrane_fusion_protein_Pseudomonas_fluorescens_BAA88493.1.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-heme_transport/Heme_HasF_outer_membrane_protein_Pseudomonas_fluorescens_BAA88494.1.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-heme_transport/PF16525-MHB.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-siderophore_synthesis/Sid_AcsB_Achromobactin_siderophore_synthesis_Dickeya_chrysanthemi_AAL14564.1.txt-nr.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-siderophore_synthesis/Sid_AcsF_Achromobactin_siderophore_synthesis_Pseudomonas_syringae_EPF66771.1.txt-nr.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-siderophore_synthesis/Sid_BesA_Bacillibactin_hydrolyze_Bsubtilis_YP_003867459.1_180603.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-siderophore_synthesis/Sid_EntD_enterobactin_synthesis_Ecoli.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-siderophore_synthesis/Sid_MbtC_Mycobactin_biosynthesis_Mycobacterium_tuberculosis_NP_216898.1.txt-nr.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-siderophore_synthesis/Sid_MbtD_Mycobactin_biosynthesis_Mycobacterium_tuberculosis_NP_216897.1.txt-nr.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-siderophore_synthesis/Sid_MbtG_Mycobactin_biosynthesis_Mycobacterium_tuberculosis_NP_216894.1.txt-nr.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-siderophore_synthesis/Sid_MbtH_Mycobactin_biosynthesis_Mycobacterium_tuberculosis_NP_216893.1.txt-nr.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-siderophore_synthesis/Sid_MbtI_Mycobactin_biosynthesis_Mycobacterium_tuberculosis_NC_000962.3.txt-nr.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-siderophore_synthesis/Sid_MbtJ_Mycobactin_biosynthesis_Mycobacterium_tuberculosis_YP_177876.1.txt-nr.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-siderophore_synthesis/Sid_VabD_Vanchrobactin_Biosynthesis_Vibrio_anguillarum_AAW66006.2_180623.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-siderophore_synthesis/Sid_VibD_Vibriobactin_siderophore_biosynthesis_Vibrio_cholerae_AAD48884.1.txt-nr.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-siderophore_synthesis/Sid_VibH_Vanchrobactin_Biosynthesis_Vibrio_cholerae_AAG00565.1_180623.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-siderophore_transport/Sid_IroB_Shigella_dysenteriae_AAR13266.1_180606.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-siderophore_transport/Sid_IroE_Shigella_dysenteriae_AAR13269.1_180606.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-siderophore_transport/Sid_LbtC_Legiobactin_PAP2_superfamily_Legionella_oakridgensis_AHE65915.1_180604.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest
+iron_aquisition-siderophore_transport/Sid_VabS_Vanchrobactin_Export_Vibrio_anguillarum_CAJ45638.1_180623.hmm	No matching value in the existing FeGenie curated cutoff table; not searched by latest

@@ -1,0 +1,56 @@
+model_id	path	accession	name	gene	description	category	cutoff_policy	sequence_cutoff	domain_cutoff	evalue	sha256	annotation_source	properties
+TIGR00003.1	TIGR00003.1.hmm	TIGR00003.1	TIGR00003	TIGR00003	JCVI: copper ion binding protein	unclassified	tc	62	31		d0c72f81d3011a3c7a97fce7cd75ff10c450aa2b9fcf478385a5f460bf926e1e	HMM header (unclassified)	{}
+TIGR00073.1	TIGR00073.1.hmm	TIGR00073.1	hypB	hypB	hypB	resistance to nickel (Ni)	tc	121.2	121.2		5c6926451c4b8776f12aadb0465297fb430ec5707ccdaa0a449e7b97307f8233	existing module HMM_META	{}
+TIGR00100.1	TIGR00100.1.hmm	TIGR00100.1	hypA	hypA	hypA	resistance to nickel (Ni)	tc	88.1	88.1		955e301acbfbd58f54b7e607212146ff6b7f21a5245ca8091050af174a04fa12	existing module HMM_META	{}
+TIGR00194.1	TIGR00194.1.hmm	TIGR00194.1	uvrC	uvrC	uvrC	resistance to UV radiation	tc	285.45	285.45		77fd076d60d2a58ecc9b893a543c04b7dcdad127bc558159e2d58b93613f5840	existing module HMM_META	{}
+TIGR00198.1	TIGR00198.1.hmm	TIGR00198.1	cat_per_HPI	katG	katG	resistance to reactive oxygen species (ROS)	tc	770.25	770.25		42261d5f3e60915a1bea3bf4862c16a6d33c85740a098fefe2f8b5cddb3fddbb	existing module HMM_META	{}
+TIGR00229.1	TIGR00229.1.hmm	TIGR00229.1	sensory_box	pprA	pprA	resistance to radioactivity	tc	22.9	22.9		affcd359aef8bea4eec2580d203d77439df88bb7a4411acea6ec2b01eff6792b	existing module HMM_META	{}
+TIGR00338.1	TIGR00338.1.hmm	TIGR00338.1	serB	serB	serB	resistance to organic/halogenated pollutants	tc	144.15	144.15		20421f50be79ef6ac82370f0d31d5b71e4a68d3750caab4602184f860584fa65	existing module HMM_META	{}
+TIGR00498.1	TIGR00498.1.hmm	TIGR00498.1	lexA	lexA	lexA	resistance to UV radiation	tc	110.95	110.95		968d7ebaa95206565a437985b5267c60972c51643ccd69756d2f022728db3da8	existing module HMM_META	{}
+TIGR00530.1	TIGR00530.1.hmm	TIGR00530.1	AGP_acyltrn	plsC	plsC	resistance to organic/halogenated pollutants	tc	102.95	102.95		2360ae02041731c67b86814219b47c6d04b44536a02b6faf8761263c0068cb84	existing module HMM_META	{}
+TIGR00629.1	TIGR00629.1.hmm	TIGR00629.1	uvde	uvsE	uvsE	resistance to UV radiation	tc	124.45	124.45		5f2afcad47575a550e60cda5e53054a4832479b9b98a4ca1a139cd892ae2b3ed	existing module HMM_META	{}
+TIGR00630.1	TIGR00630.1.hmm	TIGR00630.1	uvra	uvrA	uvrA	resistance to UV radiation	tc	729.8	729.8		869b718c0be33c9c9dd9e3c85e6ecbd66a1f7b6727f295f5a2f431b65d727d71	existing module HMM_META	{}
+TIGR00631.1	TIGR00631.1.hmm	TIGR00631.1	uvrb	uvrB	uvrB	resistance to UV radiation	tc	750.1	750.1		c5f136758b71af0397c8f052eb64a8ac221920e2256870643686064774002d54	existing module HMM_META	{}
+TIGR00634.1	TIGR00634.1.hmm	TIGR00634.1	recN	recN	recN	resistance to radioactivity	tc	407.85	407.85		ddf26c42af784954a0fa0971ba77f38e48e91122a4a05d3ced69aac73052f2b9	existing module HMM_META	{}
+TIGR00726.1	TIGR00726.1.hmm	TIGR00726.1	TIGR00726	yfiH	yfiH	resistance to copper (Cu)	tc	141.15	141.15		e7fdb7f5cb39a134cdaa05993680e71d521662b40654ddc99af1bf257f654f5c	existing module HMM_META	{}
+TIGR00780.1	TIGR00780.1.hmm	TIGR00780.1	ccoN	ccoN	ccoN	resistance to copper (Cu)	tc	583.15	583.15		00b7ccc678553b3ea40a89e418843138bd0a0e292efc6e69dbd8d91e8e45a555	existing module HMM_META	{}
+TIGR00802.1	TIGR00802.1.hmm	TIGR00802.1	nico	nixA	nixA	resistance to nickel (Ni)	tc	333.05	333.05		64fc8b2709e808e3a220bb321d7c4b974a2e7bd73398e27055d84d6f44ea4e5c	existing module HMM_META	{}
+TIGR00832.1	TIGR00832.1.hmm	TIGR00832.1	acr3	arsB	arsB	resistance to arsenic (As)	tc	282.8	282.8		e19e47fc4cddc437c40347adeef33a65e30099b9e52c720a4dce3416a0edb508	existing module HMM_META	{}
+TIGR00914.1	TIGR00914.1.hmm	TIGR00914.1	2A0601	cusA	cusA	resistance to copper (Cu)	tc	701.45	701.45		380f7183818aa7ae622044d239028219b77cac55cc3f976e27b56616762ce659	existing module HMM_META	{}
+TIGR00935.1	TIGR00935.1.hmm	TIGR00935.1	2a45	2a45	JCVI: arsenite/antimonite efflux transporter	unclassified	tc	415	415		79511ba8210b3481a67531da98c2fb587c243ddc3a882f5403b0dd4d7a3f98e9	HMM header (unclassified)	{}
+TIGR00999.1	TIGR00999.1.hmm	TIGR00999.1	8a0102	czcB	czcB	resistance to cadmium (Cd)/zinc (Zn)/cobalt (Co)	tc	319.3	319.3		a63f85f384aa21a18ed0076898a3a2a73c55dd3016253de79b5d09d437c485aa	existing module HMM_META	{}
+TIGR01059.1	TIGR01059.1.hmm	TIGR01059.1	gyrB	gyrB	gyrB (Novobiocin)	antibiotic resistance	tc	882.4	882.4		15396cf0e9783574d9b356d2352031f05b4218c5f02942f5620daa419952ee91	existing module HMM_META	{}
+TIGR01063.1	TIGR01063.1.hmm	TIGR01063.1	gyrA	gyrA	gyrA	resistance to radioactivity	tc	877	877		0284056bc3c4699660be18bcd00fa5f25bda7df7b752b235c391d2afb909b489	existing module HMM_META	{}
+TIGR01068.1	TIGR01068.1.hmm	TIGR01068.1	thioredoxin	trxA	trxA	resistance to reactive oxygen species (ROS)	tc	96.8	96.8		989a5c376d7eaa0e5bfb43501ab3d581dac8d732f50cf0874ed5b8b8e2de360e	existing module HMM_META	{}
+TIGR01075.1	TIGR01075.1.hmm	TIGR01075.1	uvrD	urvD	urvD	resistance to UV radiation	tc	1144.45	1144.45		b8df7e04fc4a9578f72df9ad55c745ef6647c670f49510158b020f62e847b22b	existing module HMM_META	{}
+TIGR01297.1	TIGR01297.1.hmm	TIGR01297.1	CDF	czcD	czcD	resistance to cadmium (Cd)/zinc (Zn)/cobalt (Co)	tc	82.35	82.35		8fcc8102be21eb9bf8f23fad560fd3d2a4943cae490cbae9761a44537d0ae48f	existing module HMM_META	{}
+TIGR01387.1	TIGR01387.1.hmm	TIGR01387.1	cztR_silR_copR	cusR	cusR	resistance to copper (Cu)	tc	279.2	279.2		5ac7c1fc6aa9284b77c149b0945736d0269a22d5184964e6ad192b31843a84f1	existing module HMM_META	{}
+TIGR01421.1	TIGR01421.1.hmm	TIGR01421.1	gluta_reduc_1	gor	gor	resistance to reactive oxygen species (ROS)	tc	556.15	556.15		4ab8f7100c12562eb6a2295529d31c39563a1e3bd79317cb6d759bd296b3095f	existing module HMM_META	{}
+TIGR01473.1	TIGR01473.1.hmm	TIGR01473.1	cyoE_ctaB	coxC	coxC	resistance to copper (Cu)	tc	210.3	210.3		ab78a7cf75b35586745411f6d93282765180344c3128cd26dc59452c7ed1e0f2	existing module HMM_META	{}
+TIGR01480.1	TIGR01480.1.hmm	TIGR01480.1	copper_res_A	copper_res_A	JCVI: copper resistance system multicopper oxidase	unclassified	tc	478.95	478.95		148aa8cc023474e613440210bcd87268e16e49ce96d153e8942979cb92aba711	HMM header (unclassified)	{}
+TIGR01488.1	TIGR01488.1.hmm	TIGR01488.1	HAD-SF-IB	HAD-SF-IB	JCVI: HAD-IB family phosphatase	unclassified	tc	45	45		90d0e7dccb6c81a4c84f22f23f16879debb66118dc0e51265d2539c54ac58504	HMM header (unclassified)	{}
+TIGR01494.1	TIGR01494.1.hmm	TIGR01494.1	ATPase_P-type	zntA	zntA	resistance to copper (Cu)	tc	62.3	62.3		59e8f7598e57f878833748bce7cbb8a0628199322f4f58154dcfb8d7b98c540a	existing module HMM_META	{}
+TIGR01497.1	TIGR01497.1.hmm	TIGR01497.1	kdpB	kdpB	kdpB	resistance to organic/halogenated pollutants	tc	527.9	527.9		5d739609de2784569569fd60e445f927b7dba33c52884a761ce92119d219b76d	existing module HMM_META	{}
+TIGR01509.1	TIGR01509.1.hmm	TIGR01509.1	HAD-SF-IA-v3	HAD-SF-IA-v3	JCVI: HAD-IA family hydrolase	unclassified	tc	29.4	29.4		d459e6cd40c33ca2f1509558c6b710fa344d449e275195a1a56908bfab00e594	HMM header (unclassified)	{}
+TIGR01511.1	TIGR01511.1.hmm	TIGR01511.1	ATPase-IB1_Cu	copB	copB	resistance to copper (Cu)	tc	397	397		6b4f86d3f952a261fd4898b4e4b0abee84d8fedddec42304eab80d6701e32e19	existing module HMM_META	{}
+TIGR01512.1	TIGR01512.1.hmm	TIGR01512.1	ATPase-IB2_Cd	cadA	cadA	resistance to organic/halogenated pollutants	tc	313.5	313.5		567339b0d98faa38757b015eb64765ad85ae0f143973be2c0c3a837fac269226	existing module HMM_META	{}
+TIGR01525.1	TIGR01525.1.hmm	TIGR01525.1	ATPase-IB_hvy	ATPase-IB_hvy	JCVI: heavy metal translocating P-type ATPase	unclassified	tc	346.25	346.25		7547d2a788a1b4cde3743cfa6ec9906b9e6930d3266c1332fd5c7c7613994ded	HMM header (unclassified)	{}
+TIGR01549.1	TIGR01549.1.hmm	TIGR01549.1	HAD-SF-IA-v1	gph	gph	resistance to organic/halogenated pollutants	tc	23.3	23.3		25d0b8b0c8fcfa3c654d54fcadbada3ab75398eefca8eee90b7262a1b94de704	existing module HMM_META	{}
+TIGR01727.1	TIGR01727.1.hmm	TIGR01727.1	oligo_HPY	ABC.PE.A	ABC.PE.A	resistance to nickel (Ni)	tc	37.6	37.6		afbcd2d5361b548c1a93779663a79cc4c68976acbd714e664cd71f179816e746	existing module HMM_META	{}
+TIGR01730.1	TIGR01730.1.hmm	TIGR01730.1	RND_mfp	acrA	acrA (Streptomycin)	antibiotic resistance	tc	94.9	94.9		375cfd2330f15e821be1bf1bd043fe746b4170727fded9e15d0395aaf6ed1a7d	existing module HMM_META	{}
+TIGR01950.1	TIGR01950.1.hmm	TIGR01950.1	SoxR	soxR	soxR	resistance to reactive oxygen species (ROS)	tc	116.9	116.9		3b5749a71c6fea677d26e20cb2633547236b2f38c058f6a070ed72aeefcfa480	existing module HMM_META	{}
+TIGR02012.1	TIGR02012.1.hmm	TIGR02012.1	tigrfam_recA	recA	recA	resistance to UV radiation	tc	325.3	325.3		0841aadf2ba4d59485dd6f68f4a12dd19316594beab1db1d210bebbcdad8ba8e	existing module HMM_META	{}
+TIGR02044.1	TIGR02044.1.hmm	TIGR02044.1	CueR	cueR	cueR	resistance to copper (Cu)	tc	147.4	147.4		613c7a780902d5c7c8b690a9cbdc97598fdedb87cf09c9c053999901186372a9	existing module HMM_META	{}
+TIGR02051.1	TIGR02051.1.hmm	TIGR02051.1	MerR	merR	merR	resistance to copper (Cu)	tc	150.85	150.85		e8973d8ab99d461395bcf6afd234919ce381581f2ddfc6dcfff111132139c2ea	existing module HMM_META	{}
+TIGR02052.1	TIGR02052.1.hmm	TIGR02052.1	MerP	merP	merP	resistance to mercury (Hg)	tc	92.55	92.55		4193d00067501f802a63488b645f0611f821c24905104523b3f43887fdc39354	existing module HMM_META	{}
+TIGR02053.1	TIGR02053.1.hmm	TIGR02053.1	MerA	merA	merA	resistance to mercury (Hg)	tc	454.45	454.45		6a8350229f66c1a31397ec8cd989e488ed821d4502d337126812ea4b54314572	existing module HMM_META	{}
+TIGR02183.1	TIGR02183.1.hmm	TIGR02183.1	GRXA	grxA	grxA	resistance to reactive oxygen species (ROS)	tc	106.5	106.5		4044753b85c43845fdb48471cedc5a96e3f363274a230fe922213cda9020a83b	existing module HMM_META	{}
+TIGR02690.1	TIGR02690.1.hmm	TIGR02690.1	resist_ArsH	arsH	arsH	resistance to arsenic (As)	tc	292.25	292.25		c1d0b7cede3d6a4ecfc236fd1774e19796750682252afe093f03a936502be978	existing module HMM_META	{}
+TIGR02737.1	TIGR02737.1.hmm	TIGR02737.1	caa3_CtaG	ctaG	ctaG	resistance to copper (Cu)	tc	279.35	279.35		fe35068dd68d3bb429d5b40325e49f84a7b33589681cd34c10833389a125ee0b	existing module HMM_META	{}
+TIGR02753.1	TIGR02753.1.hmm	TIGR02753.1	sodN	SOD1	SOD1	resistance to copper (Cu)	tc	90	90		3780959b3a2621042c2338ac3d53ab168189a12363dc06b9439511460b4b7f29	existing module HMM_META	{}
+TIGR02793.1	TIGR02793.1.hmm	TIGR02793.1	nikR	nikR	nikR	resistance to nickel (Ni)	tc	175.45	175.45		143af094cfdc98ab073373d3b5405ef162e9b2054b61becc2aa6bcde7daf39bf	existing module HMM_META	{}
+TIGR02891.1	TIGR02891.1.hmm	TIGR02891.1	CtaD_CoxA	coxA	coxA	resistance to copper (Cu)	tc	670.75	670.75		4a6c80768489b5caef721daf4ee8644407ee2795df54d153c2325ec3ff9ae3d9	existing module HMM_META	{}
+TIGR03137.1	TIGR03137.1.hmm	TIGR03137.1	AhpC	ahpC	ahpC	resistance to reactive oxygen species (ROS)	tc	272	272		89b70b08549302cb6f993658731def4d9b381b7deffb721b6ce633d0b7bf70db	existing module HMM_META	{}
+TIGR03140.1	TIGR03140.1.hmm	TIGR03140.1	AhpF	ahpF	ahpF	resistance to reactive oxygen species (ROS)	tc	502.9	502.9		4cec6a7c38b076145151be705779ef9b79bbc68314c6fa163afb79bf409a0007	existing module HMM_META	{}
+TIGR03452.1	TIGR03452.1.hmm	TIGR03452.1	mycothione_red	gorA	gorA	resistance to reactive oxygen species (ROS)	tc	635.65	635.65		b39cd3291c9c00e868b74d743cb075e4bde4325ff02bc4a57a4945211d4759cf	existing module HMM_META	{}
+TIGR03556.1	TIGR03556.1.hmm	TIGR03556.1	photolyase_8HDF	phr	phr	resistance to UV radiation	tc	884.6	884.6		923a5352d11292e140910f000aa5141a5bc32f48d76c938dc4047b6ffdd9d952	existing module HMM_META	{}

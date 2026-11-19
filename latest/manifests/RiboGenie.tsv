@@ -1,0 +1,267 @@
+model_id	path	accession	name	gene	description	category	cutoff_policy	sequence_cutoff	domain_cutoff	evalue	sha256	annotation_source	properties
+TIGR00001.1	TIGR00001.1.hmm	TIGR00001.1	rpmI_bact	rpmI	rpmI	large ribosomal subunit	tc	51.2	51.2		fdce10a57b8a0b4381f67880dbbf53b20599fc4b457cdd0bc31e4aad59224410	existing module HMM_META	{}
+TIGR00002.1	TIGR00002.1.hmm	TIGR00002.1	S16	rpsP	rpsP	small ribosomal subunit	tc	45.3	45.3		5d62a99a2d50361d0c633f0f406dd776a72bc87811b4e60acbd916c7773796a8	existing module HMM_META	{}
+TIGR00005.1	TIGR00005.1.hmm	TIGR00005.1	rluA_subfam	rluD	rluD	ribosome biogenesis	tc	192.7	192.7		baa5e3c054cfe7c8608b3bda088f1e8daebebc5eb1a376cb1aeb80a95f3957f6	existing module HMM_META	{}
+TIGR00006.1	TIGR00006.1.hmm	TIGR00006.1	TIGR00006	mraW	mraW	ribosome biogenesis	tc	154.3	154.3		5bb739f16111b21826b0cce9e0b735183157389f3d2d8aa5ec0156df03b5b9db	existing module HMM_META	{}
+TIGR00008.1	TIGR00008.1.hmm	TIGR00008.1	infA	infA	infA	translation initiation factor	tc	61.15	61.15		521a69e71861fc1d736dda203cbdad2ecfd095bf0326d58435154804bbeace4e	existing module HMM_META	{}
+TIGR00009.1	TIGR00009.1.hmm	TIGR00009.1	L28	rpmB	rpmB	large ribosomal subunit	tc	48.3	48.3		a27bf02d449696a9445c1f0ce7ee12558ab6ce292bbf2d0be62ceda43d139b2b	existing module HMM_META	{}
+TIGR00011.1	TIGR00011.1.hmm	TIGR00011.1	YbaK_EbsC	ybaK	ybaK	tRNA biogenesis	tc	153.25	153.25		a19f4c5926c84378c8d736160abed3caa202757b93f7128b38220ab7e03e45ad	existing module HMM_META	{}
+TIGR00012.1	TIGR00012.1.hmm	TIGR00012.1	L29	rpmC	rpmC	large ribosomal subunit	tc	22.6	22.6		65e8b39381ddc0833cee3c8e1b835670a3da5bdac074dd0fae584e1670b5803e	existing module HMM_META	{}
+TIGR00029.2	TIGR00029.2.hmm	TIGR00029.2	S20	rpsT	rpsT	small ribosomal subunit	tc	33	33		9f24b787c2ee6d74d33b71bf99f1b35fc0598c604bd7b1bffe64a25df5c3e46a	existing module HMM_META	{}
+TIGR00030.1	TIGR00030.1.hmm	TIGR00030.1	S21p	rpsU	rpsU	small ribosomal subunit	tc	28.95	28.95		4927beff9b9bb1d09641a8bf8a8f9cb9b7a01e46a64712ed3b63d0eca6169afd	existing module HMM_META	{}
+TIGR00035.1	TIGR00035.1.hmm	TIGR00035.1	asp_race	racD	racD	miscellaneous	tc	93.1	93.1		c92b6ffff1f931c21739101a1f4b9887cbd93e5c876b36d2f6dafaf518d79f95	existing module HMM_META	{}
+TIGR00038.1	TIGR00038.1.hmm	TIGR00038.1	efp	efp	efp	translation elongation factor	tc	185.8	185.8		6044b98fa51111e66516c2be68cbda4b0812cfb492b658fcd98e7157ddc0dacd	existing module HMM_META	{}
+TIGR00043.2	TIGR00043.2.hmm	TIGR00043.2	TIGR00043	ybeY	ybeY	ribosome biogenesis	tc	45	45		875f4bf4b06f8385a8bcb617d6081ea87efb945b3958a271ebb90e2966b19f02	existing module HMM_META	{}
+TIGR00046.1	TIGR00046.1.hmm	TIGR00046.1	TIGR00046	rsmE	rsmE	ribosome biogenesis	tc	41	41		e15b6c8c3be02edb7b6bc1bfba2419d7e23c6f7ca092740c782bafce1515f112	existing module HMM_META	{}
+TIGR00048.1	TIGR00048.1.hmm	TIGR00048.1	rRNA_mod_RlmN	rlmN	rlmN	ribosome biogenesis	tc	290	290		12824acce76641fd5873eab9581c90d811bbe30aceaf430da05e61f0c895ec36	existing module HMM_META	{}
+TIGR00049.1	TIGR00049.1.hmm	TIGR00049.1	TIGR00049	iscA	iscA	tRNA biogenesis	tc	58.8	58.8		6c15d13c3b38c9c5420a547158dfa8381850ee046ec04f8f0df2ead564dca6ea	existing module HMM_META	{}
+TIGR00050.1	TIGR00050.1.hmm	TIGR00050.1	rRNA_methyl_1	lasT	lasT	tRNA biogenesis	tc	167.15	167.15		b51c4293c2183777557c7072122780118a921d65440f09eb872da07a37aafa39	existing module HMM_META	{}
+TIGR00057.1	TIGR00057.1.hmm	TIGR00057.1	TIGR00057	sua	sua	ribosome biogenesis	tc	123.2	123.2		30130bdb0ff2f334a0d1bb4633c6fec1f07b13e0782e52e2aa28e867df14239e	existing module HMM_META	{}
+TIGR00059.1	TIGR00059.1.hmm	TIGR00059.1	L17	rplQ	rplQ	large ribosomal subunit	tc	70.05	70.05		a7876836f14db2db24346661d7df3c012ec96e05d021a9bb05a8fafd07a99597	existing module HMM_META	{}
+TIGR00060.1	TIGR00060.1.hmm	TIGR00060.1	L18_bact	rpIR	rpIR	large ribosomal subunit	tc	87.85	87.85		b180d30166f9fe1f044e20b6bec6ab14a09f9aecd425e5af9b2f6e19bfebab54	existing module HMM_META	{}
+TIGR00061.1	TIGR00061.1.hmm	TIGR00061.1	L21	rplU	rplU	large ribosomal subunit	tc	43.7	43.7		247c375035f647e1d7c279cf4872d4f17947e300a0cfa059aa4e7f78ba55a15d	existing module HMM_META	{}
+TIGR00062.1	TIGR00062.1.hmm	TIGR00062.1	L27	rpmA	rpmA	large ribosomal subunit	tc	90.35	90.35		271a87537f6e7785b088267d5896aa66cd3237df287f6b8055a0142e5627465f	existing module HMM_META	{}
+TIGR00064.1	TIGR00064.1.hmm	TIGR00064.1	ftsY	ftsY	ftsY	translation initiation factor	tc	260.7	260.7		a3bab47e5ca918b0c588caee6c2fdd99963672f7880c68cdaf2534f0ce616e64	existing module HMM_META	{}
+TIGR00071.1	TIGR00071.1.hmm	TIGR00071.1	hisT_truA	truA	truA	tRNA biogenesis	tc	142.85	142.85		c61f91a32e60a3f26cfd72b2ee18c108f87105f13198ec07fe53a6fe5141e519	existing module HMM_META	{}
+TIGR00082.1	TIGR00082.1.hmm	TIGR00082.1	rbfA	rbfA	rbfA	ribosome biogenesis	tc	51.15	51.15		3901d97f7ba27c969947e6a1f33862cca753a29a94afa9d34cce6490edf19fbd	existing module HMM_META	{}
+TIGR00083.1	TIGR00083.1.hmm	TIGR00083.1	ribF	ribF	JCVI: riboflavin biosynthesis protein RibF	unclassified	tc	184.35	184.35		10a460171946760af8d93dcc047d3dfb3e95c591089041ab9a9af3c0d803155d	HMM header (unclassified)	{}
+TIGR00086.1	TIGR00086.1.hmm	TIGR00086.1	smpB	smpB	smpB	miscellaneous	tc	119.1	119.1		49ba0c2585458d4e3360c33afbdc0be7b5fbcb1699c7d8c7c3b74f40384e4368	existing module HMM_META	{}
+TIGR00088.1	TIGR00088.1.hmm	TIGR00088.1	trmD	trmD	trmD	tRNA biogenesis	tc	195	195		b7b7a8e1908137b38c6707ac49b56227908883298347e356a9684ad0eb54f326	existing module HMM_META	{}
+TIGR00089.1	TIGR00089.1.hmm	TIGR00089.1	TIGR00089	TIGR00089	JCVI: MiaB/RimO family radical SAM methylthiotransferase	unclassified	tc	251	251		94c61db56346dcbcacc8268a252d4055ca9ba7b0846b427cc5b659f94f5bc750	HMM header (unclassified)	{}
+TIGR00090.1	TIGR00090.1.hmm	TIGR00090.1	rsfS_iojap_ybeB	rsfS	rsfS	ribosome biogenesis	tc	56.9	56.9		72fa6fdfe55fc40f54d0f824c243f91d30ff1999692b7a5b6fc4075876c612c2	existing module HMM_META	{}
+TIGR00091.1	TIGR00091.1.hmm	TIGR00091.1	TIGR00091	trmB	trmB	tRNA biogenesis	tc	112.65	112.65		a3deeb07971b245bd8e8c5e499db02185e8eae1f605e76e2d52b14ec675fd045	existing module HMM_META	{}
+TIGR00092.1	TIGR00092.1.hmm	TIGR00092.1	TIGR00092	ychF	ychF	ribosome biogenesis	tc	279.2	279.2		330a649b06a21e1a99cdd8fae93aa1f1cbc1cfd7712ffe85b702cf1636f49d65	existing module HMM_META	{}
+TIGR00093.1	TIGR00093.1.hmm	TIGR00093.1	TIGR00093	rluB	rluB	ribosome biogenesis	tc	109.3	109.3		24b2c038f60bd938896678cfb60248b2fd7df0cbaea49b4552f01de06252b8b1	existing module HMM_META	{}
+TIGR00094.1	TIGR00094.1.hmm	TIGR00094.1	tRNA_TruD_broad	truD	truD	tRNA biogenesis	tc	172.2	172.2		08591bbc5ceb28e56e0d7f841369d1996461d43430fea55e1bbb4c0f2dbd1d7f	existing module HMM_META	{}
+TIGR00095.1	TIGR00095.1.hmm	TIGR00095.1	TIGR00095	rsmD	rsmD	ribosome biogenesis	tc	117.5	117.5		bf327e01f630bd97a9e392382afec767d8cf1621b7455f388716539c4ad5407a	existing module HMM_META	{}
+TIGR00096.1	TIGR00096.1.hmm	TIGR00096.1	TIGR00096	rsmI	rsmI	ribosome biogenesis	tc	167.9	167.9		8dc75914f63b397261403b6ad5e6b44f3b920c980c37b5d552b1375f0283ed7d	existing module HMM_META	{}
+TIGR00105.1	TIGR00105.1.hmm	TIGR00105.1	L31	rmpE	rmpE	large ribosomal subunit	tc	38.35	38.35		f13c8b0d0d2d6cfdd8bbe731f101a128406f3ba4675360a34a93a194fb3b52d5	existing module HMM_META	{}
+TIGR00113.1	TIGR00113.1.hmm	TIGR00113.1	queA	queA	queA	tRNA biogenesis	tc	267.45	267.45		763137710d794b478abeb9df6f0762bafc06e86e1f6174bcc67810721442f15d	existing module HMM_META	{}
+TIGR00116.1	TIGR00116.1.hmm	TIGR00116.1	tsf	tsf	tsf	ribosome biogenesis	tc	104.05	104.05		0994df8006be7788618b6ee81a61f87c12ba6ba0456f51f64d6c182f1cfe8879	existing module HMM_META	{}
+TIGR00136.1	TIGR00136.1.hmm	TIGR00136.1	mnmG_gidA	gid	gid	tRNA biogenesis	tc	524.85	524.85		758c585d2a813f5cd209d8b76a2684007b1649c339d41b2550d133d4cead8343	existing module HMM_META	{}
+TIGR00137.1	TIGR00137.1.hmm	TIGR00137.1	gid_trmFO	trmFO	trmFO	tRNA biogenesis	tc	428.65	428.65		ad23c3d1771f84e1831974070ee6933edb688442fe8e70fcba9bbdfec4bced85	existing module HMM_META	{}
+TIGR00138.1	TIGR00138.1.hmm	TIGR00138.1	rsmG_gidB	rsmG	rsmG	ribosome biogenesis	tc	99.5	99.5		a670800b3eb801233c67fa6ffee201072abcdb3e50a034da7330e4985c330176	existing module HMM_META	{}
+TIGR00150.1	TIGR00150.1.hmm	TIGR00150.1	T6A_YjeE	tsaE	tsaE	tRNA biogenesis	tc	60.1	60.1		af63000252f59e4b8ade02f8a99e1ffcc1d0dbfda05ffd3f4b3731655d99719b	existing module HMM_META	{}
+TIGR00157.1	TIGR00157.1.hmm	TIGR00157.1	TIGR00157	rsgA	rsgA	ribosome biogenesis	tc	100	100		f826699112b5bbed2a6b5b689e0ba6ef4214274a7bc545c823a3d43d9c977a65	existing module HMM_META	{}
+TIGR00158.1	TIGR00158.1.hmm	TIGR00158.1	L9	rplI	rplI	large ribosomal subunit	tc	58.6	58.6		7973278dddf5a3882d03721b7f84fc9e9895e5088fe8a05df59adbfee82f73f6	existing module HMM_META	{}
+TIGR00165.1	TIGR00165.1.hmm	TIGR00165.1	S18	rpsR	rpsR	small ribosomal subunit	tc	38.75	38.75		27d0106ee78050b27d83db7d270b15fd8245a4d2bf3dc925f465a960dc3d776b	existing module HMM_META	{}
+TIGR00166.1	TIGR00166.1.hmm	TIGR00166.1	S6	rpsF	rpsF	small ribosomal subunit	tc	42.9	42.9		45148447f2c5c06762cd277fd64d9d467d9616d3fa506582683a811e441c362f	existing module HMM_META	{}
+TIGR00168.2	TIGR00168.2.hmm	TIGR00168.2	infC	infC	infC	translation initiation factor	tc	60	60		1d9a60efb46f418a7b4ad6b9486c89564a1f3c0dc79a74b379b112bfb2064c14	existing module HMM_META	{}
+TIGR00174.1	TIGR00174.1.hmm	TIGR00174.1	miaA	miaA	miaA	tRNA biogenesis	tc	148.65	148.65		a8c8e37d50708bdb34b3209a15d10adbc4d322076db9af466132d68cacc6fa6b	existing module HMM_META	{}
+TIGR00185.1	TIGR00185.1.hmm	TIGR00185.1	tRNA_yibK_trmL	trmL	trmL	tRNA biogenesis	tc	190.6	190.6		2f8e499a0a766f23d9a88030c49d14ee1bb81ae8c8362114ed174436c180d7cd	existing module HMM_META	{}
+TIGR00186.1	TIGR00186.1.hmm	TIGR00186.1	rRNA_methyl_3	yacO	yacO	ribosome biogenesis	tc	160.15	160.15		0638fc3b885a7f0dd006b58eab8160d36e9bdbfb92dc54811ad9e3e996ea6829	existing module HMM_META	{}
+TIGR00188.1	TIGR00188.1.hmm	TIGR00188.1	rnpA	rnpA	rnpA	tRNA biogenesis	tc	38.35	38.35		2f5a215d0f90b6a6c288d0f22cda868d1c61de54ea0b4f0f531db5772b46f644	existing module HMM_META	{}
+TIGR00202.1	TIGR00202.1.hmm	TIGR00202.1	csrA	csrA	csrA	ribosome biogenesis	tc	70.1	70.1		1acaa332fb5a6e716b6ac6a39b31d7452c361154bf9f9add6dc68dbf8a7414a8	existing module HMM_META	{}
+TIGR00211.2	TIGR00211.2.hmm	TIGR00211.2	glyS	glyS	glyS	tRNA biogenesis	tc	300	300		77cccaada8e916a39439b41e2da1fa335f402a3c526c32c84eaf27f6f14a8ef4	existing module HMM_META	{}
+TIGR00216.1	TIGR00216.1.hmm	TIGR00216.1	ispH_lytB	ispH	ispH	small ribosomal subunit	tc	187.85	187.85		6631f572334c02c6f715390bde2bc650c1e9e7f3a97a664dd82116406443b74f	existing module HMM_META	{}
+TIGR00233.1	TIGR00233.1.hmm	TIGR00233.1	trpS	trpS	trpS	tRNA biogenesis	tc	176.75	176.75		4e7145e2d0af70eb777fcdbb026a912a0993476edd18f8110a8bbcefee03d2a6	existing module HMM_META	{}
+TIGR00234.1	TIGR00234.1.hmm	TIGR00234.1	tyrS	tyrS	tyrS	tRNA biogenesis	tc	113.8	113.8		95379ec470d83dec9e45ca56fbd22e26f3576b4bfa472df630f1ec5f99b906cd	existing module HMM_META	{}
+TIGR00246.1	TIGR00246.1.hmm	TIGR00246.1	tRNA_RlmH_YbeA	rlmH	rlmH	ribosome biogenesis	tc	149.7	149.7		7848cf4cd40436b7ed75474e3f91bd723752bb25d498faeeb7a4bb7fcc16a0d5	existing module HMM_META	{}
+TIGR00250.1	TIGR00250.1.hmm	TIGR00250.1	RNAse_H_YqgF	ruvX	ruvX	16S rRNA	tc	43.25	43.25		c2c9f4e7cd5f90dbb80486b5052385505d9447236c96012a73d15fe2ed0dc716	existing module HMM_META	{}
+TIGR00253.1	TIGR00253.1.hmm	TIGR00253.1	RNA_bind_YhbY	yhbY	yhbY	ribosome biogenesis	tc	78.5	78.5		d6fd7ab3d81e45e51e1fe1db9fd9c9146e80874373d7ceaf1478a651f4208c87	existing module HMM_META	{}
+TIGR00269.1	TIGR00269.1.hmm	TIGR00269.1	TIGR00269	ttuA	ttuA	tRNA biogenesis	tc	62.75	62.75		8503c9d7043a34dde7a83562f62d2fff7347d3c4a7b7e8c6619fc60777863a0c	existing module HMM_META	{}
+TIGR00276.1	TIGR00276.1.hmm	TIGR00276.1	TIGR00276	queG	queG	tRNA biogenesis	tc	200	200		641c2b9ce0858027b0db8a0d72daeb015b54aa4f6a2d7fd78bb57eba482aa3dd	existing module HMM_META	{}
+TIGR00279.1	TIGR00279.1.hmm	TIGR00279.1	uL16_euk_arch	rpl10e	rpl10e	large ribosomal subunit	tc	223.55	223.55		e56b15b774daf8395e8ed0d6a47668674a4494773bf127a324b73f3948d6d7c2	existing module HMM_META	{}
+TIGR00280.1	TIGR00280.1.hmm	TIGR00280.1	eL43_euk_arch	rpl37ae	rpl37ae	large ribosomal subunit	tc	95.8	95.8		247afadc840a629187fb81618f6748c1ceea4a702b44c28001ba6a46b22571da	existing module HMM_META	{}
+TIGR00283.1	TIGR00283.1.hmm	TIGR00283.1	arch_pth2	arch_pth2	JCVI: aminoacyl-tRNA hydrolase	unclassified	tc	82	82		de72ad79d8c8be2873b7fe96ca411257d777682c16b42366f1f3537666d17a2f	HMM header (unclassified)	{}
+TIGR00285.1	TIGR00285.1.hmm	TIGR00285.1	TIGR00285	ssh10b	ssh10b	miscellaneous	tc	88.25	88.25		dec4c50f66f1766dbdd3769e7c74d13d7869e62783d572e91c61d4f006da6fdd	existing module HMM_META	{}
+TIGR00291.1	TIGR00291.1.hmm	TIGR00291.1	RNA_SBDS	SDO1	SDO1	ribosome biogenesis	tc	126.55	126.55		2b7a72acb272da099ff77838f0a1f1d435279089d1d07ba41da57b1ffa2ea303	existing module HMM_META	{}
+TIGR00307.1	TIGR00307.1.hmm	TIGR00307.1	eS8	rps8e	rps8e	small ribosomal subunit	tc	78.25	78.25		a4ea069289b7720a474aa9412a237dbc28ae71b619f2fe6e9f5e8b8e29b40ddc	existing module HMM_META	{}
+TIGR00308.1	TIGR00308.1.hmm	TIGR00308.1	TRM1	trm1	trm1	tRNA biogenesis	tc	280.65	280.65		f5b80c3ab9056244060ddb5d9ec2be722120796918b98bb4494d709f0d42db4e	existing module HMM_META	{}
+TIGR00323.1	TIGR00323.1.hmm	TIGR00323.1	eIF-6	eif6	eif6	ribosome biogenesis	tc	137.75	137.75		a5b409a0efd1ee1d82ac2173871813466bdfa064e0c44a65ca9f043b3e59775a	existing module HMM_META	{}
+TIGR00324.1	TIGR00324.1.hmm	TIGR00324.1	endA	endA	endA	tRNA biogenesis	tc	59.6	59.6		7a724300815efb62837013b3a707873a3686218717b1ae2682d1b7af30134b95	existing module HMM_META	{}
+TIGR00329.1	TIGR00329.1.hmm	TIGR00329.1	gcp_kae1	KAE1	KAE1	tRNA biogenesis	tc	207.8	207.8		54906c8e54ab6346f991e5fac6df9adbf5eb7182a4daa45c28dc89dfe06e3b98	existing module HMM_META	{}
+TIGR00342.1	TIGR00342.1.hmm	TIGR00342.1	TIGR00342	thiI	thiI	tRNA biogenesis	tc	264.5	264.5		d2795cc7ac308fcdaef70790dadacd241fd8fe39b7707a496cbd84028ca573b7	existing module HMM_META	{}
+TIGR00344.1	TIGR00344.1.hmm	TIGR00344.1	alaS	alaS	alaS	tRNA biogenesis	tc	457.05	457.05		5234495c23c0e6176693e08907b80a70f065b37d087767673307afb3e348f5ac	existing module HMM_META	{}
+TIGR00358.1	TIGR00358.1.hmm	TIGR00358.1	3_prime_RNase	3_prime_RNase	JCVI: VacB/RNase II family 3'-5' exoribonuclease	unclassified	tc	368.6	368.6		e5782e93b66788eeea8cc1f8c8873218eaa6fe22fee0c9e2a593b1214c77039b	HMM header (unclassified)	{}
+TIGR00364.1	TIGR00364.1.hmm	TIGR00364.1	TIGR00364	queC	queC	tRNA biogenesis	tc	150.3	150.3		f03c097ba4739898d2c7d37ce6dd6ddf882e8bdeed47b1cc3d5811a6a034075b	existing module HMM_META	{}
+TIGR00388.1	TIGR00388.1.hmm	TIGR00388.1	glyQ	glyQ	glyQ	tRNA biogenesis	tc	361.45	361.45		76f0b1d7f21b297165972fa0df76e6189438c342936bf01fde4d6eab52203f16	existing module HMM_META	{}
+TIGR00389.1	TIGR00389.1.hmm	TIGR00389.1	glyS_dimeric	glyS_dimeric	JCVI: glycine--tRNA ligase, homodimeric type	unclassified	tc	243.3	243.3		739238db62a203fef708c329a830fde336029727281bb4c7dec25d6b455b9ee6	HMM header (unclassified)	{}
+TIGR00392.1	TIGR00392.1.hmm	TIGR00392.1	ileS	ileS	ileS	tRNA biogenesis	tc	621.4	621.4		94f53975b7c10c5477f334a66d2ab7055c69cd156897bd1535bd2ecec32d63df	existing module HMM_META	{}
+TIGR00395.1	TIGR00395.1.hmm	TIGR00395.1	leuS_arch	leuS_arch	JCVI: leucine--tRNA ligase	unclassified	tc	648.5	648.5		9330cea22cf2059b0348aa0680f3de18dfefd876a0a13d63b719db836908fab9	HMM header (unclassified)	{}
+TIGR00396.1	TIGR00396.1.hmm	TIGR00396.1	leuS_bact	leuS	leuS	tRNA biogenesis	tc	548.4	548.4		0f4964935d43366c87758c983c6843d52bd706ad96b6795e4ea9d00107cb0cb1	existing module HMM_META	{}
+TIGR00398.1	TIGR00398.1.hmm	TIGR00398.1	metG	metG	metG	tRNA biogenesis	tc	336.35	336.35		aa655e37cc3ae1c5de93129276f5eb8f2017cc34f3a173f39f70208020d24a6a	existing module HMM_META	{}
+TIGR00399.1	TIGR00399.1.hmm	TIGR00399.1	metG_C_term	metG_C_term	JCVI: methionine--tRNA ligase subunit beta	unclassified	tc	116.65	116.65		0b6ef35d121266e4417f819b7659aa11ca06822ce1e2038e2bac4359016d93cf	HMM header (unclassified)	{}
+TIGR00405.1	TIGR00405.1.hmm	TIGR00405.1	KOW_elon_Spt5	spt5	spt5	ribosome biogenesis	tc	69.95	69.95		aad4ccad0ecd54adebf77283ff13d0f9546b9ab2e985644d6ffc3ead90903198	existing module HMM_META	{}
+TIGR00406.1	TIGR00406.1.hmm	TIGR00406.1	prmA	prmA	prmA	ribosome biogenesis	tc	183.15	183.15		3d1c6104c4df844e5a5eea37552aca3eab462b0c0554f6daa13ac76342902aff	existing module HMM_META	{}
+TIGR00408.1	TIGR00408.1.hmm	TIGR00408.1	proS_fam_I	proS	proS	tRNA biogenesis	tc	437	437		0489a9eeeaa43a0e2291d2aaf3a21b455716f720c64136974bc48bc606daff6f	existing module HMM_META	{}
+TIGR00409.1	TIGR00409.1.hmm	TIGR00409.1	proS_fam_II	proS_fam_II	JCVI: proline--tRNA ligase	unclassified	tc	306.7	306.7		89a64fd20195f056ede7f44be563a3294d5e3cc6cce82644a7485afc6a995ccc	HMM header (unclassified)	{}
+TIGR00414.1	TIGR00414.1.hmm	TIGR00414.1	serS	serS	serS	tRNA biogenesis	tc	301.65	301.65		79051c9800bc2116a793e80be3ab366aed22e72ca838adfdfccfb57b1ff7c148	existing module HMM_META	{}
+TIGR00415.1	TIGR00415.1.hmm	TIGR00415.1	serS_MJ	serS_MJ	JCVI: serine--tRNA ligase	unclassified	tc	489.55	489.55		8851936bf023eb889f407d5efd0646276e9a9121ce2e433043372874e8ed7bf9	HMM header (unclassified)	{}
+TIGR00418.1	TIGR00418.1.hmm	TIGR00418.1	thrS	thrS	thrS	tRNA biogenesis	tc	383.65	383.65		cc45b2386afdd2e91abbd8d730e0298c751f54dcf9d8a6476b2ca0e97aead4ad	existing module HMM_META	{}
+TIGR00420.1	TIGR00420.1.hmm	TIGR00420.1	trmU	mnmA	mnmA	tRNA biogenesis	tc	236.95	236.95		9c1626a520b85e69276e0e5866ba99896fd46ac3a526e8b5f58b7982d63fe7d8	existing module HMM_META	{}
+TIGR00422.1	TIGR00422.1.hmm	TIGR00422.1	valS	valS	valS	tRNA biogenesis	tc	612.1	612.1		e15703320c011d0aa97ddcc34abdcf8228c3f22e222ff1e16a168d3e788740f4	existing module HMM_META	{}
+TIGR00430.1	TIGR00430.1.hmm	TIGR00430.1	Q_tRNA_tgt	tgt	tgt	tRNA biogenesis	tc	306.75	306.75		22b24a05dcc4b0aa9c77d101890f19d8790b2012a81ca91a2db6cb1197d431ca	existing module HMM_META	{}
+TIGR00431.1	TIGR00431.1.hmm	TIGR00431.1	TruB	truB	truB	ribosome biogenesis	tc	151.45	151.45		a671f417f696f3899104dce705e92c9dfdcfe06e309a18708c2073d7d5946d16	existing module HMM_META	{}
+TIGR00432.2	TIGR00432.2.hmm	TIGR00432.2	arcsn_tRNA_tgt	arcsn_tRNA_tgt	JCVI: tRNA guanosine(15) transglycosylase TgtA	unclassified	tc	350	350		2b8cf3155379e301b6dc21a4795494145b2b6abd24ba12d6a85cc1ed32c930a4	HMM header (unclassified)	{}
+TIGR00435.1	TIGR00435.1.hmm	TIGR00435.1	cysS	cysS	cysS	tRNA biogenesis	tc	340	340		b79e0cb57ef56d3a16eb574aea98558acf9fcef4e188dc6cbb97403b007103fb	existing module HMM_META	{}
+TIGR00436.1	TIGR00436.1.hmm	TIGR00436.1	era	era	era	ribosome biogenesis	tc	116.25	116.25		cb785a2d4eaea12b4f162d7b20e143ad2e9d4a28193eebbaf32f09ed522738b3	existing module HMM_META	{}
+TIGR00438.1	TIGR00438.1.hmm	TIGR00438.1	rrmJ	rrmJ	rrmJ	ribosome biogenesis	tc	300.15	300.15		70407c62aa0eac03ef12c0614bee9fc834c03cc1988066cc0ad8f8b7fbb4773b	existing module HMM_META	{}
+TIGR00442.1	TIGR00442.1.hmm	TIGR00442.1	hisS	hisS	hisS	tRNA biogenesis	tc	286.75	286.75		cf0f00a6a57aed4acf2b584d52ee89d2eb285ebf9e5d0830281d802d2deeb9ab	existing module HMM_META	{}
+TIGR00447.2	TIGR00447.2.hmm	TIGR00447.2	pth	pth	pth	tRNA biogenesis	tc	100	100		5f0d7181659fdf245276a2618b3cccb6e2f65882f7611951b6b55dfccf011b64	existing module HMM_META	{}
+TIGR00449.1	TIGR00449.1.hmm	TIGR00449.1	tgt_general	tgtA	tgtA	tRNA biogenesis	tc	47.6	47.6		a4cea14f4470c7f7f5bb4eb703f680d3cfee4bd1d4738bc462e9a7ae55da395d	existing module HMM_META	{}
+TIGR00450.1	TIGR00450.1.hmm	TIGR00450.1	mnmE_trmE_thdF	mnmE	mnmE	large ribosomal subunit	tc	252.6	252.6		be870695e8673abb98d76207511fa0505f728336f7b20fa7a81d9d5ec705a442	existing module HMM_META	{}
+TIGR00451.1	TIGR00451.1.hmm	TIGR00451.1	unchar_dom_2	unchar_dom_2	JCVI: uncharacterized domain 2	unclassified	tc	27	27		d993156610ae40b4604fefa9c26955a85d2bef91d782519f0926fec4518e2855	HMM header (unclassified)	{}
+TIGR00455.1	TIGR00455.1.hmm	TIGR00455.1	apsK	apsK	JCVI: adenylyl-sulfate kinase	unclassified	tc	138.7	138.7		75424e9f291f6d35c876a42a1825b59ac7d0c428042f58a0ee8cf9e491885338	HMM header (unclassified)	{}
+TIGR00456.1	TIGR00456.1.hmm	TIGR00456.1	argS	argS	argS	tRNA biogenesis	tc	261.65	261.65		8086a23422551c9632ed4062854dbe217f3e6474fc4adbc054e4705584e22849	existing module HMM_META	{}
+TIGR00458.1	TIGR00458.1.hmm	TIGR00458.1	aspS_nondisc	aspS	aspS	tRNA biogenesis	tc	368.4	368.4		7c8ea5de10d2a58195d06401a28679d068a73509df2fc1c9a50f2713215e5596	existing module HMM_META	{}
+TIGR00463.1	TIGR00463.1.hmm	TIGR00463.1	gltX_arch	gltX_arch	JCVI: glutamate--tRNA ligase	unclassified	tc	401.75	401.75		65b7476d35a7ed4c12e0f04b2523e76d8621778fb654b1b725381168dd1cfd15	HMM header (unclassified)	{}
+TIGR00464.1	TIGR00464.1.hmm	TIGR00464.1	gltX_bact	gltX	gltX	tRNA biogenesis	tc	289.95	289.95		762fb1030d24956363561ef3877dc46414c829c32adcf41f95c4ad013efe6f84	existing module HMM_META	{}
+TIGR00467.1	TIGR00467.1.hmm	TIGR00467.1	lysS_arch	lysS_arch	JCVI: lysine--tRNA ligase	unclassified	tc	147.55	147.55		a3c8333992e4056d1ce218447f5314984e624415efb7af07fc28e4644ee51874	HMM header (unclassified)	{}
+TIGR00468.1	TIGR00468.1.hmm	TIGR00468.1	pheS	pheS	pheS	tRNA biogenesis	tc	237.45	237.45		ec34f124c3f41eaae61a75f26ac66ac609798513da77142077855760e227fc9f	existing module HMM_META	{}
+TIGR00470.1	TIGR00470.1.hmm	TIGR00470.1	sepS	sepS	sepS	tRNA biogenesis	tc	380.65	380.65		fd5a76b5c357e919541a6cd2e0572dc65900afe6e909f8197872aa6a6d0ae71c	existing module HMM_META	{}
+TIGR00471.1	TIGR00471.1.hmm	TIGR00471.1	pheT_arch	pheT_arch	JCVI: phenylalanine--tRNA ligase subunit beta	unclassified	tc	282.65	282.65		3fa097ce74654712eab8f9e9d955257c01372ee235a24a0a8b1b9cde06e6fc87	HMM header (unclassified)	{}
+TIGR00472.1	TIGR00472.1.hmm	TIGR00472.1	pheT_bact	pheT	pheT	tRNA biogenesis	tc	402.65	402.65		6f43805844520ab90173f083bd391c4d63abf8242ab729781378d1fecbffb7a6	existing module HMM_META	{}
+TIGR00478.1	TIGR00478.1.hmm	TIGR00478.1	tly	tlyA	tlyA	ribosome biogenesis	tc	185.8	185.8		86b5ae2444de723d28533c92748b2aeb4eab0f22575363d26a13839c73775555	existing module HMM_META	{}
+TIGR00479.1	TIGR00479.1.hmm	TIGR00479.1	rumA	rumA	rumA	ribosome biogenesis	tc	183.55	183.55		86305c27eac20684d1e1520d56ade7727ab8a7206fcee079f4f9accfb69bbb41	existing module HMM_META	{}
+TIGR00484.1	TIGR00484.1.hmm	TIGR00484.1	EF-G	EF-G	JCVI: elongation factor G	unclassified	tc	659.4	659.4		b2e5e945c9e81abe98af5c39970aafafddf9552347385b37d1cd6049baf606f1	HMM header (unclassified)	{}
+TIGR00485.1	TIGR00485.1.hmm	TIGR00485.1	EF-Tu	tuf	tuf	ribosome biogenesis	tc	522.4	522.4		a5d622f91c0f5a399fdad1f14a9d50f3d34331cdce8606a94664d1619ba964fd	existing module HMM_META	{}
+TIGR00487.1	TIGR00487.1.hmm	TIGR00487.1	IF-2	infB	infB	translation initiation factor	tc	424.4	424.4		3059d9e55656b24f775734decaff8c1431c7a7e03e540da507de3135a26d570e	existing module HMM_META	{}
+TIGR00490.1	TIGR00490.1.hmm	TIGR00490.1	aEF-2	fusA	fusA	translation elongation factor	tc	738.45	738.45		990b415a3577cceb38ead941c666d2a16ed2814ce8900ed8d16530757abc457e	existing module HMM_META	{}
+TIGR00496.1	TIGR00496.1.hmm	TIGR00496.1	frr	frr	frr	ribosome recycling factor	tc	149.1	149.1		33ca950a21e38548954774fbcca1e4111c19856a4470e595a62bd6a57f748105	existing module HMM_META	{}
+TIGR00499.1	TIGR00499.1.hmm	TIGR00499.1	lysS_bact	lysS	lysS	tRNA biogenesis	tc	427.6	427.6		0803f7b2afa4a63c506bbd56a58ea867707054b95a180e61c1dd1445bc2cc058	existing module HMM_META	{}
+TIGR00503.1	TIGR00503.1.hmm	TIGR00503.1	prfC	prfC	prfC	translation elongation factor	tc	466.95	466.95		ffef6aa85f447339b0315a5f5262bfad4f87a2d7af830b68847a43facdf19386	existing module HMM_META	{}
+TIGR00543.1	TIGR00543.1.hmm	TIGR00543.1	isochor_syn	menF	menF	miscellaneous	tc	224.75	224.75		04bac25d8ba52caffbf43fa151270ad8884d0ca2ff0162c23239667b5854e186	existing module HMM_META	{}
+TIGR00563.1	TIGR00563.1.hmm	TIGR00563.1	rsmB	rsmB	rsmB	ribosome biogenesis	tc	269.05	269.05		595b5e25e5de0f0dd378d15223e26a3235df7ab2cd0634cb47d814e12fe89618	existing module HMM_META	{}
+TIGR00581.1	TIGR00581.1.hmm	TIGR00581.1	moaC	moaC	moaC	miscellaneous	tc	141.5	141.5		05f4d1660a7eb728b08bd91454ea2c77a0d644da6f7e4320fed10e72c7c1584e	existing module HMM_META	{}
+TIGR00691.1	TIGR00691.1.hmm	TIGR00691.1	spoT_relA	relA	relA	ribosome biogenesis	tc	499.2	499.2		2892f20f6cf7c3854350362f5307e72d0b7916880f838bddbcb6089911ffbe40	existing module HMM_META	{}
+TIGR00717.1	TIGR00717.1.hmm	TIGR00717.1	rpsA	rpsA	rpsA	small ribosomal subunit	tc	577	577		ff8b5988e5d5e9876013a9cf460d127868a4510790c49ebff31875c0daed96c6	existing module HMM_META	{}
+TIGR00731.1	TIGR00731.1.hmm	TIGR00731.1	bL25_bact_ctc	Ctc	Ctc	large ribosomal subunit	tc	73.1	73.1		cbc0f6312333fb865c55e4ebbc3e51427ccf373e9073ac160b9c18d7fe73cfca	existing module HMM_META	{}
+TIGR00737.1	TIGR00737.1.hmm	TIGR00737.1	nifR3_yhdG	dusB	dusB	tRNA biogenesis	tc	293.3	293.3		3be781dffbc4ad15f977923cc14913be56afa10cc00e0cd44b08c9b4672396c2	existing module HMM_META	{}
+TIGR00741.1	TIGR00741.1.hmm	TIGR00741.1	yfiA	hpf	hpf	ribosome biogenesis	tc	40.9	40.9		c396779b3fc17cf4928ef23d561a0f984aaa7c9153b5fb8475352e1a6754ebf7	existing module HMM_META	{}
+TIGR00755.1	TIGR00755.1.hmm	TIGR00755.1	ksgA	ksgA	ksgA	ribosome biogenesis	tc	171	171		80057833ee7b960d1bda642767ccdc19fdfe0b42eae228aa1a06a12aaca2718d	existing module HMM_META	{}
+TIGR00757.1	TIGR00757.1.hmm	TIGR00757.1	RNaseEG	rng	rng	ribosome biogenesis	tc	325.95	325.95		09beda36bc7d966ddf1b84d3bd55ede5a0c18facd5842c3f930d3ec0d450b8ad	existing module HMM_META	{}
+TIGR00855.1	TIGR00855.1.hmm	TIGR00855.1	L12	rpIL	rpIL	large ribosomal subunit	tc	84.4	84.4		0e7cfd08c5300a0a3572b051832b11d3199d9b967d2d600751b9520bbd1f89ae	existing module HMM_META	{}
+TIGR00922.1	TIGR00922.1.hmm	TIGR00922.1	nusG	nusG	nusG	ribosome biogenesis	tc	135.7	135.7		8a036c3a578eb06ba16c8f5c685d73e700d26d9b080236a827fd6ccc627520e9	existing module HMM_META	{}
+TIGR00952.1	TIGR00952.1.hmm	TIGR00952.1	S15_bact	rpsO	rpsO	small ribosomal subunit	tc	63.65	63.65		b9cae227b8323396a1e63535f99e47f3b94b9e4a6aa4cedd05b17b4c5afa514e	existing module HMM_META	{}
+TIGR00959.1	TIGR00959.1.hmm	TIGR00959.1	ffh	ffh	ffh	miscellaneous	tc	473.2	473.2		f68a026f94a9ff082985aa279564a037c1f16981396e2f5b7499e5b4811e0d73	existing module HMM_META	{}
+TIGR00981.1	TIGR00981.1.hmm	TIGR00981.1	rpsL_bact	rpsL	rpsL	small ribosomal subunit	tc	112.95	112.95		667e68902479caa826e18a27b965613b11411a95aab2cdc2ac0648a239ac0962	existing module HMM_META	{}
+TIGR00982.1	TIGR00982.1.hmm	TIGR00982.1	uS12_E_A	rps12	rps12	small ribosomal subunit	tc	140.2	140.2		538c684b5f7fb1acf45e13d727604405fbc6e8b946291e574f6835e3cc314221	existing module HMM_META	{}
+TIGR01009.1	TIGR01009.1.hmm	TIGR01009.1	rpsC_bact	rpsC	rpsC	small ribosomal subunit	tc	114.5	114.5		69e3be9ec006302255166bce55ea275960cbb802aecbc3d54e2fc80ce67573a4	existing module HMM_META	{}
+TIGR01011.1	TIGR01011.1.hmm	TIGR01011.1	rpsB_bact	rpsB	rpsB	small ribosomal subunit	tc	76.3	76.3		3079ac5e005445166438e47a96314687636e3e3ae971e7bf8b2676bf1dd088db	existing module HMM_META	{}
+TIGR01012.1	TIGR01012.1.hmm	TIGR01012.1	uS2_euk_arch	uS2_euk_arch	JCVI: 30S ribosomal protein S2	unclassified	tc	211.5	211.5		dcfe1a2d87e544343872fb4c404a9ca03759c464cde6d9ab84b26e9c6c58ac1e	HMM header (unclassified)	{}
+TIGR01017.1	TIGR01017.1.hmm	TIGR01017.1	rpsD_bact	rpsD	rpsD	small ribosomal subunit	tc	177.2	177.2		82286811357680444ce57eafbd408d407c3d16ca5b88feda0f19b39580cf5bd7	existing module HMM_META	{}
+TIGR01020.1	TIGR01020.1.hmm	TIGR01020.1	uS5_euk_arch	rps5	rps5	small ribosomal subunit	tc	181.65	181.65		4256b7e14a8220e78c2908e0369b7d8843a3d46bbb06ad201681093c62fc1408	existing module HMM_META	{}
+TIGR01021.1	TIGR01021.1.hmm	TIGR01021.1	rpsE_bact	rpsE	rpsE	small ribosomal subunit	tc	164.05	164.05		74faef0d24429e9c1a53a8c645bc486b103aea905ef1d9b9320ddb2147cbfc11	existing module HMM_META	{}
+TIGR01022.1	TIGR01022.1.hmm	TIGR01022.1	rpmJ_bact	rpmJ	rpmJ	large ribosomal subunit	tc	22.7	22.7		6643e04a4db3c234e0a6298d4ace5bc331952444edf00bd66c76dee3f2fc02a9	existing module HMM_META	{}
+TIGR01023.1	TIGR01023.1.hmm	TIGR01023.1	rpmG_bact	rpmG	rpmG	large ribosomal subunit	tc	23.95	23.95		10601e8260be3edfc70bb7184f3859367869d085f2e8d69c816b1751a63529f4	existing module HMM_META	{}
+TIGR01024.1	TIGR01024.1.hmm	TIGR01024.1	rplS_bact	rplS	rplS	large ribosomal subunit	tc	90.7	90.7		71f76fd35fcb491e76e9d4bea5fa952e5bf4610b2828cd2cd5b7cf7bb2b3d7b7	existing module HMM_META	{}
+TIGR01025.1	TIGR01025.1.hmm	TIGR01025.1	uS19_arch	rps19p	rps19p	small ribosomal subunit	tc	139	139		96acf8e6e53ef25681ff9d2efbeb905182f9b04860b9cd4da5e10ec6ee6ce26e	existing module HMM_META	{}
+TIGR01028.1	TIGR01028.1.hmm	TIGR01028.1	uS7_euk_arch	rps7	rps7	small ribosomal subunit	tc	200	200		3150d288d72b4dd1d41037e2e78ffcdcd055294dcbcfce60252b8c5e1c17d17f	existing module HMM_META	{}
+TIGR01029.1	TIGR01029.1.hmm	TIGR01029.1	rpsG_bact	rpsG	rpsG	small ribosomal subunit	tc	135.85	135.85		61d74c0c09e3aca5fb846ac2dcf7b245dc6953b15a2af65fc0802c6a6a3293db	existing module HMM_META	{}
+TIGR01030.1	TIGR01030.1.hmm	TIGR01030.1	rpmH_bact	rpmH	rpmH	large ribosomal subunit	tc	37.65	37.65		9e6274d769f10e29e1c7695514388e292854697af31d504058865b7188068daa	existing module HMM_META	{}
+TIGR01031.1	TIGR01031.1.hmm	TIGR01031.1	rpmF_bact	rpmF	rpmF	large ribosomal subunit	tc	22.6	22.6		7fca2735112a524cb17c341896440fe01dada70c5c97729698be3f94eed6c75a	existing module HMM_META	{}
+TIGR01032.1	TIGR01032.1.hmm	TIGR01032.1	rplT_bact	prlT	prlT	large ribosomal subunit	tc	65.65	65.65		c78b656667156eca8966f512a13a199f737fe4a7a63e0ec5dedb2cacd15a6b5e	existing module HMM_META	{}
+TIGR01038.1	TIGR01038.1.hmm	TIGR01038.1	uL22_arch_euk	uL22_arch_euk	JCVI: 50S ribosomal protein L22	unclassified	tc	79.85	79.85		80855fbc951d55bbd8b2f0eec9e10c7e0b61d288a3b52e27487b92a76714f0dd	HMM header (unclassified)	{}
+TIGR01044.1	TIGR01044.1.hmm	TIGR01044.1	rplV_bact	rplV	rplV	large ribosomal subunit	tc	73.65	73.65		aef3ff268057d9371e2c2d0498ec6d27f067ba9174eacf7e56252e13d5b87e0a	existing module HMM_META	{}
+TIGR01046.1	TIGR01046.1.hmm	TIGR01046.1	uS10_euk_arch	rps10	rps10	small ribosomal subunit	tc	96.25	96.25		028ec79324219c275155bc903a2708c16158c229f75d093762fc0410c5683ab0	existing module HMM_META	{}
+TIGR01049.1	TIGR01049.1.hmm	TIGR01049.1	rpsJ_bact	rpsJ	rpsJ	small ribosomal subunit	tc	72.75	72.75		bac9fb8d96323d115bfb1b8248e77ae83d67afc9580b487af52cbd17cf4f42e8	existing module HMM_META	{}
+TIGR01050.1	TIGR01050.1.hmm	TIGR01050.1	rpsS_bact	rpsS	rpsS	small ribosomal subunit	tc	89.35	89.35		0b9444bee121cabf12b68f83ba4f092277a1773458c8bb001486d847b2fc1a4b	existing module HMM_META	{}
+TIGR01066.1	TIGR01066.1.hmm	TIGR01066.1	rplM_bact	rplM	rplM	large ribosomal subunit	tc	93.05	93.05		b695f28e8fd369d59d985fec21810a08bf2f68a14af5d8962b8f7360d2f65ad5	existing module HMM_META	{}
+TIGR01067.1	TIGR01067.1.hmm	TIGR01067.1	rplN_bact	rplN	rplN	large ribosomal subunit	tc	111.1	111.1		db8e6f5d38c51bdcb898ece3cbb7096982c79228c50faa3598f7e95959d20fbc	existing module HMM_META	{}
+TIGR01071.1	TIGR01071.1.hmm	TIGR01071.1	rplO_bact	rplO	rplO	large ribosomal subunit	tc	77.95	77.95		c72aa0dbaf4539112d7ef1bba44335607d1850a716b0a2664995d42deb051026	existing module HMM_META	{}
+TIGR01077.1	TIGR01077.1.hmm	TIGR01077.1	L13_A_E	rpl13	rpl13	large ribosomal subunit	tc	98.9	98.9		1eaed04222d9c84e9f24a082d44411de107154f46e60ed369b9e89338c9cf3a6	existing module HMM_META	{}
+TIGR01079.1	TIGR01079.1.hmm	TIGR01079.1	rplX_bact	rplX	rplX	large ribosomal subunit	tc	53.7	53.7		6784aff2766e8d668ad036f03456464791b5e5b76a125ae4152d5d0fb213aa7b	existing module HMM_META	{}
+TIGR01080.1	TIGR01080.1.hmm	TIGR01080.1	rplX_A_E	rplX_A_E	JCVI: 50S ribosomal protein L24	unclassified	tc	47.65	47.65		38564bdde04ac1e8696a1627144f355eb9f8ced674bba4737e9a37ca937203a4	HMM header (unclassified)	{}
+TIGR01125.1	TIGR01125.1.hmm	TIGR01125.1	TIGR01125	rimO	rimO	ribosome biogenesis	tc	356.95	356.95		2429e7310fb01b2b3e16264dd0d1a03487314cf55f925b013cde271c25259686	existing module HMM_META	{}
+TIGR01164.1	TIGR01164.1.hmm	TIGR01164.1	rplP_bact	rplP	rplP	large ribosomal subunit	tc	76.85	76.85		211d9d29dae90d4a9568a28e11f6ca771b4985e4d30d34215281354bc40b3052	existing module HMM_META	{}
+TIGR01169.1	TIGR01169.1.hmm	TIGR01169.1	rplA_bact	rplA	rplA	large ribosomal subunit	tc	216.3	216.3		83f246abc84ad8d53ecce1bcc071e6860afb2b89f5c6a6692aa9a898440ffc13	existing module HMM_META	{}
+TIGR01171.1	TIGR01171.1.hmm	TIGR01171.1	rplB_bact	rplB	rplB	large ribosomal subunit	tc	174.5	174.5		efc1c4982084282f16a7e7f9f919b7450de68f553f58506c56a3d13e65a52912	existing module HMM_META	{}
+TIGR01177.1	TIGR01177.1.hmm	TIGR01177.1	TIGR01177	trm-G10	trm-G10	tRNA biogenesis	tc	316.55	316.55		d525004d5da3ede48d1f36e53619deefa79c8143d2c4cb5dbae5e87e8b457194	existing module HMM_META	{}
+TIGR01211.1	TIGR01211.1.hmm	TIGR01211.1	ELP3	ELP3	ELP3	tRNA biogenesis	tc	350	350		9aa01b2a9852f0c8c9d54e6355f030755363955eb369486fa624916bde65758f	existing module HMM_META	{}
+TIGR01213.2	TIGR01213.2.hmm	TIGR01213.2	pseudo_Pus10arc	pus10	pus10	tRNA biogenesis	tc	200	200		f37df444d54dbcf76a4fc27a5e69312267e6490375a9193d3f11397b57c72dbf	existing module HMM_META	{}
+TIGR01308.1	TIGR01308.1.hmm	TIGR01308.1	rpmD_bact	rpmD	rpmD	large ribosomal subunit	tc	44.65	44.65		695a64e121403a1aca701f82697890326f8b1761527d4d5c9f112e074b37279d	existing module HMM_META	{}
+TIGR01309.1	TIGR01309.1.hmm	TIGR01309.1	uL30_arch	rpl30	rpl30	large ribosomal subunit	tc	150.05	150.05		93a0f185a608297df6ea3ed7605b1329320d022db02f2009cbd0f79afd04ea13	existing module HMM_META	{}
+TIGR01331.1	TIGR01331.1.hmm	TIGR01331.1	bisphos_cysQ	cysQ	cysQ	tRNA biogenesis	tc	228.8	228.8		b1a1e8446edcc4418d79dc395ab853004538f335e9c9ab99a1081ecf8e2e0717	existing module HMM_META	{}
+TIGR01354.1	TIGR01354.1.hmm	TIGR01354.1	cyt_deam_tetra	cdd	cdd	ribosome biogenesis	tc	113.65	113.65		4b0e6bac080dcf47a66d91e782f0e3ceb0aa518642bf5af97909e3aa7e96365b	existing module HMM_META	{}
+TIGR01380.1	TIGR01380.1.hmm	TIGR01380.1	glut_syn	gshB	gshB	miscellaneous	tc	299.05	299.05		9d9268758bee5fd550cd5883e44dd9f5a8c5fdccdc3dfcd19bb0e0225b8f6fca	existing module HMM_META	{}
+TIGR01388.1	TIGR01388.1.hmm	TIGR01388.1	rnd	rnd	rnd	tRNA biogenesis	tc	298.95	298.95		e01739b2625dba6ad7c3e2c4d8f0dec8c8bf0fa7d9a80641ee56b48261b0f8be	existing module HMM_META	{}
+TIGR01393.1	TIGR01393.1.hmm	TIGR01393.1	lepA	lepA	lepA	translation elongation factor	tc	533.9	533.9		479cff3e4bf2836d39d8cf2966cf8dcae93fcba6e6a02c0526ab85ac52043893	existing module HMM_META	{}
+TIGR01394.1	TIGR01394.1.hmm	TIGR01394.1	TypA_BipA	typA	typA	translation elongation factor	tc	757.3	757.3		c734d860e2a6794b802b8c81389fdb572faec5535352ef46fb4b97c08abef515	existing module HMM_META	{}
+TIGR01574.1	TIGR01574.1.hmm	TIGR01574.1	miaB-methiolase	miaB	miaB	tRNA biogenesis	tc	355.3	355.3		03e3ebad76fa4598824b4da2f210361e5ea7c4b42f74f58098d9673e09271a87	existing module HMM_META	{}
+TIGR01575.1	TIGR01575.1.hmm	TIGR01575.1	rimI	rimI	rimI	ribosome biogenesis	tc	86.4	86.4		d489f957dec4b3a080bc427f6eb95dd41d28ca68c49fb2cc167e61a0088ca9e7	existing module HMM_META	{}
+TIGR01578.1	TIGR01578.1.hmm	TIGR01578.1	MiaB-like-B	MiaB-like-B	JCVI: tRNA (N(6)-L-threonylcarbamoyladenosine(37)-C(2))-methylthiotransferase	unclassified	tc	314.7	314.7		bf86883bf34b1c82296e6f392ad52ebbf9cc62eddf0d801b8bb56460a1d41c6e	HMM header (unclassified)	{}
+TIGR01579.1	TIGR01579.1.hmm	TIGR01579.1	MiaB-like-C	mtaB	mtaB	tRNA biogenesis	tc	357.05	357.05		6727c12e619b4635d533fa7f7556ec03b3b0935082f2e328988791c66ca04488	existing module HMM_META	{}
+TIGR01621.1	TIGR01621.1.hmm	TIGR01621.1	RluA-like	RluA-like	JCVI: TIGR01621 family pseudouridine synthase	unclassified	tc	222.3	222.3		a4938486ed84230c5fadc497fcaf39674c606950ef668a9b64e9831c81a0ab50	HMM header (unclassified)	{}
+TIGR01632.1	TIGR01632.1.hmm	TIGR01632.1	L11_bact	rplK	rplK	large ribosomal subunit	tc	141.85	141.85		944d96035ae92f69aa8f7c92ff3ff4ba56b91f275aa61411c758f890f94aa788	existing module HMM_META	{}
+TIGR01683.1	TIGR01683.1.hmm	TIGR01683.1	thiS	thiS	thiS	tRNA biogenesis	tc	37.45	37.45		0884def4b4d8376b6c3ab257fda8eda6320c0243bac227b42f2f4e5ada3556ac	existing module HMM_META	{}
+TIGR01902.1	TIGR01902.1.hmm	TIGR01902.1	dapE-lys-deAc	lysK	lysK	tRNA biogenesis	tc	163.1	163.1		67298af307b54dfe86c5e8ea8fca80265fa59c25b5c0fdd193679278121a89e3	existing module HMM_META	{}
+TIGR01951.1	TIGR01951.1.hmm	TIGR01951.1	nusB	nusB	nusB	ribosome biogenesis	tc	88.35	88.35		0770be982b09a67db54276884d29fed9eb78f019e3f22cfa92f27717733ff5b0	existing module HMM_META	{}
+TIGR01952.1	TIGR01952.1.hmm	TIGR01952.1	nusA_arch	nusA_arch	JCVI: NusA-like transcription termination signal-binding factor	unclassified	tc	74.35	74.35		67a110340880a28739eee5d1ed4b98acf6141e7461bc476c008fa7ed91639fd2	HMM header (unclassified)	{}
+TIGR01953.1	TIGR01953.1.hmm	TIGR01953.1	NusA	nusA	nusA	ribosome biogenesis	tc	253.4	253.4		9e3388233721f730d74d645804d5bf0eb569e75ffb138d9eadb8445712f9316e	existing module HMM_META	{}
+TIGR01954.1	TIGR01954.1.hmm	TIGR01954.1	nusA_Cterm_rpt	nusA_Cterm_rpt	JCVI: transcription termination factor NusA, C-terminal duplication	unclassified	tc	48.15	48.15		b59372382c9ddc3c835a7b60a9de491ce993579263debfda5d649a1e1721d1f4	HMM header (unclassified)	{}
+TIGR01956.2	TIGR01956.2.hmm	TIGR01956.2	NusG_myco	NusG_myco	JCVI: transcription termination/antitermination protein NusG	unclassified	tc	150	120		ff02d660599164e7c54b363619f268ddde25250fa3fd272f46f8cb53058273c3	HMM header (unclassified)	{}
+TIGR01966.1	TIGR01966.1.hmm	TIGR01966.1	RNasePH	rph	rph	tRNA biogenesis	tc	141.5	141.5		38b6537f6f4bda0993514bbf761a58c50168a3d1e0485ce7e4d4697e314150a8	existing module HMM_META	{}
+TIGR02006.1	TIGR02006.1.hmm	TIGR02006.1	IscS	iscS	iscS	tRNA biogenesis	tc	643.2	643.2		3f9e995d3ea77948afd09abd5b489308f9cef6483cd874bd4a0dfa6b044130ae	existing module HMM_META	{}
+TIGR02011.1	TIGR02011.1.hmm	TIGR02011.1	IscA	IscA	JCVI: iron-sulfur cluster assembly protein IscA	unclassified	tc	150.6	150.6		c833897b6bdcbb1d27fa32e27d889249dfe4da5c78322eb99c2dd03a33604138	HMM header (unclassified)	{}
+TIGR02013.1	TIGR02013.1.hmm	TIGR02013.1	rpoB	rpoB	rpoB	miscellaneous	tc	801.15	801.15		865c8edbf2461c1f5c47d64b5ed752b46332b71a06d68fc5c3aeaf638f979a32	existing module HMM_META	{}
+TIGR02021.1	TIGR02021.1.hmm	TIGR02021.1	BchM-ChlM	bchM	bchM	miscellaneous	tc	158.9	158.9		5f9bac69541d62a036706094a11f2749ebe68c905e6c3f52ce48ea98329a56e7	existing module HMM_META	{}
+TIGR02027.1	TIGR02027.1.hmm	TIGR02027.1	rpoA	rpoA	rpoA	large ribosomal subunit	tc	227.8	227.8		8fdb614ffd1946a5c4e8ef793c3ae65de4c35326b00d0367e7cb0fafbe88b0e9	existing module HMM_META	{}
+TIGR02034.1	TIGR02034.1.hmm	TIGR02034.1	CysN	cysNC	cysNC	translation elongation factor	tc	336.1	336.1		a9dbb3df308024b89c72d0d220fa185e1eefad6558388de7385982801ca4c978	existing module HMM_META	{}
+TIGR02063.1	TIGR02063.1.hmm	TIGR02063.1	RNase_R	vacB	vacB	tRNA biogenesis	tc	597.85	597.85		e1d0cf22eb789688bd6893040c257dc9d8810f42745e1373dab3d83023d47a9e	existing module HMM_META	{}
+TIGR02191.1	TIGR02191.1.hmm	TIGR02191.1	RNaseIII	rnc	rnc	ribosome biogenesis	tc	166.25	166.25		31d2e8f5152fa9b29f8f15d635545bdae23f88d8184ba0c07e084e163a386a6a	existing module HMM_META	{}
+TIGR02258.1	TIGR02258.1.hmm	TIGR02258.1	2_5_ligase	thpR	thpR	tRNA biogenesis	tc	65.7	65.7		f8d95c2f579c09967774662e9bed223aac442a20542cdf660e4980e1b1afd6fb	existing module HMM_META	{}
+TIGR02273.1	TIGR02273.1.hmm	TIGR02273.1	16S_RimM	rimM	rimM	small ribosomal subunit	tc	66.2	66.2		3e0588120d310434d7a6c1630cdd126053ba9cdef9e531643d927d8c46672069	existing module HMM_META	{}
+TIGR02386.1	TIGR02386.1.hmm	TIGR02386.1	rpoC_TIGR	rpoC	rpoC	miscellaneous	tc	963.5	963.5		27f13da64c7c957bb5ed54684284eeb8f73770717d40ee7368b9df9e84474d21	existing module HMM_META	{}
+TIGR02387.1	TIGR02387.1.hmm	TIGR02387.1	rpoC1_cyan	rpoC1_cyan	JCVI: DNA-directed RNA polymerase subunit gamma	unclassified	tc	975.9	975.9		a2f584ebc3ea67538768b3cba57e62fc1fe4c08b6b7dfe6bb6061a824a8b5201	HMM header (unclassified)	{}
+TIGR02388.1	TIGR02388.1.hmm	TIGR02388.1	rpoC2_cyan	rpoC2_cyan	JCVI: DNA-directed RNA polymerase subunit beta''	unclassified	tc	467.4	467.4		4a70d5072606a35b62af22fe78b9fdb390f8db872d1f4fdcb51c6f7291b1cb4b	HMM header (unclassified)	{}
+TIGR02389.1	TIGR02389.1.hmm	TIGR02389.1	RNA_pol_rpoA2	RNA_pol_rpoA2	JCVI: DNA-directed RNA polymerase subunit A''	unclassified	tc	420.65	420.65		dbbc3b11349993d383da2c408f4678140d60036ddebea4edf3245557cb6bbe3a	HMM header (unclassified)	{}
+TIGR02390.1	TIGR02390.1.hmm	TIGR02390.1	RNA_pol_rpoA1	RNA_pol_rpoA1	JCVI: DNA-directed RNA polymerase subunit A'	unclassified	tc	1042.55	1042.55		76d208e496baa8a24947e0aa617e3218282f865bfdf3997779139eb231bd6da1	HMM header (unclassified)	{}
+TIGR02393.1	TIGR02393.1.hmm	TIGR02393.1	RpoD_Cterm	rpoD	rpoD	translation initiation factor	tc	354	354		b21bfcc20f80ac0299ff5466d18dfd3204a799681987ff3e4799d45bb16504c6	existing module HMM_META	{}
+TIGR02395.1	TIGR02395.1.hmm	TIGR02395.1	rpoN_sigma	rpoN	rpoN	translation initiation factor	tc	277.35	277.35		01b10a554ad90b4ae0a5725fa8d12bd364ebe7919c21bbff5ee1e99d8d72efed	existing module HMM_META	{}
+TIGR02420.1	TIGR02420.1.hmm	TIGR02420.1	dksA	dksA	dksA	ribosome biogenesis	tc	115.5	115.5		5e87e59b7305d74c37b75c206c811a9ee8abf9da8744204e5d7144e9b6133491	existing module HMM_META	{}
+TIGR02432.1	TIGR02432.1.hmm	TIGR02432.1	lysidine_TilS_N	lysidine_TilS_N	JCVI: tRNA lysidine(34) synthetase TilS	unclassified	tc	93.6	93.6		ff4d335af68d003400b2feddfcba848edcc2eb8a3c8d37760cbf5f85fa9bfeb7	HMM header (unclassified)	{}
+TIGR02433.1	TIGR02433.1.hmm	TIGR02433.1	lysidine_TilS_C	tilS	tilS	tRNA biogenesis	tc	20.2	20.2		f02851b4ca03989be71ec1ed078a654d8b1cf1dd1bbbedee94f1a85c2e6a2704	existing module HMM_META	{}
+TIGR02469.1	TIGR02469.1.hmm	TIGR02469.1	CbiT	cbiT	cbiT	miscellaneous	tc	78.3	78.3		c2a5a58b052556273c8cf1a0ec6a3990fbbc1a066191bb1dd6bbac856533f5d6	existing module HMM_META	{}
+TIGR02506.1	TIGR02506.1.hmm	TIGR02506.1	NrdE_NrdA	NrdE_NrdA	JCVI: ribonucleoside-diphosphate reductase subunit alpha	unclassified	tc	341.05	341.05		f98b647903c7d3de23bc6140a1f884a3300a9d712bd769c615e5e3fcd08989c9	HMM header (unclassified)	{}
+TIGR02539.1	TIGR02539.1.hmm	TIGR02539.1	SepCysS	sepcysS	sepcysS	tRNA biogenesis	tc	365.25	365.25		629a4a3e6c8afed8020378b34e1c4ea5ff2dbefbcba607d487ecb654f3356a27	existing module HMM_META	{}
+TIGR02651.1	TIGR02651.1.hmm	TIGR02651.1	RNase_Z	rnz	rnz	tRNA biogenesis	tc	292.95	292.95		208277f2ca55dbec6123e50fba75c14b3092ee0719f7ee27f29800569694ea7d	existing module HMM_META	{}
+TIGR02692.1	TIGR02692.1.hmm	TIGR02692.1	tRNA_CCA_actino	cca	cca	tRNA biogenesis	tc	438.8	438.8		0cb071e62d93f79ff3e6ee2980dd922c6457eb0f5f1103c1cf510d6e76f3ea7c	existing module HMM_META	{}
+TIGR02696.1	TIGR02696.1.hmm	TIGR02696.1	pppGpp_PNP	pppGpp_PNP	JCVI: guanosine pentaphosphate synthetase I/polyribonucleotide nucleotidyltransferase	unclassified	tc	1106.75	1106.75		a14595181b60250c5fb2072d251b01dd20c50791149065e59ccc2d9a4baacafc	HMM header (unclassified)	{}
+TIGR02729.1	TIGR02729.1.hmm	TIGR02729.1	Obg_CgtA	obg	obg	ribosome biogenesis	tc	280.25	280.25		b713149bdca518cd56d1a3d18925f6f515bf03327c41f28000561fb06f6287fb	existing module HMM_META	{}
+TIGR02827.1	TIGR02827.1.hmm	TIGR02827.1	RNR_anaer_Bdell	RNR_anaer_Bdell	JCVI: anaerobic ribonucleoside-triphosphate reductase	unclassified	tc	568.3	568.3		c8dae2b2376bcadb0a69793951bc457f8111e088807e2e7e3d9020d8238e3f0f	HMM header (unclassified)	{}
+TIGR02937.1	TIGR02937.1.hmm	TIGR02937.1	sigma70-ECF	sigma70-ECF	JCVI: sigma-70 family RNA polymerase sigma factor	unclassified	tc	42.9	42.9		94eb62eefe93823da39436de0ac922ec8e3fbd10227e152337396c5b3832b808	HMM header (unclassified)	{}
+TIGR02997.1	TIGR02997.1.hmm	TIGR02997.1	Sig70-cyanoRpoD	Sig70-cyanoRpoD	JCVI: RNA polymerase sigma factor, RpoD/SigA family	unclassified	tc	384.5	384.5		feeb3eefb5fb3ae3d2797b8a744d2312d6d2a81f4daa444e746d5d0ed9d34d98	HMM header (unclassified)	{}
+TIGR03073.1	TIGR03073.1.hmm	TIGR03073.1	release_rtcB	rtcB	rtcB	tRNA biogenesis	tc	271.8	271.8		3c2efe2e35414f473c46513d1bf559ecfdc9b147f5dd3ef8b84f4126a956b1ca	existing module HMM_META	{}
+TIGR03138.1	TIGR03138.1.hmm	TIGR03138.1	QueF	QueF	JCVI: NADPH-dependent 7-cyano-7-deazaguanine reductase QueF	unclassified	tc	293.45	293.45		222a66a943d52432e604eb37785aea54cbdac29f438216c72c6b4703778da3c3	HMM header (unclassified)	{}
+TIGR03139.1	TIGR03139.1.hmm	TIGR03139.1	QueF-II	queF	queF	tRNA biogenesis	tc	86.9	86.9		ad803a0e48738d5d3b5805a6757209e93eb22911747146ce4d9840c44a32f654	existing module HMM_META	{}
+TIGR03156.1	TIGR03156.1.hmm	TIGR03156.1	GTP_HflX	hflX	hflX	ribosome biogenesis	tc	216.75	216.75		1ef60c0143bcfc4b4a3eb589b3cc90f37b5fb01d2e43e177d303780d95e2805c	existing module HMM_META	{}
+TIGR03317.2	TIGR03317.2.hmm	TIGR03317.2	CAF17_like_YgfZ	ygfZ	ygfZ	tRNA biogenesis	tc	49	49		9a5d4898a8e1c1be39325b7a698a860745cce3f8f54c8a05aa4b6a98764ec17b	existing module HMM_META	{}
+TIGR03342.1	TIGR03342.1.hmm	TIGR03342.1	dsrC_tusE_dsvC	tusE	tusE	tRNA biogenesis	tc	53.5	53.5		a89266c96d08daf12527b9ec852c514f89bda72c23c6434ae73b66e107d12d98	existing module HMM_META	{}
+TIGR03365.1	TIGR03365.1.hmm	TIGR03365.1	Bsubt_queE	queE	queE	tRNA biogenesis	tc	206.1	206.1		2eafe111d8ba8f633960fe244c7c77a116a2312dee61e469fdbc9f8b269f41c2	existing module HMM_META	{}
+TIGR03367.1	TIGR03367.1.hmm	TIGR03367.1	queuosine_QueD	queD	queD	tRNA biogenesis	tc	89.25	89.25		e8f9b33d16efdf47f963e969463b19d4156caf06f79ccb38102e49f42593f929	existing module HMM_META	{}
+TIGR03591.1	TIGR03591.1.hmm	TIGR03591.1	polynuc_phos	pnp	pnp	tRNA biogenesis	tc	525.05	525.05		5359651e69a15e8948546af6687ea89647a098c37028b846b3ef0248ccf22dcc	existing module HMM_META	{}
+TIGR03594.1	TIGR03594.1.hmm	TIGR03594.1	GTPase_EngA	engA	engA	ribosome biogenesis	tc	306.7	306.7		15019a1fb2cef51cdf2677424b21465ce24409e00a9c79817c62dc5663a6391e	existing module HMM_META	{}
+TIGR03595.1	TIGR03595.1.hmm	TIGR03595.1	Obg_CgtA_exten	Obg_CgtA_exten	JCVI: Obg family GTPase CgtA C-terminal domain	unclassified	tc	37.65	37.65		e9e5de27c2d558e8ddb922ce14848efd5cee82f472ec316815f917f6a033ed31	HMM header (unclassified)	{}
+TIGR03596.1	TIGR03596.1.hmm	TIGR03596.1	GTPase_YlqF	ylqF	ylqF	ribosome biogenesis	tc	208.2	208.2		3f1f914d56f6cceccac5cf7adabc9d5a2e7d0a5655c3dcfac1219a81ea4f9044	existing module HMM_META	{}
+TIGR03598.1	TIGR03598.1.hmm	TIGR03598.1	GTPase_YsxC	engB	engB	large ribosomal subunit	tc	124.45	124.45		48fa3e9df6a7555546b33be4a7124f7f17d12f9e38d808720a106b44ef610706	existing module HMM_META	{}
+TIGR03625.1	TIGR03625.1.hmm	TIGR03625.1	L3_bact	rplC	rplC	large ribosomal subunit	tc	142.9	142.9		a6c94189e105e96f4fbcca3fdf3cdb7cc131f6bd39b481df474805a2f16305bf	existing module HMM_META	{}
+TIGR03626.1	TIGR03626.1.hmm	TIGR03626.1	L3_arch	rpl3	rpl3	large ribosomal subunit	tc	308.7	308.7		0d38fe469886217cb1d6197894ca807312b128163b06b8b00d2f6c86b317c529	existing module HMM_META	{}
+TIGR03627.1	TIGR03627.1.hmm	TIGR03627.1	uS9_arch	rps9	rps9	small ribosomal subunit	tc	162.75	162.75		1e254f3b50320af523cd5dc0c2e6a7e265504d95afc7519981662e13958bd8bf	existing module HMM_META	{}
+TIGR03628.1	TIGR03628.1.hmm	TIGR03628.1	arch_S11P	arch_S11P	JCVI: 30S ribosomal protein S11	unclassified	tc	182.35	182.35		c3524d468b09f411e10bff8348d2800037d44b5f3da7d1d8de644f060fc92937	HMM header (unclassified)	{}
+TIGR03629.1	TIGR03629.1.hmm	TIGR03629.1	uS13_arch	uS13_arch	JCVI: 30S ribosomal protein S13	unclassified	tc	175.55	175.55		0c4218d36d745e87e86682630f535dc0ce238c79a8c5f060289b74c953293741	HMM header (unclassified)	{}
+TIGR03630.1	TIGR03630.1.hmm	TIGR03630.1	uS17_arch	rps17	rps17	small ribosomal subunit	tc	105	105		7e0816d3b15db51cf2598d59f36cd95f2cd203f596b7b5b3a0a118515a8e9994	existing module HMM_META	{}
+TIGR03631.1	TIGR03631.1.hmm	TIGR03631.1	uS13_bact	rpsM	rpsM	small ribosomal subunit	tc	130.45	130.45		4008f3bb5af63728f659a927f9664e58244c7649497f4dcc0b6fa80cb1e6b872	existing module HMM_META	{}
+TIGR03632.1	TIGR03632.1.hmm	TIGR03632.1	uS11_bact	rpsK	rpsK	small ribosomal subunit	tc	154.5	154.5		a42e52d3227a802e1cdb8b1ddef71e10187a64704d90b80d1289b728272bedac	existing module HMM_META	{}
+TIGR03635.1	TIGR03635.1.hmm	TIGR03635.1	uS17_bact	rpsQ	rpsQ	small ribosomal subunit	tc	88.7	88.7		b55ee2bd9cfbdf8f4c6365418d74c43ac23f30b8d72274396de129b054153b10	existing module HMM_META	{}
+TIGR03636.1	TIGR03636.1.hmm	TIGR03636.1	uL23_arch	rpl23	rpl23	large ribosomal subunit	tc	94.95	94.95		533372efda30b2cdf7df2e49e9f572cc5d97fe4727363966adab0069ccfbe62d	existing module HMM_META	{}
+TIGR03653.1	TIGR03653.1.hmm	TIGR03653.1	uL6_arch	uL6_arch	JCVI: 50S ribosomal protein L6	unclassified	tc	185.4	185.4		9d53e0bd02cc24a1f78cd98f71f0fb8863818a5edd8e373e51e5a10e1f3f2da8	HMM header (unclassified)	{}
+TIGR03654.1	TIGR03654.1.hmm	TIGR03654.1	L6_bact	rplF	rplF	large ribosomal subunit	tc	168.55	168.55		3bed07a7ca3dcf05053f1d5fb3d146be08606372e7b3f9e69a5dd172f279e317	existing module HMM_META	{}
+TIGR03670.1	TIGR03670.1.hmm	TIGR03670.1	rpoB_arch	rpoB_arch	JCVI: DNA-directed RNA polymerase subunit B	unclassified	tc	811	811		687613c153f36fe6e78288bddd39db2a94a5f65d6844b5ffc7aed28923a1ef5f	HMM header (unclassified)	{}
+TIGR03672.1	TIGR03672.1.hmm	TIGR03672.1	rpl4p_arch	rpl4p_arch	JCVI: 50S ribosomal protein L4	unclassified	tc	269.75	269.75		36070b707ffc6119a5e533fcb5ef04ec242343399b73f88588ed861cb51b3ce4	HMM header (unclassified)	{}
+TIGR03673.1	TIGR03673.1.hmm	TIGR03673.1	uL14_arch	uL14_arch	JCVI: 50S ribosomal protein L14	unclassified	tc	191.45	191.45		91edaa780a2665473c3f4b1938197b04f1ca05f73815a52725decf0025352652	HMM header (unclassified)	{}
+TIGR03677.1	TIGR03677.1.hmm	TIGR03677.1	eL8_ribo	rpl7ae	rpl7ae	ribosome biogenesis	tc	134.6	134.6		a55dd3ef06f77dbf6e5c1fdbcfc3114d70f0265b927f5647efe49c902e8b4c03	existing module HMM_META	{}
+TIGR03685.1	TIGR03685.1.hmm	TIGR03685.1	ribo_P1_arch	rpl12	rpl12	large ribosomal subunit	tc	100	100		4badd6754bf7646433cb847d9f8607619be040fc2009e742549565aa37a69b35	existing module HMM_META	{}
+TIGR03722.2	TIGR03722.2.hmm	TIGR03722.2	arch_KAE1	kae1	kae1	tRNA biogenesis	tc	375	375		bd92eedaf50fa804d3c85b500a042e7d7f9def555b3f4b91eae5737b4f70416e	existing module HMM_META	{}
+TIGR03723.1	TIGR03723.1.hmm	TIGR03723.1	T6A_TsaD_YgjD	tsaD	tsaD	tRNA biogenesis	tc	296.1	296.1		d2eb174d3c8694a193fb98da80a3e697f863b7bfa0c6a352358456fd343ef5d2	existing module HMM_META	{}
+TIGR03724.2	TIGR03724.2.hmm	TIGR03724.2	arch_bud32	TP53RK	TP53RK	tRNA biogenesis	tc	125	125		9f513edb436955662a7b72854d9e954eb3ec3be79c3c3713981c4d6a8cee0e75	existing module HMM_META	{}
+TIGR03838.1	TIGR03838.1.hmm	TIGR03838.1	queuosine_YadB	gluQ	gluQ	tRNA biogenesis	tc	276.7	276.7		f8fc4fc701e6467b76fd24e10f03817a95c4dd4ca97ab4589952fec34fe24628	existing module HMM_META	{}
+TIGR03953.1	TIGR03953.1.hmm	TIGR03953.1	rplD_bact	rplD	rplD	large ribosomal subunit	tc	130.1	130.1		4a44b8d29659ed835c8c879711177caee67378c0b8f6038bcc54ed4502bc7e25	existing module HMM_META	{}
+TIGR03963.1	TIGR03963.1.hmm	TIGR03963.1	rSAM_QueE_Clost	rSAM_QueE_Clost	JCVI: putative 7-carboxy-7-deazaguanine synthase QueE	unclassified	tc	260.1	260.1		a90c4b9ba7e9d443f64b7e9e4d3fdbe2255bc57347615933266d60c899d86c0d	HMM header (unclassified)	{}
+TIGR03972.1	TIGR03972.1.hmm	TIGR03972.1	rSAM_TYW1	taw1	taw1	tRNA biogenesis	tc	317.95	317.95		37a3845268a34fece7f1edca4da349fa9427ed6751f5b0d14f37fee19c5b8873	existing module HMM_META	{}
+TIGR04170.1	TIGR04170.1.hmm	TIGR04170.1	RNR_1b_NrdE	rnr	rnr	tRNA biogenesis	tc	750	750		17b316d8e887615dacbc5c98a262befe2729d5b0ca64e4722c483869979418f4	existing module HMM_META	{}
+TIGR04171.1	TIGR04171.1.hmm	TIGR04171.1	RNR_1b_NrdF	RNR_1b_NrdF	JCVI: class 1b ribonucleoside-diphosphate reductase subunit beta	unclassified	tc	355	355		28c53a7b16d4d961336c9f3e7a57f0ab44b942220c5191e3d9c05ed64fb93e6c	HMM header (unclassified)	{}
+TIGR04271.1	TIGR04271.1.hmm	TIGR04271.1	ThiI_C_thiazole	ThiI_C_thiazole	JCVI: ThiI rhodanese-like thiazole biosynthesis domain	unclassified	tc	70	70		d2544575c34a7e181c54c3b57f2a5961e427ab09e1e3fba922fec802869422ea	HMM header (unclassified)	{}
+TIGR04322.1	TIGR04322.1.hmm	TIGR04322.1	rSAM_QueE_Ecoli	rSAM_QueE_Ecoli	JCVI: 7-carboxy-7-deazaguanine synthase QueE	unclassified	tc	200	200		b0cb5b71a90645edc11e263911e7598f61737b9374d481ac2e07f74aacc1605c	HMM header (unclassified)	{}
+TIGR04349.1	TIGR04349.1.hmm	TIGR04349.1	rSAM_QueE_gams	rSAM_QueE_gams	JCVI: 7-carboxy-7-deazaguanine synthase QueE	unclassified	tc	300	300		0b6e2beebe78b99c95775c6171b5f6261a25d339e1345a6d988f76943e4bbc0a	HMM header (unclassified)	{}
+TIGR04508.1	TIGR04508.1.hmm	TIGR04508.1	queE_Cx14CxxC	queE_Cx14CxxC	JCVI: 7-carboxy-7-deazaguanine synthase	unclassified	tc	240	240		17607fd217538f6cbf7e07cb3fd2f16c878913eaa8759c09e56d228865157a9c	HMM header (unclassified)	{}

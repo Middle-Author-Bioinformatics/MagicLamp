@@ -1,5 +1,9 @@
 # MagicLamp repository audit
 
+> Historical baseline report. The consolidation is documented in
+> [MIGRATION.md](MIGRATION.md) and [LATEST_VALIDATION.md](LATEST_VALIDATION.md).
+> Paths and recommendations below describe the pinned pre-consolidation snapshot.
+
 **Date:** 18 November 2026. **Baseline:**
 [`bbe400139f24724cec09ce9314cadecaa18afbc4`](https://github.com/Middle-Author-Bioinformatics/MagicLamp/tree/bbe400139f24724cec09ce9314cadecaa18afbc4).
 
@@ -132,7 +136,7 @@ This change adds focused CI for GramGenie, not suite-wide certification.
 
 ### P1 — FeGenie ignores its configured HMM location
 
-In [`genies_v3/FeGenie.py`](../genies_v3/FeGenie.py), the environment-derived
+In [`genies_v3/FeGenie.py`](../legacy/genies_v3/FeGenie.py), the environment-derived
 directory is read, but the cutoff file at baseline line 376 and library root
 at line 569 are reset to `/home/ark/MAB/bin/MagicLamp/hmms/iron...`. The test failed
 opening the first of those paths, even with a valid `iron_hmms` value.
@@ -233,7 +237,7 @@ README now stops promising nested-library support and uses a flat Rnf example.
 ### P2 — Broken BTEX splitter and ambiguous multi-profile files
 
 `hmmstat` rejected 30 split files in `hmms/btex`: their first tag is `NAME`, not
-`HMMER3/...`. [`split_hmms.sh`](../hmms/btex/split_hmms.sh) starts writing only after
+`HMMER3/...`. [`split_hmms.sh`](../legacy/hmms/btex/split_hmms.sh) starts writing only after
 seeing `NAME`, losing the preceding format header. `all_models.hmm` parses as a
 multi-profile library. Eight CRISPR `.hmm` files also contain multiple models and
 parse successfully; multi-model files are not inherently invalid, but runners

@@ -1,127 +1,172 @@
-# MagicLamp
+# MagicLamp — latest
 
-### A software package for annotation of genomic datasets using discreet HMM sets.
+A shared, maintained suite for screening protein sequences and genomes against
+curated HMM libraries. `MagicLamp.py` dispatches only the `latest/` package
+(version 4.0.0). Historical implementations are labeled and retained in `legacy/`.
+AbxGenie and BTEXGenie are excluded from this version.
 
-MagicLamp bundles a collection of curated, function-specific annotation modules ("genies"). Each genie ships with its own hand-curated HMM set and scoring logic for a particular metabolism or trait. All genies are run through a single dispatcher, `MagicLamp.py`, and operate on a **directory of genome/bin FASTA files**, producing heatmap-ready summary tables (and optional figures).
+## Install
 
-### Citing MagicLamp
-If MagicLamp was useful for your work, please cite our preprint:
+Requires Python 3.11–3.13 and HMMER 3.3+. Nucleotide input also needs Prodigal;
+GenBank input needs Biopython; reference searches need BLASTP. These dependencies
+are included in the conda specifications. Optional plots use matplotlib/numpy;
+R, DIAMOND, BIT, and MetaBAT are not needed by latest.
 
-Garber, A. I., Viney, I. A., Merino, N., Ramírez, G. A., Pavia, M. J., McAllister, S. M., Sadeghpour, S., Manna, A., Kreger, M., Wolk, B., Kim, E., Qu, J., Armbruster, C. R., & Pérez-Rodríguez, I. (2026). MagicLamp: a web server and software toolkit for targeted gene annotation of microbial functions. In bioRxiv (p. 2026.07.19.739457). bioRxiv. https://doi.org/10.64898/2026.07.19.739457
+```bash
+git clone https://github.com/Middle-Author-Bioinformatics/MagicLamp.git
+cd MagicLamp
+bash setup.sh --name magiclamp
+conda activate magiclamp
+MagicLamp.py help
+MagicLamp.py validate
+```
 
-Special thanks to AstrobioMike and his [bit](https://github.com/AstrobioMike/bit) software package for enabling easy access to NCBI's RefSeq and GenBank assemblies.
+Use `bash setup.sh --plots` to include plotting dependencies. The installer
+creates a new environment and refuses to remove an existing one. To register an
+already provisioned environment, use `--register-only --name NAME`. It changes
+neither global conda channels nor the caller's shell. `--dry-run` shows the
+selected specification. After moving a checkout, refresh its environment launcher with
+`--register-only`, or invoke `python /new/path/MagicLamp.py` directly.
 
-## Installation (Conda is required for this software)
+Libraries resolve relative to the running code. An explicit `-hmm_dir` takes
+precedence over the library's optional `*_hmms` environment variable; the bundled
+library is the default. Remove obsolete environment overrides from older
+installations. All built-in overrides must match the versioned manifests.
 
-    git clone https://github.com/Middle-Author-Bioinformatics/MagicLamp.git
-    cd MagicLamp
-    bash setup.sh
-    conda activate magiclamp
+## Three input modes, consistent across every genie
 
-For this maintained fork, clone `https://github.com/Middle-Author-Bioinformatics/MagicLamp.git`.
-The dispatcher runs **`genies_v3/`**. Older directories are retained snapshots;
-their names do not establish whether a particular module works. See the
-[repository audit and version inventory](docs/REPOSITORY_AUDIT.md) for tested
-status, known problems, and a cleanup plan.
+```bash
+# Protein FASTA: retain original IDs; no genomic clustering.
+python MagicLamp.py GramGenie -bin_dir proteins -bin_ext faa --orfs -out gram_proteins
 
-`setup.sh` builds the `magiclamp` conda environment in two tiers:
+# Annotated GenBank: use CDS translations and cluster by genomic gene order.
+python MagicLamp.py GramGenie -bin_dir annotations -bin_ext gbk --gbk -out gram_genbank
 
-1. **Full install (attempted first):** the core tools (`hmmer`, `blast`, `prodigal`, `diamond`, `metabat2`, `bit`) **plus** the R stack used by the optional `--makeplots` figures.
-2. **Minimal install (automatic fallback):** if the full solve fails — most often because of an R-package conflict — `setup.sh` automatically retries with just the core tools. This installs the core command-line dependencies without plotting. It does not validate every genie's runtime behavior; consult the [audit](docs/REPOSITORY_AUDIT.md) before relying on a module.
+# Nucleotide FASTA: predict proteins with Prodigal, then cluster.
+python MagicLamp.py FeGenie -bin_dir genomes -bin_ext fna -out iron_genomes -t 4
+```
 
-After the environment is created, `setup.sh` sources **`magiclamp.paths`**, which writes all of the per-genie HMM directory variables (`iron_hmms`, `litho_hmms`, `atp_hmms`, `abx_hmms`, `motility_hmms`, …) and the `rscripts` path into the conda environment's `activate.d` hook. `magiclamp.paths` is the single source of truth for these variables — if you add a genie, add its variable there. It also warns (without failing) if any expected `hmms/` subdirectory is missing.
+`--orfs` and `--gbk` are mutually exclusive. `--proteins` is an alias for
+`--orfs`. Protein names never imply genomic positions, including Prodigal-like
+names. GenBank input uses existing `/translation` qualifiers; pseudogenes and
+untranslated CDSs are skipped but still contribute to gene-order gaps. It does
+not call Prodigal or translate missing CDSs automatically.
 
-## Usage
+Clustering uses sample and contig boundaries and the genomic CDS order, with
+`-d 5` allowing up to five intervening CDSs between neighboring hits. Clusters
+are connected neighborhoods, can include singletons, ignore strand, and do not
+wrap across a circular chromosome origin. Use `--no-cluster` to disable them for
+GenBank/nucleotide input. Protein input always disables them.
 
-Run any genie through the `MagicLamp.py` dispatcher:
+Use `--meta` only for Prodigal metagenomic mode on nucleotide FASTA. Other common
+options are `-t`, `-cat`, `--norm`, `-inflation` (default 1000 proteins), `-ref`
+(reference FASTA for separate BLASTP evidence), and `--makeplots`. Run
+`python MagicLamp.py GENIE --help` for the exact options. Output directories must
+be new or empty. External command failures stop the run and record failure;
+unknown options are rejected.
 
-    MagicLamp.py <Genie> -bin_dir <input_directory> -bin_ext <extension> -out <output_directory> -t <threads>
+## Maintained commands and models
 
-List all available genies and a one-line description of each:
+| Command | Library | Profiles | Threshold policy |
+|---|---|---:|---|
+| FeGenie | `hmms/iron` | 192 | Curated sequence score + E ≤ 0.1 |
+| LithoGenie | `hmms/litho` | 138 | Curated sequence score + E ≤ 0.1 |
+| Lucifer | `hmms/lux` | 19 | Curated sequence score + E ≤ 0.1 |
+| ATPGenie | `hmms/atp` | 17 + 4 classifiers | TC; separate proteolipid classification |
+| PortGenie | `hmms/portna` | 21 | TC |
+| RnfGenie | `hmms/rnf` | 6 | TC |
+| MotiliGenie | `hmms/motility` | 61 | TC |
+| RiboGenie | `hmms/ribo` | 266 | TC |
+| ResistiGenie | `hmms/resist` | 55 | TC |
+| SporeGenie | `hmms/spore` | 83 | TC |
+| GasGenie | `hmms/gas` | 26 | Curated sequence score + E ≤ 0.1 |
+| PlasticGenie | `hmms/plastics` | 50 | TC |
+| GramGenie | `hmms/gram` | 6 | Pfam GA, sequence and domain |
+| OmniGenie | Selected supported library | As above | Same engine and policy |
+| HmmGenie | User-supplied library | Variable | GA/TC; explicit E-value otherwise |
 
-    MagicLamp.py help
+GA and TC policies apply both sequence and domain thresholds. Score policies
+retain their original curated sequence cutoffs, without inventing domain
+thresholds. Exact files, scores, categories, annotation sources, and SHA-256
+checksums are versioned under `latest/manifests/`. Only manifest-listed models
+are active; other source profiles under `hmms/` are not automatically searched.
+24 FeGenie files without a matching curated cutoff are listed in
+`latest/manifests/FeGenie_excluded.tsv` and are inactive. Missing legacy category
+annotations are explicitly `unclassified`, with HMM header descriptions retained.
+No new phenotype-specific cutoffs have been calibrated in this release.
 
-### Available genies
+```bash
+python MagicLamp.py OmniGenie -genie atp -bin_dir proteins -bin_ext faa --orfs -out atp_out
+python MagicLamp.py HmmGenie -hmm_dir my_profiles -bin_dir proteins -bin_ext faa --orfs -out custom_out
+# If custom profiles have no GA/TC, choose an E-value explicitly:
+python MagicLamp.py HmmGenie -hmm_dir my_profiles --cutoff evalue -eval 1e-10 -bin_dir proteins -bin_ext faa --orfs -out custom_evalue_out
+```
 
-| Genie | Target | HMM variable |
-|-------|--------|--------------|
-| **FeGenie** | Iron acquisition, oxidation, reduction, and storage genes and operons | `iron_hmms` |
-| **LithoGenie** | Chemolithoautotrophic metabolisms (S, H₂, N, methane, and more) | `litho_hmms` |
-| **Lucifer** | Light-sensing and light-producing (bioluminescence/rhodopsin) genes | `lux_hmms` |
-| **ATPGenie** | ATP synthases (F-, V-, and A-type) | `atp_hmms` |
-| **PortGenie** | Sodium antiporters and symporters | `portna_hmms` |
-| **RnfGenie** | Rnf complex (`rnfABCDGE`) | `rnf_hmms` |
-| **AbxGenie** | Antibiotic-biosynthesis genes (subcategorized) | `abx_hmms` |
-| **MotiliGenie** | Motility, chemotaxis, thermotaxis, and pili genes | `motility_hmms` |
-| **RiboGenie** | Ribosomal-protein and translation-machinery genes | `ribo_hmms` |
-| **ResistiGenie** | Resistance genes (heavy metals, UV, ROS, radioactivity, antibiotics) | `resist_hmms` |
-| **SporeGenie** | Sporulation genes, subcategorized by sporulation stage | `spore_hmms` |
-| **GasGenie** | Gas-vesicle formation genes | `gas_hmms` |
-| **PlasticGenie** | Plastic and pollutant degradation candidates | `plastic_hmms` |
-| **GramGenie** | Six Pfam cell-wall-associated domains and sortase; domain-level evidence | `gram_hmms` |
-| **OmniGenie** | Generic runner for any genie's HMM set (see below) | `<genie>_hmms` |
-| **HmmGenie** | Annotation with a user-provided set of HMMs | — |
+OmniGenie resolves the same named libraries, including nested ATP/iron layouts;
+`-genie antibiotics` and `-genie btex` are rejected. HmmGenie accepts complete,
+single-profile, amino-acid HMMER3 `.hmm`/`.HMM` files recursively. Custom libraries
+are explicitly user-selected and are not certified marker sets.
 
-### Basic usage
+FeGenie runs the bundled Geobacter and Thermincola reference FASTAs by default;
+`--skip-reference` explicitly skips those searches. `--heme` and `--hematite`
+report legacy motif candidates across proteins. ATPGenie retains its two-pass
+subunit/proteolipid workflow; RnfGenie reports local six-subunit completeness.
+See [migration and scientific interpretation](docs/MIGRATION.md) before comparing
+with old results.
 
-Point a genie at a directory of genome assemblies (nucleotide FASTA), giving the file extension so it knows which files to process:
+## Common outputs
 
-    MagicLamp.py ATPGenie -bin_dir genomes/ -bin_ext fna -out atpgenie_out -t 16
+| File | Meaning |
+|---|---|
+| `summary.csv` | One row per passing sample/protein/model; original ID, annotation, sequence, scores, coordinates/context when available |
+| `domains.tsv` | All passing domain alignments, including repeated domains |
+| `counts.csv` | Protein counts by model and sample, including zero-hit samples |
+| `categories.csv` | Distinct proteins per category and sample |
+| `samples.tsv` | Protein totals, hit totals, and sample search status |
+| `clusters.tsv` | Coordinate-supported neighborhoods; header only for `--orfs` |
+| `reference_hits.tsv` | Separate BLASTP reference evidence; not merged into HMM calls |
+| `run.json` | Inputs/models/reference checksums, software versions, commands, parameters, and completion/failure status |
+| `ORF_calls/`, `HMM_results/` | Search sequences, ID maps, predictions, raw search output, logs |
+| `context_supported.csv` | FeGenie subset with explicit supporting context/sequence labels |
+| `motif_hits.tsv` | FeGenie motif candidates, when requested |
+| `heatmap.png` | Optional plot of the same `counts.csv` values |
 
-- `-bin_dir` — directory containing your genomes/bins.
-- `-bin_ext` — file extension of those files, **without** the leading period (e.g. `fna`, `fa`, `fasta`).
-- `-out` — output directory (each genie has its own default, e.g. `atpgenie_out`, `ribogenie_out`).
-- `-t` — number of threads for HMMER (and DIAMOND, where applicable).
+`GENIE-summary.csv`, `GENIE.heatmap.csv`, and `GENIE-run.json` aliases use a
+lowercase genie name. Alias filenames are familiar; their schemas follow latest.
+Counts represent proteins, not domain repeats. A protein can count in multiple
+models/categories. `--norm` reports proteins per `-inflation` total input/predicted
+proteins. Zero-hit samples have zeros; samples without translated proteins have
+blank normalized values because the denominator is zero.
 
-By default, MagicLamp calls ORFs from nucleotide contigs (via Prodigal) before running HMMER.
+A passing HMM is evidence of sequence similarity, not proof of drug resistance,
+EET, substrate specificity, iron metabolism, or a Gram-positive phenotype.
+GramGenie's six requested Pfam profiles are cell-wall-associated domains and
+sortase; individual matches do not establish cell-wall anchoring or taxonomy.
+ResistiGenie's historical stress/resistance annotations also need biological
+interpretation; this release does not convert them into validated AMR calls.
 
-### Common input-format flags
+## Development and status
 
-    # GenBank-format bins
-    MagicLamp.py RiboGenie -bin_dir genomes/ -bin_ext gbk --gbk -out ribogenie_out -t 16
+```bash
+python MagicLamp.py validate
+python -m unittest discover -s tests -v
+```
 
-    # Metagenomic / metatranscriptomic assemblies
-    MagicLamp.py LithoGenie -bin_dir mags/ -bin_ext fa --meta -out litho_out -t 16
+CI installs HMMER, Prodigal, BLASTP, and Biopython and checks all maintained
+commands with protein and GenBank inputs. Tests also cover profile parsing,
+threshold boundaries, repeat retention, zero samples, coordinate gaps, exclusions,
+failed runs, and installer registration. They validate implementation, not
+biological sensitivity/specificity. Optional plots are tested when installed.
 
-### Plots, normalization, and other options
+To refresh GramGenie's six original Pfam models:
+`python scripts/update_gram_hmms.py --update`. Review and commit both the library
+manifest and `latest/manifests/GramGenie.tsv`; without `--update`, changed upstream
+checksums are rejected. Other libraries require a reviewed manifest update.
 
-- `--makeplots` — generate heatmaps/figures via R (**requires the full install**; unavailable in minimal mode).
-- `--norm` — normalize gene counts to the number of predicted ORFs per genome instead of raw counts.
-- `--all_results` — report all hits regardless of clustering/operon structure (where supported).
-- `-ref <db.faa>` — reference protein database for a DIAMOND-based confirmation step.
-- `-d <int>` — maximum distance (in genes) between genes to be considered part of the same cluster/operon.
-- `-inflation <int>` — inflation factor for final gene-category counts (default 1000).
+- [Migration and interpretation](docs/MIGRATION.md)
+- [Baseline repository audit](docs/REPOSITORY_AUDIT.md)
+- [Consolidation verification](docs/LATEST_VALIDATION.md)
+- [Historical material and status](legacy/README.md)
 
-### LithoGenie: highlighting a metabolism in the heatmap
-
-    MagicLamp.py LithoGenie -bin_dir genomes/ -bin_ext fna -cat sulfur --makeplots -out litho_out -t 16
-
-Valid `-cat` values: `sulfur, hydrogen, methane, nitrogen, oxygen, carbon-monoxide, C1compounds, carbon, urea, halogenetated-compounds, arsenic, selenium, nitriles, iron, ALL` (default: `ALL`).
-
-### OmniGenie: run any genie's HMM set generically
-
-`OmniGenie` is a generic runner for flat HMM libraries with trusted (TC) cutoffs. Pass `-genie <name>`, where `<name>` is the **prefix of that genie's HMM environment variable** (i.e. the part before `_hmms`). Set that variable through setup or explicitly; its current fallback logic is unreliable when the variable is empty. It reads only `.hmm` files directly in that directory, so nested libraries such as `iron` and `atp` are not supported by this route.
-
-    MagicLamp.py OmniGenie -genie rnf    -bin_dir genomes/ -bin_ext fna -out genie_out -t 16
-    MagicLamp.py OmniGenie -genie abx    -bin_dir genomes/ -bin_ext fna -out genie_out -t 16
-    MagicLamp.py OmniGenie -genie portna -bin_dir genomes/ -bin_ext fna -out genie_out -t 16
-
-Use the dedicated runners when they have specialized layouts or scoring. In particular, run `GramGenie` directly to retain its domain-level repeat annotations and Pfam GA thresholds.
-
-### GramGenie: cell-wall-associated domains
-
-    python MagicLamp.py GramGenie -bin_dir genomes/ -bin_ext fna -out gramgenie_out -t 16
-    python MagicLamp.py GramGenie -bin_dir proteins/ -bin_ext faa --orfs -out gramgenie_proteins -t 16
-
-GramGenie bundles PF01473, PF04122, PF00395, PF04203 (sortase), PF01476, and PF07501.
-It uses Pfam's sequence and domain GA cutoffs, retains repeated domains and
-multiple domain families on the same protein, and includes zero-hit samples in
-its count matrix. These are domain annotations, not proof of Gram-positive
-identity, surface localization, or EET. See [usage, model provenance, and output
-definitions](docs/GramGenie.md).
-
-### Using your own HMM set (HmmGenie)
-
-To annotate with a custom set of HMMs, place the raw `.hmm` files in a directory and point HmmGenie at it:
-
-    MagicLamp.py HmmGenie -bin_dir genomes/ -bin_ext fna -hmm_dir my_hmms/ -out hmmgenie_out -t 16
+The repository retains its existing [license](LICENSE). Preserve original model
+attribution and check upstream terms when redistributing HMM collections.

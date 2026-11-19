@@ -12,7 +12,24 @@ from urllib.request import urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from genies_v3.GramGenie import MODELS, read_model
+from latest.models import profile_header
+
+# Keep the interpretation attached to the versioned runtime manifest.
+with (ROOT / "latest/manifests/GramGenie.tsv").open() as handle:
+    RUNTIME = list(csv.DictReader(handle, delimiter="\t"))
+MODELS = {r["model_id"]: (r["name"], r["description"], r["category"]) for r in RUNTIME}
+
+
+def read_model(path, accession):
+    h = profile_header(path)
+    if h.get("ACC", "").split(".")[0] != accession:
+        raise ValueError("Unexpected Pfam accession in {}".format(path))
+    values = h.get("GA", "").rstrip(";").split()
+    if len(values) != 2:
+        raise ValueError("Missing sequence/domain GA cutoffs in {}".format(path))
+    return {"versioned_accession": h["ACC"], "name": h["NAME"],
+            "sequence_ga": float(values[0]), "domain_ga": float(values[1])}
+
 
 
 def main():
@@ -51,6 +68,15 @@ def main():
             writer = csv.DictWriter(handle, fieldnames=list(rows[0]), delimiter="\t", lineterminator="\n")
             writer.writeheader()
             writer.writerows(rows)
+    if destination.resolve() == (ROOT / "hmms/gram").resolve():
+        for row in rows:
+            runtime = next(r for r in RUNTIME if r["model_id"] == row["accession"])
+            runtime.update(accession=row["versioned_accession"], name=row["name"],
+                           sequence_cutoff=row["sequence_ga"], domain_cutoff=row["domain_ga"], sha256=row["sha256"])
+        with (ROOT / "latest/manifests/GramGenie.tsv").open("w", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=list(RUNTIME[0]), delimiter="\t", lineterminator="\n")
+            writer.writeheader()
+            writer.writerows(RUNTIME)
     print("Downloaded and validated all six Pfam profiles into {}".format(destination))
 
 

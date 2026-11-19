@@ -1,0 +1,25 @@
+name: Latest suite checks
+on:
+  push:
+  pull_request:
+jobs:
+  latest:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install real search and input tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y hmmer prodigal ncbi-blast+
+          python -m pip install 'biopython>=1.81,<2' 'matplotlib>=3.7,<4' 'numpy>=1.24,<3'
+      - name: Validate models and run shared-suite integration checks
+        run: |
+          python MagicLamp.py validate
+          bash -n setup.sh magiclamp.paths
+          python -m unittest discover -s tests -v
