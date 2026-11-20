@@ -25,7 +25,9 @@ fi
 command -v conda >/dev/null || { echo 'Install Miniforge/conda first; see docs/INSTALL.md.' >&2; exit 1; }
 if ((!INSTALL_ONLY)); then
     # Refuse an existing environment; never remove it or change global channels.
-    conda env create --name "$ENV_NAME" --file "$SCRIPT_DIR/$SPEC" --yes
+    # Older conda-env releases reject --yes. The process-local setting works
+    # with both older and current conda without changing the user's config.
+    CONDA_ALWAYS_YES=true conda env create --name "$ENV_NAME" --file "$SCRIPT_DIR/$SPEC"
 fi
 ENV_PREFIX="$(conda run --no-capture-output -n "$ENV_NAME" python -c 'import sys; print(sys.prefix)')"
 [[ -d "$ENV_PREFIX/conda-meta" ]] || { echo 'Could not locate the conda environment.' >&2; exit 1; }

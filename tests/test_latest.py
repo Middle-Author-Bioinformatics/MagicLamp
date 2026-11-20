@@ -234,6 +234,9 @@ if [[ "$*" == *'print(sys.prefix)'* ]]; then printf '%s\\n' "$FAKE_PREFIX"; fi
         env = dict(os.environ, PATH=str(bindir)+':'+os.environ['PATH'], FAKE_PREFIX=str(prefix), FAKE_CALLS=str(calls))
         failed = subprocess.run(['bash', str(ROOT/'setup.sh')], env=env, capture_output=True)
         self.assertEqual(failed.returncode, 17)
+        creation = calls.read_text()
+        self.assertIn('env create --name magiclamp --file ', creation)
+        self.assertNotIn('--yes', creation)
         calls.write_text('')
         subprocess.run(['bash', str(ROOT/'setup.sh'), '--install-only'], env=env, check=True, capture_output=True)
         recorded = calls.read_text()
@@ -247,6 +250,33 @@ if [[ "$*" == *'print(sys.prefix)'* ]]; then printf '%s\\n' "$FAKE_PREFIX"; fi
         refused = subprocess.run(['bash', str(ROOT/'setup.sh'), '--install-only'], env=env, capture_output=True)
         self.assertNotEqual(refused.returncode, 0)
         self.assertIn('unrelated executable', launcher.read_text())
+
+    def test_setup_supports_legacy_conda_env_parser(self):
+        prefix = self.root/'environment'
+        (prefix/'conda-meta').mkdir(parents=True)
+        bindir = self.root/'bin';bindir.mkdir()
+        conda = bindir/'conda'
+        conda.write_text("""#!/usr/bin/env bash
+if [[ "$1" == env && "$2" == create ]]; then
+    for argument in "$@"; do
+        if [[ "$argument" == --yes || "$argument" == -y ]]; then
+            echo 'conda-env: error: unrecognized arguments: --yes' >&2
+            exit 2
+        fi
+    done
+    [[ "$CONDA_ALWAYS_YES" == true ]] || exit 18
+elif [[ "$*" == *'print(sys.prefix)'* ]]; then
+    printf '%s\\n' "$FAKE_PREFIX"
+else
+    # The setting must apply only to env creation, not leak into later calls.
+    [[ ! ${CONDA_ALWAYS_YES+x} ]] || exit 19
+fi
+""")
+        conda.chmod(0o755)
+        env = dict(os.environ, PATH=str(bindir)+':'+os.environ['PATH'], FAKE_PREFIX=str(prefix))
+        env.pop('CONDA_ALWAYS_YES', None)
+        result = subprocess.run(['bash', str(ROOT/'setup.sh'), '--plots'], env=env, capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
 
 
 
