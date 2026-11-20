@@ -7,7 +7,7 @@ import math
 import os
 from pathlib import Path
 import re
-from .registry import ROOT, GENIES
+from .registry import HMM_ROOT, GENIES
 
 
 def checksum(path):
@@ -92,7 +92,7 @@ def load_models(name, override=None, evalue=None, cutoff="auto"):
                                 checksum(path), "custom HMM header"))
     else:
         directory, variable, _ = GENIES[name]
-        library = Path(override or os.environ.get(variable) or ROOT / "hmms" / directory).expanduser().resolve()
+        library = Path(override or os.environ.get(variable) or HMM_ROOT / directory).expanduser().resolve()
         manifest = Path(__file__).parent / "manifests" / (name + ".tsv")
         with manifest.open() as handle:
             rows = list(csv.DictReader(handle, delimiter="\t"))

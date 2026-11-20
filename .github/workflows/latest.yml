@@ -23,3 +23,14 @@ jobs:
           python MagicLamp.py validate
           bash -n setup.sh magiclamp.paths
           python -m unittest discover -s tests -v
+      - name: Build and verify the standalone package outside the checkout
+        run: |
+          python -m pip install build
+          python -m build
+          python -m venv "$RUNNER_TEMP/magiclamp-installed"
+          "$RUNNER_TEMP/magiclamp-installed/bin/python" -m pip install "$(pwd)/$(ls dist/*.whl)[plots]"
+          cd "$RUNNER_TEMP"
+          unset PYTHONPATH
+          "$RUNNER_TEMP/magiclamp-installed/bin/python" -m pip check
+          "$RUNNER_TEMP/magiclamp-installed/bin/magiclamp" doctor --smoke-test --plots
+          "$RUNNER_TEMP/magiclamp-installed/bin/MagicLamp.py" --version

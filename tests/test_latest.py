@@ -224,18 +224,27 @@ class CoreTests(Temporary):
         prefix = self.root/'fake env';(prefix/'conda-meta').mkdir(parents=True)
         bindir = self.root/'bin';bindir.mkdir()
         conda = bindir/'conda'
-        conda.write_text('#!/usr/bin/env bash\nif [[ "$1" == run ]]; then printf "%s\\n" "$FAKE_PREFIX"; else exit 17; fi\n');conda.chmod(0o755)
-        env = dict(os.environ, PATH=str(bindir)+':'+os.environ['PATH'], FAKE_PREFIX=str(prefix))
+        conda.write_text("""#!/usr/bin/env bash
+printf '%s\\n' "$*" >> "$FAKE_CALLS"
+if [[ "$1" == env ]]; then exit 17; fi
+if [[ "$*" == *'print(sys.prefix)'* ]]; then printf '%s\\n' "$FAKE_PREFIX"; fi
+""")
+        conda.chmod(0o755)
+        calls = self.root/'calls.txt'
+        env = dict(os.environ, PATH=str(bindir)+':'+os.environ['PATH'], FAKE_PREFIX=str(prefix), FAKE_CALLS=str(calls))
         failed = subprocess.run(['bash', str(ROOT/'setup.sh')], env=env, capture_output=True)
         self.assertEqual(failed.returncode, 17)
-        subprocess.run(['bash', str(ROOT/'setup.sh'), '--register-only'], env=env, check=True, capture_output=True)
-        launcher = prefix/'bin/MagicLamp.py'
-        (prefix/'bin/python').symlink_to(sys.executable)
-        launched = subprocess.run([str(launcher), 'help'], cwd=self.root, env=env, capture_output=True, text=True, check=True)
-        self.assertIn('latest', launched.stdout)
+        calls.write_text('')
+        subprocess.run(['bash', str(ROOT/'setup.sh'), '--install-only'], env=env, check=True, capture_output=True)
+        recorded = calls.read_text()
+        self.assertIn('python -m pip install --no-deps --no-build-isolation', recorded)
+        self.assertIn('magiclamp doctor --smoke-test', recorded)
+        self.assertNotIn('env create', recorded)
         self.assertFalse((prefix/'etc/conda/activate.d').exists())
+        (prefix/'bin').mkdir()
+        launcher = prefix/'bin/MagicLamp.py'
         launcher.write_text('#!/bin/sh\n# unrelated executable\n')
-        refused = subprocess.run(['bash', str(ROOT/'setup.sh'), '--register-only'], env=env, capture_output=True)
+        refused = subprocess.run(['bash', str(ROOT/'setup.sh'), '--install-only'], env=env, capture_output=True)
         self.assertNotEqual(refused.returncode, 0)
         self.assertIn('unrelated executable', launcher.read_text())
 

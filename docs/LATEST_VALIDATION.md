@@ -61,3 +61,25 @@ candidate context rules and separate reference evidence, are described in
 
 GitHub Actions repeats the shared-suite tests under Python 3.11 and 3.12 using
 Ubuntu-packaged HMMER, Prodigal, and BLASTP. Its result is reported on the PR.
+
+## Standalone installation (4.0.1)
+
+A fresh Miniforge installation successfully solved `environment-plots.yml`,
+created a new Linux x86_64 environment, built/installed the package, and passed
+`magiclamp doctor --smoke-test --plots`. The package contains all 944 manifest
+profiles, both FeGenie reference FASTAs, and the offline genome fixture. There
+are no legacy, AbxGenie, or BTEXGenie libraries in the wheel.
+
+Both installed command names and all three GramGenie input-mode controls passed
+with the installation source directory renamed out of the way and with no
+source path on PYTHONPATH. Installed code/model paths resolved within the conda
+environment. A separate installed FeGenie nucleotide/reference run completed;
+`pip check` reported no broken requirements. The expanded 24-test suite passed.
+Package and executable versions are captured in
+[audit/standalone_installation.json](audit/standalone_installation.json).
+
+These checks supersede the earlier installer/full-conda-solve limitation for
+this Linux installation path. macOS/WSL2 installation and biological performance
+remain untested. CI additionally builds the source distribution and wheel,
+installs the wheel into a separate environment, and runs its offline self-test
+outside the checkout on Python 3.11 and 3.12.
