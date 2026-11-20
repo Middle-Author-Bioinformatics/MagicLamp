@@ -1,0 +1,2 @@
+include setup.sh magiclamp.paths environment.yml environment-plots.yml
+recursive-include docs *.md *.json *.tsv

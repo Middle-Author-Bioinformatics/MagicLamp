@@ -2,6 +2,13 @@
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+# Source checkouts keep hmms/ alongside latest/. Wheels carry the same data in
+# a dedicated package, so an installed command never needs the source checkout.
+if (ROOT / "hmms").is_dir():
+    HMM_ROOT = ROOT / "hmms"
+else:
+    import magiclamp_models
+    HMM_ROOT = Path(magiclamp_models.__file__).resolve().parent
 GENIES = {
     "FeGenie": ("iron", "iron_hmms", "Iron genes, heme motifs, and genomic context"),
     "LithoGenie": ("litho", "litho_hmms", "Chemolithotrophic gene profiles"),

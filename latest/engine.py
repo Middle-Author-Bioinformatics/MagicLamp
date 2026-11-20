@@ -19,7 +19,7 @@ from .registry import ROOT, GENIES, resolve_name
 
 
 def make_parser(name):
-    p = argparse.ArgumentParser(prog="MagicLamp.py " + name, description=GENIES[name][2])
+    p = argparse.ArgumentParser(prog="magiclamp " + name, description=GENIES[name][2])
     p.add_argument("-bin_dir", type=Path, required=True, help="Input directory")
     p.add_argument("-bin_ext", required=True, help="File extension, without the leading period")
     p.add_argument("-out", type=Path, default=Path(name.lower() + "_out"), help="New or empty output directory")

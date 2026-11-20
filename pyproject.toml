@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=77", "wheel>=0.41"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "magiclamp-bio"
+version = "4.0.1"
+description = "Curated microbial HMM screening with the MagicLamp genie suite"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
+dependencies = ["biopython>=1.81,<2"]
+
+[project.optional-dependencies]
+plots = ["matplotlib>=3.7,<4", "numpy>=1.24,<3"]
+
+[project.scripts]
+magiclamp = "latest.cli:main"
+"MagicLamp.py" = "latest.cli:main"
+
+[project.urls]
+Repository = "https://github.com/Middle-Author-Bioinformatics/MagicLamp"
+
+[tool.setuptools]
+packages = ["latest", "magiclamp_models"]
+py-modules = ["MagicLamp"]
+include-package-data = false
+
+[tool.setuptools.package-dir]
+magiclamp_models = "hmms"
+
+[tool.setuptools.package-data]
+latest = ["manifests/*.tsv", "fixtures/*.fna", "fixtures/README.md"]
+magiclamp_models = ["*/*.hmm", "*/*.HMM", "*/*/*.hmm", "*/*/*.HMM", "*/*/*/*.hmm", "*/*/*/*.HMM", "*/*/*/*/*.hmm", "*/*/*/*/*.HMM", "iron/iron_reduction/non-aligned/TherJR_SLCs.faa", "iron/iron_reduction/non-aligned/geobacter_PCCs.faa", "gram/models.tsv", "gram/README.md"]

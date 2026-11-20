@@ -4,8 +4,11 @@ channels:
   - bioconda
   - nodefaults
 dependencies:
-  - python>=3.11,<3.14
+  - python=3.11
   - hmmer>=3.3,<4
   - prodigal>=2.6.3,<3
-  - blast>=2.14,<3
+  - blast>=2.12,<3
   - biopython>=1.81,<2
+  - pip>=23
+  - setuptools>=77
+  - wheel>=0.41

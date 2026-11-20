@@ -2,35 +2,48 @@
 
 A shared, maintained suite for screening protein sequences and genomes against
 curated HMM libraries. `MagicLamp.py` dispatches only the `latest/` package
-(version 4.0.0). Historical implementations are labeled and retained in `legacy/`.
+(version 4.0.1). Historical implementations are labeled and retained in `legacy/`.
 AbxGenie and BTEXGenie are excluded from this version.
 
 ## Install
 
-Requires Python 3.11–3.13 and HMMER 3.3+. Nucleotide input also needs Prodigal;
-GenBank input needs Biopython; reference searches need BLASTP. These dependencies
-are included in the conda specifications. Optional plots use matplotlib/numpy;
-R, DIAMOND, BIT, and MetaBAT are not needed by latest.
+[Complete installation and GramGenie walkthrough](docs/INSTALL.md) includes
+Miniforge setup, prerequisites, input formats, outputs, upgrades, and an offline
+installation test.
 
 ```bash
 git clone https://github.com/Middle-Author-Bioinformatics/MagicLamp.git
 cd MagicLamp
-bash setup.sh --name magiclamp
+bash setup.sh --name magiclamp --plots
 conda activate magiclamp
-MagicLamp.py help
-MagicLamp.py validate
+magiclamp doctor --smoke-test --plots
+
+# One assembled nucleotide FASTA per genome; use your own paths.
+magiclamp GramGenie -bin_dir /path/to/genomes -bin_ext fna \
+  -out /path/to/gramgenie_results -t 24 --makeplots
 ```
 
-Use `bash setup.sh --plots` to include plotting dependencies. The installer
-creates a new environment and refuses to remove an existing one. To register an
-already provisioned environment, use `--register-only --name NAME`. It changes
-neither global conda channels nor the caller's shell. `--dry-run` shows the
-selected specification. After moving a checkout, refresh its environment launcher with
-`--register-only`, or invoke `python /new/path/MagicLamp.py` directly.
+The installer creates a new environment and installs a normal package including
+its HMM profiles/manifests and FeGenie reference sequences. It does not require
+keeping the clone in place. The commands `magiclamp` and `MagicLamp.py` both work
+from any directory; direct `python MagicLamp.py` execution in a checkout remains
+supported. Bundled analyses work offline after setup.
 
-Libraries resolve relative to the running code. An explicit `-hmm_dir` takes
-precedence over the library's optional `*_hmms` environment variable; the bundled
-library is the default. Remove obsolete environment overrides from older
+The core environment declares Python 3.11, HMMER, Prodigal, BLAST+, Biopython,
+pip, setuptools, and wheel. `--plots` adds matplotlib/numpy. HMMER, Prodigal, and
+BLAST+ are external programs; pip alone cannot install them. R, DIAMOND, BIT,
+MetaBAT, external FeGenie clones, and additional model downloads are not needed.
+See `environment.yml`, `environment-plots.yml`, and `pyproject.toml` for bounds.
+
+Omit `--plots` for tables only. Existing environments are not deleted; choose
+another `--name`, or use `--install-only` after provisioning dependencies.
+The installer does not alter global channel settings or shell startup files.
+`--dry-run` shows the selected specification. Normal package updates require
+reinstalling; use `pip install -e .` only when intentionally developing in place.
+
+Libraries resolve from the checkout or installed data package. An explicit
+`-hmm_dir` takes precedence over the library's optional `*_hmms` environment
+variable; the bundled library is the default. Remove stale overrides from older
 installations. All built-in overrides must match the versioned manifests.
 
 ## Three input modes, consistent across every genie

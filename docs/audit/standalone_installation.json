@@ -1,0 +1,86 @@
+{
+  "suite_version": "4.0.1",
+  "platform": "linux-64",
+  "installation": "Miniforge; new conda environment from environment-plots.yml; normal pip install; launched outside source",
+  "packages": [
+    {
+      "name": "biopython",
+      "version": "1.88",
+      "build_string": "py311h0d48ccd_2"
+    },
+    {
+      "name": "blast",
+      "version": "2.17.0",
+      "build_string": "hb02a186_1"
+    },
+    {
+      "name": "hmmer",
+      "version": "3.4",
+      "build_string": "h7d74f8d_5"
+    },
+    {
+      "name": "magiclamp-bio",
+      "version": "4.0.1",
+      "build_string": "pypi_0"
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.11.2",
+      "build_string": "py311h968eb38_1"
+    },
+    {
+      "name": "matplotlib-base",
+      "version": "3.11.2",
+      "build_string": "py311hfea5af0_1"
+    },
+    {
+      "name": "numpy",
+      "version": "2.4.6",
+      "build_string": "py311h2e04523_0"
+    },
+    {
+      "name": "pip",
+      "version": "26.2.2",
+      "build_string": "pyh8b19718_2"
+    },
+    {
+      "name": "prodigal",
+      "version": "2.6.3",
+      "build_string": "h577a1d6_11"
+    },
+    {
+      "name": "python",
+      "version": "3.11.18",
+      "build_string": "h5f976f7_0_cpython"
+    },
+    {
+      "name": "setuptools",
+      "version": "84.2.1",
+      "build_string": "pyhe730653_0"
+    },
+    {
+      "name": "wheel",
+      "version": "0.48.0",
+      "build_string": "pyhd8ed1ab_0"
+    }
+  ],
+  "checks": {
+    "all_models": 944,
+    "full_tests": 24,
+    "genome_fixture_predicted_proteins": 25,
+    "gramgenie_input_modes": [
+      "nucleotide",
+      "protein",
+      "genbank"
+    ],
+    "pip_check": "passed",
+    "source_hidden_runtime": "passed",
+    "installed_FeGenie_with_references": "passed",
+    "old_entrypoint_and_new_entrypoint": "passed"
+  },
+  "limits": [
+    "Linux x86_64 installation verified; macOS/WSL2 not exercised",
+    "Dependency ranges are not exact deployment locks",
+    "No biological sensitivity/specificity benchmark"
+  ]
+}
