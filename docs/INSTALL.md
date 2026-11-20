@@ -73,6 +73,19 @@ HMM/PATH activation hooks. `--dry-run` reports the environment/specification.
 `--install-only` installs into an already provisioned environment;
 `--register-only` remains an alias for older instructions.
 
+If an older installer fails with `conda-env: error: unrecognized arguments:
+--yes`, its environment-creation command used a flag unsupported by that conda
+release. You can continue without changing conda or deleting an environment:
+
+```bash
+conda env create --name magiclamp-standalone --file environment-plots.yml
+bash setup.sh --name magiclamp-standalone --plots --install-only
+conda activate magiclamp-standalone
+```
+
+The corrected installer sets `CONDA_ALWAYS_YES=true` only for its creation
+command, instead of passing `--yes`; it does not change `.condarc`.
+
 ## 3. Verify the installation
 
 ```bash
